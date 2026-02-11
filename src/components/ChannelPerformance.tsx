@@ -91,7 +91,7 @@ const ChannelTooltip = memo(function ChannelTooltip({
           <p className="font-bold text-gray-900">{formatNumber(data.sessions)}</p>
         </div>
         <div>
-          <p className="text-gray-500">加購</p>
+          <p className="text-gray-500">ATC</p>
           <p className="font-bold text-purple-600">{data.atc}</p>
         </div>
         <div>
@@ -99,8 +99,8 @@ const ChannelTooltip = memo(function ChannelTooltip({
           <p className="font-bold text-emerald-600">{data.purchases}</p>
         </div>
         <div>
-          <p className="text-gray-500">加購率</p>
-          <p className="font-bold text-indigo-600">{formatPercent(data.session_to_atc_rate)}</p>
+          <p className="text-gray-500">轉換率</p>
+          <p className="font-bold text-indigo-600">{formatPercent(data.sessions > 0 ? (data.purchases / data.sessions) * 100 : 0)}</p>
         </div>
       </div>
     </div>
@@ -153,8 +153,18 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
   // Sorted table data - all channels sorted by user selection
   const sortedChannels = useMemo(() => {
     return [...channels].sort((a, b) => {
-      const aVal = a[sortConfig.key] ?? 0;
-      const bVal = b[sortConfig.key] ?? 0;
+      let aVal: number;
+      let bVal: number;
+      
+      if (sortConfig.key === 'session_to_atc_rate') {
+        // 轉換率 = purchases / sessions
+        aVal = a.sessions > 0 ? (a.purchases / a.sessions) * 100 : 0;
+        bVal = b.sessions > 0 ? (b.purchases / b.sessions) * 100 : 0;
+      } else {
+        aVal = a[sortConfig.key] ?? 0;
+        bVal = b[sortConfig.key] ?? 0;
+      }
+      
       return sortConfig.direction === 'asc' ? aVal - bVal : bVal - aVal;
     });
   }, [channels, sortConfig]);
@@ -258,7 +268,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
                 className="text-right py-3 px-3 text-gray-500 font-semibold tracking-wider cursor-pointer hover:text-gray-700 select-none whitespace-nowrap"
                 onClick={() => handleSort('atc')}
               >
-                加購{getSortIndicator('atc')}
+                ATC{getSortIndicator('atc')}
               </th>
               <th 
                 scope="col" 
@@ -272,7 +282,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
                 className="text-right py-3 pl-3 text-gray-500 font-semibold tracking-wider cursor-pointer hover:text-gray-700 select-none whitespace-nowrap"
                 onClick={() => handleSort('session_to_atc_rate')}
               >
-                加購率{getSortIndicator('session_to_atc_rate')}
+                轉換率{getSortIndicator('session_to_atc_rate')}
               </th>
             </tr>
           </thead>
@@ -302,15 +312,20 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
                   </span>
                 </td>
                 <td className="py-3 pl-3 text-right">
-                  <span className={`px-2 py-0.5 rounded-full font-medium ${
-                    channel.session_to_atc_rate > 10 
-                      ? 'bg-emerald-50 text-emerald-700' 
-                      : channel.session_to_atc_rate > 5 
-                        ? 'bg-indigo-50 text-indigo-700'
-                        : 'bg-gray-100 text-gray-500'
-                  }`}>
-                    {formatPercent(channel.session_to_atc_rate)}
-                  </span>
+                  {(() => {
+                    const conversionRate = channel.sessions > 0 ? (channel.purchases / channel.sessions) * 100 : 0;
+                    return (
+                      <span className={`px-2 py-0.5 rounded-full font-medium ${
+                        conversionRate > 10 
+                          ? 'bg-emerald-50 text-emerald-700' 
+                          : conversionRate > 5 
+                            ? 'bg-indigo-50 text-indigo-700'
+                            : 'bg-gray-100 text-gray-500'
+                      }`}>
+                        {formatPercent(conversionRate)}
+                      </span>
+                    );
+                  })()}
                 </td>
               </tr>
             ))}
