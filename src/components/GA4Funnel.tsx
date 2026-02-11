@@ -166,12 +166,10 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
                   aria-label={`${step.name}: ${step.value}`}
                 >
                   <div 
-                    className={`h-full bg-gradient-to-r ${step.gradient} rounded-xl transition-all duration-700 ease-out flex items-center justify-end pr-3 relative overflow-hidden`}
+                    className={`h-full bg-gradient-to-r ${step.gradient} rounded-xl flex items-center justify-end pr-3`}
                     style={{ width: `${mobileWidthPercent}%` }}
                   >
-                    {/* Shimmer effect */}
-                    <div className="absolute inset-0 animate-shimmer" />
-                    <span className="relative text-white text-sm font-bold drop-shadow-lg">
+                    <span className="text-white text-sm font-bold drop-shadow-lg">
                       {percentOfTotal}%
                     </span>
                   </div>
@@ -205,13 +203,11 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
                     aria-label={`${step.name}: ${step.value}`}
                   >
                     <div 
-                      className={`h-full bg-gradient-to-r ${step.gradient} rounded-xl transition-all duration-700 ease-out flex items-center justify-end pr-4 relative overflow-hidden`}
+                      className={`h-full bg-gradient-to-r ${step.gradient} rounded-xl flex items-center justify-end pr-4`}
                       style={{ width: `${desktopWidthPercent}%` }}
                     >
-                      {/* Shimmer effect */}
-                      <div className="absolute inset-0 animate-shimmer" />
                       {rawPercent > 15 && (
-                        <span className="relative text-white text-xs font-bold drop-shadow-lg">
+                        <span className="text-white text-xs font-bold drop-shadow-lg">
                           {percentOfTotal}%
                         </span>
                       )}
