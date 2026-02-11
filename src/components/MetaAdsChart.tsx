@@ -255,7 +255,7 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
         
         <div style={{ width: '100%', height: 224, contain: 'layout' }}>
           <ResponsiveContainer width="100%" height="100%">
-              <ScatterChart margin={{ top: 10, right: 10, bottom: 20, left: 0 }}>
+              <ScatterChart margin={{ top: 10, right: 60, bottom: 20, left: 0 }}>
                 <XAxis 
                   type="number" 
                   dataKey="spend" 
@@ -289,10 +289,11 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
                   strokeWidth={1.5}
                   label={{ 
                     value: '損益平衡', 
-                    position: 'right', 
+                    position: 'insideTopRight', 
                     fill: '#EF4444',
                     fontSize: 10,
-                    fontWeight: 500
+                    fontWeight: 500,
+                    offset: 5
                   }}
                 />
                 
