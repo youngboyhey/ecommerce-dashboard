@@ -201,6 +201,19 @@ body {
   filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.1));
 }
 
+/* 移除手機版圖表點擊時的 focus outline（保留鍵盤導航無障礙） */
+.recharts-wrapper:focus:not(:focus-visible),
+.recharts-surface:focus:not(:focus-visible),
+.recharts-wrapper *:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 移除觸控裝置的 tap highlight */
+.recharts-wrapper,
+.recharts-surface {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* ========================================
    🏷️ Badge & Tag
    ======================================== */
