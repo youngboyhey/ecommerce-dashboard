@@ -259,41 +259,41 @@ const GSCPerformance = memo(function GSCPerformance({
 
           {/* 表格 - 手機版橫向滾動 */}
           <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
-            <table className="w-full text-xs sm:text-sm min-w-[500px]">
+            <table className="w-full text-xs sm:text-sm">
               <thead>
                 <tr className="border-b border-gray-200">
-                  <th className="text-left py-2 sm:py-3 px-2 font-medium text-gray-500">
+                  <th className="text-left py-2 sm:py-3 px-2 font-medium text-gray-500 w-auto">
                     {activeTab === 'keywords' ? '關鍵字' : '頁面'}
                   </th>
                   <th 
-                    className="text-right py-2 sm:py-3 px-2 font-medium text-gray-500 cursor-pointer hover:text-gray-700"
-                    onClick={() => handleSort('impressions')}
-                  >
-                    <span className="inline-flex items-center gap-1">
-                      曝光 <SortIcon column="impressions" />
-                    </span>
-                  </th>
-                  <th 
-                    className="text-right py-2 sm:py-3 px-2 font-medium text-gray-500 cursor-pointer hover:text-gray-700"
+                    className="text-right py-2 sm:py-3 px-1 sm:px-2 font-medium text-gray-500 cursor-pointer hover:text-gray-700 w-14 sm:w-16"
                     onClick={() => handleSort('clicks')}
                   >
-                    <span className="inline-flex items-center gap-1">
+                    <span className="inline-flex items-center justify-end gap-1">
                       點擊 <SortIcon column="clicks" />
                     </span>
                   </th>
                   <th 
-                    className="text-right py-2 sm:py-3 px-2 font-medium text-gray-500 cursor-pointer hover:text-gray-700 hidden sm:table-cell"
+                    className="text-right py-2 sm:py-3 px-1 sm:px-2 font-medium text-gray-500 cursor-pointer hover:text-gray-700 w-14 sm:w-16"
+                    onClick={() => handleSort('impressions')}
+                  >
+                    <span className="inline-flex items-center justify-end gap-1">
+                      曝光 <SortIcon column="impressions" />
+                    </span>
+                  </th>
+                  <th 
+                    className="text-right py-2 sm:py-3 px-1 sm:px-2 font-medium text-gray-500 cursor-pointer hover:text-gray-700 w-14 sm:w-16 hidden sm:table-cell"
                     onClick={() => handleSort('ctr')}
                   >
-                    <span className="inline-flex items-center gap-1">
+                    <span className="inline-flex items-center justify-end gap-1">
                       CTR <SortIcon column="ctr" />
                     </span>
                   </th>
                   <th 
-                    className="text-right py-2 sm:py-3 px-2 font-medium text-gray-500 cursor-pointer hover:text-gray-700"
+                    className="text-right py-2 sm:py-3 px-1 sm:px-2 font-medium text-gray-500 cursor-pointer hover:text-gray-700 w-12 sm:w-16"
                     onClick={() => handleSort('position')}
                   >
-                    <span className="inline-flex items-center gap-1">
+                    <span className="inline-flex items-center justify-end gap-1">
                       排名 <SortIcon column="position" />
                     </span>
                   </th>
@@ -307,26 +307,33 @@ const GSCPerformance = memo(function GSCPerformance({
                       className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
                     >
                       <td className="py-2 sm:py-3 px-2">
-                        <div className="flex items-center gap-1 sm:gap-2">
-                          <span className="text-gray-400 text-[10px] sm:text-xs w-4 sm:w-5">{index + 1}</span>
-                          <span className="font-medium text-gray-900 truncate max-w-[120px] sm:max-w-[200px]">{item.keyword}</span>
-                          {item.position <= 3 && (
-                            <span className="px-1 sm:px-1.5 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] sm:text-xs rounded font-medium hidden sm:inline">
-                              Top 3
+                        <div className="flex items-start gap-1 sm:gap-2">
+                          <span className="text-gray-400 text-[10px] sm:text-xs w-4 sm:w-5 flex-shrink-0 pt-0.5">{index + 1}</span>
+                          <div className="min-w-0 flex-1">
+                            <span 
+                              className="font-medium text-gray-900 line-clamp-2 break-words cursor-help" 
+                              title={item.keyword}
+                            >
+                              {item.keyword}
                             </span>
-                          )}
+                            {item.position <= 3 && (
+                              <span className="inline-block mt-0.5 px-1 sm:px-1.5 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] sm:text-xs rounded font-medium">
+                                Top 3
+                              </span>
+                            )}
+                          </div>
                         </div>
                       </td>
-                      <td className="text-right py-2 sm:py-3 px-2 text-gray-700">
-                        {item.impressions.toLocaleString()}
-                      </td>
-                      <td className="text-right py-2 sm:py-3 px-2 font-medium text-indigo-600">
+                      <td className="text-right py-2 sm:py-3 px-1 sm:px-2 font-medium text-indigo-600 align-top">
                         {item.clicks.toLocaleString()}
                       </td>
-                      <td className="text-right py-2 sm:py-3 px-2 text-gray-700 hidden sm:table-cell">
+                      <td className="text-right py-2 sm:py-3 px-1 sm:px-2 text-gray-700 align-top">
+                        {item.impressions.toLocaleString()}
+                      </td>
+                      <td className="text-right py-2 sm:py-3 px-1 sm:px-2 text-gray-700 hidden sm:table-cell align-top">
                         {item.ctr.toFixed(2)}%
                       </td>
-                      <td className="text-right py-2 sm:py-3 px-2">
+                      <td className="text-right py-2 sm:py-3 px-1 sm:px-2 align-top">
                         <div className="flex items-center justify-end gap-1">
                           <span className={cn(
                             "font-medium",
@@ -357,34 +364,37 @@ const GSCPerformance = memo(function GSCPerformance({
                       className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
                     >
                       <td className="py-2 sm:py-3 px-2">
-                        <div className="flex items-center gap-1 sm:gap-2 group">
-                          <span className="text-gray-400 text-[10px] sm:text-xs w-4 sm:w-5">{index + 1}</span>
-                          <div className="relative min-w-0 flex-1">
+                        <div className="flex items-start gap-1 sm:gap-2 group">
+                          <span className="text-gray-400 text-[10px] sm:text-xs w-4 sm:w-5 flex-shrink-0 pt-0.5">{index + 1}</span>
+                          <div className="min-w-0 flex-1">
                             <span 
-                              className="font-medium text-gray-900 truncate max-w-[100px] sm:max-w-[200px] block cursor-help" 
-                              title={item.page}
+                              className="font-medium text-gray-900 line-clamp-2 break-words cursor-help" 
+                              title={item.title || item.page}
                             >
                               {item.title || item.page}
                             </span>
                             {/* URL 小字提示 - 手機版隱藏 */}
                             {item.title && (
-                              <span className="text-[10px] sm:text-xs text-gray-400 truncate max-w-[100px] sm:max-w-[200px] block hidden sm:block">
+                              <span 
+                                className="text-[10px] sm:text-xs text-gray-400 line-clamp-1 break-all hidden sm:block mt-0.5"
+                                title={item.page}
+                              >
                                 {item.page}
                               </span>
                             )}
                           </div>
                         </div>
                       </td>
-                      <td className="text-right py-2 sm:py-3 px-2 text-gray-700">
-                        {item.impressions.toLocaleString()}
-                      </td>
-                      <td className="text-right py-2 sm:py-3 px-2 font-medium text-indigo-600">
+                      <td className="text-right py-2 sm:py-3 px-1 sm:px-2 font-medium text-indigo-600 align-top">
                         {item.clicks.toLocaleString()}
                       </td>
-                      <td className="text-right py-2 sm:py-3 px-2 text-gray-700 hidden sm:table-cell">
+                      <td className="text-right py-2 sm:py-3 px-1 sm:px-2 text-gray-700 align-top">
+                        {item.impressions.toLocaleString()}
+                      </td>
+                      <td className="text-right py-2 sm:py-3 px-1 sm:px-2 text-gray-700 hidden sm:table-cell align-top">
                         {item.ctr.toFixed(2)}%
                       </td>
-                      <td className="text-right py-2 sm:py-3 px-2">
+                      <td className="text-right py-2 sm:py-3 px-1 sm:px-2 align-top">
                         <span className={cn(
                           "font-medium",
                           item.position <= 10 ? "text-emerald-600" : "text-gray-700"
