@@ -22,6 +22,13 @@ type TimeRange = 'daily' | 'weekly';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TooltipPayload = any;
 
+interface RevenueTrendChartProps {
+  dateRange?: {
+    start: string;
+    end: string;
+  };
+}
+
 // 提取 Tooltip 組件到外部，避免每次渲染重新創建
 interface ChartTooltipProps {
   active?: boolean;
@@ -69,20 +76,28 @@ const ChartTooltip = memo(function ChartTooltip({
   );
 });
 
-const RevenueTrendChart = memo(function RevenueTrendChart() {
+const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: RevenueTrendChartProps) {
   const [timeRange, setTimeRange] = useState<TimeRange>('daily');
   
   // 從 Supabase 讀取真實數據
   const { dailyData, weeklyData, isLoading, error } = useHistoricalData();
 
   // 如果沒有真實數據，fallback 到 mock 數據
+  // 並根據選定的週範圍過濾數據
   const data = useMemo(() => {
     if (timeRange === 'daily') {
-      return dailyData.length > 0 ? dailyData : mockHistoricalData;
+      const sourceData = dailyData.length > 0 ? dailyData : mockHistoricalData;
+      // 如果有指定日期範圍，過濾日數據
+      if (dateRange) {
+        return sourceData.filter((d) => {
+          return d.date >= dateRange.start && d.date <= dateRange.end;
+        });
+      }
+      return sourceData;
     } else {
       return weeklyData.length > 0 ? weeklyData : mockWeeklyData;
     }
-  }, [timeRange, dailyData, weeklyData]);
+  }, [timeRange, dailyData, weeklyData, dateRange]);
 
   const handleTimeRangeChange = useCallback((range: TimeRange) => {
     setTimeRange(range);

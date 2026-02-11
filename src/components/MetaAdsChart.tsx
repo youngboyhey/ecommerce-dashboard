@@ -18,6 +18,42 @@ import { CHART_COLORS } from '@/lib/constants';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TooltipPayload = any;
 
+interface CampaignData {
+  name: string;
+  campaign_id?: string;
+  spend: number;
+  ctr: number;
+  clicks: number;
+  roas: number;
+  purchases: number;
+  atc: number;
+  ic: number;
+  vc: number;
+  conv_value: number;
+  cpa: number;
+  cp_atc: number;
+}
+
+interface TotalData {
+  name: string;
+  spend: number;
+  ctr: number;
+  clicks: number;
+  roas: number;
+  purchases: number;
+  atc: number;
+  ic: number;
+  vc: number;
+  conv_value: number;
+  cpa: number;
+  cp_atc: number;
+}
+
+interface MetaAdsChartProps {
+  campaigns?: CampaignData[];
+  total?: TotalData;
+}
+
 // 提取 Tooltip 到外部
 interface CampaignPayload {
   name: string;
@@ -67,8 +103,9 @@ const CampaignTooltip = memo(function CampaignTooltip({
   );
 });
 
-const MetaAdsChart = memo(function MetaAdsChart() {
-  const { campaigns } = mockReportData.meta;
+const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, total }: MetaAdsChartProps) {
+  // 使用傳入的 campaigns，否則 fallback 到 mock 數據
+  const campaigns = propCampaigns || mockReportData.meta.campaigns;
   
   const data = useMemo(() => campaigns.map((campaign) => ({
     name: campaign.name.length > 20 ? campaign.name.slice(0, 20) + '...' : campaign.name,

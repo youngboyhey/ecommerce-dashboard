@@ -7,8 +7,30 @@ import { CHART_COLORS } from '@/lib/constants';
 
 const MEDALS = ['🥇', '🥈', '🥉'] as const;
 
-const ProductRanking = memo(function ProductRanking() {
-  const { product_ranking } = mockReportData.cyberbiz;
+interface ProductData {
+  product_name: string;
+  variant: string;
+  sku: string;
+  total_quantity: number;
+  total_revenue: number;
+}
+
+interface SummaryData {
+  order_count: number;
+  total_revenue: number;
+  aov: number;
+  new_members: number;
+  product_ranking: ProductData[];
+}
+
+interface ProductRankingProps {
+  products?: ProductData[];
+  summary?: SummaryData;
+}
+
+const ProductRanking = memo(function ProductRanking({ products, summary }: ProductRankingProps) {
+  const product_ranking = products || mockReportData.cyberbiz.product_ranking;
+  const cyberbizSummary = summary || mockReportData.cyberbiz;
 
   const rankedProducts = useMemo(() => 
     product_ranking
@@ -109,19 +131,19 @@ const ProductRanking = memo(function ProductRanking() {
         <div className="grid grid-cols-3 gap-4">
           <div className="text-center p-4 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-xl">
             <p className="text-2xl font-bold text-gray-900">
-              {formatCurrency(mockReportData.cyberbiz.total_revenue)}
+              {formatCurrency(cyberbizSummary.total_revenue)}
             </p>
             <p className="text-xs text-gray-500 mt-1 font-medium">總營收</p>
           </div>
           <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-xl">
             <p className="text-2xl font-bold text-blue-600">
-              {mockReportData.cyberbiz.order_count}
+              {cyberbizSummary.order_count}
             </p>
             <p className="text-xs text-gray-500 mt-1 font-medium">訂單數</p>
           </div>
           <div className="text-center p-4 bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-xl">
             <p className="text-2xl font-bold text-emerald-600">
-              {formatCurrency(mockReportData.cyberbiz.aov)}
+              {formatCurrency(cyberbizSummary.aov)}
             </p>
             <p className="text-xs text-gray-500 mt-1 font-medium">客單價</p>
           </div>

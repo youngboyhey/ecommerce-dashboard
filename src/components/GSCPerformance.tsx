@@ -86,11 +86,15 @@ const defaultPages: PageData[] = [
 type TabType = 'keywords' | 'pages';
 
 const GSCPerformance = memo(function GSCPerformance({
-  summary = defaultSummary,
-  keywords = defaultKeywords,
-  pages = defaultPages,
+  summary: propSummary,
+  keywords: propKeywords,
+  pages: propPages,
   className,
 }: GSCPerformanceProps) {
+  // 使用傳入的 props，只有在完全沒有傳入時才使用預設值
+  const summary = propSummary || defaultSummary;
+  const keywords = propKeywords && propKeywords.length > 0 ? propKeywords : defaultKeywords;
+  const pages = propPages && propPages.length > 0 ? propPages : defaultPages;
   const [activeTab, setActiveTab] = useState<TabType>('keywords');
   const [sortBy, setSortBy] = useState<'clicks' | 'impressions' | 'ctr' | 'position'>('clicks');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');

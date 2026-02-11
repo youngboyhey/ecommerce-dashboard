@@ -234,8 +234,13 @@ export default function Dashboard() {
             <span>📊</span> 趨勢與效率
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <RevenueTrendChart />
-            <MetaAdsChart />
+            <RevenueTrendChart 
+              dateRange={selectedWeek ? { start: selectedWeek.startDate, end: selectedWeek.endDate } : undefined}
+            />
+            <MetaAdsChart 
+              campaigns={data.meta.campaigns}
+              total={data.meta.total}
+            />
           </div>
         </section>
 
@@ -245,8 +250,8 @@ export default function Dashboard() {
             <span>🔄</span> 網站行為分析
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            <GA4Funnel />
-            <AudienceAnalysis />
+            <GA4Funnel data={data.ga4} />
+            <AudienceAnalysis data={data.meta_audience} />
             <DeviceBreakdown />
           </div>
         </section>
@@ -257,7 +262,7 @@ export default function Dashboard() {
             <span>🏆</span> 商品與 SEO
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <ProductRanking />
+            <ProductRanking products={data.cyberbiz.product_ranking} summary={data.cyberbiz} />
             <GSCPerformance 
               summary={data.gsc ? {
                 totalImpressions: data.gsc.total.impressions,

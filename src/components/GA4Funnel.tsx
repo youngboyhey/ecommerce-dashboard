@@ -4,6 +4,29 @@ import { memo, useMemo } from 'react';
 import { mockReportData } from '@/lib/mockData';
 import { formatNumber, formatPercent } from '@/lib/utils';
 
+interface GA4Data {
+  active_users: number;
+  sessions: number;
+  atc: number;
+  ic: number;
+  purchases: number;
+  ecommerce_purchases?: number;
+  purchase_revenue: number;
+  funnel_rates: {
+    session_to_atc: number;
+    atc_to_checkout: number;
+    checkout_to_purchase: number;
+    overall_conversion: number;
+    atc_drop_off: number;
+    checkout_drop_off: number;
+    purchase_drop_off: number;
+  };
+}
+
+interface GA4FunnelProps {
+  data?: GA4Data;
+}
+
 interface FunnelStep {
   name: string;
   value: number;
@@ -12,8 +35,8 @@ interface FunnelStep {
   dropOff: number | null;
 }
 
-const GA4Funnel = memo(function GA4Funnel() {
-  const { ga4 } = mockReportData;
+const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
+  const ga4 = propData || mockReportData.ga4;
   const { funnel_rates } = ga4;
 
   const funnelSteps = useMemo<FunnelStep[]>(() => [

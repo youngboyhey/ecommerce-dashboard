@@ -20,6 +20,32 @@ import { CHART_COLORS } from '@/lib/constants';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TooltipPayload = any;
 
+interface AgeData {
+  age_range: string;
+  spend: number;
+  impressions: number;
+  clicks: number;
+  purchases: number;
+}
+
+interface GenderData {
+  gender: string;
+  spend: number;
+  impressions: number;
+  clicks: number;
+  purchases: number;
+}
+
+interface MetaAudienceData {
+  age: AgeData[];
+  gender: GenderData[];
+  region?: Array<{ region: string; spend: number; impressions: number; clicks: number; purchases: number }>;
+}
+
+interface AudienceAnalysisProps {
+  data?: MetaAudienceData;
+}
+
 // Tooltip 組件
 const GenderTooltip = memo(function GenderTooltip({ 
   active, 
@@ -65,8 +91,8 @@ const AgeTooltip = memo(function AgeTooltip({
   );
 });
 
-const AudienceAnalysis = memo(function AudienceAnalysis() {
-  const { meta_audience } = mockReportData;
+const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: AudienceAnalysisProps) {
+  const meta_audience = propData || mockReportData.meta_audience;
 
   const genderData = useMemo(() => meta_audience.gender.map(g => ({
     name: g.gender === 'male' ? '男性' : g.gender === 'female' ? '女性' : '未知',
