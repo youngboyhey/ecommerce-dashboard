@@ -253,9 +253,8 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
           </div>
         </div>
         
-        <div className="h-48 sm:h-56 w-full overflow-x-auto">
-          <div className="min-w-[300px] h-full">
-            <ResponsiveContainer width="100%" height="100%">
+        <div style={{ width: '100%', height: 224, contain: 'layout' }}>
+          <ResponsiveContainer width="100%" height="100%">
               <ScatterChart margin={{ top: 10, right: 10, bottom: 20, left: 0 }}>
                 <XAxis 
                   type="number" 
@@ -312,7 +311,6 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
                 </Scatter>
               </ScatterChart>
             </ResponsiveContainer>
-          </div>
         </div>
       </div>
 
