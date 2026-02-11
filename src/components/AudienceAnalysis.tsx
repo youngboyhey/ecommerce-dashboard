@@ -132,7 +132,7 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
           👥 受眾分析
         </h2>
         <span className="text-xs bg-blue-50 text-blue-700 px-3 py-1.5 rounded-full font-semibold">
-          🎯 最佳受眾: {bestAge.age} 歲
+          🎯 最佳受眾: {bestAge?.age ?? 'N/A'} 歲
         </span>
       </div>
 
