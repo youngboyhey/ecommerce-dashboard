@@ -63,19 +63,19 @@ export default function Dashboard() {
   const bounceRate = 100 - (data.ga4.funnel_rates.session_to_atc * 2) || 55;
 
   return (
-    <div className="min-h-screen">
-      {/* ===== Header - 玻璃效果導航 ===== */}
-      <header className="glass-card-static sticky top-0 z-50 border-b border-white/5">
+    <div className="min-h-screen bg-[#F8FAFC]">
+      {/* ===== Header - 白色導航 ===== */}
+      <header className="bg-white sticky top-0 z-50 border-b border-gray-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-18">
             {/* Logo & Title */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/30 animate-glow-pulse">
+              <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30 animate-glow-pulse">
                 <BarChart3 className="w-5 h-5 text-white" aria-hidden="true" />
               </div>
               <div className="hidden sm:block">
                 <h1 className="text-lg font-bold gradient-text">CarMall Dashboard</h1>
-                <p className="text-xs text-slate-400">車魔商城電商數據儀表板</p>
+                <p className="text-xs text-gray-500">車魔商城電商數據儀表板</p>
               </div>
               <h1 className="sm:hidden text-lg font-bold gradient-text">CarMall</h1>
             </div>
@@ -115,7 +115,7 @@ export default function Dashboard() {
                 disabled={isLoading}
                 aria-label="重新載入數據"
               >
-                <RefreshCw className={`w-5 h-5 ${isLoading ? 'animate-spin' : ''}`} aria-hidden="true" />
+                <RefreshCw className={`w-5 h-5 text-gray-600 ${isLoading ? 'animate-spin' : ''}`} aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -195,46 +195,46 @@ export default function Dashboard() {
         <section aria-labelledby="secondary-kpi-title" className="mb-8">
           <h2 id="secondary-kpi-title" className="sr-only">次要績效指標</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <article className="glass-card rounded-2xl p-5">
-              <p className="text-xs font-medium text-slate-400 mb-2">💸 廣告花費</p>
-              <p className="text-2xl font-bold text-white font-mono-nums">
+            <article className="bg-white rounded-2xl p-5 shadow-lg shadow-gray-200/50 border border-gray-100">
+              <p className="text-xs font-medium text-gray-500 mb-2">💸 廣告花費</p>
+              <p className="text-2xl font-bold text-gray-900 font-mono-nums">
                 NT${(weeklyData?.adSpend ?? data.summary.total_spend).toLocaleString()}
               </p>
               {weeklyChanges?.adSpend !== null && weeklyChanges?.adSpend !== undefined && (
-                <p className={`text-xs mt-2 ${weeklyChanges.adSpend > 0 ? 'text-red-400' : 'text-emerald-400'}`}>
+                <p className={`text-xs mt-2 ${weeklyChanges.adSpend > 0 ? 'text-red-500' : 'text-emerald-600'}`}>
                   {weeklyChanges.adSpend > 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.adSpend).toFixed(1)}% vs 上週
                 </p>
               )}
             </article>
-            <article className="glass-card rounded-2xl p-5">
-              <p className="text-xs font-medium text-slate-400 mb-2">💰 客單價 (AOV)</p>
-              <p className="text-2xl font-bold text-white font-mono-nums">
+            <article className="bg-white rounded-2xl p-5 shadow-lg shadow-gray-200/50 border border-gray-100">
+              <p className="text-xs font-medium text-gray-500 mb-2">💰 客單價 (AOV)</p>
+              <p className="text-2xl font-bold text-gray-900 font-mono-nums">
                 NT${(weeklyData?.aov ?? data.summary.aov).toFixed(0)}
               </p>
               {weeklyChanges?.aov !== null && weeklyChanges?.aov !== undefined && (
-                <p className={`text-xs mt-2 ${weeklyChanges.aov >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                <p className={`text-xs mt-2 ${weeklyChanges.aov >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
                   {weeklyChanges.aov >= 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.aov).toFixed(1)}% vs 上週
                 </p>
               )}
             </article>
-            <article className="glass-card rounded-2xl p-5">
-              <p className="text-xs font-medium text-slate-400 mb-2">📈 廣告 ROAS</p>
-              <p className="text-2xl font-bold text-blue-400 font-mono-nums">
+            <article className="bg-white rounded-2xl p-5 shadow-lg shadow-gray-200/50 border border-gray-100">
+              <p className="text-xs font-medium text-gray-500 mb-2">📈 廣告 ROAS</p>
+              <p className="text-2xl font-bold text-indigo-600 font-mono-nums">
                 {(weeklyData?.roas ?? data.summary.roas).toFixed(2)}
               </p>
               {weeklyChanges?.roas !== null && weeklyChanges?.roas !== undefined && (
-                <p className={`text-xs mt-2 ${weeklyChanges.roas >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                <p className={`text-xs mt-2 ${weeklyChanges.roas >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
                   {weeklyChanges.roas >= 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.roas).toFixed(1)}% vs 上週
                 </p>
               )}
             </article>
-            <article className="glass-card rounded-2xl p-5">
-              <p className="text-xs font-medium text-slate-400 mb-2">🎯 轉換率</p>
-              <p className="text-2xl font-bold text-emerald-400 font-mono-nums">
+            <article className="bg-white rounded-2xl p-5 shadow-lg shadow-gray-200/50 border border-gray-100">
+              <p className="text-xs font-medium text-gray-500 mb-2">🎯 轉換率</p>
+              <p className="text-2xl font-bold text-emerald-600 font-mono-nums">
                 {(weeklyData?.conversion ?? data.summary.ga4_overall_conversion).toFixed(2)}%
               </p>
               {weeklyChanges?.conversion !== null && weeklyChanges?.conversion !== undefined && (
-                <p className={`text-xs mt-2 ${weeklyChanges.conversion >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+                <p className={`text-xs mt-2 ${weeklyChanges.conversion >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
                   {weeklyChanges.conversion >= 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.conversion).toFixed(1)}% vs 上週
                 </p>
               )}
@@ -244,8 +244,8 @@ export default function Dashboard() {
 
         {/* 📊 Zone 3: 趨勢與效率區 */}
         <section aria-label="營收與廣告效率" className="mb-8">
-          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center">
               📊
             </span>
             <span className="gradient-text-subtle">趨勢與效率</span>
@@ -263,8 +263,8 @@ export default function Dashboard() {
 
         {/* 🔄 Zone 4: 網站行為分析區 */}
         <section aria-label="網站行為分析" className="mb-8">
-          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center">
               🔄
             </span>
             <span className="gradient-text-subtle">網站行為分析</span>
@@ -284,8 +284,8 @@ export default function Dashboard() {
 
         {/* 🏆 Zone 5: 商品與 SEO 區 */}
         <section aria-label="商品與 SEO 分析" className="mb-8">
-          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center">
               🏆
             </span>
             <span className="gradient-text-subtle">商品與 SEO</span>
@@ -325,26 +325,26 @@ export default function Dashboard() {
 
         {/* Summary Banner - 漸層高亮 */}
         <section 
-          className="glass-card rounded-3xl p-6 overflow-hidden relative"
+          className="bg-white rounded-3xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100 overflow-hidden relative"
           aria-labelledby="insights-title"
         >
           {/* 背景漸層裝飾 */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20" />
-          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-100/50 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-100/50 rounded-full blur-3xl" />
           
           <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
-              <h3 id="insights-title" className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-purple-400" />
+              <h3 id="insights-title" className="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-indigo-500" />
                 本週洞察
               </h3>
-              <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-300">
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-600">
                 <p>
-                  最佳受眾: <span className="text-white font-semibold">{data.summary.top_audience_segment}</span>
+                  最佳受眾: <span className="text-gray-900 font-semibold">{data.summary.top_audience_segment}</span>
                 </p>
                 <p>
-                  熱銷商品: <span className="text-white font-semibold">{data.summary.top_product}</span>
+                  熱銷商品: <span className="text-gray-900 font-semibold">{data.summary.top_product}</span>
                 </p>
               </div>
             </div>
@@ -356,16 +356,16 @@ export default function Dashboard() {
       </main>
 
       {/* ===== Footer ===== */}
-      <footer className="glass-card-static border-t border-white/5 mt-8">
+      <footer className="bg-white border-t border-gray-100 mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-slate-400">
-            <p>CarMall 電商 Dashboard v3.0 — <span className="gradient-text-subtle font-medium">Modern Glassmorphism Edition</span></p>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+            <p>CarMall 電商 Dashboard v3.0 — <span className="gradient-text-subtle font-medium">Minimal White Edition</span></p>
             <p className="flex items-center gap-2">
               最後更新: {lastUpdated 
                 ? lastUpdated.toLocaleString('zh-TW') 
                 : new Date(data.generated_at).toLocaleString('zh-TW')
               }
-              {isLive && <span className="text-emerald-400 font-medium">● Live</span>}
+              {isLive && <span className="text-emerald-600 font-medium">● Live</span>}
             </p>
           </div>
         </div>

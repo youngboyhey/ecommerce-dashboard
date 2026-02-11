@@ -114,7 +114,7 @@ const GSCPerformance = memo(function GSCPerformance({
     return (
       <section 
         className={cn(
-          "bg-white rounded-xl shadow-sm border border-gray-100 p-6",
+          "bg-white rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 p-6",
           className
         )}
         aria-labelledby="gsc-title"
@@ -127,7 +127,7 @@ const GSCPerformance = memo(function GSCPerformance({
             href="https://search.google.com/search-console" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1"
+            className="text-sm text-indigo-600 hover:text-indigo-700 flex items-center gap-1"
           >
             開啟 GSC <ExternalLink className="w-3.5 h-3.5" />
           </a>
@@ -147,7 +147,7 @@ const GSCPerformance = memo(function GSCPerformance({
             href="https://search.google.com/search-console" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors"
           >
             前往設定 GSC <ExternalLink className="w-4 h-4" />
           </a>
@@ -159,7 +159,7 @@ const GSCPerformance = memo(function GSCPerformance({
   return (
     <section 
       className={cn(
-        "bg-white rounded-xl shadow-sm border border-gray-100 p-6",
+        "bg-white rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 p-6",
         className
       )}
       aria-labelledby="gsc-title"
@@ -172,7 +172,7 @@ const GSCPerformance = memo(function GSCPerformance({
           href="https://search.google.com/search-console" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1"
+          className="text-sm text-indigo-600 hover:text-indigo-700 flex items-center gap-1"
         >
           開啟 GSC <ExternalLink className="w-3.5 h-3.5" />
         </a>
@@ -181,9 +181,9 @@ const GSCPerformance = memo(function GSCPerformance({
       {/* 總覽指標 */}
       {summary && (
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
-            <p className="text-xs font-medium text-blue-600 mb-1">總曝光數</p>
-            <p className="text-2xl font-bold text-blue-900">{summary.totalImpressions.toLocaleString()}</p>
+          <div className="bg-gradient-to-br from-indigo-50 to-indigo-100/50 rounded-xl p-4 border border-indigo-100">
+            <p className="text-xs font-medium text-indigo-600 mb-1">總曝光數</p>
+            <p className="text-2xl font-bold text-indigo-900">{summary.totalImpressions.toLocaleString()}</p>
             {summary.impressionsChange !== undefined && (
               <div className={cn(
                 "flex items-center gap-1 text-xs mt-1",
@@ -197,7 +197,7 @@ const GSCPerformance = memo(function GSCPerformance({
               </div>
             )}
           </div>
-          <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-4 border border-emerald-100">
+          <div className="bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-xl p-4 border border-emerald-100">
             <p className="text-xs font-medium text-emerald-600 mb-1">總點擊數</p>
             <p className="text-2xl font-bold text-emerald-900">{summary.totalClicks.toLocaleString()}</p>
             {summary.clicksChange !== undefined && (
@@ -213,11 +213,11 @@ const GSCPerformance = memo(function GSCPerformance({
               </div>
             )}
           </div>
-          <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-4 border border-purple-100">
+          <div className="bg-gradient-to-br from-purple-50 to-purple-100/50 rounded-xl p-4 border border-purple-100">
             <p className="text-xs font-medium text-purple-600 mb-1">平均 CTR</p>
             <p className="text-2xl font-bold text-purple-900">{summary.avgCtr.toFixed(2)}%</p>
           </div>
-          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 border border-amber-100">
+          <div className="bg-gradient-to-br from-amber-50 to-amber-100/50 rounded-xl p-4 border border-amber-100">
             <p className="text-xs font-medium text-amber-600 mb-1">平均排名</p>
             <p className="text-2xl font-bold text-amber-900">{summary.avgPosition.toFixed(1)}</p>
           </div>
@@ -233,7 +233,7 @@ const GSCPerformance = memo(function GSCPerformance({
               className={cn(
                 "px-4 py-2 text-sm font-medium border-b-2 transition-colors flex items-center gap-2",
                 activeTab === 'keywords'
-                  ? "border-blue-600 text-blue-600"
+                  ? "border-indigo-600 text-indigo-600"
                   : "border-transparent text-gray-500 hover:text-gray-700"
               )}
             >
@@ -245,7 +245,7 @@ const GSCPerformance = memo(function GSCPerformance({
               className={cn(
                 "px-4 py-2 text-sm font-medium border-b-2 transition-colors flex items-center gap-2",
                 activeTab === 'pages'
-                  ? "border-blue-600 text-blue-600"
+                  ? "border-indigo-600 text-indigo-600"
                   : "border-transparent text-gray-500 hover:text-gray-700"
               )}
             >
@@ -317,7 +317,7 @@ const GSCPerformance = memo(function GSCPerformance({
                       <td className="text-right py-3 px-2 text-gray-700">
                         {item.impressions.toLocaleString()}
                       </td>
-                      <td className="text-right py-3 px-2 font-medium text-blue-600">
+                      <td className="text-right py-3 px-2 font-medium text-indigo-600">
                         {item.clicks.toLocaleString()}
                       </td>
                       <td className="text-right py-3 px-2 text-gray-700">
@@ -375,7 +375,7 @@ const GSCPerformance = memo(function GSCPerformance({
                       <td className="text-right py-3 px-2 text-gray-700">
                         {item.impressions.toLocaleString()}
                       </td>
-                      <td className="text-right py-3 px-2 font-medium text-blue-600">
+                      <td className="text-right py-3 px-2 font-medium text-indigo-600">
                         {item.clicks.toLocaleString()}
                       </td>
                       <td className="text-right py-3 px-2 text-gray-700">

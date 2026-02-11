@@ -19,32 +19,32 @@ interface KPICardProps {
 
 const THEME_CONFIG = {
   revenue: {
-    gradient: 'from-emerald-500/20 to-emerald-600/10',
+    gradient: 'from-emerald-50 to-emerald-100/50',
     iconBg: 'bg-gradient-to-br from-emerald-500 to-emerald-600',
     iconShadow: 'shadow-emerald-500/30',
-    accentColor: 'text-emerald-400',
-    border: 'border-emerald-500/20',
+    accentColor: 'text-emerald-600',
+    border: 'border-emerald-100',
   },
   orders: {
-    gradient: 'from-blue-500/20 to-blue-600/10',
-    iconBg: 'bg-gradient-to-br from-blue-500 to-blue-600',
-    iconShadow: 'shadow-blue-500/30',
-    accentColor: 'text-blue-400',
-    border: 'border-blue-500/20',
+    gradient: 'from-indigo-50 to-indigo-100/50',
+    iconBg: 'bg-gradient-to-br from-indigo-500 to-indigo-600',
+    iconShadow: 'shadow-indigo-500/30',
+    accentColor: 'text-indigo-600',
+    border: 'border-indigo-100',
   },
   roas: {
-    gradient: 'from-purple-500/20 to-purple-600/10',
+    gradient: 'from-purple-50 to-purple-100/50',
     iconBg: 'bg-gradient-to-br from-purple-500 to-purple-600',
     iconShadow: 'shadow-purple-500/30',
-    accentColor: 'text-purple-400',
-    border: 'border-purple-500/20',
+    accentColor: 'text-purple-600',
+    border: 'border-purple-100',
   },
   members: {
-    gradient: 'from-pink-500/20 to-pink-600/10',
+    gradient: 'from-pink-50 to-pink-100/50',
     iconBg: 'bg-gradient-to-br from-pink-500 to-pink-600',
     iconShadow: 'shadow-pink-500/30',
-    accentColor: 'text-pink-400',
-    border: 'border-pink-500/20',
+    accentColor: 'text-pink-600',
+    border: 'border-pink-100',
   },
 };
 
@@ -79,21 +79,25 @@ const KPICard = memo(function KPICard({
   return (
     <article 
       className={cn(
-        // 玻璃擬態基底
-        "glass-card rounded-2xl p-6 relative overflow-hidden group",
-        // 主題漸層背景
-        `bg-gradient-to-br ${config.gradient}`,
-        config.border,
+        // 白卡片基底
+        "bg-white rounded-2xl p-6 relative overflow-hidden group",
+        "shadow-lg shadow-gray-200/50",
+        "border border-gray-100",
+        "hover:shadow-xl hover:shadow-gray-200/60 transition-all duration-300",
         className
       )}
       aria-label={`${title}: ${formattedValue}`}
     >
-      {/* 背景裝飾 */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl transform translate-x-8 -translate-y-8 group-hover:scale-125 transition-transform duration-500" />
+      {/* 背景漸層裝飾 */}
+      <div className={cn(
+        "absolute inset-0 bg-gradient-to-br opacity-50",
+        config.gradient
+      )} />
+      <div className="absolute top-0 right-0 w-32 h-32 bg-white/60 rounded-full blur-2xl transform translate-x-8 -translate-y-8 group-hover:scale-125 transition-transform duration-500" />
       
       {/* Header with Icon */}
       <div className="relative flex items-center justify-between mb-4">
-        <h3 className="text-sm font-medium text-slate-300">{title}</h3>
+        <h3 className="text-sm font-medium text-gray-600">{title}</h3>
         {icon && (
           <div 
             className={cn(
@@ -109,7 +113,7 @@ const KPICard = memo(function KPICard({
       </div>
       
       {/* Main Value */}
-      <p className="relative text-3xl font-bold text-white tracking-tight mb-3 font-mono-nums">
+      <p className="relative text-3xl font-bold text-gray-900 tracking-tight mb-3 font-mono-nums">
         {formattedValue}
       </p>
       
@@ -121,15 +125,15 @@ const KPICard = memo(function KPICard({
           aria-label={`${isPositive ? '增長' : isNegative ? '下降' : '持平'} ${Math.abs(change).toFixed(1)}% ${changeLabel}`}
         >
           <div className={cn(
-            "flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold backdrop-blur-sm",
-            isPositive ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 
-            isNegative ? 'bg-red-500/20 text-red-400 border border-red-500/30' : 
-            'bg-slate-500/20 text-slate-400 border border-slate-500/30'
+            "flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold",
+            isPositive ? 'bg-emerald-100 text-emerald-700' : 
+            isNegative ? 'bg-red-100 text-red-700' : 
+            'bg-gray-100 text-gray-600'
           )}>
             <TrendIcon className="w-3.5 h-3.5" aria-hidden="true" />
             <span>{Math.abs(change).toFixed(1)}%</span>
           </div>
-          <span className="text-xs text-slate-500">{changeLabel}</span>
+          <span className="text-xs text-gray-400">{changeLabel}</span>
         </div>
       )}
     </article>

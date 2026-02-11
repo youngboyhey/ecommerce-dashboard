@@ -20,9 +20,9 @@ import { Users } from 'lucide-react';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TooltipPayload = any;
 
-// 深色主題色系
-const GENDER_COLORS = ['#3b82f6', '#ec4899', '#64748b'];
-const AGE_COLORS = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4'];
+// 藍紫色調色系
+const GENDER_COLORS = ['#6366F1', '#EC4899', '#9CA3AF'];
+const AGE_COLORS = ['#6366F1', '#818CF8', '#A78BFA', '#C4B5FD', '#67E8F9', '#10B981'];
 
 interface AgeData {
   age_range: string;
@@ -50,7 +50,7 @@ interface AudienceAnalysisProps {
   data?: MetaAudienceData;
 }
 
-// 深色主題 Tooltip
+// 白色主題 Tooltip
 const GenderTooltip = memo(function GenderTooltip({ 
   active, 
   payload 
@@ -65,12 +65,12 @@ const GenderTooltip = memo(function GenderTooltip({
   };
 
   return (
-    <div className="glass-card rounded-xl p-4 border border-white/10">
-      <p className="font-semibold text-white mb-3 text-sm">{data.name}</p>
+    <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-gray-100">
+      <p className="font-semibold text-gray-900 mb-3 text-sm">{data.name}</p>
       <div className="space-y-2 text-xs">
-        <p className="text-slate-400">花費: <span className="font-medium text-white">{formatCurrency(data.value)}</span></p>
-        <p className="text-slate-400">購買: <span className="font-medium text-emerald-400">{data.purchases} 次</span></p>
-        <p className="text-slate-400">點擊: <span className="font-medium text-blue-400">{data.clicks} 次</span></p>
+        <p className="text-gray-500">花費: <span className="font-medium text-gray-900">{formatCurrency(data.value)}</span></p>
+        <p className="text-gray-500">購買: <span className="font-medium text-emerald-600">{data.purchases} 次</span></p>
+        <p className="text-gray-500">點擊: <span className="font-medium text-indigo-600">{data.clicks} 次</span></p>
       </div>
     </div>
   );
@@ -84,8 +84,8 @@ const AgeTooltip = memo(function AgeTooltip({
   if (!active || !payload?.length) return null;
 
   return (
-    <div className="glass-card rounded-xl p-4 border border-white/10">
-      <p className="font-semibold text-white mb-3 text-sm">{label} 歲</p>
+    <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-gray-100">
+      <p className="font-semibold text-gray-900 mb-3 text-sm">{label} 歲</p>
       {payload.map((entry: TooltipPayload, index: number) => (
         <p key={index} className="text-xs" style={{ color: entry.color }}>
           {entry.name}: {entry.name === '花費' ? formatCurrency(entry.value as number) : entry.value}
@@ -126,7 +126,7 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
 
   return (
     <section 
-      className="glass-card rounded-2xl p-6"
+      className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100"
       aria-labelledby="audience-title"
     >
       <div className="flex items-center justify-between mb-6">
@@ -135,10 +135,10 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
             <Users className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h2 id="audience-title" className="text-lg font-semibold text-white">
+            <h2 id="audience-title" className="text-lg font-semibold text-gray-900">
               受眾分析
             </h2>
-            <p className="text-xs text-slate-400 mt-0.5">Meta 廣告受眾表現</p>
+            <p className="text-xs text-gray-500 mt-0.5">Meta 廣告受眾表現</p>
           </div>
         </div>
         <span className="badge badge-info">
@@ -149,7 +149,7 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
       <div className="grid grid-cols-2 gap-6">
         {/* Gender Distribution */}
         <div>
-          <h3 className="text-sm font-semibold text-slate-300 mb-4 text-center">
+          <h3 className="text-sm font-semibold text-gray-700 mb-4 text-center">
             性別分佈
           </h3>
           <div aria-label="性別分佈圓餅圖">
@@ -170,7 +170,7 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
                     <Cell 
                       key={`cell-${index}`} 
                       fill={GENDER_COLORS[index]} 
-                      stroke="rgba(255,255,255,0.1)"
+                      stroke="#fff"
                       strokeWidth={2}
                     />
                   ))}
@@ -189,7 +189,7 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
                   style={{ backgroundColor: GENDER_COLORS[i] }} 
                   aria-hidden="true"
                 />
-                <span className="text-xs font-medium text-slate-400">{g.name}</span>
+                <span className="text-xs font-medium text-gray-600">{g.name}</span>
               </div>
             ))}
           </div>
@@ -197,7 +197,7 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
 
         {/* Age Distribution */}
         <div>
-          <h3 className="text-sm font-semibold text-slate-300 mb-4 text-center">
+          <h3 className="text-sm font-semibold text-gray-700 mb-4 text-center">
             年齡分佈
           </h3>
           <div aria-label="年齡分佈長條圖">
@@ -205,17 +205,17 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
               <BarChart data={ageData}>
                 <CartesianGrid 
                   strokeDasharray="3 3" 
-                  stroke="rgba(255,255,255,0.05)" 
+                  stroke="#F3F4F6" 
                   vertical={false} 
                 />
                 <XAxis 
                   dataKey="age" 
-                  tick={{ fill: '#64748b', fontSize: 10 }}
+                  tick={{ fill: '#6B7280', fontSize: 10 }}
                   axisLine={false}
                   tickLine={false}
                 />
                 <YAxis 
-                  tick={{ fill: '#64748b', fontSize: 10 }}
+                  tick={{ fill: '#6B7280', fontSize: 10 }}
                   axisLine={false}
                   tickLine={false}
                   tickFormatter={(value) => `${(value / 1000).toFixed(0)}K`}
@@ -237,40 +237,40 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
 
       {/* Age Performance Table */}
       <div className="mt-6 overflow-x-auto">
-        <table className="table-dark w-full text-sm" role="table" aria-label="年齡層績效數據表">
+        <table className="w-full text-sm" role="table" aria-label="年齡層績效數據表">
           <thead>
-            <tr>
-              <th scope="col" className="text-left rounded-tl-lg">年齡</th>
-              <th scope="col" className="text-right">花費</th>
-              <th scope="col" className="text-right">點擊</th>
-              <th scope="col" className="text-right">購買</th>
-              <th scope="col" className="text-right rounded-tr-lg">轉換率</th>
+            <tr className="border-b border-gray-200">
+              <th scope="col" className="text-left py-3 px-2 text-gray-500 font-semibold uppercase text-xs tracking-wider">年齡</th>
+              <th scope="col" className="text-right py-3 px-2 text-gray-500 font-semibold uppercase text-xs tracking-wider">花費</th>
+              <th scope="col" className="text-right py-3 px-2 text-gray-500 font-semibold uppercase text-xs tracking-wider">點擊</th>
+              <th scope="col" className="text-right py-3 px-2 text-gray-500 font-semibold uppercase text-xs tracking-wider">購買</th>
+              <th scope="col" className="text-right py-3 px-2 text-gray-500 font-semibold uppercase text-xs tracking-wider">轉換率</th>
             </tr>
           </thead>
           <tbody>
             {ageData.map((row) => (
               <tr 
                 key={row.age} 
-                className={row.age === bestAge?.age ? 'bg-blue-500/10' : ''}
+                className={`border-b border-gray-50 hover:bg-gray-50/50 transition-colors ${row.age === bestAge?.age ? 'bg-indigo-50/50' : ''}`}
               >
-                <td>
-                  <span className={`font-medium ${row.age === bestAge?.age ? 'text-blue-400' : 'text-slate-200'}`}>
+                <td className="py-3 px-2">
+                  <span className={`font-medium ${row.age === bestAge?.age ? 'text-indigo-600' : 'text-gray-900'}`}>
                     {row.age}
                     {row.age === bestAge?.age && <span className="ml-1">⭐</span>}
                   </span>
                 </td>
-                <td className="text-right text-slate-300 font-medium font-mono-nums">{formatCurrency(row.spend)}</td>
-                <td className="text-right text-slate-400 font-mono-nums">{row.clicks}</td>
-                <td className="text-right">
-                  <span className={`font-bold font-mono-nums ${row.purchases > 0 ? 'text-emerald-400' : 'text-slate-600'}`}>
+                <td className="text-right py-3 px-2 text-gray-700 font-medium font-mono-nums">{formatCurrency(row.spend)}</td>
+                <td className="text-right py-3 px-2 text-gray-500 font-mono-nums">{row.clicks}</td>
+                <td className="text-right py-3 px-2">
+                  <span className={`font-bold font-mono-nums ${row.purchases > 0 ? 'text-emerald-600' : 'text-gray-300'}`}>
                     {row.purchases}
                   </span>
                 </td>
-                <td className="text-right">
-                  <span className={`badge text-xs ${
+                <td className="text-right py-3 px-2">
+                  <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
                     row.clicks > 0 && (row.purchases / row.clicks) > 0.01 
-                      ? 'badge-success' 
-                      : 'bg-slate-700/50 text-slate-400 border-slate-600/50'
+                      ? 'bg-emerald-100 text-emerald-700' 
+                      : 'bg-gray-100 text-gray-500'
                   }`}>
                     {row.clicks > 0 ? ((row.purchases / row.clicks) * 100).toFixed(2) : '0.00'}%
                   </span>

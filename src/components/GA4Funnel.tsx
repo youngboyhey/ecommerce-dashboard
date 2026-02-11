@@ -45,7 +45,7 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
       name: '訪客', 
       value: ga4.sessions, 
       icon: '👀',
-      gradient: 'from-blue-500 to-blue-600',
+      gradient: 'from-indigo-500 to-indigo-600',
       dropOff: null
     },
     { 
@@ -59,7 +59,7 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
       name: '開始結帳', 
       value: ga4.ic, 
       icon: '💳',
-      gradient: 'from-orange-500 to-orange-600',
+      gradient: 'from-pink-500 to-pink-600',
       dropOff: funnel_rates.checkout_drop_off
     },
     { 
@@ -78,7 +78,7 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
 
   return (
     <section 
-      className="glass-card rounded-2xl p-6"
+      className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100"
       aria-labelledby="ga4-funnel-title"
     >
       <div className="flex items-center justify-between mb-6">
@@ -87,15 +87,15 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
             <Filter className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h2 id="ga4-funnel-title" className="text-lg font-semibold text-white">
+            <h2 id="ga4-funnel-title" className="text-lg font-semibold text-gray-900">
               GA4 轉換漏斗
             </h2>
-            <p className="text-xs text-slate-400 mt-0.5">用戶轉換路徑分析</p>
+            <p className="text-xs text-gray-500 mt-0.5">用戶轉換路徑分析</p>
           </div>
         </div>
         <div className="badge badge-success">
           <span className="font-bold">{formatPercent(funnel_rates.overall_conversion)}</span>
-          <span className="text-emerald-300/70 ml-1">轉換率</span>
+          <span className="text-emerald-600/70 ml-1">轉換率</span>
         </div>
       </div>
 
@@ -120,12 +120,12 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
               {index > 0 && (
                 <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 z-10">
                   <div className={`
-                    px-3 py-1 rounded-full text-xs font-bold shadow-lg backdrop-blur-sm border
+                    px-3 py-1 rounded-full text-xs font-bold shadow-sm
                     ${conversionFromPrev < 30 
-                      ? 'bg-red-500/20 text-red-400 border-red-500/30' 
+                      ? 'bg-red-100 text-red-700' 
                       : conversionFromPrev < 50 
-                        ? 'bg-amber-500/20 text-amber-400 border-amber-500/30'
-                        : 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
+                        ? 'bg-amber-100 text-amber-700'
+                        : 'bg-emerald-100 text-emerald-700'
                     }
                   `}>
                     ↓ {conversionFromPrev.toFixed(1)}%
@@ -136,7 +136,7 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
               <div className="flex items-center gap-4">
                 {/* Icon */}
                 <div 
-                  className="text-2xl w-12 h-12 flex items-center justify-center glass-inner rounded-xl group-hover:scale-110 transition-transform duration-300"
+                  className="text-2xl w-12 h-12 flex items-center justify-center bg-gray-50 border border-gray-100 rounded-xl group-hover:scale-110 transition-transform duration-300"
                   aria-hidden="true"
                 >
                   {step.icon}
@@ -145,13 +145,13 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
                 {/* Progress Bar Container */}
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-semibold text-slate-200">{step.name}</span>
-                    <span className="text-base font-bold text-white font-mono-nums">
+                    <span className="text-sm font-semibold text-gray-700">{step.name}</span>
+                    <span className="text-base font-bold text-gray-900 font-mono-nums">
                       {formatNumber(step.value)}
                     </span>
                   </div>
                   <div 
-                    className="h-10 bg-white/5 rounded-xl overflow-hidden border border-white/5"
+                    className="h-10 bg-gray-100 rounded-xl overflow-hidden border border-gray-100"
                     role="progressbar"
                     aria-valuenow={widthPercent}
                     aria-valuemin={0}
@@ -176,11 +176,11 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
                 {/* Drop-off indicator */}
                 <div className="w-24 text-right">
                   {step.dropOff !== null ? (
-                    <span className="badge badge-danger text-xs">
+                    <span className="px-2 py-1 bg-red-50 text-red-600 text-xs font-semibold rounded-full">
                       -{step.dropOff.toFixed(0)}% 流失
                     </span>
                   ) : (
-                    <span className="text-xs text-slate-600">—</span>
+                    <span className="text-xs text-gray-300">—</span>
                   )}
                 </div>
               </div>
@@ -190,24 +190,24 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
       </div>
 
       {/* Summary Stats */}
-      <div className="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-white/5">
-        <div className="text-center p-4 glass-inner rounded-xl">
-          <p className="text-2xl font-bold text-blue-400 font-mono-nums">
+      <div className="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-gray-100">
+        <div className="text-center p-4 bg-indigo-50 rounded-xl border border-indigo-100">
+          <p className="text-2xl font-bold text-indigo-600 font-mono-nums">
             {formatNumber(ga4.active_users)}
           </p>
-          <p className="text-xs text-slate-500 mt-1 font-medium">活躍用戶</p>
+          <p className="text-xs text-gray-500 mt-1 font-medium">活躍用戶</p>
         </div>
-        <div className="text-center p-4 glass-inner rounded-xl">
-          <p className="text-2xl font-bold text-purple-400 font-mono-nums">
+        <div className="text-center p-4 bg-purple-50 rounded-xl border border-purple-100">
+          <p className="text-2xl font-bold text-purple-600 font-mono-nums">
             {formatPercent(funnel_rates.session_to_atc)}
           </p>
-          <p className="text-xs text-slate-500 mt-1 font-medium">加購率</p>
+          <p className="text-xs text-gray-500 mt-1 font-medium">加購率</p>
         </div>
-        <div className="text-center p-4 glass-inner rounded-xl">
-          <p className="text-2xl font-bold text-emerald-400 font-mono-nums">
+        <div className="text-center p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+          <p className="text-2xl font-bold text-emerald-600 font-mono-nums">
             {formatPercent(funnel_rates.overall_conversion)}
           </p>
-          <p className="text-xs text-slate-500 mt-1 font-medium">轉換率</p>
+          <p className="text-xs text-gray-500 mt-1 font-medium">轉換率</p>
         </div>
       </div>
     </section>

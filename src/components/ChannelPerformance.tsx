@@ -12,7 +12,16 @@ import {
   Cell
 } from 'recharts';
 import { formatNumber, formatPercent } from '@/lib/utils';
-import { CHART_COLORS } from '@/lib/constants';
+
+// 藍紫色調色系
+const CHART_COLORS = [
+  '#6366F1', // indigo
+  '#818CF8', // indigo-light
+  '#A78BFA', // violet
+  '#C4B5FD', // violet-light
+  '#67E8F9', // cyan
+  '#10B981', // emerald
+];
 
 // Sort configuration type
 type SortKey = 'sessions' | 'atc' | 'purchases' | 'session_to_atc_rate';
@@ -78,7 +87,7 @@ const ChannelTooltip = memo(function ChannelTooltip({
         </div>
         <div>
           <p className="text-gray-500">加購率</p>
-          <p className="font-bold text-blue-600">{formatPercent(data.session_to_atc_rate)}</p>
+          <p className="font-bold text-indigo-600">{formatPercent(data.session_to_atc_rate)}</p>
         </div>
       </div>
     </div>
@@ -151,7 +160,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
 
   return (
     <section 
-      className="bg-white rounded-xl shadow-sm border border-gray-100 p-6"
+      className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 p-6"
       aria-labelledby="channel-performance-title"
     >
       <div className="flex items-center justify-between mb-6">
@@ -159,7 +168,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
           📱 流量來源分析
         </h2>
         <div className="flex items-center gap-2 text-sm">
-          <span className="w-3 h-3 rounded-full bg-blue-500" aria-hidden="true" />
+          <span className="w-3 h-3 rounded-full bg-indigo-500" aria-hidden="true" />
           <span className="text-gray-600">Sessions</span>
         </div>
       </div>
@@ -167,9 +176,17 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
       <div aria-label="流量來源分佈圖">
         <ResponsiveContainer width="100%" height={240}>
           <BarChart data={chartData} layout="vertical">
+            <defs>
+              {CHART_COLORS.map((color, index) => (
+                <linearGradient key={index} id={`channelGradient${index}`} x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor={color} stopOpacity={0.8}/>
+                  <stop offset="100%" stopColor={color} stopOpacity={1}/>
+                </linearGradient>
+              ))}
+            </defs>
             <CartesianGrid 
               strokeDasharray="3 3" 
-              stroke="#E5E7EB" 
+              stroke="#F3F4F6" 
               horizontal={true} 
               vertical={false} 
             />
@@ -182,7 +199,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
             <YAxis 
               type="category"
               dataKey="displayName"
-              tick={{ fill: '#6B7280', fontSize: 11 }}
+              tick={{ fill: '#374151', fontSize: 11 }}
               axisLine={false}
               tickLine={false}
               width={120}
@@ -196,7 +213,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
               {chartData.map((_, index) => (
                 <Cell 
                   key={`cell-${index}`} 
-                  fill={CHART_COLORS.series[index % CHART_COLORS.series.length]} 
+                  fill={`url(#channelGradient${index % CHART_COLORS.length})`}
                 />
               ))}
             </Bar>
@@ -256,7 +273,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
                   <div className="flex items-center gap-2">
                     <div 
                       className="w-2.5 h-2.5 rounded-full flex-shrink-0" 
-                      style={{ backgroundColor: CHART_COLORS.series[index % CHART_COLORS.series.length] }} 
+                      style={{ backgroundColor: CHART_COLORS[index % CHART_COLORS.length] }} 
                       aria-hidden="true"
                     />
                     <span className="font-medium text-gray-900 truncate max-w-[140px]" title={channel.source}>
@@ -276,7 +293,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
                     channel.session_to_atc_rate > 10 
                       ? 'bg-emerald-50 text-emerald-700' 
                       : channel.session_to_atc_rate > 5 
-                        ? 'bg-blue-50 text-blue-700'
+                        ? 'bg-indigo-50 text-indigo-700'
                         : 'bg-gray-100 text-gray-500'
                   }`}>
                     {formatPercent(channel.session_to_atc_rate)}

@@ -18,13 +18,13 @@ import { Target } from 'lucide-react';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TooltipPayload = any;
 
-// 漸層色系
+// 藍紫色調漸層色系
 const CHART_COLORS = [
-  '#3b82f6', // blue
-  '#8b5cf6', // purple
-  '#ec4899', // pink
-  '#f59e0b', // amber
-  '#10b981', // emerald
+  '#6366F1', // indigo
+  '#818CF8', // indigo-light
+  '#A78BFA', // violet
+  '#67E8F9', // cyan
+  '#10B981', // emerald
 ];
 
 interface CampaignData {
@@ -73,7 +73,7 @@ interface CampaignPayload {
   ctr: number;
 }
 
-// 深色主題 Tooltip
+// 白色主題 Tooltip
 const CampaignTooltip = memo(function CampaignTooltip({ 
   active, 
   payload 
@@ -84,28 +84,28 @@ const CampaignTooltip = memo(function CampaignTooltip({
   
   return (
     <div 
-      className="glass-card rounded-xl p-4 border border-white/10 max-w-xs"
+      className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-gray-100 max-w-xs"
       role="tooltip"
     >
-      <p className="font-semibold text-white mb-3 text-sm break-words">
+      <p className="font-semibold text-gray-900 mb-3 text-sm break-words">
         {data.fullName}
       </p>
       <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
         <div>
-          <p className="text-slate-500 text-xs mb-0.5">花費</p>
-          <p className="font-semibold text-white">{formatCurrency(data.spend)}</p>
+          <p className="text-gray-500 text-xs mb-0.5">花費</p>
+          <p className="font-semibold text-gray-900">{formatCurrency(data.spend)}</p>
         </div>
         <div>
-          <p className="text-slate-500 text-xs mb-0.5">ROAS</p>
-          <p className="font-semibold text-emerald-400">{data.roas.toFixed(2)}</p>
+          <p className="text-gray-500 text-xs mb-0.5">ROAS</p>
+          <p className="font-semibold text-emerald-600">{data.roas.toFixed(2)}</p>
         </div>
         <div>
-          <p className="text-slate-500 text-xs mb-0.5">CPA</p>
-          <p className="font-semibold text-white">{formatCurrency(data.cpa)}</p>
+          <p className="text-gray-500 text-xs mb-0.5">CPA</p>
+          <p className="font-semibold text-gray-900">{formatCurrency(data.cpa)}</p>
         </div>
         <div>
-          <p className="text-slate-500 text-xs mb-0.5">購買</p>
-          <p className="font-semibold text-blue-400">{data.purchases}</p>
+          <p className="text-gray-500 text-xs mb-0.5">購買</p>
+          <p className="font-semibold text-indigo-600">{data.purchases}</p>
         </div>
       </div>
     </div>
@@ -127,24 +127,24 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
 
   return (
     <section 
-      className="glass-card rounded-2xl p-6"
+      className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100"
       aria-labelledby="meta-ads-title"
     >
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
             <Target className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h2 id="meta-ads-title" className="text-lg font-semibold text-white">
+            <h2 id="meta-ads-title" className="text-lg font-semibold text-gray-900">
               Meta 廣告成效
             </h2>
-            <p className="text-xs text-slate-400 mt-0.5">廣告活動花費分佈</p>
+            <p className="text-xs text-gray-500 mt-0.5">廣告活動花費分佈</p>
           </div>
         </div>
         <div className="flex items-center gap-2 text-sm">
-          <span className="w-3 h-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" aria-hidden="true" />
-          <span className="text-slate-400">花費</span>
+          <span className="w-3 h-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500" aria-hidden="true" />
+          <span className="text-gray-500">花費</span>
         </div>
       </div>
 
@@ -161,13 +161,13 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
             </defs>
             <CartesianGrid 
               strokeDasharray="3 3" 
-              stroke="rgba(255,255,255,0.05)" 
+              stroke="#F3F4F6" 
               horizontal={true} 
               vertical={false} 
             />
             <XAxis 
               type="number"
-              tick={{ fill: '#64748b', fontSize: 12 }}
+              tick={{ fill: '#6B7280', fontSize: 12 }}
               axisLine={false}
               tickLine={false}
               tickFormatter={(value) => `${(value / 1000).toFixed(0)}K`}
@@ -175,7 +175,7 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
             <YAxis 
               type="category"
               dataKey="name"
-              tick={{ fill: '#94a3b8', fontSize: 12 }}
+              tick={{ fill: '#374151', fontSize: 12 }}
               axisLine={false}
               tickLine={false}
               width={160}
@@ -202,9 +202,9 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
         {campaigns.map((campaign, index) => (
           <article 
             key={campaign.campaign_id || index} 
-            className="glass-inner p-4 rounded-xl group hover:bg-white/5 transition-all duration-300"
+            className="bg-gray-50 p-4 rounded-xl group hover:bg-gray-100 transition-all duration-300 border border-gray-100"
           >
-            <p className="text-xs text-slate-500 truncate mb-3 font-medium group-hover:text-slate-400 transition-colors">
+            <p className="text-xs text-gray-500 truncate mb-3 font-medium group-hover:text-gray-600 transition-colors">
               {campaign.name}
             </p>
             <div className="flex items-end justify-between">
@@ -215,13 +215,13 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
                 >
                   {campaign.roas.toFixed(2)}
                 </p>
-                <p className="text-xs text-slate-500 mt-1">ROAS</p>
+                <p className="text-xs text-gray-500 mt-1">ROAS</p>
               </div>
               <div className="text-right">
-                <p className="text-lg font-bold text-white font-mono-nums">
+                <p className="text-lg font-bold text-gray-900 font-mono-nums">
                   {formatCurrency(campaign.cpa)}
                 </p>
-                <p className="text-xs text-slate-500 mt-1">CPA</p>
+                <p className="text-xs text-gray-500 mt-1">CPA</p>
               </div>
             </div>
           </article>

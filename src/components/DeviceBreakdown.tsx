@@ -56,11 +56,11 @@ const defaultData: GA4DeviceData[] = [
   },
 ];
 
-// 裝置顏色配置
+// 藍紫色調裝置顏色配置
 const DEVICE_COLORS: Record<string, string> = {
-  mobile: '#3B82F6',
-  desktop: '#8B5CF6',
-  tablet: '#EC4899',
+  mobile: '#6366F1',
+  desktop: '#818CF8',
+  tablet: '#A78BFA',
 };
 
 // 裝置圖標
@@ -109,7 +109,7 @@ const DeviceTooltip = memo(function DeviceTooltip({
         </div>
         <div>
           <p className="text-gray-500">佔比</p>
-          <p className="font-bold text-blue-600">{formatPercent(data.session_pct)}</p>
+          <p className="font-bold text-indigo-600">{formatPercent(data.session_pct)}</p>
         </div>
         <div>
           <p className="text-gray-500">用戶數</p>
@@ -188,7 +188,7 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
   return (
     <section 
       className={cn(
-        "bg-white rounded-xl shadow-sm border border-gray-100 p-6",
+        "bg-white rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 p-6",
         className
       )}
       aria-labelledby="device-breakdown-title"
@@ -205,7 +205,7 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
           )}
         </div>
         <div className="flex items-center gap-2 text-sm">
-          <span className="w-3 h-3 rounded-full bg-blue-500" aria-hidden="true" />
+          <span className="w-3 h-3 rounded-full bg-indigo-500" aria-hidden="true" />
           <span className="text-gray-600">Sessions</span>
         </div>
       </div>
@@ -214,9 +214,17 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
       <div aria-label="裝置分布圖">
         <ResponsiveContainer width="100%" height={160}>
           <BarChart data={chartData} layout="vertical">
+            <defs>
+              {Object.entries(DEVICE_COLORS).map(([device, color]) => (
+                <linearGradient key={device} id={`deviceGradient-${device}`} x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor={color} stopOpacity={0.8}/>
+                  <stop offset="100%" stopColor={color} stopOpacity={1}/>
+                </linearGradient>
+              ))}
+            </defs>
             <CartesianGrid 
               strokeDasharray="3 3" 
-              stroke="#E5E7EB" 
+              stroke="#F3F4F6" 
               horizontal={true} 
               vertical={false} 
             />
@@ -229,7 +237,7 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
             <YAxis 
               type="category"
               dataKey="displayName"
-              tick={{ fill: '#6B7280', fontSize: 11 }}
+              tick={{ fill: '#374151', fontSize: 11 }}
               axisLine={false}
               tickLine={false}
               width={60}
@@ -243,7 +251,7 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
               {chartData.map((entry) => (
                 <Cell 
                   key={`cell-${entry.device}`} 
-                  fill={DEVICE_COLORS[entry.device] || '#6B7280'} 
+                  fill={`url(#deviceGradient-${entry.device})`}
                 />
               ))}
             </Bar>
@@ -348,7 +356,7 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
                     device.conv_rate > 1.5 
                       ? 'bg-emerald-50 text-emerald-700' 
                       : device.conv_rate > 0.5 
-                        ? 'bg-blue-50 text-blue-700'
+                        ? 'bg-indigo-50 text-indigo-700'
                         : 'bg-gray-100 text-gray-500'
                   }`}>
                     {device.conv_rate.toFixed(2)}%
