@@ -56,11 +56,11 @@ const defaultData: GA4DeviceData[] = [
   },
 ];
 
-// 藍紫色調裝置顏色配置
+// 裝置顏色配置 - 明顯區隔
 const DEVICE_COLORS: Record<string, string> = {
-  mobile: '#6366F1',
-  desktop: '#818CF8',
-  tablet: '#A78BFA',
+  mobile: '#6366F1',   // indigo 藍紫
+  desktop: '#10B981',  // emerald 綠色
+  tablet: '#F59E0B',   // amber 橘黃色
 };
 
 // 裝置圖標

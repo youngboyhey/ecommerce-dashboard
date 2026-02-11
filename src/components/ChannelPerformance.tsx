@@ -13,7 +13,93 @@ import {
 } from 'recharts';
 import { formatNumber, formatPercent } from '@/lib/utils';
 
-// 藍紫色調色系
+// 品牌主色系對照表 (根據中文顯示名稱)
+const SOURCE_COLORS: Record<string, string> = {
+  // Facebook 系列 - Facebook 藍
+  'Facebook 廣告': '#1877F2',
+  'Facebook 手機版': '#1877F2',
+  'Facebook 連結': '#1877F2',
+  'Facebook': '#1877F2',
+  
+  // Instagram 系列 - Instagram 紫紅
+  'Instagram 廣告': '#E4405F',
+  'Instagram 連結': '#E4405F',
+  
+  // Threads - 黑色
+  'Threads 廣告': '#000000',
+  
+  // Meta 廣告 (Audience Network)
+  'Meta 廣告': '#0081FB',
+  'Audience Network 廣告': '#0081FB',
+  
+  // Google 系列 - Google 藍/綠
+  'Google 廣告': '#4285F4',
+  'Google 自然搜尋': '#34A853',
+  
+  // LINE - LINE 綠
+  'LINE': '#06C755',
+  'LINE 推薦': '#06C755',
+  
+  // 直接流量 - 灰色
+  '直接流量': '#6B7280',
+  
+  // YouTube - 紅色
+  'YouTube 推薦': '#FF0000',
+  
+  // Yahoo - 紫色
+  'Yahoo 自然搜尋': '#720E9E',
+  
+  // Bing - 青綠色
+  'Bing 自然搜尋': '#00809D',
+  
+  // ChatGPT - OpenAI 綠
+  'ChatGPT': '#10A37F',
+  
+  // 力魔/GitHub - 橘色
+  '力魔官網': '#F59E0B',
+  '力魔 GitHub': '#F59E0B',
+  
+  // BOSCH - 紅色
+  'BOSCH 官網': '#E20015',
+  'BOSCH 商城': '#E20015',
+  
+  // 其他
+  '電子報': '#EA4335',
+  '簡訊行銷': '#34A853',
+  '短網址 (reurl)': '#8B5CF6',
+  'Cyberbiz 金流': '#F472B6',
+  '內部網路': '#94A3B8',
+  
+  // 未分類/其他 - 淺灰
+  '未分類': '#9CA3AF',
+  '(not set)': '#9CA3AF',
+};
+
+// 根據顯示名稱取得品牌顏色
+function getSourceColor(displayName: string): string {
+  // 精確匹配
+  if (SOURCE_COLORS[displayName]) {
+    return SOURCE_COLORS[displayName];
+  }
+  
+  // 模糊匹配 (包含關鍵字)
+  const lowerName = displayName.toLowerCase();
+  if (lowerName.includes('facebook') || lowerName.includes('fb')) return '#1877F2';
+  if (lowerName.includes('instagram') || lowerName.includes('ig')) return '#E4405F';
+  if (lowerName.includes('threads')) return '#000000';
+  if (lowerName.includes('google')) return '#4285F4';
+  if (lowerName.includes('line')) return '#06C755';
+  if (lowerName.includes('youtube')) return '#FF0000';
+  if (lowerName.includes('yahoo')) return '#720E9E';
+  if (lowerName.includes('bing')) return '#00809D';
+  if (lowerName.includes('chatgpt') || lowerName.includes('openai')) return '#10A37F';
+  if (lowerName.includes('直接') || lowerName.includes('direct')) return '#6B7280';
+  
+  // 預設淺灰
+  return '#9CA3AF';
+}
+
+// 備用漸層色系 (已不使用，保留供參考)
 const CHART_COLORS = [
   '#6366F1', // indigo
   '#818CF8', // indigo-light
@@ -217,12 +303,15 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
         <ResponsiveContainer width="100%" height={240}>
           <BarChart data={chartData} layout="vertical">
             <defs>
-              {CHART_COLORS.map((color, index) => (
-                <linearGradient key={index} id={`channelGradient${index}`} x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor={color} stopOpacity={0.8}/>
-                  <stop offset="100%" stopColor={color} stopOpacity={1}/>
-                </linearGradient>
-              ))}
+              {chartData.map((item, index) => {
+                const color = getSourceColor(item.displayName);
+                return (
+                  <linearGradient key={index} id={`channelGradient${index}`} x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor={color} stopOpacity={0.7}/>
+                    <stop offset="100%" stopColor={color} stopOpacity={1}/>
+                  </linearGradient>
+                );
+              })}
             </defs>
             <CartesianGrid 
               strokeDasharray="3 3" 
@@ -250,10 +339,10 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
               radius={[0, 6, 6, 0]}
               maxBarSize={36}
             >
-              {chartData.map((_, index) => (
+              {chartData.map((item, index) => (
                 <Cell 
                   key={`cell-${index}`} 
-                  fill={`url(#channelGradient${index % CHART_COLORS.length})`}
+                  fill={`url(#channelGradient${index})`}
                 />
               ))}
             </Bar>
@@ -313,7 +402,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
                   <div className="flex items-center gap-2">
                     <div 
                       className="w-2.5 h-2.5 rounded-full flex-shrink-0" 
-                      style={{ backgroundColor: CHART_COLORS[index % CHART_COLORS.length] }} 
+                      style={{ backgroundColor: getSourceColor(channel.displayName) }} 
                       aria-hidden="true"
                     />
                     <span className="font-medium text-gray-900 truncate max-w-[140px]" title={channel.source}>

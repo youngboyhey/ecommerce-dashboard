@@ -238,6 +238,7 @@ function transformToReportData(
       total: {
         name: 'Account Total',
         spend: report.meta_spend,
+        impressions: rawData?.meta?.total?.impressions || 0,
         ctr: report.meta_ctr,
         clicks: report.meta_clicks,
         roas: report.meta_roas,
@@ -253,6 +254,7 @@ function transformToReportData(
         name: c.campaign_name,
         campaign_id: c.campaign_id,
         spend: c.spend,
+        impressions: c.impressions || 0,
         ctr: c.ctr,
         clicks: c.clicks,
         roas: c.roas,

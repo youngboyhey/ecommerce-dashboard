@@ -10,6 +10,7 @@ export const mockReportData: ReportData = {
     total: {
       name: 'Account Total',
       spend: 6501.0,
+      impressions: 34404,
       ctr: 1.363139,
       clicks: 469,
       roas: 0.887556,
@@ -25,6 +26,7 @@ export const mockReportData: ReportData = {
       {
         name: '260129_LM香氛磚組合(涵)',
         spend: 3293.0,
+        impressions: 16946,
         ctr: 1.439877,
         clicks: 244,
         roas: 0.92317,
@@ -40,6 +42,7 @@ export const mockReportData: ReportData = {
       {
         name: '260130_LM芳香磚廣告(J)',
         spend: 3208.0,
+        impressions: 17804,
         ctr: 1.264143,
         clicks: 225,
         roas: 0.850998,
@@ -129,6 +132,7 @@ export const mockReportData: ReportData = {
     prev_meta: {
       name: 'Account Total',
       spend: 8004.0,
+      impressions: 40859,
       ctr: 1.326522,
       clicks: 542,
       roas: 0.466017,
