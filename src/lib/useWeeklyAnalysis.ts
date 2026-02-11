@@ -75,7 +75,35 @@ export function useWeeklyAnalysis(reportDate?: string): UseWeeklyAnalysisResult 
         console.warn('Error fetching weekly_insights:', insightsRes.error);
         setWeeklyInsight(null);
       } else if (insightsRes.data) {
-        const insight = insightsRes.data as WeeklyInsight;
+        const rawInsight = insightsRes.data;
+        
+        // Parse insights if it's a double-stringified JSON string
+        let parsedInsights = rawInsight.insights;
+        if (typeof parsedInsights === 'string') {
+          try {
+            parsedInsights = JSON.parse(parsedInsights);
+          } catch (e) {
+            console.warn('Failed to parse insights JSON:', e);
+            parsedInsights = [];
+          }
+        }
+        
+        // Parse summary if it's a double-stringified JSON string
+        let parsedSummary = rawInsight.summary;
+        if (typeof parsedSummary === 'string') {
+          try {
+            parsedSummary = JSON.parse(parsedSummary);
+          } catch (e) {
+            console.warn('Failed to parse summary JSON:', e);
+            parsedSummary = null;
+          }
+        }
+        
+        const insight: WeeklyInsight = {
+          ...rawInsight,
+          insights: parsedInsights || [],
+          summary: parsedSummary,
+        };
         setWeeklyInsight(insight);
 
         // Fetch tracking data for this insight
