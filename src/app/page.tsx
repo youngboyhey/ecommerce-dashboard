@@ -280,7 +280,7 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <ProductRanking products={data.cyberbiz.product_ranking} summary={data.cyberbiz} />
             <GSCPerformance 
-              summary={data.gsc ? {
+              summary={data.gsc?.total ? {
                 totalImpressions: data.gsc.total.impressions,
                 totalClicks: data.gsc.total.clicks,
                 avgCtr: data.gsc.total.ctr,

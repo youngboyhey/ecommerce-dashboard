@@ -510,11 +510,16 @@ function aggregateDailyReports(dailyReports: ReportRow[], dateRange: DateRange):
       return acc;
     }, { clicks: 0, impressions: 0, count: 0, positionSum: 0 });
     
+    // 🔧 修復：GSC 數據必須符合 GSCData 類型格式（包含 total, top_queries, top_pages）
     const aggregatedGsc = gscAggregated.count > 0 ? {
-      clicks: gscAggregated.clicks,
-      impressions: gscAggregated.impressions,
-      ctr: gscAggregated.impressions > 0 ? (gscAggregated.clicks / gscAggregated.impressions) * 100 : 0,
-      position: gscAggregated.positionSum / gscAggregated.count, // 平均排名
+      total: {
+        clicks: gscAggregated.clicks,
+        impressions: gscAggregated.impressions,
+        ctr: gscAggregated.impressions > 0 ? (gscAggregated.clicks / gscAggregated.impressions) * 100 : 0,
+        position: gscAggregated.positionSum / gscAggregated.count, // 平均排名
+      },
+      top_queries: [], // 聚合模式下不提供關鍵字明細
+      top_pages: [],   // 聚合模式下不提供頁面明細
     } : null;
 
     // 計算聚合後的漏斗比率
