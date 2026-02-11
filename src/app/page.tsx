@@ -398,36 +398,6 @@ export default function Dashboard() {
           />
         </section>
 
-        {/* Summary Banner - 漸層高亮 */}
-        <section 
-          className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg shadow-gray-200/50 border border-gray-100 overflow-hidden relative"
-          aria-labelledby="insights-title"
-        >
-          {/* 背景漸層裝飾 */}
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50" />
-          <div className="absolute top-0 right-0 w-32 sm:w-64 h-32 sm:h-64 bg-indigo-100/50 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-32 sm:w-64 h-32 sm:h-64 bg-purple-100/50 rounded-full blur-3xl" />
-          
-          <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4">
-            <div>
-              <h3 id="insights-title" className="text-base sm:text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-500" />
-                本週洞察
-              </h3>
-              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-1 sm:gap-x-4 sm:gap-y-1 text-xs sm:text-sm text-gray-600">
-                <p>
-                  最佳受眾: <span className="text-gray-900 font-semibold">{data.summary.top_audience_segment}</span>
-                </p>
-                <p>
-                  熱銷商品: <span className="text-gray-900 font-semibold truncate max-w-[200px] inline-block align-bottom">{data.summary.top_product}</span>
-                </p>
-              </div>
-            </div>
-            <div className="badge badge-purple text-xs sm:text-sm">
-              <span>由龍蝦企業 🦞 驅動</span>
-            </div>
-          </div>
-        </section>
       </main>
 
       {/* ===== Footer ===== */}
