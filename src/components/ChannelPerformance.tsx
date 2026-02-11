@@ -36,9 +36,17 @@ const SOURCE_LABELS: Record<string, string> = {
   'fb / paid': 'Facebook 廣告',
   'instagram / paid': 'Instagram 廣告',
   'ig / paid': 'Instagram 廣告',
+  'th / paid': 'Threads 廣告',
   'meta / paid': 'Meta 廣告',
   '(direct) / (none)': '直接流量',
   'direct / none': '直接流量',
+  'm.facebook.com / referral': 'Facebook 手機版',
+  'l.facebook.com / referral': 'Facebook 連結',
+  'lm.facebook.com / referral': 'Facebook 連結',
+  'liqui-moly-tw.com / referral': '力魔官網',
+  'boschman-giasco.com.tw / referral': 'BOSCH 官網',
+  'reurl.cc / referral': '短網址 (reurl)',
+  '(not set)': '未分類',
   'line / referral': 'LINE 推薦',
   'yahoo / organic': 'Yahoo 自然搜尋',
   'bing / organic': 'Bing 自然搜尋',
@@ -46,6 +54,11 @@ const SOURCE_LABELS: Record<string, string> = {
   'email / newsletter': '電子報',
   'sms / campaign': '簡訊行銷',
 };
+
+// 取得來源的中文顯示名稱
+function getSourceName(source: string): string {
+  return SOURCE_LABELS[source.toLowerCase()] || SOURCE_LABELS[source] || source;
+}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TooltipPayload = any;
@@ -71,18 +84,18 @@ const ChannelTooltip = memo(function ChannelTooltip({
   
   return (
     <div className="bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-gray-100">
-      <p className="font-semibold text-gray-900 mb-3 text-sm">{data.displayName || data.source}</p>
+      <p className="font-semibold text-gray-900 mb-3 text-sm">{data.displayName || getSourceName(data.source)}</p>
       <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
         <div>
-          <p className="text-gray-500">Sessions</p>
+          <p className="text-gray-500">工作階段</p>
           <p className="font-bold text-gray-900">{formatNumber(data.sessions)}</p>
         </div>
         <div>
-          <p className="text-gray-500">加購數</p>
+          <p className="text-gray-500">加購</p>
           <p className="font-bold text-purple-600">{data.atc}</p>
         </div>
         <div>
-          <p className="text-gray-500">購買數</p>
+          <p className="text-gray-500">購買</p>
           <p className="font-bold text-emerald-600">{data.purchases}</p>
         </div>
         <div>
@@ -126,7 +139,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
       .filter(c => c.sessions > 0)  // Keep any source with traffic
       .map(c => ({
         ...c,
-        displayName: SOURCE_LABELS[c.source.toLowerCase()] || c.source
+        displayName: getSourceName(c.source)
       }));
   }, [data]);
 
@@ -169,7 +182,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
         </h2>
         <div className="flex items-center gap-2 text-sm">
           <span className="w-3 h-3 rounded-full bg-indigo-500" aria-hidden="true" />
-          <span className="text-gray-600">Sessions</span>
+          <span className="text-gray-600">工作階段</span>
         </div>
       </div>
 
@@ -230,36 +243,36 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
         >
           <thead>
             <tr className="border-b border-gray-200">
-              <th scope="col" className="text-left py-3 text-gray-500 font-semibold uppercase tracking-wider">
+              <th scope="col" className="text-left py-3 pr-4 text-gray-500 font-semibold tracking-wider">
                 來源
               </th>
               <th 
                 scope="col" 
-                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none"
+                className="text-right py-3 px-3 text-gray-500 font-semibold tracking-wider cursor-pointer hover:text-gray-700 select-none whitespace-nowrap"
                 onClick={() => handleSort('sessions')}
               >
-                Sessions{getSortIndicator('sessions')}
+                工作階段{getSortIndicator('sessions')}
               </th>
               <th 
                 scope="col" 
-                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none"
+                className="text-right py-3 px-3 text-gray-500 font-semibold tracking-wider cursor-pointer hover:text-gray-700 select-none whitespace-nowrap"
                 onClick={() => handleSort('atc')}
               >
-                ATC{getSortIndicator('atc')}
+                加購{getSortIndicator('atc')}
               </th>
               <th 
                 scope="col" 
-                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none"
+                className="text-right py-3 px-3 text-gray-500 font-semibold tracking-wider cursor-pointer hover:text-gray-700 select-none whitespace-nowrap"
                 onClick={() => handleSort('purchases')}
               >
                 購買{getSortIndicator('purchases')}
               </th>
               <th 
                 scope="col" 
-                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none"
+                className="text-right py-3 pl-3 text-gray-500 font-semibold tracking-wider cursor-pointer hover:text-gray-700 select-none whitespace-nowrap"
                 onClick={() => handleSort('session_to_atc_rate')}
               >
-                ATC 率{getSortIndicator('session_to_atc_rate')}
+                加購率{getSortIndicator('session_to_atc_rate')}
               </th>
             </tr>
           </thead>
@@ -269,7 +282,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
                 key={channel.source} 
                 className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors"
               >
-                <td className="py-3">
+                <td className="py-3 pr-4">
                   <div className="flex items-center gap-2">
                     <div 
                       className="w-2.5 h-2.5 rounded-full flex-shrink-0" 
@@ -277,18 +290,18 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
                       aria-hidden="true"
                     />
                     <span className="font-medium text-gray-900 truncate max-w-[140px]" title={channel.source}>
-                      {channel.displayName || channel.source}
+                      {channel.displayName}
                     </span>
                   </div>
                 </td>
-                <td className="py-3 text-right font-medium text-gray-700">{formatNumber(channel.sessions)}</td>
-                <td className="py-3 text-right text-purple-600 font-medium">{channel.atc}</td>
-                <td className="py-3 text-right">
+                <td className="py-3 px-3 text-right font-medium text-gray-700">{formatNumber(channel.sessions)}</td>
+                <td className="py-3 px-3 text-right text-purple-600 font-medium">{channel.atc}</td>
+                <td className="py-3 px-3 text-right">
                   <span className={`font-bold ${channel.purchases > 0 ? 'text-emerald-600' : 'text-gray-300'}`}>
                     {channel.purchases}
                   </span>
                 </td>
-                <td className="py-3 text-right">
+                <td className="py-3 pl-3 text-right">
                   <span className={`px-2 py-0.5 rounded-full font-medium ${
                     channel.session_to_atc_rate > 10 
                       ? 'bg-emerald-50 text-emerald-700' 
@@ -305,11 +318,11 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
           {/* Totals row */}
           <tfoot>
             <tr className="border-t-2 border-gray-200 bg-gray-50/50 font-semibold">
-              <td className="py-3 text-gray-700">合計</td>
-              <td className="py-3 text-right text-gray-900">{formatNumber(totals.sessions)}</td>
-              <td className="py-3 text-right text-purple-700">{totals.atc}</td>
-              <td className="py-3 text-right text-emerald-700">{totals.purchases}</td>
-              <td className="py-3 text-right text-gray-500">—</td>
+              <td className="py-3 pr-4 text-gray-700">合計</td>
+              <td className="py-3 px-3 text-right text-gray-900">{formatNumber(totals.sessions)}</td>
+              <td className="py-3 px-3 text-right text-purple-700">{totals.atc}</td>
+              <td className="py-3 px-3 text-right text-emerald-700">{totals.purchases}</td>
+              <td className="py-3 pl-3 text-right text-gray-500">—</td>
             </tr>
           </tfoot>
         </table>
