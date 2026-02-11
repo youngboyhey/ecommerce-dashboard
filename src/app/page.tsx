@@ -249,7 +249,7 @@ export default function Dashboard() {
           <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
             <span>🔄</span> 網站行為分析
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <GA4Funnel data={data.ga4} />
             <AudienceAnalysis data={data.meta_audience} />
             <DeviceBreakdown />
