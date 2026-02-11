@@ -66,9 +66,16 @@ const SOURCE_LABELS: Record<string, string> = {
   'liquimolytaiwan.github.io / referral': '力魔 GitHub',
 };
 
-// 取得來源的中文顯示名稱
+// 取得來源的中文顯示名稱 (case-insensitive)
 function getSourceName(source: string): string {
-  return SOURCE_LABELS[source.toLowerCase()] || SOURCE_LABELS[source] || source;
+  const lowerSource = source.toLowerCase();
+  // 遍歷所有 key 找匹配
+  for (const [key, value] of Object.entries(SOURCE_LABELS)) {
+    if (key.toLowerCase() === lowerSource) {
+      return value;
+    }
+  }
+  return source;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
