@@ -688,6 +688,7 @@ function aggregateCampaigns(campaigns: CampaignRow[]): CampaignRow[] {
     if (existing) {
       // 累加數值
       existing.spend += c.spend || 0;
+      existing.impressions += c.impressions || 0;
       existing.clicks += c.clicks || 0;
       existing.purchases += c.purchases || 0;
       existing.atc += c.atc || 0;
@@ -701,7 +702,7 @@ function aggregateCampaigns(campaigns: CampaignRow[]): CampaignRow[] {
   // 重新計算衍生指標
   return Array.from(campaignMap.values()).map(c => ({
     ...c,
-    ctr: c.clicks > 0 && c.spend > 0 ? (c.clicks / c.spend) * 100 : 0, // 簡化計算
+    ctr: c.clicks > 0 && c.impressions > 0 ? (c.clicks / c.impressions) * 100 : 0,
     roas: c.spend > 0 ? c.conv_value / c.spend : 0,
     cpa: c.purchases > 0 ? c.spend / c.purchases : 0,
   }));

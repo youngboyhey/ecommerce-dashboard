@@ -57,6 +57,7 @@ export interface CampaignRow {
   campaign_id: string;
   campaign_name: string;
   spend: number;
+  impressions: number;
   ctr: number;
   clicks: number;
   roas: number;

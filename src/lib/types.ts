@@ -3,6 +3,7 @@
 export interface MetaTotal {
   name: string;
   spend: number;
+  impressions: number;
   ctr: number;
   clicks: number;
   roas: number;

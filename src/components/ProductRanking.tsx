@@ -93,7 +93,7 @@ const ProductRanking = memo(function ProductRanking({ products, summary }: Produ
             >
               <div className="flex items-center gap-2 sm:gap-4 mb-1.5 sm:mb-2">
                 {/* Rank */}
-                <div className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg sm:rounded-xl bg-gray-50 border border-gray-100 group-hover:scale-110 transition-transform duration-300 ${
+                <div className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg sm:rounded-xl bg-gray-50 border border-gray-100 ${
                   isTopThree ? 'ring-1 ring-amber-200' : ''
                 }`}>
                   {isTopThree ? (
@@ -107,7 +107,7 @@ const ProductRanking = memo(function ProductRanking({ products, summary }: Produ
 
                 {/* Product Info */}
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-700 truncate group-hover:text-gray-900 transition-colors">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-700 truncate">
                     {product.product_name}
                   </p>
                   <p className="text-[10px] sm:text-xs text-gray-400 mt-0.5 truncate">SKU: {product.sku}</p>
@@ -134,11 +134,9 @@ const ProductRanking = memo(function ProductRanking({ products, summary }: Produ
                 aria-label={`${product.product_name} 營收佔比 ${widthPercent.toFixed(0)}%`}
               >
                 <div 
-                  className={`h-full rounded-full bg-gradient-to-r ${MEDAL_GRADIENTS[gradientKey]} transition-all duration-700 ease-out relative overflow-hidden`}
+                  className={`h-full rounded-full bg-gradient-to-r ${MEDAL_GRADIENTS[gradientKey]}`}
                   style={{ width: `${widthPercent}%` }}
-                >
-                  <div className="absolute inset-0 animate-shimmer" />
-                </div>
+                />
               </div>
             </article>
           );
