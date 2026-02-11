@@ -1,29 +1,16 @@
 'use client';
 
-import { memo, useMemo } from 'react';
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Cell
-} from 'recharts';
+import { memo } from 'react';
 import { mockReportData } from '@/lib/mockData';
 import { formatCurrency } from '@/lib/utils';
 import { Target } from 'lucide-react';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type TooltipPayload = any;
-
-// 藍紫色調漸層色系
-const CHART_COLORS = [
+// 彩色圓點色系
+const DOT_COLORS = [
   '#6366F1', // indigo
-  '#818CF8', // indigo-light
-  '#A78BFA', // violet
-  '#67E8F9', // cyan
+  '#A855F7', // purple
+  '#EC4899', // pink
+  '#F59E0B', // amber
   '#10B981', // emerald
 ];
 
@@ -63,169 +50,102 @@ interface MetaAdsChartProps {
   total?: TotalData;
 }
 
-interface CampaignPayload {
-  name: string;
-  fullName: string;
-  spend: number;
-  roas: number;
-  cpa: number;
-  purchases: number;
-  ctr: number;
-}
+// ROAS 顏色判斷
+const getRoasColor = (roas: number): string => {
+  if (roas < 1) return 'text-red-600';
+  if (roas >= 1.5) return 'text-emerald-600';
+  return 'text-gray-900';
+};
 
-// 白色主題 Tooltip
-const CampaignTooltip = memo(function CampaignTooltip({ 
-  active, 
-  payload 
-}: { active?: boolean; payload?: TooltipPayload[] }) {
-  if (!active || !payload?.length) return null;
-
-  const data = payload[0].payload as CampaignPayload;
-  
-  return (
-    <div 
-      className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-gray-100 max-w-xs"
-      role="tooltip"
-    >
-      <p className="font-semibold text-gray-900 mb-3 text-sm break-words">
-        {data.fullName}
-      </p>
-      <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
-        <div>
-          <p className="text-gray-500 text-xs mb-0.5">花費</p>
-          <p className="font-semibold text-gray-900">{formatCurrency(data.spend)}</p>
-        </div>
-        <div>
-          <p className="text-gray-500 text-xs mb-0.5">ROAS</p>
-          <p className="font-semibold text-emerald-600">{data.roas.toFixed(2)}</p>
-        </div>
-        <div>
-          <p className="text-gray-500 text-xs mb-0.5">CPA</p>
-          <p className="font-semibold text-gray-900">{formatCurrency(data.cpa)}</p>
-        </div>
-        <div>
-          <p className="text-gray-500 text-xs mb-0.5">購買</p>
-          <p className="font-semibold text-indigo-600">{data.purchases}</p>
-        </div>
-      </div>
-    </div>
-  );
-});
-
-const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, total }: MetaAdsChartProps) {
+const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, total: propTotal }: MetaAdsChartProps) {
   const campaigns = propCampaigns || mockReportData.meta.campaigns;
-  
-  const data = useMemo(() => campaigns.map((campaign) => ({
-    name: campaign.name.length > 20 ? campaign.name.slice(0, 20) + '...' : campaign.name,
-    fullName: campaign.name,
-    spend: campaign.spend,
-    roas: campaign.roas,
-    cpa: campaign.cpa,
-    purchases: campaign.purchases,
-    ctr: campaign.ctr
-  })), [campaigns]);
+  const total = propTotal || mockReportData.meta.total;
 
   return (
     <section 
       className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100"
       aria-labelledby="meta-ads-title"
     >
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-            <Target className="w-5 h-5 text-white" />
-          </div>
-          <div>
-            <h2 id="meta-ads-title" className="text-lg font-semibold text-gray-900">
-              Meta 廣告成效
-            </h2>
-            <p className="text-xs text-gray-500 mt-0.5">廣告活動花費分佈</p>
-          </div>
+      {/* Header */}
+      <div className="flex items-center gap-3 mb-5">
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+          <Target className="w-5 h-5 text-white" />
         </div>
-        <div className="flex items-center gap-2 text-sm">
-          <span className="w-3 h-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500" aria-hidden="true" />
-          <span className="text-gray-500">花費</span>
-        </div>
+        <h2 id="meta-ads-title" className="text-lg font-semibold text-gray-900">
+          📊 Meta 廣告成效
+        </h2>
       </div>
 
-      <div aria-label="Meta 廣告活動花費分佈圖">
-        <ResponsiveContainer width="100%" height={280}>
-          <BarChart data={data} layout="vertical">
-            <defs>
-              {CHART_COLORS.map((color, index) => (
-                <linearGradient key={index} id={`barGradient${index}`} x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor={color} stopOpacity={0.8}/>
-                  <stop offset="100%" stopColor={color} stopOpacity={1}/>
-                </linearGradient>
-              ))}
-            </defs>
-            <CartesianGrid 
-              strokeDasharray="3 3" 
-              stroke="#F3F4F6" 
-              horizontal={true} 
-              vertical={false} 
-            />
-            <XAxis 
-              type="number"
-              tick={{ fill: '#6B7280', fontSize: 12 }}
-              axisLine={false}
-              tickLine={false}
-              tickFormatter={(value) => `${(value / 1000).toFixed(0)}K`}
-            />
-            <YAxis 
-              type="category"
-              dataKey="name"
-              tick={{ fill: '#374151', fontSize: 12 }}
-              axisLine={false}
-              tickLine={false}
-              width={160}
-            />
-            <Tooltip content={<CampaignTooltip />} />
-            <Bar 
-              dataKey="spend" 
-              radius={[0, 8, 8, 0]}
-              maxBarSize={40}
-            >
-              {data.map((_, index) => (
-                <Cell 
-                  key={`cell-${index}`} 
-                  fill={`url(#barGradient${index % CHART_COLORS.length})`}
-                />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-
-      {/* Campaign Summary Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-        {campaigns.map((campaign, index) => (
-          <article 
-            key={campaign.campaign_id || index} 
-            className="bg-gray-50 p-4 rounded-xl group hover:bg-gray-100 transition-all duration-300 border border-gray-100"
-          >
-            <p className="text-xs text-gray-500 truncate mb-3 font-medium group-hover:text-gray-600 transition-colors">
-              {campaign.name}
-            </p>
-            <div className="flex items-end justify-between">
-              <div>
-                <p 
-                  className="text-2xl font-bold font-mono-nums"
-                  style={{ color: CHART_COLORS[index % CHART_COLORS.length] }}
-                >
+      {/* Table */}
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-gray-200">
+              <th className="text-left py-3 px-2 font-semibold text-gray-600">Campaign</th>
+              <th className="text-right py-3 px-2 font-semibold text-gray-600">花費</th>
+              <th className="text-right py-3 px-2 font-semibold text-gray-600">ROAS</th>
+              <th className="text-right py-3 px-2 font-semibold text-gray-600">CPA</th>
+              <th className="text-right py-3 px-2 font-semibold text-gray-600">轉換</th>
+              <th className="text-right py-3 px-2 font-semibold text-gray-600">CTR</th>
+            </tr>
+          </thead>
+          <tbody>
+            {campaigns.map((campaign, index) => (
+              <tr 
+                key={campaign.campaign_id || index}
+                className="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-150"
+              >
+                <td className="py-3 px-2">
+                  <div className="flex items-center gap-2">
+                    <span 
+                      className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: DOT_COLORS[index % DOT_COLORS.length] }}
+                      aria-hidden="true"
+                    />
+                    <span className="text-gray-900 truncate max-w-[180px]" title={campaign.name}>
+                      {campaign.name}
+                    </span>
+                  </div>
+                </td>
+                <td className="text-right py-3 px-2 font-mono text-gray-900">
+                  {formatCurrency(campaign.spend)}
+                </td>
+                <td className={`text-right py-3 px-2 font-mono font-semibold ${getRoasColor(campaign.roas)}`}>
                   {campaign.roas.toFixed(2)}
-                </p>
-                <p className="text-xs text-gray-500 mt-1">ROAS</p>
-              </div>
-              <div className="text-right">
-                <p className="text-lg font-bold text-gray-900 font-mono-nums">
+                </td>
+                <td className="text-right py-3 px-2 font-mono text-gray-900">
                   {formatCurrency(campaign.cpa)}
-                </p>
-                <p className="text-xs text-gray-500 mt-1">CPA</p>
-              </div>
-            </div>
-          </article>
-        ))}
+                </td>
+                <td className="text-right py-3 px-2 font-mono text-gray-900">
+                  {campaign.purchases}
+                </td>
+                <td className="text-right py-3 px-2 font-mono text-gray-900">
+                  {campaign.ctr.toFixed(1)}%
+                </td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr className="bg-gray-50 font-semibold">
+              <td className="py-3 px-2 text-gray-900">合計</td>
+              <td className="text-right py-3 px-2 font-mono text-gray-900">
+                {formatCurrency(total.spend)}
+              </td>
+              <td className={`text-right py-3 px-2 font-mono font-semibold ${getRoasColor(total.roas)}`}>
+                {total.roas.toFixed(2)}
+              </td>
+              <td className="text-right py-3 px-2 font-mono text-gray-900">
+                {formatCurrency(total.cpa)}
+              </td>
+              <td className="text-right py-3 px-2 font-mono text-gray-900">
+                {total.purchases}
+              </td>
+              <td className="text-right py-3 px-2 font-mono text-gray-900">
+                {total.ctr.toFixed(1)}%
+              </td>
+            </tr>
+          </tfoot>
+        </table>
       </div>
     </section>
   );
