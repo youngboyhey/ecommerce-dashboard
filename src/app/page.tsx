@@ -259,10 +259,16 @@ export default function Dashboard() {
           <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
             <span>🔄</span> 網站行為分析
           </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <GA4Funnel data={data.ga4} />
-            <div className="flex flex-col gap-6">
+          <div className="grid grid-cols-12 gap-6">
+            {/* 第一行：GA4 轉換漏斗 + 受眾分析 並排 */}
+            <div className="col-span-12 lg:col-span-6">
+              <GA4Funnel data={data.ga4} />
+            </div>
+            <div className="col-span-12 lg:col-span-6">
               <AudienceAnalysis data={data.meta_audience} />
+            </div>
+            {/* 第二行：裝置分布獨佔整行 */}
+            <div className="col-span-12">
               <DeviceBreakdown data={data.ga4_devices} isLive={isLive} />
             </div>
           </div>

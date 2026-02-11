@@ -2,7 +2,17 @@
 
 import { memo, useMemo, useState } from 'react';
 import { Monitor, Smartphone, Tablet } from 'lucide-react';
-import { cn, formatNumber } from '@/lib/utils';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  Cell
+} from 'recharts';
+import { cn, formatNumber, formatPercent } from '@/lib/utils';
 import { GA4DeviceData } from '@/lib/types';
 
 // Sort configuration type
@@ -47,7 +57,7 @@ const defaultData: GA4DeviceData[] = [
 ];
 
 // 裝置顏色配置
-const DEVICE_COLORS = {
+const DEVICE_COLORS: Record<string, string> = {
   mobile: '#3B82F6',
   desktop: '#8B5CF6',
   tablet: '#EC4899',
@@ -76,6 +86,43 @@ const getDeviceName = (device: GA4DeviceData['device']) => {
       return '平板';
   }
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type TooltipPayload = any;
+
+// Custom Tooltip for the chart
+const DeviceTooltip = memo(function DeviceTooltip({ 
+  active, 
+  payload 
+}: { active?: boolean; payload?: TooltipPayload[] }) {
+  if (!active || !payload?.length) return null;
+
+  const data = payload[0].payload as GA4DeviceData & { displayName: string };
+  
+  return (
+    <div className="bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-gray-100">
+      <p className="font-semibold text-gray-900 mb-3 text-sm">{data.displayName}</p>
+      <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
+        <div>
+          <p className="text-gray-500">Sessions</p>
+          <p className="font-bold text-gray-900">{formatNumber(data.sessions)}</p>
+        </div>
+        <div>
+          <p className="text-gray-500">佔比</p>
+          <p className="font-bold text-blue-600">{formatPercent(data.session_pct)}</p>
+        </div>
+        <div>
+          <p className="text-gray-500">用戶數</p>
+          <p className="font-bold text-purple-600">{formatNumber(data.users)}</p>
+        </div>
+        <div>
+          <p className="text-gray-500">轉換率</p>
+          <p className="font-bold text-emerald-600">{data.conv_rate.toFixed(2)}%</p>
+        </div>
+      </div>
+    </div>
+  );
+});
 
 const DeviceBreakdown = memo(function DeviceBreakdown({ 
   data,
@@ -106,7 +153,17 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
   const isUsingMockData = !data || data.length === 0 || !isLive;
   const actualData = (data && data.length > 0) ? data : defaultData;
 
-  // Sorted data
+  // Chart data - sorted by sessions for visualization
+  const chartData = useMemo(() => {
+    return [...actualData]
+      .sort((a, b) => b.sessions - a.sessions)
+      .map(d => ({
+        ...d,
+        displayName: getDeviceName(d.device)
+      }));
+  }, [actualData]);
+
+  // Sorted data for table
   const sortedData = useMemo(() => {
     return [...actualData].sort((a, b) => {
       const aVal = a[sortConfig.key] ?? 0;
@@ -147,10 +204,55 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
             </span>
           )}
         </div>
+        <div className="flex items-center gap-2 text-sm">
+          <span className="w-3 h-3 rounded-full bg-blue-500" aria-hidden="true" />
+          <span className="text-gray-600">Sessions</span>
+        </div>
+      </div>
+
+      {/* Bar Chart - Sessions by Device */}
+      <div aria-label="裝置分布圖">
+        <ResponsiveContainer width="100%" height={160}>
+          <BarChart data={chartData} layout="vertical">
+            <CartesianGrid 
+              strokeDasharray="3 3" 
+              stroke="#E5E7EB" 
+              horizontal={true} 
+              vertical={false} 
+            />
+            <XAxis 
+              type="number"
+              tick={{ fill: '#6B7280', fontSize: 12 }}
+              axisLine={false}
+              tickLine={false}
+            />
+            <YAxis 
+              type="category"
+              dataKey="displayName"
+              tick={{ fill: '#6B7280', fontSize: 11 }}
+              axisLine={false}
+              tickLine={false}
+              width={60}
+            />
+            <Tooltip content={<DeviceTooltip />} />
+            <Bar 
+              dataKey="sessions" 
+              radius={[0, 6, 6, 0]}
+              maxBarSize={36}
+            >
+              {chartData.map((entry) => (
+                <Cell 
+                  key={`cell-${entry.device}`} 
+                  fill={DEVICE_COLORS[entry.device] || '#6B7280'} 
+                />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
       </div>
 
       {/* Device Table */}
-      <div className="overflow-x-auto">
+      <div className="mt-6 overflow-x-auto">
         <table 
           className="w-full text-xs" 
           role="table" 
@@ -199,7 +301,7 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
             </tr>
           </thead>
           <tbody>
-            {sortedData.map((device, index) => (
+            {sortedData.map((device) => (
               <tr 
                 key={device.device} 
                 className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors"
