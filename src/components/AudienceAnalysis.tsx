@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useMemo } from 'react';
+import { memo, useMemo, useRef, useEffect } from 'react';
 import {
   PieChart,
   Pie,
@@ -16,6 +16,7 @@ import {
 import { mockReportData } from '@/lib/mockData';
 import { formatCurrency } from '@/lib/utils';
 import { Users } from 'lucide-react';
+import { tooltipWrapperStyle, tooltipContentStyle } from './ChartTooltipWrapper';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TooltipPayload = any;
@@ -179,7 +180,11 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
                     />
                   ))}
                 </Pie>
-                <Tooltip content={<GenderTooltip />} />
+                <Tooltip 
+                  content={<GenderTooltip />} 
+                  wrapperStyle={tooltipWrapperStyle}
+                  contentStyle={tooltipContentStyle}
+                />
               </PieChart>
             </ResponsiveContainer>
           </div>
@@ -224,7 +229,11 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
                   tickLine={false}
                   tickFormatter={(value) => `${(value / 1000).toFixed(0)}K`}
                 />
-                <Tooltip content={<AgeTooltip />} />
+                <Tooltip 
+                  content={<AgeTooltip />}
+                  wrapperStyle={tooltipWrapperStyle}
+                  contentStyle={tooltipContentStyle}
+                />
                 <Bar dataKey="spend" name="花費" radius={[4, 4, 0, 0]} maxBarSize={32}>
                   {ageData.map((_, index) => (
                     <Cell 

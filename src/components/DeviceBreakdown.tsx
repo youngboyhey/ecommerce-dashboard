@@ -14,6 +14,7 @@ import {
 } from 'recharts';
 import { cn, formatNumber, formatPercent } from '@/lib/utils';
 import { GA4DeviceData } from '@/lib/types';
+import { tooltipWrapperStyle, tooltipContentStyle } from './ChartTooltipWrapper';
 
 // Sort configuration type
 type SortKey = 'sessions' | 'users' | 'revenue' | 'transactions' | 'conv_rate';
@@ -242,7 +243,11 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
               tickLine={false}
               width={60}
             />
-            <Tooltip content={<DeviceTooltip />} />
+            <Tooltip 
+              content={<DeviceTooltip />}
+              wrapperStyle={tooltipWrapperStyle}
+              contentStyle={tooltipContentStyle}
+            />
             <Bar 
               dataKey="sessions" 
               radius={[0, 6, 6, 0]}

@@ -12,6 +12,7 @@ import {
   Cell
 } from 'recharts';
 import { formatNumber, formatPercent } from '@/lib/utils';
+import { tooltipWrapperStyle, tooltipContentStyle } from './ChartTooltipWrapper';
 
 // 品牌主色系對照表 (根據中文顯示名稱)
 const SOURCE_COLORS: Record<string, string> = {
@@ -333,7 +334,11 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
               tickLine={false}
               width={120}
             />
-            <Tooltip content={<ChannelTooltip />} />
+            <Tooltip 
+              content={<ChannelTooltip />}
+              wrapperStyle={tooltipWrapperStyle}
+              contentStyle={tooltipContentStyle}
+            />
             <Bar 
               dataKey="sessions" 
               radius={[0, 6, 6, 0]}

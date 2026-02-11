@@ -17,6 +17,7 @@ import {
 import { mockReportData } from '@/lib/mockData';
 import { formatCurrency } from '@/lib/utils';
 import { Target } from 'lucide-react';
+import { tooltipWrapperStyle, tooltipContentStyle } from './ChartTooltipWrapper';
 
 interface CampaignData {
   name: string;
@@ -297,7 +298,11 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
                   }}
                 />
                 
-                <Tooltip content={<CustomTooltip />} />
+                <Tooltip 
+                  content={<CustomTooltip />}
+                  wrapperStyle={tooltipWrapperStyle}
+                  contentStyle={tooltipContentStyle}
+                />
                 
                 <Scatter data={scatterData} isAnimationActive={false}>
                   {scatterData.map((entry, index) => (

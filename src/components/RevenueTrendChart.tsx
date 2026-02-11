@@ -30,6 +30,7 @@ import { useHistoricalData } from '@/lib/useHistoricalData';
 import { mockHistoricalData, mockWeeklyData } from '@/lib/mockData';
 import { formatCurrency, formatDate } from '@/lib/utils';
 import { TrendingUp } from 'lucide-react';
+import { tooltipWrapperStyle, tooltipContentStyle } from './ChartTooltipWrapper';
 
 type TimeRange = 'daily' | 'weekly';
 
@@ -229,7 +230,11 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
               dx={isMobile ? 4 : 8}
               hide={isMobile}
             />
-            <Tooltip content={renderTooltip} />
+            <Tooltip 
+              content={renderTooltip}
+              wrapperStyle={tooltipWrapperStyle}
+              contentStyle={tooltipContentStyle}
+            />
             <Legend 
               wrapperStyle={{ paddingTop: '20px' }}
               iconType="circle"
