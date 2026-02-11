@@ -289,7 +289,7 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
             "text-xs font-semibold",
             isHigh ? "text-emerald-600" : "text-red-600"
           )}>
-            {(copy.metrics.ctr || 0).toFixed(2)}%
+            {(copy.metrics?.ctr || 0).toFixed(2)}%
           </span>
         </div>
         <div className="flex items-center gap-1">
@@ -298,7 +298,7 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
             "text-xs font-semibold",
             isHigh ? "text-emerald-600" : "text-red-600"
           )}>
-            {(copy.metrics.cvr || 0).toFixed(2)}%
+            {(copy.metrics?.cvr || 0).toFixed(2)}%
           </span>
         </div>
         {copy.copy_length && (

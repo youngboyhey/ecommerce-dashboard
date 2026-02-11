@@ -128,7 +128,7 @@ const CreativeAnalysis = memo(function CreativeAnalysis({
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
           {topCreatives.map((creative, index) => {
             const tier = creative.performance_tier || 'medium';
-            const tierConfig = TIER_CONFIG[tier];
+            const tierConfig = TIER_CONFIG[tier] || TIER_CONFIG.medium;
             
             return (
               <button
@@ -173,11 +173,11 @@ const CreativeAnalysis = memo(function CreativeAnalysis({
                   <div className="flex items-center justify-between text-[10px] sm:text-xs">
                     <span className="flex items-center gap-1">
                       <TrendingUp className="w-3 h-3" />
-                      ROAS {(creative.metrics.roas || 0).toFixed(2)}
+                      ROAS {(creative.metrics?.roas || 0).toFixed(2)}
                     </span>
                     <span className="flex items-center gap-1">
                       <DollarSign className="w-3 h-3" />
-                      {formatCurrency(creative.metrics.spend || 0)}
+                      {formatCurrency(creative.metrics?.spend || 0)}
                     </span>
                   </div>
                 </div>
@@ -260,25 +260,25 @@ const CreativeAnalysis = memo(function CreativeAnalysis({
                   <div className="p-3 bg-indigo-50 rounded-xl border border-indigo-100">
                     <p className="text-xs text-gray-500 mb-1">ROAS</p>
                     <p className="text-xl font-bold text-indigo-600">
-                      {(selectedCreative.metrics.roas || 0).toFixed(2)}
+                      {(selectedCreative.metrics?.roas || 0).toFixed(2)}
                     </p>
                   </div>
                   <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-100">
                     <p className="text-xs text-gray-500 mb-1">花費</p>
                     <p className="text-xl font-bold text-emerald-600">
-                      {formatCurrency(selectedCreative.metrics.spend || 0)}
+                      {formatCurrency(selectedCreative.metrics?.spend || 0)}
                     </p>
                   </div>
                   <div className="p-3 bg-purple-50 rounded-xl border border-purple-100">
                     <p className="text-xs text-gray-500 mb-1">點擊率</p>
                     <p className="text-xl font-bold text-purple-600">
-                      {(selectedCreative.metrics.ctr || 0).toFixed(2)}%
+                      {(selectedCreative.metrics?.ctr || 0).toFixed(2)}%
                     </p>
                   </div>
                   <div className="p-3 bg-amber-50 rounded-xl border border-amber-100">
                     <p className="text-xs text-gray-500 mb-1">購買數</p>
                     <p className="text-xl font-bold text-amber-600">
-                      {selectedCreative.metrics.purchases || 0}
+                      {selectedCreative.metrics?.purchases || 0}
                     </p>
                   </div>
                 </div>

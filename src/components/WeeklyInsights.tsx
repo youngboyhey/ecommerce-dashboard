@@ -248,9 +248,9 @@ const InsightCard = memo(function InsightCard({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   
-  const priorityConfig = PRIORITY_CONFIG[insight.priority];
-  const categoryConfig = CATEGORY_CONFIG[insight.category];
-  const CategoryIcon = categoryConfig.icon;
+  const priorityConfig = PRIORITY_CONFIG[insight.priority] || PRIORITY_CONFIG.medium;
+  const categoryConfig = CATEGORY_CONFIG[insight.category] || CATEGORY_CONFIG.general;
+  const CategoryIcon = categoryConfig?.icon || Lightbulb;
   
   const currentStatus = tracking?.status || 'pending';
   const statusConfig = STATUS_CONFIG[currentStatus];
