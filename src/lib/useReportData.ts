@@ -305,6 +305,17 @@ function transformToReportData(
       atc_to_purchase_rate: c.atc > 0 ? (c.purchases / c.atc) * 100 : 0,
     })),
 
+    // GA4 裝置數據
+    ga4_devices: (rawData?.ga4_devices || []).map((d: { device: string; users: number; sessions: number; session_pct: number; transactions: number; conv_rate: number; revenue: number }) => ({
+      device: d.device as 'mobile' | 'desktop' | 'tablet',
+      users: d.users || 0,
+      sessions: d.sessions || 0,
+      session_pct: d.session_pct || 0,
+      transactions: d.transactions || 0,
+      conv_rate: d.conv_rate || 0,
+      revenue: d.revenue || 0,
+    })),
+
     cyberbiz: {
       order_count: report.cyber_order_count,
       total_revenue: report.cyber_revenue,

@@ -78,6 +78,17 @@ export interface GA4Channel {
   atc_to_purchase_rate: number;
 }
 
+// GA4 裝置數據
+export interface GA4DeviceData {
+  device: 'mobile' | 'desktop' | 'tablet';
+  users: number;
+  sessions: number;
+  session_pct: number;
+  transactions: number;
+  conv_rate: number;
+  revenue: number;
+}
+
 export interface ProductRanking {
   product_name: string;
   variant: string;
@@ -156,6 +167,7 @@ export interface ReportData {
   meta_audience: MetaAudience;
   ga4: GA4Data;
   ga4_channels: GA4Channel[];
+  ga4_devices: GA4DeviceData[];
   cyberbiz: CyberbizData;
   gsc?: GSCData | null;
   mer: number;

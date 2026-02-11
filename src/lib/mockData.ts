@@ -102,6 +102,11 @@ export const mockReportData: ReportData = {
     { source: '(direct) / (none)', sessions: 106, atc: 0, ic: 1, purchases: 0, session_to_atc_rate: 0.0, atc_to_purchase_rate: 0 },
     { source: 'ig / paid', sessions: 97, atc: 9, ic: 4, purchases: 0, session_to_atc_rate: 9.28, atc_to_purchase_rate: 0.0 }
   ],
+  ga4_devices: [
+    { device: 'mobile', users: 515, sessions: 545, session_pct: 76.2, transactions: 5, conv_rate: 0.92, revenue: 3680 },
+    { device: 'desktop', users: 150, sessions: 155, session_pct: 21.7, transactions: 2, conv_rate: 1.29, revenue: 1185 },
+    { device: 'tablet', users: 15, sessions: 15, session_pct: 2.1, transactions: 0, conv_rate: 0, revenue: 0 }
+  ],
   cyberbiz: {
     order_count: 34,
     total_revenue: 5600.0,

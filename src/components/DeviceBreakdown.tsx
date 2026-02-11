@@ -10,8 +10,9 @@ import {
 } from 'recharts';
 import { Monitor, Smartphone, Tablet, TrendingUp, TrendingDown, Clock, MousePointer } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { GA4DeviceData } from '@/lib/types';
 
-// 裝置數據類型
+// 裝置數據類型（組件內部使用）
 export interface DeviceData {
   device: 'desktop' | 'mobile' | 'tablet';
   sessions: number;
@@ -24,7 +25,7 @@ export interface DeviceData {
 }
 
 interface DeviceBreakdownProps {
-  data?: DeviceData[];
+  data?: GA4DeviceData[];  // 接收 GA4 原始數據格式
   className?: string;
   isLive?: boolean; // 標示數據是否為真實數據
 }
@@ -142,13 +143,38 @@ const CustomTooltip = memo(function CustomTooltip({ active, payload }: CustomToo
   );
 });
 
+/**
+ * 將 GA4DeviceData 轉換為組件內部使用的 DeviceData 格式
+ */
+function mapGA4ToDeviceData(ga4Data: GA4DeviceData[]): DeviceData[] {
+  return ga4Data.map(d => ({
+    device: d.device,
+    sessions: d.sessions,
+    sessionPercent: d.session_pct,
+    conversions: d.transactions,
+    conversionRate: d.conv_rate,
+    // 以下是 GA4 原始數據沒有的欄位，使用預設值
+    bounceRate: 50, // 預設跳出率
+    avgSessionDuration: 120, // 預設停留時間 2 分鐘
+    pagesPerSession: 3.0, // 預設頁面數
+  }));
+}
+
 const DeviceBreakdown = memo(function DeviceBreakdown({ 
   data,
   className,
   isLive = false
 }: DeviceBreakdownProps) {
+  // 將 GA4 數據映射到組件格式，如果沒有數據則使用模擬數據
+  const mappedData = useMemo(() => {
+    if (data && data.length > 0) {
+      return mapGA4ToDeviceData(data);
+    }
+    return defaultData;
+  }, [data]);
+  
   // 判斷是否使用模擬數據
-  const actualData = data && data.length > 0 ? data : defaultData;
+  const actualData = mappedData;
   const isUsingMockData = !data || data.length === 0 || !isLive;
   // 準備圓餅圖數據
   const pieData = useMemo(() => 
