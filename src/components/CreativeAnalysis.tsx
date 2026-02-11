@@ -1,8 +1,217 @@
 'use client';
 
-import { memo, useState, useMemo } from 'react';
+import { memo, useState, useMemo, useRef } from 'react';
 import { Image, X, ChevronRight, ChevronLeft, Sparkles, AlertTriangle, Lightbulb, Palette, Type, Layout } from 'lucide-react';
 import { cn } from '@/lib/utils';
+
+// Hover Tooltip Component
+const HoverTooltip = memo(function HoverTooltip({ 
+  creative, 
+  show 
+}: { 
+  creative: AdCreative; 
+  show: boolean;
+}) {
+  if (!show) return null;
+  
+  const hasAnalysis = creative.vision_analysis || creative.success_factors?.length || creative.failure_factors?.length;
+  
+  return (
+    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-white rounded-xl shadow-2xl border border-gray-200 z-50 pointer-events-none animate-fade-in-up">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full">
+        <div className="w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white"></div>
+      </div>
+      
+      {hasAnalysis ? (
+        <div className="space-y-2">
+          <div className="flex items-center gap-1.5 text-indigo-600">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span className="text-xs font-semibold">AI 快速分析</span>
+          </div>
+          
+          {creative.success_factors && creative.success_factors.length > 0 && (
+            <div>
+              <p className="text-[10px] text-emerald-600 font-medium mb-1">✅ 成功因素</p>
+              <p className="text-[11px] text-gray-700 line-clamp-2">
+                {creative.success_factors[0]}
+              </p>
+            </div>
+          )}
+          
+          {creative.failure_factors && creative.failure_factors.length > 0 && (
+            <div>
+              <p className="text-[10px] text-red-600 font-medium mb-1">⚠️ 待改善</p>
+              <p className="text-[11px] text-gray-700 line-clamp-2">
+                {creative.failure_factors[0]}
+              </p>
+            </div>
+          )}
+          
+          {creative.vision_analysis?.composition && !creative.success_factors?.length && (
+            <div>
+              <p className="text-[10px] text-gray-500 font-medium mb-1">📐 構圖</p>
+              <p className="text-[11px] text-gray-700 line-clamp-2">
+                {creative.vision_analysis.composition}
+              </p>
+            </div>
+          )}
+          
+          <p className="text-[10px] text-indigo-500 mt-1">點擊查看完整分析 →</p>
+        </div>
+      ) : (
+        <div className="text-center py-2">
+          <p className="text-[11px] text-gray-500">尚無 AI 分析</p>
+          <p className="text-[10px] text-gray-400 mt-1">點擊查看詳情</p>
+        </div>
+      )}
+    </div>
+  );
+});
+
+// CreativeCard Component with hover tooltip
+interface CreativeCardProps {
+  creative: AdCreative;
+  index: number;
+  tierConfig: { bg: string; text: string; label: string };
+  analysisSummary: string | null;
+  hasCarousel: boolean;
+  isExpanded: boolean;
+  allImages: string[];
+  onSelect: () => void;
+  onToggleExpand: () => void;
+}
+
+const CreativeCard = memo(function CreativeCard({
+  creative,
+  index,
+  tierConfig,
+  analysisSummary,
+  hasCarousel,
+  isExpanded,
+  allImages,
+  onSelect,
+  onToggleExpand,
+}: CreativeCardProps) {
+  const [showTooltip, setShowTooltip] = useState(false);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    hoverTimeoutRef.current = setTimeout(() => {
+      setShowTooltip(true);
+    }, 300); // 300ms 延遲後顯示 tooltip
+  };
+
+  const handleMouseLeave = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    setShowTooltip(false);
+  };
+
+  return (
+    <div className="relative">
+      {/* Hover Tooltip */}
+      <HoverTooltip creative={creative} show={showTooltip} />
+      
+      <button
+        onClick={onSelect}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className="group relative w-full aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border-2 border-transparent hover:border-indigo-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+        aria-label={`查看素材 ${creative.creative_name || creative.ad_id} 詳情`}
+      >
+        {/* Thumbnail */}
+        {creative.thumbnail_url || creative.image_url ? (
+          <img
+            src={creative.thumbnail_url || creative.image_url || ''}
+            alt={creative.creative_name || `素材 ${index + 1}`}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+            <Image className="w-8 h-8 text-gray-400" />
+          </div>
+        )}
+        
+        {/* Overlay with AI Analysis Summary */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        
+        {/* Rank Badge */}
+        <div className="absolute top-2 left-2 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md">
+          <span className="text-xs sm:text-sm font-bold text-gray-800">
+            {index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`}
+          </span>
+        </div>
+
+        {/* Tier Badge */}
+        <div className={cn(
+          "absolute top-2 right-2 px-1.5 py-0.5 rounded-full text-[8px] sm:text-[10px] font-semibold",
+          tierConfig.bg, tierConfig.text
+        )}>
+          {tierConfig.label}
+        </div>
+
+        {/* Carousel Indicator */}
+        {hasCarousel && (
+          <div className="absolute top-10 right-2 px-1.5 py-0.5 bg-black/60 backdrop-blur-sm rounded-full text-[8px] sm:text-[10px] font-medium text-white flex items-center gap-1">
+            <span>📷</span>
+            <span>{allImages.length}</span>
+          </div>
+        )}
+
+        {/* AI Analysis on Hover */}
+        <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {analysisSummary ? (
+            <div className="flex items-start gap-1.5">
+              <Sparkles className="w-3 h-3 flex-shrink-0 mt-0.5 text-amber-300" />
+              <p className="text-[10px] sm:text-xs line-clamp-2 leading-relaxed">
+                {analysisSummary}
+              </p>
+            </div>
+          ) : (
+            <p className="text-[10px] sm:text-xs text-white/70 text-center">
+              點擊查看詳細分析
+            </p>
+          )}
+        </div>
+      </button>
+
+      {/* Expand Carousel Button */}
+      {hasCarousel && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onToggleExpand();
+          }}
+          className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-indigo-500 hover:bg-indigo-600 text-white text-[10px] rounded-full shadow-md transition-colors z-10"
+        >
+          {isExpanded ? '收起' : `展開 ${allImages.length} 張`}
+        </button>
+      )}
+
+      {/* Expanded Carousel Images */}
+      {isExpanded && allImages.length > 1 && (
+        <div className="absolute top-full left-0 right-0 mt-4 z-20 bg-white rounded-xl shadow-xl border border-gray-200 p-2">
+          <div className="grid grid-cols-3 gap-1.5">
+            {allImages.map((img, imgIndex) => (
+              <div 
+                key={imgIndex}
+                className="aspect-square rounded-lg overflow-hidden bg-gray-100 cursor-pointer hover:ring-2 hover:ring-indigo-400 transition-all"
+                onClick={onSelect}
+              >
+                <img
+                  src={img}
+                  alt={`輪播圖 ${imgIndex + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+});
 
 // Types
 export interface AdCreative {
@@ -169,102 +378,18 @@ const CreativeAnalysis = memo(function CreativeAnalysis({
             const allImages = getAllImages(creative);
             
             return (
-              <div key={creative.id} className="relative">
-                <button
-                  onClick={() => setSelectedCreative(creative)}
-                  className="group relative w-full aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border-2 border-transparent hover:border-indigo-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  aria-label={`查看素材 ${creative.creative_name || creative.ad_id} 詳情`}
-                >
-                  {/* Thumbnail */}
-                  {creative.thumbnail_url || creative.image_url ? (
-                    <img
-                      src={creative.thumbnail_url || creative.image_url || ''}
-                      alt={creative.creative_name || `素材 ${index + 1}`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
-                      <Image className="w-8 h-8 text-gray-400" />
-                    </div>
-                  )}
-                  
-                  {/* Overlay with AI Analysis Summary */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  {/* Rank Badge */}
-                  <div className="absolute top-2 left-2 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md">
-                    <span className="text-xs sm:text-sm font-bold text-gray-800">
-                      {index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`}
-                    </span>
-                  </div>
-
-                  {/* Tier Badge */}
-                  <div className={cn(
-                    "absolute top-2 right-2 px-1.5 py-0.5 rounded-full text-[8px] sm:text-[10px] font-semibold",
-                    tierConfig.bg, tierConfig.text
-                  )}>
-                    {tierConfig.label}
-                  </div>
-
-                  {/* Carousel Indicator */}
-                  {hasCarousel && (
-                    <div className="absolute top-10 right-2 px-1.5 py-0.5 bg-black/60 backdrop-blur-sm rounded-full text-[8px] sm:text-[10px] font-medium text-white flex items-center gap-1">
-                      <span>📷</span>
-                      <span>{allImages.length}</span>
-                    </div>
-                  )}
-
-                  {/* AI Analysis on Hover (取代原本的 ROAS、花費) */}
-                  <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {analysisSummary ? (
-                      <div className="flex items-start gap-1.5">
-                        <Sparkles className="w-3 h-3 flex-shrink-0 mt-0.5 text-amber-300" />
-                        <p className="text-[10px] sm:text-xs line-clamp-2 leading-relaxed">
-                          {analysisSummary}
-                        </p>
-                      </div>
-                    ) : (
-                      <p className="text-[10px] sm:text-xs text-white/70 text-center">
-                        點擊查看詳細分析
-                      </p>
-                    )}
-                  </div>
-                </button>
-
-                {/* Expand Carousel Button */}
-                {hasCarousel && (
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setExpandedCarousel(isExpanded ? null : creative.id);
-                    }}
-                    className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-indigo-500 hover:bg-indigo-600 text-white text-[10px] rounded-full shadow-md transition-colors z-10"
-                  >
-                    {isExpanded ? '收起' : `展開 ${allImages.length} 張`}
-                  </button>
-                )}
-
-                {/* Expanded Carousel Images */}
-                {isExpanded && allImages.length > 1 && (
-                  <div className="absolute top-full left-0 right-0 mt-4 z-20 bg-white rounded-xl shadow-xl border border-gray-200 p-2">
-                    <div className="grid grid-cols-3 gap-1.5">
-                      {allImages.map((img, imgIndex) => (
-                        <div 
-                          key={imgIndex}
-                          className="aspect-square rounded-lg overflow-hidden bg-gray-100 cursor-pointer hover:ring-2 hover:ring-indigo-400 transition-all"
-                          onClick={() => setSelectedCreative(creative)}
-                        >
-                          <img
-                            src={img}
-                            alt={`輪播圖 ${imgIndex + 1}`}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
+              <CreativeCard
+                key={creative.id}
+                creative={creative}
+                index={index}
+                tierConfig={tierConfig}
+                analysisSummary={analysisSummary}
+                hasCarousel={hasCarousel}
+                isExpanded={isExpanded}
+                allImages={allImages}
+                onSelect={() => setSelectedCreative(creative)}
+                onToggleExpand={() => setExpandedCarousel(isExpanded ? null : creative.id)}
+              />
             );
           })}
         </div>
