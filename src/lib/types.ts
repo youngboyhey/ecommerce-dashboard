@@ -116,6 +116,34 @@ export interface Summary {
   top_product: string;
 }
 
+// GSC 數據類型
+export interface GSCKeyword {
+  query: string;
+  impressions: number;
+  clicks: number;
+  ctr: number;
+  position: number;
+}
+
+export interface GSCPage {
+  page_path: string;
+  impressions: number;
+  clicks: number;
+  ctr: number;
+  position: number;
+}
+
+export interface GSCData {
+  total: {
+    impressions: number;
+    clicks: number;
+    ctr: number;
+    position: number;
+  };
+  top_queries: GSCKeyword[];
+  top_pages: GSCPage[];
+}
+
 export interface ReportData {
   mode: 'daily' | 'weekly';
   start_date: string;
@@ -129,6 +157,7 @@ export interface ReportData {
   ga4: GA4Data;
   ga4_channels: GA4Channel[];
   cyberbiz: CyberbizData;
+  gsc?: GSCData | null;
   mer: number;
   wow: WoWData | null;
   summary: Summary;

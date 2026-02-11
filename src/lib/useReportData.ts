@@ -231,6 +231,7 @@ function transformToReportData(
 
     mer: report.mer,
     wow: rawData?.wow || null,
+    gsc: rawData?.gsc || null,
 
     summary: {
       total_spend: report.meta_spend,

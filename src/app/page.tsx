@@ -244,7 +244,7 @@ export default function Dashboard() {
           <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
             <span>🔄</span> 網站行為分析
           </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             <GA4Funnel />
             <AudienceAnalysis />
             <DeviceBreakdown />
@@ -258,13 +258,34 @@ export default function Dashboard() {
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <ProductRanking />
-            <GSCPerformance />
+            <GSCPerformance 
+              summary={data.gsc ? {
+                totalImpressions: data.gsc.total.impressions,
+                totalClicks: data.gsc.total.clicks,
+                avgCtr: data.gsc.total.ctr,
+                avgPosition: data.gsc.total.position,
+              } : undefined}
+              keywords={data.gsc?.top_queries?.map(q => ({
+                keyword: q.query,
+                impressions: q.impressions,
+                clicks: q.clicks,
+                ctr: q.ctr,
+                position: q.position,
+              }))}
+              pages={data.gsc?.top_pages?.map(p => ({
+                page: p.page_path,
+                impressions: p.impressions,
+                clicks: p.clicks,
+                ctr: p.ctr,
+                position: p.position,
+              }))}
+            />
           </div>
         </section>
 
         {/* 流量來源分析 */}
         <section aria-label="流量來源分析" className="mb-8">
-          <ChannelPerformance />
+          <ChannelPerformance data={data.ga4_channels} />
         </section>
 
         {/* Summary Banner */}

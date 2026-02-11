@@ -11,15 +11,35 @@ import {
   ResponsiveContainer,
   Cell
 } from 'recharts';
-import { mockReportData } from '@/lib/mockData';
 import { formatNumber, formatPercent } from '@/lib/utils';
 import { CHART_COLORS } from '@/lib/constants';
+
+// 流量來源中文名稱對照
+const SOURCE_LABELS: Record<string, string> = {
+  'google / cpc': 'Google 廣告',
+  'google / organic': 'Google 自然搜尋',
+  'facebook / paid': 'Facebook 廣告',
+  'facebook / cpc': 'Facebook 廣告',
+  'fb / paid': 'Facebook 廣告',
+  'instagram / paid': 'Instagram 廣告',
+  'ig / paid': 'Instagram 廣告',
+  'meta / paid': 'Meta 廣告',
+  '(direct) / (none)': '直接流量',
+  'direct / none': '直接流量',
+  'line / referral': 'LINE 推薦',
+  'yahoo / organic': 'Yahoo 自然搜尋',
+  'bing / organic': 'Bing 自然搜尋',
+  'youtube / referral': 'YouTube 推薦',
+  'email / newsletter': '電子報',
+  'sms / campaign': '簡訊行銷',
+};
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TooltipPayload = any;
 
 interface ChannelData {
   source: string;
+  displayName?: string;
   sessions: number;
   atc: number;
   ic: number;
@@ -38,7 +58,7 @@ const ChannelTooltip = memo(function ChannelTooltip({
   
   return (
     <div className="bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-gray-100">
-      <p className="font-semibold text-gray-900 mb-3 text-sm">{data.source}</p>
+      <p className="font-semibold text-gray-900 mb-3 text-sm">{data.displayName || data.source}</p>
       <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
         <div>
           <p className="text-gray-500">Sessions</p>
@@ -61,14 +81,22 @@ const ChannelTooltip = memo(function ChannelTooltip({
   );
 });
 
-const ChannelPerformance = memo(function ChannelPerformance() {
-  const channels = useMemo(() => 
-    mockReportData.ga4_channels
+interface ChannelPerformanceProps {
+  data?: ChannelData[];
+}
+
+const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPerformanceProps) {
+  const channels = useMemo(() => {
+    const sourceData = data || [];
+    return sourceData
       .filter(c => c.sessions > 20)
       .sort((a, b) => b.sessions - a.sessions)
-      .slice(0, 6),
-    []
-  );
+      .slice(0, 6)
+      .map(c => ({
+        ...c,
+        displayName: SOURCE_LABELS[c.source.toLowerCase()] || c.source
+      }));
+  }, [data]);
 
   return (
     <section 
@@ -102,12 +130,11 @@ const ChannelPerformance = memo(function ChannelPerformance() {
             />
             <YAxis 
               type="category"
-              dataKey="source"
+              dataKey="displayName"
               tick={{ fill: '#6B7280', fontSize: 11 }}
               axisLine={false}
               tickLine={false}
-              width={150}
-              tickFormatter={(value: string) => value.length > 20 ? value.slice(0, 20) + '...' : value}
+              width={120}
             />
             <Tooltip content={<ChannelTooltip />} />
             <Bar 
@@ -156,7 +183,7 @@ const ChannelPerformance = memo(function ChannelPerformance() {
                       aria-hidden="true"
                     />
                     <span className="font-medium text-gray-900 truncate max-w-[140px]" title={channel.source}>
-                      {channel.source}
+                      {channel.displayName || channel.source}
                     </span>
                   </div>
                 </td>

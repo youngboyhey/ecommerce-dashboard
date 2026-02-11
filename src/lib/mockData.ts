@@ -116,6 +116,7 @@ export const mockReportData: ReportData = {
     ]
   },
   mer: 0.86,
+  gsc: null,
   wow: {
     meta_roas_change: 90.46,
     cyber_revenue_change: -28.66,
