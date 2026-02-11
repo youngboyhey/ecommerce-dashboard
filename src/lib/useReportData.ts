@@ -500,7 +500,7 @@ function aggregateDailyReports(dailyReports: ReportRow[], dateRange: DateRange):
     // 🔧 修復：資料庫存的是 { total: {...}, top_queries: [...], top_pages: [...] } 格式
     type GscTotalData = { clicks: number; impressions: number; ctr: number; position: number };
     type GscQueryData = { query: string; clicks: number; impressions: number; ctr: number; position: number };
-    type GscPageData = { page: string; clicks: number; impressions: number; ctr: number; position: number };
+    type GscPageData = { page: string; title?: string; clicks: number; impressions: number; ctr: number; position: number };
     type GscRawData = { total?: GscTotalData; top_queries?: GscQueryData[]; top_pages?: GscPageData[] };
     
     // 聚合 total 數據
@@ -551,8 +551,8 @@ function aggregateDailyReports(dailyReports: ReportRow[], dateRange: DateRange):
       .sort((a, b) => b.clicks - a.clicks) // 按點擊數排序
       .slice(0, 10); // 取 TOP 10
     
-    // 🔧 修復：聚合 top_pages（按 page 合併）
-    const pageMap = new Map<string, { clicks: number; impressions: number; positionSum: number; count: number }>();
+    // 🔧 修復：聚合 top_pages（按 page 合併），保留 title
+    const pageMap = new Map<string, { title?: string; clicks: number; impressions: number; positionSum: number; count: number }>();
     for (const r of dailyReports) {
       const raw = r.raw_data as Record<string, unknown> | undefined;
       const gsc = raw?.gsc as GscRawData | undefined;
@@ -564,8 +564,13 @@ function aggregateDailyReports(dailyReports: ReportRow[], dateRange: DateRange):
           existing.impressions += p.impressions || 0;
           existing.positionSum += p.position || 0;
           existing.count += 1;
+          // 保留 title（優先使用已有的，或更新為新的）
+          if (!existing.title && p.title) {
+            existing.title = p.title;
+          }
         } else {
           pageMap.set(p.page, {
+            title: p.title,
             clicks: p.clicks || 0,
             impressions: p.impressions || 0,
             positionSum: p.position || 0,
@@ -577,6 +582,7 @@ function aggregateDailyReports(dailyReports: ReportRow[], dateRange: DateRange):
     const aggregatedPages = Array.from(pageMap.entries())
       .map(([page, data]) => ({
         page,
+        title: data.title,
         clicks: data.clicks,
         impressions: data.impressions,
         ctr: data.impressions > 0 ? (data.clicks / data.impressions) * 100 : 0,
