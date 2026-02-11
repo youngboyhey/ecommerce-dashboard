@@ -53,6 +53,17 @@ const SOURCE_LABELS: Record<string, string> = {
   'youtube / referral': 'YouTube 推薦',
   'email / newsletter': '電子報',
   'sms / campaign': '簡訊行銷',
+  // 2025-02 新增
+  '192.168.10.23 / referral': '內部網路',
+  'access.line.me / referral': 'LINE',
+  'an / paid': 'Audience Network 廣告',
+  'boschmanec.cyberbiz.co / referral': 'BOSCH 商城',
+  'chatgpt.com / (not set)': 'ChatGPT',
+  'cyberbizpay.com / referral': 'Cyberbiz 金流',
+  'facebook / cpc': 'Facebook CPC',
+  'facebook.com / referral': 'Facebook',
+  'l.instagram.com / referral': 'Instagram 連結',
+  'liquimolytaiwan.github.io / referral': '力魔 GitHub',
 };
 
 // 取得來源的中文顯示名稱
