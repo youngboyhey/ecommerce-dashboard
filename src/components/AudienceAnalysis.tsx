@@ -153,14 +153,14 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
             性別分佈
           </h3>
           <div aria-label="性別分佈圓餅圖">
-            <ResponsiveContainer width="100%" height={180}>
+            <ResponsiveContainer width="100%" height={160}>
               <PieChart>
                 <Pie
                   data={genderData}
                   cx="50%"
                   cy="50%"
-                  innerRadius={45}
-                  outerRadius={70}
+                  innerRadius={35}
+                  outerRadius={55}
                   paddingAngle={3}
                   dataKey="value"
                   labelLine={false}
@@ -201,7 +201,7 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
             年齡分佈
           </h3>
           <div aria-label="年齡分佈長條圖">
-            <ResponsiveContainer width="100%" height={180}>
+            <ResponsiveContainer width="100%" height={200}>
               <BarChart data={ageData}>
                 <CartesianGrid 
                   strokeDasharray="3 3" 
