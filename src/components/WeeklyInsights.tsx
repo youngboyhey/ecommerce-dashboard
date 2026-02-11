@@ -27,7 +27,7 @@ export interface Insight {
   title: string;
   finding: string;
   recommendation: string;
-  expected_impact: string;
+  expected_impact: string | { metric?: string; estimate?: string };
   data_points?: Record<string, unknown>;
 }
 
@@ -373,7 +373,9 @@ const InsightCard = memo(function InsightCard({
         <TrendingUp className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0 mt-0.5" />
         <p>
           <span className="font-medium text-emerald-600">預期效果：</span>
-          {insight.expected_impact}
+          {typeof insight.expected_impact === 'string' 
+            ? insight.expected_impact 
+            : insight.expected_impact?.estimate || '待評估'}
         </p>
       </div>
 
