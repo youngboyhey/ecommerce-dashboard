@@ -293,14 +293,21 @@ export default function Dashboard() {
                 ctr: q.ctr,
                 position: q.position,
               }))}
-              pages={data.gsc?.top_pages?.map(p => ({
-                page: p.page,  // 🔧 修復：與資料庫欄位名稱一致（原本是 page_path）
-                title: p.title, // 🔧 新增：頁面標題
-                impressions: p.impressions,
-                clicks: p.clicks,
-                ctr: p.ctr,
-                position: p.position,
-              }))}
+              pages={(() => {
+                const pages = data.gsc?.top_pages?.map(p => ({
+                  page: p.page,
+                  title: p.title,
+                  impressions: p.impressions,
+                  clicks: p.clicks,
+                  ctr: p.ctr,
+                  position: p.position,
+                }));
+                // Debug: 檢查 title 是否存在
+                if (pages && pages.length > 0) {
+                  console.log('[GSC Debug] First page:', pages[0]);
+                }
+                return pages;
+              })()}
             />
           </div>
         </section>
