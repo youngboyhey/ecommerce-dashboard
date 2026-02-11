@@ -455,6 +455,94 @@ function aggregateDailyReports(dailyReports: ReportRow[], dateRange: DateRange):
   // 使用最新的 daily 報表作為基礎
   const latestReport = dailyReports[dailyReports.length - 1];
   
+  // 🔧 聚合 raw_data 裡的關鍵數據（修復：原本只取最後一天的數據）
+  const aggregatedRawData = (() => {
+    // 聚合 GA4 漏斗數據
+    const ga4Ic = dailyReports.reduce((sum, r) => {
+      const raw = r.raw_data as Record<string, unknown> | undefined;
+      const ga4 = raw?.ga4 as Record<string, unknown> | undefined;
+      return sum + (Number(ga4?.ic) || 0);
+    }, 0);
+    
+    const ga4EcommercePurchases = dailyReports.reduce((sum, r) => {
+      const raw = r.raw_data as Record<string, unknown> | undefined;
+      const ga4 = raw?.ga4 as Record<string, unknown> | undefined;
+      return sum + (Number(ga4?.ecommerce_purchases) || 0);
+    }, 0);
+
+    // 聚合 GA4 設備數據（按 device 類型合併）
+    type DeviceRow = { device: string; users: number; sessions: number; session_pct: number; transactions: number; conv_rate: number; revenue: number };
+    const deviceMap = new Map<string, DeviceRow>();
+    for (const r of dailyReports) {
+      const raw = r.raw_data as Record<string, unknown> | undefined;
+      const devices = (raw?.ga4_devices || []) as DeviceRow[];
+      for (const d of devices) {
+        const existing = deviceMap.get(d.device);
+        if (existing) {
+          existing.users += d.users || 0;
+          existing.sessions += d.sessions || 0;
+          existing.transactions += d.transactions || 0;
+          existing.revenue += d.revenue || 0;
+        } else {
+          deviceMap.set(d.device, { ...d });
+        }
+      }
+    }
+    // 重新計算設備百分比和轉換率
+    const totalDeviceSessions = Array.from(deviceMap.values()).reduce((sum, d) => sum + d.sessions, 0);
+    const aggregatedDevices = Array.from(deviceMap.values()).map(d => ({
+      ...d,
+      session_pct: totalDeviceSessions > 0 ? (d.sessions / totalDeviceSessions) * 100 : 0,
+      conv_rate: d.sessions > 0 ? (d.transactions / d.sessions) * 100 : 0,
+    }));
+
+    // 聚合 GSC 數據
+    type GscData = { clicks: number; impressions: number; ctr: number; position: number };
+    const gscAggregated = dailyReports.reduce((acc, r) => {
+      const raw = r.raw_data as Record<string, unknown> | undefined;
+      const gsc = raw?.gsc as GscData | undefined;
+      if (gsc) {
+        acc.clicks += gsc.clicks || 0;
+        acc.impressions += gsc.impressions || 0;
+        acc.count += 1;
+        acc.positionSum += gsc.position || 0;
+      }
+      return acc;
+    }, { clicks: 0, impressions: 0, count: 0, positionSum: 0 });
+    
+    const aggregatedGsc = gscAggregated.count > 0 ? {
+      clicks: gscAggregated.clicks,
+      impressions: gscAggregated.impressions,
+      ctr: gscAggregated.impressions > 0 ? (gscAggregated.clicks / gscAggregated.impressions) * 100 : 0,
+      position: gscAggregated.positionSum / gscAggregated.count, // 平均排名
+    } : null;
+
+    // 計算聚合後的漏斗比率
+    const aggregatedFunnelRates = {
+      session_to_atc: ga4Sessions > 0 ? (ga4Atc / ga4Sessions) * 100 : 0,
+      atc_to_checkout: ga4Atc > 0 ? (ga4Ic / ga4Atc) * 100 : 0,
+      checkout_to_purchase: ga4Ic > 0 ? (ga4Purchases / ga4Ic) * 100 : 0,
+      overall_conversion: ga4Sessions > 0 ? (ga4Purchases / ga4Sessions) * 100 : 0,
+      atc_drop_off: ga4Atc > 0 ? ((ga4Atc - ga4Ic) / ga4Atc) * 100 : 0,
+      checkout_drop_off: ga4Ic > 0 ? ((ga4Ic - ga4Purchases) / ga4Ic) * 100 : 0,
+      purchase_drop_off: 0,
+    };
+
+    // 使用最新報表的 meta_audience（這個不需要數值聚合，保持原樣）
+    const latestRaw = latestReport.raw_data as Record<string, unknown> | undefined;
+
+    return {
+      ga4: {
+        ic: ga4Ic,
+        ecommerce_purchases: ga4EcommercePurchases,
+        funnel_rates: aggregatedFunnelRates,
+      },
+      ga4_devices: aggregatedDevices,
+      gsc: aggregatedGsc,
+      meta_audience: latestRaw?.meta_audience || null,
+    };
+  })();
+
   return {
     id: `aggregated-${dateRange.start}-${dateRange.end}`,
     mode: 'weekly',
@@ -484,7 +572,7 @@ function aggregateDailyReports(dailyReports: ReportRow[], dateRange: DateRange):
     cyber_new_members: cyberNewMembers,
     
     mer: mer,
-    raw_data: latestReport.raw_data || {},
+    raw_data: aggregatedRawData,
   };
 }
 
