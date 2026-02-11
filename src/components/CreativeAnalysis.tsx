@@ -17,7 +17,7 @@ const HoverTooltip = memo(function HoverTooltip({
   const hasAnalysis = creative.vision_analysis || creative.success_factors?.length || creative.failure_factors?.length;
   
   return (
-    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-white rounded-xl shadow-2xl border border-gray-200 z-50 pointer-events-none animate-fade-in-up">
+    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-white rounded-xl shadow-2xl border border-gray-200 z-[100] pointer-events-none animate-fade-in-up">
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full">
         <div className="w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white"></div>
       </div>
@@ -346,7 +346,7 @@ const CreativeAnalysis = memo(function CreativeAnalysis({
   return (
     <>
       <section 
-        className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg shadow-gray-200/50 border border-gray-100"
+        className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg shadow-gray-200/50 border border-gray-100 overflow-visible"
         aria-labelledby="creative-analysis-title"
       >
         {/* Header */}
@@ -367,8 +367,8 @@ const CreativeAnalysis = memo(function CreativeAnalysis({
           </span>
         </div>
 
-        {/* Creative Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
+        {/* Creative Grid - overflow-visible to allow tooltips */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4 overflow-visible">
           {topCreatives.map((creative, index) => {
             const tier = creative.performance_tier || 'medium';
             const tierConfig = TIER_CONFIG[tier] || TIER_CONFIG.medium;
