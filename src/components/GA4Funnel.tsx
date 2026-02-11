@@ -101,14 +101,20 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
 
       {/* Funnel Visualization */}
       <div 
-        className="space-y-8" 
+        className="space-y-6 sm:space-y-8" 
         role="list" 
         aria-label="轉換漏斗步驟"
       >
         {funnelSteps.map((step, index) => {
-          const widthPercent = (step.value / maxValue) * 100;
+          // 使用對數刻度讓小數值在手機版更明顯
+          const rawPercent = (step.value / maxValue) * 100;
+          // 手機版使用更大的最小寬度，並用平方根讓差異不那麼極端
+          const mobileWidthPercent = 25 + (Math.sqrt(rawPercent / 100) * 75);
+          const desktopWidthPercent = Math.max(rawPercent, 8);
+          
           const prevStep = index > 0 ? funnelSteps[index - 1] : null;
           const conversionFromPrev = prevStep ? (step.value / prevStep.value * 100) : 100;
+          const percentOfTotal = ((step.value / funnelSteps[0].value) * 100).toFixed(1);
 
           return (
             <div 
@@ -118,9 +124,9 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
             >
               {/* Conversion Rate Badge */}
               {index > 0 && (
-                <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 z-10">
+                <div className="absolute -top-4 sm:-top-5 left-1/2 transform -translate-x-1/2 z-10">
                   <div className={`
-                    px-3 py-1 rounded-full text-xs font-bold shadow-sm
+                    px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold shadow-sm
                     ${conversionFromPrev < 30 
                       ? 'bg-red-100 text-red-700' 
                       : conversionFromPrev < 50 
@@ -133,7 +139,47 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
                 </div>
               )}
 
-              <div className="flex items-center gap-4">
+              {/* Mobile Layout: Stacked */}
+              <div className="sm:hidden">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl" aria-hidden="true">{step.icon}</span>
+                    <span className="text-sm font-semibold text-gray-700">{step.name}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-base font-bold text-gray-900 font-mono-nums">
+                      {formatNumber(step.value)}
+                    </span>
+                    {step.dropOff !== null && (
+                      <span className="px-1.5 py-0.5 bg-red-50 text-red-600 text-[10px] font-semibold rounded-full">
+                        -{step.dropOff.toFixed(0)}%
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div 
+                  className="h-12 bg-gray-100 rounded-xl overflow-hidden border border-gray-100"
+                  role="progressbar"
+                  aria-valuenow={rawPercent}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-label={`${step.name}: ${step.value}`}
+                >
+                  <div 
+                    className={`h-full bg-gradient-to-r ${step.gradient} rounded-xl transition-all duration-700 ease-out flex items-center justify-end pr-3 relative overflow-hidden`}
+                    style={{ width: `${mobileWidthPercent}%` }}
+                  >
+                    {/* Shimmer effect */}
+                    <div className="absolute inset-0 animate-shimmer" />
+                    <span className="relative text-white text-sm font-bold drop-shadow-lg">
+                      {percentOfTotal}%
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Desktop Layout: Horizontal */}
+              <div className="hidden sm:flex items-center gap-4">
                 {/* Icon */}
                 <div 
                   className="text-2xl w-12 h-12 flex items-center justify-center bg-gray-50 border border-gray-100 rounded-xl group-hover:scale-110 transition-transform duration-300"
@@ -153,20 +199,20 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
                   <div 
                     className="h-10 bg-gray-100 rounded-xl overflow-hidden border border-gray-100"
                     role="progressbar"
-                    aria-valuenow={widthPercent}
+                    aria-valuenow={rawPercent}
                     aria-valuemin={0}
                     aria-valuemax={100}
                     aria-label={`${step.name}: ${step.value}`}
                   >
                     <div 
                       className={`h-full bg-gradient-to-r ${step.gradient} rounded-xl transition-all duration-700 ease-out flex items-center justify-end pr-4 relative overflow-hidden`}
-                      style={{ width: `${Math.max(widthPercent, 5)}%` }}
+                      style={{ width: `${desktopWidthPercent}%` }}
                     >
                       {/* Shimmer effect */}
                       <div className="absolute inset-0 animate-shimmer" />
-                      {widthPercent > 15 && (
+                      {rawPercent > 15 && (
                         <span className="relative text-white text-xs font-bold drop-shadow-lg">
-                          {((step.value / funnelSteps[0].value) * 100).toFixed(1)}%
+                          {percentOfTotal}%
                         </span>
                       )}
                     </div>
@@ -190,24 +236,24 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
       </div>
 
       {/* Summary Stats */}
-      <div className="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-gray-100">
-        <div className="text-center p-4 bg-indigo-50 rounded-xl border border-indigo-100">
-          <p className="text-2xl font-bold text-indigo-600 font-mono-nums">
+      <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-100">
+        <div className="text-center p-2.5 sm:p-4 bg-indigo-50 rounded-xl border border-indigo-100">
+          <p className="text-lg sm:text-2xl font-bold text-indigo-600 font-mono-nums">
             {formatNumber(ga4.active_users)}
           </p>
-          <p className="text-xs text-gray-500 mt-1 font-medium">活躍用戶</p>
+          <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 font-medium">活躍用戶</p>
         </div>
-        <div className="text-center p-4 bg-purple-50 rounded-xl border border-purple-100">
-          <p className="text-2xl font-bold text-purple-600 font-mono-nums">
+        <div className="text-center p-2.5 sm:p-4 bg-purple-50 rounded-xl border border-purple-100">
+          <p className="text-lg sm:text-2xl font-bold text-purple-600 font-mono-nums">
             {formatPercent(funnel_rates.session_to_atc)}
           </p>
-          <p className="text-xs text-gray-500 mt-1 font-medium">加購率</p>
+          <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 font-medium">加購率</p>
         </div>
-        <div className="text-center p-4 bg-emerald-50 rounded-xl border border-emerald-100">
-          <p className="text-2xl font-bold text-emerald-600 font-mono-nums">
+        <div className="text-center p-2.5 sm:p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+          <p className="text-lg sm:text-2xl font-bold text-emerald-600 font-mono-nums">
             {formatPercent(funnel_rates.overall_conversion)}
           </p>
-          <p className="text-xs text-gray-500 mt-1 font-medium">轉換率</p>
+          <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 font-medium">轉換率</p>
         </div>
       </div>
     </section>

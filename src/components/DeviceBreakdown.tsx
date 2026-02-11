@@ -268,40 +268,40 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
         >
           <thead>
             <tr className="border-b border-gray-200">
-              <th scope="col" className="text-left py-3 text-gray-500 font-semibold uppercase tracking-wider">
+              <th scope="col" className="text-left py-3 text-gray-500 font-semibold uppercase tracking-wider whitespace-nowrap">
                 裝置
               </th>
               <th 
                 scope="col" 
-                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none"
+                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none whitespace-nowrap"
                 onClick={() => handleSort('users')}
               >
                 用戶{getSortIndicator('users')}
               </th>
               <th 
                 scope="col" 
-                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none"
+                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none whitespace-nowrap"
                 onClick={() => handleSort('sessions')}
               >
-                Sessions{getSortIndicator('sessions')}
+                流量{getSortIndicator('sessions')}
               </th>
               <th 
                 scope="col" 
-                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none"
+                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none whitespace-nowrap"
                 onClick={() => handleSort('revenue')}
               >
                 收入{getSortIndicator('revenue')}
               </th>
               <th 
                 scope="col" 
-                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none"
+                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none whitespace-nowrap"
                 onClick={() => handleSort('transactions')}
               >
-                轉換數{getSortIndicator('transactions')}
+                轉換{getSortIndicator('transactions')}
               </th>
               <th 
                 scope="col" 
-                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none"
+                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none whitespace-nowrap"
                 onClick={() => handleSort('conv_rate')}
               >
                 轉換率{getSortIndicator('conv_rate')}
