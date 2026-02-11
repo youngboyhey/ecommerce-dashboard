@@ -116,16 +116,16 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
 
   return (
     <section 
-      className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100"
+      className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg shadow-gray-200/50 border border-gray-100"
       aria-labelledby="revenue-trend-title"
     >
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-            <TrendingUp className="w-5 h-5 text-white" />
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+            <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
           </div>
           <div>
-            <h2 id="revenue-trend-title" className="text-lg font-semibold text-gray-900">
+            <h2 id="revenue-trend-title" className="text-base sm:text-lg font-semibold text-gray-900">
               營收趨勢
             </h2>
             <div className="flex items-center gap-2 mt-0.5">
@@ -133,17 +133,17 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
                 <span className="text-xs text-gray-400 animate-pulse">載入中...</span>
               )}
               {!isLoading && dailyData.length > 0 && (
-                <span className="badge badge-success text-xs">● 即時數據</span>
+                <span className="badge badge-success text-[10px] sm:text-xs">● 即時數據</span>
               )}
               {!isLoading && error && (
-                <span className="badge badge-warning text-xs">⚠️ 備用數據</span>
+                <span className="badge badge-warning text-[10px] sm:text-xs">⚠️ 備用數據</span>
               )}
             </div>
           </div>
         </div>
         
         {/* 時間範圍切換 */}
-        <div className="flex gap-1 p-1 rounded-xl bg-gray-100 border border-gray-200" role="tablist">
+        <div className="flex gap-0.5 sm:gap-1 p-0.5 sm:p-1 rounded-lg sm:rounded-xl bg-gray-100 border border-gray-200" role="tablist">
           {(['daily', 'weekly'] as TimeRange[]).map((range) => (
             <button
               key={range}
@@ -151,7 +151,7 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
               role="tab"
               aria-selected={timeRange === range}
               aria-controls="revenue-chart"
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
                 timeRange === range
                   ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg shadow-indigo-500/30'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
@@ -163,7 +163,7 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
         </div>
       </div>
 
-      <div id="revenue-chart" role="tabpanel" aria-label="營收趨勢圖表">
+      <div id="revenue-chart" role="tabpanel" aria-label="營收趨勢圖表" className="min-h-[250px] sm:min-h-[350px]">
         <ResponsiveContainer width="100%" height={350}>
           <ComposedChart data={data}>
             <defs>

@@ -25,7 +25,7 @@ const WeekSelector = memo(function WeekSelector({
           const week = options.find(w => w.startDate === e.target.value);
           if (week) onChange(week);
         }}
-        className="appearance-none bg-white border border-gray-200 rounded-lg px-4 py-2 pr-10 text-sm font-medium text-gray-700 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+        className="appearance-none bg-white border border-gray-200 rounded-lg px-2 sm:px-4 py-1.5 sm:py-2 pr-7 sm:pr-10 text-xs sm:text-sm font-medium text-gray-700 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer max-w-[120px] sm:max-w-none truncate"
       >
         {options.map((option, index) => (
           <option key={option.startDate} value={option.startDate}>
@@ -33,7 +33,7 @@ const WeekSelector = memo(function WeekSelector({
           </option>
         ))}
       </select>
-      <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+      <ChevronDown className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-3 h-3 sm:w-4 sm:h-4 text-gray-400 pointer-events-none" />
     </div>
   );
 });

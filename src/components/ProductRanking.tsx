@@ -53,28 +53,28 @@ const ProductRanking = memo(function ProductRanking({ products, summary }: Produ
 
   return (
     <section 
-      className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100"
+      className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg shadow-gray-200/50 border border-gray-100"
       aria-labelledby="product-ranking-title"
     >
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/30">
-            <Trophy className="w-5 h-5 text-white" />
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/30">
+            <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
           </div>
           <div>
-            <h2 id="product-ranking-title" className="text-lg font-semibold text-gray-900">
+            <h2 id="product-ranking-title" className="text-base sm:text-lg font-semibold text-gray-900">
               商品銷售排行
             </h2>
-            <p className="text-xs text-gray-500 mt-0.5">本週熱銷商品</p>
+            <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5">本週熱銷商品</p>
           </div>
         </div>
-        <span className="badge badge-info">
+        <span className="badge badge-info text-[10px] sm:text-xs">
           Top {rankedProducts.length}
         </span>
       </div>
 
       <div 
-        className="space-y-5" 
+        className="space-y-3 sm:space-y-5" 
         role="list" 
         aria-label="商品銷售排行榜"
       >
@@ -91,34 +91,34 @@ const ProductRanking = memo(function ProductRanking({ products, summary }: Produ
               className="group"
               role="listitem"
             >
-              <div className="flex items-center gap-4 mb-2">
+              <div className="flex items-center gap-2 sm:gap-4 mb-1.5 sm:mb-2">
                 {/* Rank */}
-                <div className={`w-10 h-10 flex items-center justify-center rounded-xl bg-gray-50 border border-gray-100 group-hover:scale-110 transition-transform duration-300 ${
+                <div className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg sm:rounded-xl bg-gray-50 border border-gray-100 group-hover:scale-110 transition-transform duration-300 ${
                   isTopThree ? 'ring-1 ring-amber-200' : ''
                 }`}>
                   {isTopThree ? (
-                    <span className="text-xl" role="img" aria-label={`第 ${index + 1} 名`}>
+                    <span className="text-base sm:text-xl" role="img" aria-label={`第 ${index + 1} 名`}>
                       {MEDALS[index]}
                     </span>
                   ) : (
-                    <span className="text-sm font-bold text-gray-400">#{index + 1}</span>
+                    <span className="text-xs sm:text-sm font-bold text-gray-400">#{index + 1}</span>
                   )}
                 </div>
 
                 {/* Product Info */}
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-gray-700 truncate group-hover:text-gray-900 transition-colors">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-700 truncate group-hover:text-gray-900 transition-colors">
                     {product.product_name}
                   </p>
-                  <p className="text-xs text-gray-400 mt-0.5">SKU: {product.sku}</p>
+                  <p className="text-[10px] sm:text-xs text-gray-400 mt-0.5 truncate">SKU: {product.sku}</p>
                 </div>
 
                 {/* Stats */}
-                <div className="text-right">
-                  <p className="text-base font-bold text-gray-900 font-mono-nums">
+                <div className="text-right flex-shrink-0">
+                  <p className="text-sm sm:text-base font-bold text-gray-900 font-mono-nums">
                     {formatCurrency(product.total_revenue)}
                   </p>
-                  <p className="text-xs text-gray-400 mt-0.5">
+                  <p className="text-[10px] sm:text-xs text-gray-400 mt-0.5">
                     <span className="font-medium text-indigo-600">{product.total_quantity}</span> 件
                   </p>
                 </div>
@@ -126,7 +126,7 @@ const ProductRanking = memo(function ProductRanking({ products, summary }: Produ
 
               {/* Progress Bar */}
               <div 
-                className="ml-14 h-2.5 bg-gray-100 rounded-full overflow-hidden"
+                className="ml-10 sm:ml-14 h-2 sm:h-2.5 bg-gray-100 rounded-full overflow-hidden"
                 role="progressbar"
                 aria-valuenow={widthPercent}
                 aria-valuemin={0}
@@ -146,25 +146,25 @@ const ProductRanking = memo(function ProductRanking({ products, summary }: Produ
       </div>
 
       {/* Summary */}
-      <div className="mt-8 pt-6 border-t border-gray-100">
-        <div className="grid grid-cols-3 gap-4">
-          <div className="text-center p-4 bg-indigo-50 rounded-xl border border-indigo-100">
-            <p className="text-2xl font-bold text-indigo-600 font-mono-nums">
+      <div className="mt-4 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-100">
+        <div className="grid grid-cols-3 gap-2 sm:gap-4">
+          <div className="text-center p-2 sm:p-4 bg-indigo-50 rounded-lg sm:rounded-xl border border-indigo-100">
+            <p className="text-sm sm:text-2xl font-bold text-indigo-600 font-mono-nums truncate">
               {formatCurrency(cyberbizSummary.total_revenue)}
             </p>
-            <p className="text-xs text-gray-500 mt-1 font-medium">總營收</p>
+            <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 font-medium">總營收</p>
           </div>
-          <div className="text-center p-4 bg-purple-50 rounded-xl border border-purple-100">
-            <p className="text-2xl font-bold text-purple-600 font-mono-nums">
+          <div className="text-center p-2 sm:p-4 bg-purple-50 rounded-lg sm:rounded-xl border border-purple-100">
+            <p className="text-sm sm:text-2xl font-bold text-purple-600 font-mono-nums">
               {cyberbizSummary.order_count}
             </p>
-            <p className="text-xs text-gray-500 mt-1 font-medium">訂單數</p>
+            <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 font-medium">訂單數</p>
           </div>
-          <div className="text-center p-4 bg-emerald-50 rounded-xl border border-emerald-100">
-            <p className="text-2xl font-bold text-emerald-600 font-mono-nums">
+          <div className="text-center p-2 sm:p-4 bg-emerald-50 rounded-lg sm:rounded-xl border border-emerald-100">
+            <p className="text-sm sm:text-2xl font-bold text-emerald-600 font-mono-nums truncate">
               {formatCurrency(cyberbizSummary.aov)}
             </p>
-            <p className="text-xs text-gray-500 mt-1 font-medium">客單價</p>
+            <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 font-medium">客單價</p>
           </div>
         </div>
       </div>

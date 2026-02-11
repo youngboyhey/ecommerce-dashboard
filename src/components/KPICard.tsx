@@ -79,8 +79,8 @@ const KPICard = memo(function KPICard({
   return (
     <article 
       className={cn(
-        // 白卡片基底
-        "bg-white rounded-2xl p-6 relative overflow-hidden group",
+        // 白卡片基底 - RWD 優化
+        "bg-white rounded-xl sm:rounded-2xl p-3 sm:p-6 relative overflow-hidden group",
         "shadow-lg shadow-gray-200/50",
         "border border-gray-100",
         "hover:shadow-xl hover:shadow-gray-200/60 transition-all duration-300",
@@ -93,15 +93,15 @@ const KPICard = memo(function KPICard({
         "absolute inset-0 bg-gradient-to-br opacity-50",
         config.gradient
       )} />
-      <div className="absolute top-0 right-0 w-32 h-32 bg-white/60 rounded-full blur-2xl transform translate-x-8 -translate-y-8 group-hover:scale-125 transition-transform duration-500" />
+      <div className="absolute top-0 right-0 w-20 sm:w-32 h-20 sm:h-32 bg-white/60 rounded-full blur-2xl transform translate-x-8 -translate-y-8 group-hover:scale-125 transition-transform duration-500" />
       
       {/* Header with Icon */}
-      <div className="relative flex items-center justify-between mb-4">
-        <h3 className="text-sm font-medium text-gray-600">{title}</h3>
+      <div className="relative flex items-center justify-between mb-2 sm:mb-4">
+        <h3 className="text-xs sm:text-sm font-medium text-gray-600">{title}</h3>
         {icon && (
           <div 
             className={cn(
-              "w-10 h-10 rounded-xl flex items-center justify-center shadow-lg",
+              "w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg",
               config.iconBg,
               config.iconShadow
             )}
@@ -112,28 +112,28 @@ const KPICard = memo(function KPICard({
         )}
       </div>
       
-      {/* Main Value */}
-      <p className="relative text-3xl font-bold text-gray-900 tracking-tight mb-3 font-mono-nums">
+      {/* Main Value - RWD 優化，避免截斷 */}
+      <p className="relative text-xl sm:text-3xl font-bold text-gray-900 tracking-tight mb-2 sm:mb-3 font-mono-nums truncate">
         {formattedValue}
       </p>
       
       {/* Change Indicator */}
       {change !== undefined && (
         <div 
-          className="relative flex items-center gap-1.5"
+          className="relative flex flex-wrap items-center gap-1 sm:gap-1.5"
           role="status"
           aria-label={`${isPositive ? '增長' : isNegative ? '下降' : '持平'} ${Math.abs(change).toFixed(1)}% ${changeLabel}`}
         >
           <div className={cn(
-            "flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold",
+            "flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold",
             isPositive ? 'bg-emerald-100 text-emerald-700' : 
             isNegative ? 'bg-red-100 text-red-700' : 
             'bg-gray-100 text-gray-600'
           )}>
-            <TrendIcon className="w-3.5 h-3.5" aria-hidden="true" />
+            <TrendIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" aria-hidden="true" />
             <span>{Math.abs(change).toFixed(1)}%</span>
           </div>
-          <span className="text-xs text-gray-400">{changeLabel}</span>
+          <span className="text-[10px] sm:text-xs text-gray-400">{changeLabel}</span>
         </div>
       )}
     </article>
