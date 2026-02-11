@@ -60,7 +60,6 @@ const SOURCE_LABELS: Record<string, string> = {
   'boschmanec.cyberbiz.co / referral': 'BOSCH 商城',
   'chatgpt.com / (not set)': 'ChatGPT',
   'cyberbizpay.com / referral': 'Cyberbiz 金流',
-  'facebook / cpc': 'Facebook CPC',
   'facebook.com / referral': 'Facebook',
   'l.instagram.com / referral': 'Instagram 連結',
   'liquimolytaiwan.github.io / referral': '力魔 GitHub',
