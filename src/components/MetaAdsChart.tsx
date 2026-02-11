@@ -133,33 +133,34 @@ const GaugeCard = memo(function GaugeCard({ campaign }: { campaign: CampaignData
       </p>
       
       {/* Gauge Chart - 半圓 */}
-      <div className="relative h-16 sm:h-20">
+      <div className="h-12 sm:h-14">
         <ResponsiveContainer width="100%" height="100%">
           <RadialBarChart
             cx="50%"
-            cy="100%"
-            innerRadius="70%"
-            outerRadius="100%"
+            cy="90%"
+            innerRadius="60%"
+            outerRadius="90%"
             startAngle={180}
             endAngle={0}
             data={gaugeData}
-            barSize={10}
+            barSize={8}
           >
             <RadialBar
               dataKey="value"
               cornerRadius={5}
               background={{ fill: '#F3F4F6' }}
+              isAnimationActive={false}
             />
           </RadialBarChart>
         </ResponsiveContainer>
-        
-        {/* ROAS Value Overlay */}
-        <div className="absolute inset-x-0 bottom-0 text-center">
-          <span className={`text-lg sm:text-xl font-bold font-mono ${getRoasTextColor(campaign.roas)}`}>
-            {campaign.roas.toFixed(2)}
-          </span>
-          <span className="text-xs text-gray-400 ml-1">ROAS</span>
-        </div>
+      </div>
+      
+      {/* ROAS Value - 獨立區塊 */}
+      <div className="text-center mt-1">
+        <span className={`text-lg sm:text-xl font-bold font-mono ${getRoasTextColor(campaign.roas)}`}>
+          {campaign.roas.toFixed(2)}
+        </span>
+        <span className="text-xs text-gray-400 ml-1">ROAS</span>
       </div>
       
       {/* CPA & CTR */}
@@ -298,7 +299,7 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
                 
                 <Tooltip content={<CustomTooltip />} />
                 
-                <Scatter data={scatterData}>
+                <Scatter data={scatterData} isAnimationActive={false}>
                   {scatterData.map((entry, index) => (
                     <Cell 
                       key={`cell-${index}`} 
