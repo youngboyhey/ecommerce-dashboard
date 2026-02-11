@@ -58,17 +58,69 @@ export function useWeeklyAnalysis(reportDate?: string): UseWeeklyAnalysisResult 
           .single(),
       ]);
 
-      // Handle creatives
+      // Handle creatives - parse JSON fields
       if (creativesRes.error && creativesRes.error.code !== 'PGRST116') {
         console.warn('Error fetching ad_creatives:', creativesRes.error);
       }
-      setCreatives((creativesRes.data || []) as AdCreative[]);
+      const parsedCreatives = (creativesRes.data || []).map((c: Record<string, unknown>) => {
+        let metrics = c.metrics;
+        let visionAnalysis = c.vision_analysis;
+        
+        // Parse metrics if it's a string
+        if (typeof metrics === 'string') {
+          try {
+            metrics = JSON.parse(metrics);
+          } catch (e) {
+            console.warn('Failed to parse creative metrics:', e);
+            metrics = {};
+          }
+        }
+        
+        // Parse vision_analysis if it's a string
+        if (typeof visionAnalysis === 'string') {
+          try {
+            visionAnalysis = JSON.parse(visionAnalysis);
+          } catch (e) {
+            console.warn('Failed to parse vision_analysis:', e);
+            visionAnalysis = null;
+          }
+        }
+        
+        return { ...c, metrics: metrics || {}, vision_analysis: visionAnalysis };
+      });
+      setCreatives(parsedCreatives as AdCreative[]);
 
-      // Handle copies
+      // Handle copies - parse JSON fields
       if (copiesRes.error && copiesRes.error.code !== 'PGRST116') {
         console.warn('Error fetching ad_copies:', copiesRes.error);
       }
-      setCopies((copiesRes.data || []) as AdCopy[]);
+      const parsedCopies = (copiesRes.data || []).map((c: Record<string, unknown>) => {
+        let metrics = c.metrics;
+        let analysis = c.analysis;
+        
+        // Parse metrics if it's a string
+        if (typeof metrics === 'string') {
+          try {
+            metrics = JSON.parse(metrics);
+          } catch (e) {
+            console.warn('Failed to parse copy metrics:', e);
+            metrics = {};
+          }
+        }
+        
+        // Parse analysis if it's a string
+        if (typeof analysis === 'string') {
+          try {
+            analysis = JSON.parse(analysis);
+          } catch (e) {
+            console.warn('Failed to parse copy analysis:', e);
+            analysis = null;
+          }
+        }
+        
+        return { ...c, metrics: metrics || {}, analysis };
+      });
+      setCopies(parsedCopies as AdCopy[]);
 
       // Handle weekly insights
       if (insightsRes.error && insightsRes.error.code !== 'PGRST116') {
