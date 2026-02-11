@@ -23,9 +23,13 @@ import ProductRanking from '@/components/ProductRanking';
 import ChannelPerformance from '@/components/ChannelPerformance';
 import DeviceBreakdown from '@/components/DeviceBreakdown';
 import GSCPerformance from '@/components/GSCPerformance';
+import CreativeAnalysis from '@/components/CreativeAnalysis';
+import CopyAnalysis from '@/components/CopyAnalysis';
+import WeeklyInsights from '@/components/WeeklyInsights';
 import { useReportData, DateRange } from '@/lib/useReportData';
 import { useWeeklyData } from '@/lib/useWeeklyData';
-import { useMemo } from 'react';
+import { useWeeklyAnalysis } from '@/lib/useWeeklyAnalysis';
+import { useMemo, useCallback } from 'react';
 
 export default function Dashboard() {
   const { 
@@ -45,6 +49,32 @@ export default function Dashboard() {
   }, [selectedWeek]);
 
   const { data, isLoading, isLive, lastUpdated, refresh } = useReportData('weekly', dateRange);
+
+  // 週報分析數據（廣告素材、文案、洞察）
+  const reportDateForAnalysis = useMemo(() => {
+    if (selectedWeek) {
+      return selectedWeek.endDate;
+    }
+    return undefined;
+  }, [selectedWeek]);
+
+  const {
+    creatives,
+    copies,
+    weeklyInsight,
+    trackingData,
+    isLoading: analysisLoading,
+    updateInsightStatus,
+  } = useWeeklyAnalysis(reportDateForAnalysis);
+
+  // 處理洞察狀態更新
+  const handleInsightStatusChange = useCallback(async (
+    insightId: string, 
+    status: 'pending' | 'in_progress' | 'completed' | 'skipped',
+    notes?: string
+  ) => {
+    await updateInsightStatus(insightId, status, notes);
+  }, [updateInsightStatus]);
 
   const handleRefresh = async () => {
     await refresh();
@@ -322,6 +352,50 @@ export default function Dashboard() {
         {/* 流量來源分析 */}
         <section aria-label="流量來源分析" className="mb-4 sm:mb-6 lg:mb-8">
           <ChannelPerformance data={data.ga4_channels} />
+        </section>
+
+        {/* 🎨 Zone 6: 廣告素材分析 */}
+        <section aria-label="廣告素材分析" className="mb-4 sm:mb-6 lg:mb-8">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center text-sm sm:text-base">
+              🎨
+            </span>
+            <span className="gradient-text-subtle">廣告素材分析</span>
+          </h3>
+          <CreativeAnalysis 
+            creatives={creatives} 
+            isLoading={analysisLoading} 
+          />
+        </section>
+
+        {/* ✍️ Zone 7: 廣告文案分析 */}
+        <section aria-label="廣告文案分析" className="mb-4 sm:mb-6 lg:mb-8">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-violet-100 to-purple-100 flex items-center justify-center text-sm sm:text-base">
+              ✍️
+            </span>
+            <span className="gradient-text-subtle">廣告文案分析</span>
+          </h3>
+          <CopyAnalysis 
+            copies={copies} 
+            isLoading={analysisLoading} 
+          />
+        </section>
+
+        {/* 💡 Zone 8: 本週洞察 (放最底部) */}
+        <section aria-label="本週洞察" className="mb-4 sm:mb-6 lg:mb-8">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center text-sm sm:text-base">
+              💡
+            </span>
+            <span className="gradient-text-subtle">本週洞察</span>
+          </h3>
+          <WeeklyInsights 
+            weeklyInsight={weeklyInsight}
+            trackingData={trackingData}
+            isLoading={analysisLoading}
+            onStatusChange={handleInsightStatusChange}
+          />
         </section>
 
         {/* Summary Banner - 漸層高亮 */}
