@@ -131,7 +131,16 @@ export default function Dashboard() {
         {/* 💰 Zone 2: 核心 KPI Cards - 第一排 */}
         <section aria-labelledby="kpi-section-title" className="mb-8">
           <h2 id="kpi-section-title" className="sr-only">關鍵績效指標</h2>
-          <div className="grid grid-cols-3 gap-4 lg:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            <KPICard
+              title="💰 總營收"
+              value={data.summary.total_revenue}
+              format="currency"
+              change={data.wow?.cyber_revenue_change}
+              changeLabel="vs 上週"
+              icon={<DollarSign className="w-5 h-5" />}
+              theme="revenue"
+            />
             <KPICard
               title="📦 訂單數"
               value={data.summary.order_count}
@@ -159,7 +168,11 @@ export default function Dashboard() {
         {/* Secondary KPIs - 第二排 */}
         <section aria-labelledby="secondary-kpi-title" className="mb-8">
           <h2 id="secondary-kpi-title" className="sr-only">次要績效指標</h2>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow">
+              <p className="text-xs font-medium text-gray-500 mb-1">💸 廣告花費</p>
+              <p className="text-xl font-bold text-gray-900">NT${data.summary.total_spend.toLocaleString()}</p>
+            </article>
             <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow">
               <p className="text-xs font-medium text-gray-500 mb-1">💰 客單價 (AOV)</p>
               <p className="text-xl font-bold text-gray-900">NT${data.summary.aov.toFixed(0)}</p>
