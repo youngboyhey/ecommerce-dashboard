@@ -242,13 +242,13 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
               <tr 
                 key={row.age} 
                 className={`border-b border-gray-50 hover:bg-gray-50/50 transition-colors ${
-                  row.age === bestAge.age ? 'bg-blue-50/30' : ''
+                  row.age === bestAge?.age ? 'bg-blue-50/30' : ''
                 }`}
               >
                 <td className="py-3">
-                  <span className={`font-medium ${row.age === bestAge.age ? 'text-blue-700' : 'text-gray-900'}`}>
+                  <span className={`font-medium ${row.age === bestAge?.age ? 'text-blue-700' : 'text-gray-900'}`}>
                     {row.age}
-                    {row.age === bestAge.age && <span className="ml-1">⭐</span>}
+                    {row.age === bestAge?.age && <span className="ml-1">⭐</span>}
                   </span>
                 </td>
                 <td className="py-3 text-right text-gray-600 font-medium">{formatCurrency(row.spend)}</td>
