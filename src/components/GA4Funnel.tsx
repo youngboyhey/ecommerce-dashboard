@@ -106,11 +106,12 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
         aria-label="轉換漏斗步驟"
       >
         {funnelSteps.map((step, index) => {
-          // 使用對數刻度讓小數值在手機版更明顯
+          // 使用平方根刻度讓小數值也有明顯的橫條寬度
           const rawPercent = (step.value / maxValue) * 100;
-          // 手機版使用更大的最小寬度，並用平方根讓差異不那麼極端
+          // 手機版：25% 基礎寬度 + 平方根刻度
           const mobileWidthPercent = 25 + (Math.sqrt(rawPercent / 100) * 75);
-          const desktopWidthPercent = Math.max(rawPercent, 8);
+          // 桌面版：同樣使用平方根刻度，讓小數值更明顯
+          const desktopWidthPercent = 25 + (Math.sqrt(rawPercent / 100) * 75);
           
           const prevStep = index > 0 ? funnelSteps[index - 1] : null;
           const conversionFromPrev = prevStep ? (step.value / prevStep.value * 100) : 100;
