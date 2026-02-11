@@ -128,7 +128,7 @@ const CustomTooltip = memo(function CustomTooltip({ active, payload }: CustomToo
       <div className="space-y-2 text-sm">
         <div className="flex justify-between">
           <span className="text-gray-500">工作階段</span>
-          <span className="font-medium">{data.sessions.toLocaleString()} ({data.sessionPercent}%)</span>
+          <span className="font-medium">{data.sessions.toLocaleString()} ({data.sessionPercent.toFixed(1)}%)</span>
         </div>
         <div className="flex justify-between">
           <span className="text-gray-500">轉換率</span>
@@ -290,7 +290,7 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
                       className="text-2xl font-bold"
                       style={{ color: colors.text }}
                     >
-                      {device.sessionPercent}%
+                      {device.sessionPercent.toFixed(1)}%
                     </p>
                   </div>
                 </div>

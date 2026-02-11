@@ -497,15 +497,18 @@ function aggregateDailyReports(dailyReports: ReportRow[], dateRange: DateRange):
     }));
 
     // 聚合 GSC 數據
-    type GscData = { clicks: number; impressions: number; ctr: number; position: number };
+    // 🔧 修復：資料庫存的是 { total: {...}, top_queries: [...], top_pages: [...] } 格式
+    type GscTotalData = { clicks: number; impressions: number; ctr: number; position: number };
+    type GscRawData = { total?: GscTotalData; top_queries?: unknown[]; top_pages?: unknown[] };
     const gscAggregated = dailyReports.reduce((acc, r) => {
       const raw = r.raw_data as Record<string, unknown> | undefined;
-      const gsc = raw?.gsc as GscData | undefined;
-      if (gsc) {
-        acc.clicks += gsc.clicks || 0;
-        acc.impressions += gsc.impressions || 0;
+      const gsc = raw?.gsc as GscRawData | undefined;
+      const total = gsc?.total; // 🔧 修復：讀取 gsc.total 而非 gsc
+      if (total) {
+        acc.clicks += total.clicks || 0;
+        acc.impressions += total.impressions || 0;
         acc.count += 1;
-        acc.positionSum += gsc.position || 0;
+        acc.positionSum += total.position || 0;
       }
       return acc;
     }, { clicks: 0, impressions: 0, count: 0, positionSum: 0 });
