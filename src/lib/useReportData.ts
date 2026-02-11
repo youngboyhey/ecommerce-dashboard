@@ -58,7 +58,7 @@ export function useReportData(
           .eq('mode', 'weekly')
           .eq('start_date', dateRange.start)
           .limit(1)
-          .single();
+          .maybeSingle();
 
         if (weeklyReport && !weeklyError) {
           reportData = weeklyReport as ReportRow;
@@ -97,7 +97,7 @@ export function useReportData(
           .eq('mode', mode)
           .order('generated_at', { ascending: false })
           .limit(1)
-          .single();
+          .maybeSingle();
         
         reportData = latestReport as ReportRow;
         reportError = latestError;
