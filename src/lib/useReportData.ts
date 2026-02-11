@@ -106,19 +106,59 @@ export function useReportData(
       const report = reportData;
 
       // 2. 取得關聯數據
-      const [campaignsRes, ageRes, genderRes, productsRes, channelsRes] = await Promise.all([
-        supabase.from('meta_campaigns').select('*').eq('report_id', report.id),
-        supabase.from('meta_audience_age').select('*').eq('report_id', report.id),
-        supabase.from('meta_audience_gender').select('*').eq('report_id', report.id),
-        supabase.from('product_rankings').select('*').eq('report_id', report.id).order('rank'),
-        supabase.from('ga4_channels').select('*').eq('report_id', report.id),
-      ]);
+      // 🔧 修復：聚合模式下使用所有 daily 報表的 ID 查詢關聯數據
+      let campaigns: CampaignRow[] = [];
+      let ageData: AudienceAgeRow[] = [];
+      let genderData: AudienceGenderRow[] = [];
+      let products: ProductRankingRow[] = [];
+      let channels: GA4ChannelRow[] = [];
 
-      const campaigns = (campaignsRes.data || []) as CampaignRow[];
-      const ageData = (ageRes.data || []) as AudienceAgeRow[];
-      const genderData = (genderRes.data || []) as AudienceGenderRow[];
-      const products = (productsRes.data || []) as ProductRankingRow[];
-      const channels = (channelsRes.data || []) as GA4ChannelRow[];
+      // 檢查是否為聚合模式（ID 以 'aggregated-' 開頭）
+      const isAggregatedMode = report.id.startsWith('aggregated-') || report.id.startsWith('empty-');
+
+      if (isAggregatedMode && dateRange) {
+        // 聚合模式：查詢日期範圍內所有 daily 報表的關聯數據
+        const { data: dailyReportsForIds } = await supabase
+          .from('reports')
+          .select('id')
+          .eq('mode', 'daily')
+          .gte('start_date', dateRange.start)
+          .lte('start_date', dateRange.end);
+
+        const dailyIds = (dailyReportsForIds || []).map(r => r.id);
+
+        if (dailyIds.length > 0) {
+          const [campaignsRes, ageRes, genderRes, productsRes, channelsRes] = await Promise.all([
+            supabase.from('meta_campaigns').select('*').in('report_id', dailyIds),
+            supabase.from('meta_audience_age').select('*').in('report_id', dailyIds),
+            supabase.from('meta_audience_gender').select('*').in('report_id', dailyIds),
+            supabase.from('product_rankings').select('*').in('report_id', dailyIds),
+            supabase.from('ga4_channels').select('*').in('report_id', dailyIds),
+          ]);
+
+          // 聚合關聯數據
+          campaigns = aggregateCampaigns((campaignsRes.data || []) as CampaignRow[]);
+          ageData = aggregateAudienceAge((ageRes.data || []) as AudienceAgeRow[]);
+          genderData = aggregateAudienceGender((genderRes.data || []) as AudienceGenderRow[]);
+          products = aggregateProductRankings((productsRes.data || []) as ProductRankingRow[]);
+          channels = aggregateChannels((channelsRes.data || []) as GA4ChannelRow[]);
+        }
+      } else {
+        // 單一報表模式：直接用 report.id 查詢
+        const [campaignsRes, ageRes, genderRes, productsRes, channelsRes] = await Promise.all([
+          supabase.from('meta_campaigns').select('*').eq('report_id', report.id),
+          supabase.from('meta_audience_age').select('*').eq('report_id', report.id),
+          supabase.from('meta_audience_gender').select('*').eq('report_id', report.id),
+          supabase.from('product_rankings').select('*').eq('report_id', report.id).order('rank'),
+          supabase.from('ga4_channels').select('*').eq('report_id', report.id),
+        ]);
+
+        campaigns = (campaignsRes.data || []) as CampaignRow[];
+        ageData = (ageRes.data || []) as AudienceAgeRow[];
+        genderData = (genderRes.data || []) as AudienceGenderRow[];
+        products = (productsRes.data || []) as ProductRankingRow[];
+        channels = (channelsRes.data || []) as GA4ChannelRow[];
+      }
 
       // 3. 轉換為前端格式
       const transformedData: ReportData = transformToReportData(
@@ -435,4 +475,138 @@ function aggregateDailyReports(dailyReports: ReportRow[], dateRange: DateRange):
     mer: mer,
     raw_data: latestReport.raw_data || {},
   };
+}
+
+/**
+ * 聚合多個 daily 報表的 campaigns 數據
+ * 按 campaign_id 合併，累加數值指標
+ */
+function aggregateCampaigns(campaigns: CampaignRow[]): CampaignRow[] {
+  if (campaigns.length === 0) return [];
+
+  const campaignMap = new Map<string, CampaignRow>();
+
+  for (const c of campaigns) {
+    const existing = campaignMap.get(c.campaign_id);
+    if (existing) {
+      // 累加數值
+      existing.spend += c.spend || 0;
+      existing.clicks += c.clicks || 0;
+      existing.purchases += c.purchases || 0;
+      existing.atc += c.atc || 0;
+      existing.conv_value += c.conv_value || 0;
+      // CTR 和 ROAS 稍後重新計算
+    } else {
+      campaignMap.set(c.campaign_id, { ...c });
+    }
+  }
+
+  // 重新計算衍生指標
+  return Array.from(campaignMap.values()).map(c => ({
+    ...c,
+    ctr: c.clicks > 0 && c.spend > 0 ? (c.clicks / c.spend) * 100 : 0, // 簡化計算
+    roas: c.spend > 0 ? c.conv_value / c.spend : 0,
+    cpa: c.purchases > 0 ? c.spend / c.purchases : 0,
+  }));
+}
+
+/**
+ * 聚合多個 daily 報表的年齡受眾數據
+ * 按 age_range 合併
+ */
+function aggregateAudienceAge(ageData: AudienceAgeRow[]): AudienceAgeRow[] {
+  if (ageData.length === 0) return [];
+
+  const ageMap = new Map<string, AudienceAgeRow>();
+
+  for (const a of ageData) {
+    const existing = ageMap.get(a.age_range);
+    if (existing) {
+      existing.spend += a.spend || 0;
+      existing.impressions += a.impressions || 0;
+      existing.clicks += a.clicks || 0;
+      existing.purchases += a.purchases || 0;
+    } else {
+      ageMap.set(a.age_range, { ...a });
+    }
+  }
+
+  return Array.from(ageMap.values());
+}
+
+/**
+ * 聚合多個 daily 報表的性別受眾數據
+ * 按 gender 合併
+ */
+function aggregateAudienceGender(genderData: AudienceGenderRow[]): AudienceGenderRow[] {
+  if (genderData.length === 0) return [];
+
+  const genderMap = new Map<string, AudienceGenderRow>();
+
+  for (const g of genderData) {
+    const existing = genderMap.get(g.gender);
+    if (existing) {
+      existing.spend += g.spend || 0;
+      existing.impressions += g.impressions || 0;
+      existing.clicks += g.clicks || 0;
+      existing.purchases += g.purchases || 0;
+    } else {
+      genderMap.set(g.gender, { ...g });
+    }
+  }
+
+  return Array.from(genderMap.values());
+}
+
+/**
+ * 聚合多個 daily 報表的商品排名數據
+ * 按 sku 合併，重新計算排名
+ */
+function aggregateProductRankings(products: ProductRankingRow[]): ProductRankingRow[] {
+  if (products.length === 0) return [];
+
+  const productMap = new Map<string, ProductRankingRow>();
+
+  for (const p of products) {
+    const key = p.sku || p.product_name; // 優先用 SKU，沒有則用商品名
+    const existing = productMap.get(key);
+    if (existing) {
+      existing.total_quantity += p.total_quantity || 0;
+      existing.total_revenue += p.total_revenue || 0;
+    } else {
+      productMap.set(key, { ...p });
+    }
+  }
+
+  // 按總營收排序並重新分配排名
+  return Array.from(productMap.values())
+    .sort((a, b) => b.total_revenue - a.total_revenue)
+    .map((p, index) => ({ ...p, rank: index + 1 }));
+}
+
+/**
+ * 聚合多個 daily 報表的 GA4 渠道數據
+ * 按 source 合併
+ */
+function aggregateChannels(channels: GA4ChannelRow[]): GA4ChannelRow[] {
+  if (channels.length === 0) return [];
+
+  const channelMap = new Map<string, GA4ChannelRow>();
+
+  for (const c of channels) {
+    const existing = channelMap.get(c.source);
+    if (existing) {
+      existing.sessions += c.sessions || 0;
+      existing.atc += c.atc || 0;
+      existing.purchases += c.purchases || 0;
+    } else {
+      channelMap.set(c.source, { ...c });
+    }
+  }
+
+  // 重新計算轉換率
+  return Array.from(channelMap.values()).map(c => ({
+    ...c,
+    session_to_atc_rate: c.sessions > 0 ? (c.atc / c.sessions) * 100 : 0,
+  }));
 }
