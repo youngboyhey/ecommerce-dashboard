@@ -24,12 +24,12 @@ import ProductRanking from '@/components/ProductRanking';
 import ChannelPerformance from '@/components/ChannelPerformance';
 import DeviceBreakdown from '@/components/DeviceBreakdown';
 import GSCPerformance from '@/components/GSCPerformance';
-import { useReportData } from '@/lib/useReportData';
+import { useReportData, DateRange } from '@/lib/useReportData';
 import { useWeeklyData } from '@/lib/useWeeklyData';
 import { formatDate } from '@/lib/utils';
+import { useMemo } from 'react';
 
 export default function Dashboard() {
-  const { data, isLoading, isLive, lastUpdated, refresh } = useReportData('weekly');
   const { 
     weekOptions, 
     selectedWeek, 
@@ -37,6 +37,16 @@ export default function Dashboard() {
     comparisonData,
     isLoading: weekLoading 
   } = useWeeklyData();
+
+  // 當選擇了特定週時，傳入日期範圍給 useReportData
+  const dateRange: DateRange | undefined = useMemo(() => {
+    if (selectedWeek) {
+      return { start: selectedWeek.startDate, end: selectedWeek.endDate };
+    }
+    return undefined;
+  }, [selectedWeek]);
+
+  const { data, isLoading, isLive, lastUpdated, refresh } = useReportData('weekly', dateRange);
 
   const handleRefresh = async () => {
     await refresh();

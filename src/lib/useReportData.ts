@@ -5,6 +5,11 @@ import { supabase, ReportRow, CampaignRow, AudienceAgeRow, AudienceGenderRow, Pr
 import { ReportData } from './types';
 import { mockReportData } from './mockData';
 
+export interface DateRange {
+  start: string;
+  end: string;
+}
+
 interface UseReportDataResult {
   data: ReportData;
   isLoading: boolean;
@@ -16,8 +21,13 @@ interface UseReportDataResult {
 
 /**
  * 從 Supabase 讀取報表數據，如果失敗則 fallback 到 mock data
+ * @param mode - 'daily' | 'weekly'
+ * @param dateRange - 可選的日期範圍，指定時會查詢該範圍的報表
  */
-export function useReportData(mode: 'daily' | 'weekly' = 'weekly'): UseReportDataResult {
+export function useReportData(
+  mode: 'daily' | 'weekly' = 'weekly',
+  dateRange?: DateRange
+): UseReportDataResult {
   const [data, setData] = useState<ReportData>(mockReportData);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -36,14 +46,54 @@ export function useReportData(mode: 'daily' | 'weekly' = 'weekly'): UseReportDat
       setIsLoading(true);
       setError(null);
 
-      // 1. 取得最新的報表
-      const { data: reportData, error: reportError } = await supabase
-        .from('reports')
-        .select('*')
-        .eq('mode', mode)
-        .order('generated_at', { ascending: false })
-        .limit(1)
-        .single();
+      let reportData: ReportRow | null = null;
+      let reportError: { message: string } | null = null;
+
+      if (dateRange) {
+        // 當有指定日期範圍時，查詢該範圍的 weekly 報表
+        // 先嘗試找完全匹配的 weekly 報表
+        const { data: weeklyReport, error: weeklyError } = await supabase
+          .from('reports')
+          .select('*')
+          .eq('mode', 'weekly')
+          .eq('start_date', dateRange.start)
+          .limit(1)
+          .single();
+
+        if (weeklyReport && !weeklyError) {
+          reportData = weeklyReport as ReportRow;
+        } else {
+          // 如果沒有完全匹配的 weekly 報表，從 daily 數據聚合
+          const { data: dailyReports, error: dailyError } = await supabase
+            .from('reports')
+            .select('*')
+            .eq('mode', 'daily')
+            .gte('start_date', dateRange.start)
+            .lte('start_date', dateRange.end)
+            .order('start_date', { ascending: true });
+
+          if (dailyError) {
+            reportError = dailyError;
+          } else if (dailyReports && dailyReports.length > 0) {
+            // 聚合 daily 數據為 weekly 格式
+            reportData = aggregateDailyReports(dailyReports as ReportRow[], dateRange);
+          } else {
+            reportError = { message: `No reports found for date range ${dateRange.start} ~ ${dateRange.end}` };
+          }
+        }
+      } else {
+        // 沒有指定日期範圍時，取得最新的報表
+        const { data: latestReport, error: latestError } = await supabase
+          .from('reports')
+          .select('*')
+          .eq('mode', mode)
+          .order('generated_at', { ascending: false })
+          .limit(1)
+          .single();
+        
+        reportData = latestReport as ReportRow;
+        reportError = latestError;
+      }
 
       if (reportError) {
         throw new Error(`Failed to fetch report: ${reportError.message}`);
@@ -53,7 +103,7 @@ export function useReportData(mode: 'daily' | 'weekly' = 'weekly'): UseReportDat
         throw new Error('No report data found');
       }
 
-      const report = reportData as ReportRow;
+      const report = reportData;
 
       // 2. 取得關聯數據
       const [campaignsRes, ageRes, genderRes, productsRes, channelsRes] = await Promise.all([
@@ -94,7 +144,7 @@ export function useReportData(mode: 'daily' | 'weekly' = 'weekly'): UseReportDat
     } finally {
       setIsLoading(false);
     }
-  }, [mode]);
+  }, [mode, dateRange?.start, dateRange?.end]);
 
   useEffect(() => {
     fetchData();
@@ -275,4 +325,77 @@ function findTopAudienceSegment(
   }
   
   return null;
+}
+
+/**
+ * 將多個 daily 報表聚合為一個 weekly 報表格式
+ */
+function aggregateDailyReports(dailyReports: ReportRow[], dateRange: DateRange): ReportRow {
+  const count = dailyReports.length;
+  
+  // 累加值
+  const metaSpend = dailyReports.reduce((sum, r) => sum + (r.meta_spend || 0), 0);
+  const metaClicks = dailyReports.reduce((sum, r) => sum + (r.meta_clicks || 0), 0);
+  const metaPurchases = dailyReports.reduce((sum, r) => sum + (r.meta_purchases || 0), 0);
+  const metaAtc = dailyReports.reduce((sum, r) => sum + (r.meta_atc || 0), 0);
+  const metaConvValue = dailyReports.reduce((sum, r) => sum + (r.meta_conv_value || 0), 0);
+  
+  const ga4ActiveUsers = dailyReports.reduce((sum, r) => sum + (r.ga4_active_users || 0), 0);
+  const ga4Sessions = dailyReports.reduce((sum, r) => sum + (r.ga4_sessions || 0), 0);
+  const ga4Atc = dailyReports.reduce((sum, r) => sum + (r.ga4_atc || 0), 0);
+  const ga4Purchases = dailyReports.reduce((sum, r) => sum + (r.ga4_purchases || 0), 0);
+  const ga4Revenue = dailyReports.reduce((sum, r) => sum + (r.ga4_revenue || 0), 0);
+  
+  const cyberOrderCount = dailyReports.reduce((sum, r) => sum + (r.cyber_order_count || 0), 0);
+  const cyberRevenue = dailyReports.reduce((sum, r) => sum + (r.cyber_revenue || 0), 0);
+  const cyberNewMembers = dailyReports.reduce((sum, r) => sum + (r.cyber_new_members || 0), 0);
+
+  // 計算平均值
+  const avgCtr = count > 0 
+    ? dailyReports.reduce((sum, r) => sum + (r.meta_ctr || 0), 0) / count 
+    : 0;
+  const avgConversion = count > 0
+    ? dailyReports.reduce((sum, r) => sum + (r.ga4_overall_conversion || 0), 0) / count
+    : 0;
+
+  // 計算衍生值
+  const metaRoas = metaSpend > 0 ? metaConvValue / metaSpend : 0;
+  const metaCpa = metaPurchases > 0 ? metaSpend / metaPurchases : 0;
+  const cyberAov = cyberOrderCount > 0 ? cyberRevenue / cyberOrderCount : 0;
+  const mer = metaSpend > 0 ? cyberRevenue / metaSpend : 0;
+
+  // 使用最新的 daily 報表作為基礎
+  const latestReport = dailyReports[dailyReports.length - 1];
+  
+  return {
+    id: `aggregated-${dateRange.start}-${dateRange.end}`,
+    mode: 'weekly',
+    start_date: dateRange.start,
+    end_date: dateRange.end,
+    generated_at: latestReport.generated_at,
+    
+    meta_spend: metaSpend,
+    meta_ctr: avgCtr,
+    meta_clicks: metaClicks,
+    meta_roas: metaRoas,
+    meta_purchases: metaPurchases,
+    meta_atc: metaAtc,
+    meta_conv_value: metaConvValue,
+    meta_cpa: metaCpa,
+    
+    ga4_active_users: ga4ActiveUsers,
+    ga4_sessions: ga4Sessions,
+    ga4_atc: ga4Atc,
+    ga4_purchases: ga4Purchases,
+    ga4_revenue: ga4Revenue,
+    ga4_overall_conversion: avgConversion,
+    
+    cyber_order_count: cyberOrderCount,
+    cyber_revenue: cyberRevenue,
+    cyber_aov: cyberAov,
+    cyber_new_members: cyberNewMembers,
+    
+    mer: mer,
+    raw_data: latestReport.raw_data || {},
+  };
 }
