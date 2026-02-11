@@ -12,6 +12,7 @@ import {
   WifiOff
 } from 'lucide-react';
 
+import AlertBanner from '@/components/AlertBanner';
 import KPICard from '@/components/KPICard';
 import RevenueTrendChart from '@/components/RevenueTrendChart';
 import MetaAdsChart from '@/components/MetaAdsChart';
@@ -19,6 +20,8 @@ import GA4Funnel from '@/components/GA4Funnel';
 import AudienceAnalysis from '@/components/AudienceAnalysis';
 import ProductRanking from '@/components/ProductRanking';
 import ChannelPerformance from '@/components/ChannelPerformance';
+import DeviceBreakdown from '@/components/DeviceBreakdown';
+import GSCPerformance from '@/components/GSCPerformance';
 import { useReportData } from '@/lib/useReportData';
 import { formatDate } from '@/lib/utils';
 
@@ -28,6 +31,19 @@ export default function Dashboard() {
   const handleRefresh = async () => {
     await refresh();
   };
+
+  // 計算警示所需的指標
+  // 模擬 CPM 和 Frequency（實際應從 Meta API 取得）
+  const estimatedCpm = data.summary.total_spend > 0 
+    ? (data.summary.total_spend / (data.meta.total.clicks / (data.meta.total.ctr / 100))) * 1000 
+    : 0;
+  const estimatedFrequency = 1.8; // 模擬值，實際需從 Meta API 取得
+  
+  // 購物車放棄率
+  const cartAbandonRate = data.ga4.funnel_rates.atc_drop_off || 0;
+  
+  // 計算跳出率（簡化計算）
+  const bounceRate = 100 - (data.ga4.funnel_rates.session_to_atc * 2) || 55;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100/50">
@@ -95,39 +111,57 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
-        {/* KPI Cards - 主要指標 */}
+        
+        {/* 🚨 Zone 1: 警示區塊 (固定頂部) */}
+        <section aria-labelledby="alert-section" className="mb-6">
+          <h2 id="alert-section" className="sr-only">營運警示</h2>
+          <AlertBanner
+            roas={data.summary.roas}
+            cpm={estimatedCpm > 0 ? estimatedCpm : undefined}
+            frequency={estimatedFrequency}
+            todayOrders={data.summary.order_count}
+            cpa={data.meta.total.cpa}
+            targetCpa={500}
+            bounceRate={bounceRate}
+            cartAbandonRate={cartAbandonRate}
+          />
+        </section>
+
+        {/* 💰 Zone 2: 核心 KPI Cards */}
         <section aria-labelledby="kpi-section-title" className="mb-8">
           <h2 id="kpi-section-title" className="sr-only">關鍵績效指標</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             <KPICard
-              title="總營收"
+              title="💰 總營收"
               value={data.summary.total_revenue}
               format="currency"
               change={data.wow?.cyber_revenue_change}
+              changeLabel="vs 上週"
               icon={<DollarSign className="w-5 h-5" />}
               theme="revenue"
             />
             <KPICard
-              title="廣告花費"
-              value={data.summary.total_spend}
-              format="currency"
-              icon={<Target className="w-5 h-5" />}
-              theme="spend"
-            />
-            <KPICard
-              title="ROAS"
-              value={data.summary.roas}
-              format="roas"
-              change={data.wow?.meta_roas_change}
-              icon={<TrendingUp className="w-5 h-5" />}
-              theme="roas"
-            />
-            <KPICard
-              title="訂單數"
+              title="📦 訂單數"
               value={data.summary.order_count}
               format="number"
               icon={<ShoppingCart className="w-5 h-5" />}
               theme="orders"
+            />
+            <KPICard
+              title="📈 ROAS"
+              value={data.summary.roas}
+              format="roas"
+              change={data.wow?.meta_roas_change}
+              changeLabel="vs 上週"
+              icon={<TrendingUp className="w-5 h-5" />}
+              theme="roas"
+            />
+            <KPICard
+              title="💸 CPA"
+              value={data.meta.total.cpa}
+              format="currency"
+              icon={<Target className="w-5 h-5" />}
+              theme="spend"
             />
           </div>
         </section>
@@ -137,8 +171,8 @@ export default function Dashboard() {
           <h2 id="secondary-kpi-title" className="sr-only">次要績效指標</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow">
-              <p className="text-xs font-medium text-gray-500 mb-1">MER</p>
-              <p className="text-xl font-bold text-gray-900">{(data.summary.mer * 100).toFixed(1)}%</p>
+              <p className="text-xs font-medium text-gray-500 mb-1">廣告花費</p>
+              <p className="text-xl font-bold text-gray-900">NT${data.summary.total_spend.toLocaleString()}</p>
             </article>
             <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow">
               <p className="text-xs font-medium text-gray-500 mb-1">客單價 (AOV)</p>
@@ -155,21 +189,42 @@ export default function Dashboard() {
           </div>
         </section>
 
-        {/* Charts Row 1 */}
-        <section aria-label="營收與廣告圖表" className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <RevenueTrendChart />
-          <MetaAdsChart />
+        {/* 📊 Zone 3: 趨勢與效率區 */}
+        <section aria-label="營收與廣告效率" className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <span>📊</span> 趨勢與效率
+          </h3>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <RevenueTrendChart />
+            <MetaAdsChart />
+          </div>
         </section>
 
-        {/* Charts Row 2 */}
-        <section aria-label="轉換與受眾分析" className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <GA4Funnel />
-          <AudienceAnalysis />
+        {/* 🔄 Zone 4: 網站行為分析區 */}
+        <section aria-label="網站行為分析" className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <span>🔄</span> 網站行為分析
+          </h3>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <GA4Funnel />
+            <AudienceAnalysis />
+            <DeviceBreakdown />
+          </div>
         </section>
 
-        {/* Charts Row 3 */}
-        <section aria-label="商品與流量分析" className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <ProductRanking />
+        {/* 🏆 Zone 5: 商品與 SEO 區 */}
+        <section aria-label="商品與 SEO 分析" className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <span>🏆</span> 商品與 SEO
+          </h3>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <ProductRanking />
+            <GSCPerformance />
+          </div>
+        </section>
+
+        {/* 流量來源分析 */}
+        <section aria-label="流量來源分析" className="mb-8">
           <ChannelPerformance />
         </section>
 
@@ -203,7 +258,7 @@ export default function Dashboard() {
       <footer className="bg-white/80 backdrop-blur-sm border-t border-gray-200/50 mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
-            <p>CarMall 電商 Dashboard v1.0</p>
+            <p>CarMall 電商 Dashboard v2.0 — 依螃蟹規劃重構 🦀</p>
             <p className="flex items-center gap-2">
               最後更新: {lastUpdated 
                 ? lastUpdated.toLocaleString('zh-TW') 
