@@ -186,12 +186,12 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
           >
             <defs>
               <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#6366F1" stopOpacity={0.3}/>
-                <stop offset="95%" stopColor="#6366F1" stopOpacity={0}/>
+                <stop offset="5%" stopColor="#10B981" stopOpacity={0.3}/>
+                <stop offset="95%" stopColor="#10B981" stopOpacity={0}/>
               </linearGradient>
               <linearGradient id="colorSpend" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#67E8F9" stopOpacity={0.2}/>
-                <stop offset="95%" stopColor="#67E8F9" stopOpacity={0}/>
+                <stop offset="5%" stopColor="#F59E0B" stopOpacity={0.2}/>
+                <stop offset="95%" stopColor="#F59E0B" stopOpacity={0}/>
               </linearGradient>
             </defs>
             <CartesianGrid 
@@ -241,7 +241,7 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
               type="monotone"
               dataKey="revenue"
               name="營收"
-              stroke="#6366F1"
+              stroke="#10B981"
               strokeWidth={2}
               fill="url(#colorRevenue)"
             />
@@ -250,7 +250,7 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
               type="monotone"
               dataKey="spend"
               name="廣告花費"
-              stroke="#67E8F9"
+              stroke="#F59E0B"
               strokeWidth={2}
               dot={false}
               strokeDasharray="5 5"
@@ -260,9 +260,9 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
               type="monotone"
               dataKey="roas"
               name="MER"
-              stroke="#818CF8"
+              stroke="#6366F1"
               strokeWidth={2.5}
-              dot={{ fill: '#818CF8', strokeWidth: 2, r: 4 }}
+              dot={{ fill: '#6366F1', strokeWidth: 2, r: 4 }}
               activeDot={{ r: 6, strokeWidth: 2, fill: '#A5B4FC' }}
             />
           </ComposedChart>
