@@ -77,7 +77,10 @@ export default function Dashboard() {
                 <h1 className="text-base sm:text-lg font-bold gradient-text">CarMall Dashboard</h1>
                 <p className="text-xs text-gray-500">車魔商城電商數據儀表板</p>
               </div>
-              <h1 className="sm:hidden text-sm font-bold gradient-text">CarMall</h1>
+              <div className="sm:hidden">
+                <h1 className="text-sm font-bold gradient-text">CarMall Dashboard</h1>
+                <p className="text-[10px] text-gray-500">車魔商城電商數據儀表板</p>
+              </div>
             </div>
 
             {/* Controls */}
@@ -115,11 +118,7 @@ export default function Dashboard() {
         </div>
 
         {/* Mobile Week Selector Bar - 手機版獨立一行 */}
-        <div className="md:hidden border-t border-gray-100 px-3 py-2 flex items-center justify-between bg-gray-50/50">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
-            <span className="text-xs font-medium text-gray-600">週報期間</span>
-          </div>
+        <div className="md:hidden border-t border-gray-100 px-3 py-2 flex items-center justify-end bg-gray-50/50">
           <WeekSelector 
             options={weekOptions}
             selected={selectedWeek}

@@ -63,7 +63,7 @@ const AlertBanner = memo(function AlertBanner({
   targetCpa = 500,
   className,
 }: AlertBannerProps) {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   // 生成警示列表
   const alerts = useMemo(() => {
