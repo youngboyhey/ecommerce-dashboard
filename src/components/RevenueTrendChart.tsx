@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, memo, useMemo, useCallback } from 'react';
+import { useState, memo, useMemo, useCallback, useEffect } from 'react';
 import {
   XAxis,
   YAxis,
@@ -12,6 +12,20 @@ import {
   ComposedChart,
   Line
 } from 'recharts';
+
+// Hook to detect mobile viewport
+function useIsMobile(breakpoint = 640) {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < breakpoint);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, [breakpoint]);
+  
+  return isMobile;
+}
 import { useHistoricalData } from '@/lib/useHistoricalData';
 import { mockHistoricalData, mockWeeklyData } from '@/lib/mockData';
 import { formatCurrency, formatDate } from '@/lib/utils';
@@ -79,6 +93,7 @@ const ChartTooltip = memo(function ChartTooltip({
 const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: RevenueTrendChartProps) {
   const [timeRange, setTimeRange] = useState<TimeRange>('daily');
   const { dailyData, weeklyData, isLoading, error } = useHistoricalData();
+  const isMobile = useIsMobile();
 
   const data = useMemo(() => {
     if (timeRange === 'daily') {
@@ -164,8 +179,11 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
       </div>
 
       <div id="revenue-chart" role="tabpanel" aria-label="營收趨勢圖表" className="min-h-[250px] sm:min-h-[350px]">
-        <ResponsiveContainer width="100%" height={350}>
-          <ComposedChart data={data}>
+        <ResponsiveContainer width="100%" height={isMobile ? 280 : 350}>
+          <ComposedChart 
+            data={data}
+            margin={isMobile ? { top: 5, right: 5, left: 0, bottom: 5 } : { top: 5, right: 20, left: 10, bottom: 5 }}
+          >
             <defs>
               <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#6366F1" stopOpacity={0.3}/>
@@ -184,28 +202,32 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
             <XAxis 
               dataKey={timeRange === 'daily' ? 'date' : 'week'}
               tickFormatter={(value) => timeRange === 'daily' ? formatDate(value) : value}
-              tick={{ fill: '#6B7280', fontSize: 12 }}
+              tick={{ fill: '#6B7280', fontSize: isMobile ? 10 : 12 }}
               axisLine={{ stroke: '#E5E7EB' }}
               tickLine={false}
-              dy={8}
+              dy={isMobile ? 4 : 8}
+              interval={isMobile ? 'preserveStartEnd' : 0}
             />
             <YAxis 
               yAxisId="left"
-              tick={{ fill: '#6B7280', fontSize: 12 }}
+              width={isMobile ? 35 : 50}
+              tick={{ fill: '#6B7280', fontSize: isMobile ? 10 : 12 }}
               axisLine={false}
               tickLine={false}
               tickFormatter={(value) => `${(value / 1000).toFixed(0)}K`}
               domain={[0, yAxisMax]}
-              dx={-8}
+              dx={isMobile ? -4 : -8}
             />
             <YAxis 
               yAxisId="right"
               orientation="right"
-              tick={{ fill: '#6B7280', fontSize: 12 }}
+              width={isMobile ? 25 : 40}
+              tick={{ fill: '#6B7280', fontSize: isMobile ? 10 : 12 }}
               axisLine={false}
               tickLine={false}
               domain={[0, roasMax]}
-              dx={8}
+              dx={isMobile ? 4 : 8}
+              hide={isMobile}
             />
             <Tooltip content={renderTooltip} />
             <Legend 

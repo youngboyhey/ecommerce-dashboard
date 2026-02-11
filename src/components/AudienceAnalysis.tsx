@@ -146,7 +146,7 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
         </span>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {/* Gender Distribution */}
         <div>
           <h3 className="text-sm font-semibold text-gray-700 mb-4 text-center">
