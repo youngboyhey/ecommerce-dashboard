@@ -12,6 +12,7 @@ import {
   ComposedChart,
   Line
 } from 'recharts';
+import { useHistoricalData } from '@/lib/useHistoricalData';
 import { mockHistoricalData, mockWeeklyData } from '@/lib/mockData';
 import { formatCurrency, formatDate } from '@/lib/utils';
 import { CHART_COLORS } from '@/lib/constants';
@@ -70,21 +71,40 @@ const ChartTooltip = memo(function ChartTooltip({
 
 const RevenueTrendChart = memo(function RevenueTrendChart() {
   const [timeRange, setTimeRange] = useState<TimeRange>('daily');
+  
+  // 從 Supabase 讀取真實數據
+  const { dailyData, weeklyData, isLoading, error } = useHistoricalData();
 
-  const data = useMemo(() => 
-    timeRange === 'daily' ? mockHistoricalData : mockWeeklyData,
-    [timeRange]
-  );
+  // 如果沒有真實數據，fallback 到 mock 數據
+  const data = useMemo(() => {
+    if (timeRange === 'daily') {
+      return dailyData.length > 0 ? dailyData : mockHistoricalData;
+    } else {
+      return weeklyData.length > 0 ? weeklyData : mockWeeklyData;
+    }
+  }, [timeRange, dailyData, weeklyData]);
 
   const handleTimeRangeChange = useCallback((range: TimeRange) => {
     setTimeRange(range);
   }, []);
 
-  // 自定義 Tooltip 渲染器 - 使用 any 來避免 Recharts 類型不兼容問題
+  // 自定義 Tooltip 渲染器
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const renderTooltip = useCallback((props: any) => (
     <ChartTooltip {...props} timeRange={timeRange} />
   ), [timeRange]);
+
+  // 計算 Y 軸最大值和 ROAS 範圍
+  const { yAxisMax, roasMax } = useMemo(() => {
+    const maxRevenue = Math.max(...data.map(d => d.revenue || 0));
+    const maxSpend = Math.max(...data.map(d => d.spend || 0));
+    const maxRoas = Math.max(...data.map(d => d.roas || 0));
+    
+    return {
+      yAxisMax: Math.ceil(Math.max(maxRevenue, maxSpend) / 1000) * 1000 + 1000,
+      roasMax: Math.ceil(maxRoas * 2) / 2 + 0.5, // 給 ROAS 一點空間
+    };
+  }, [data]);
 
   return (
     <section 
@@ -92,9 +112,20 @@ const RevenueTrendChart = memo(function RevenueTrendChart() {
       aria-labelledby="revenue-trend-title"
     >
       <div className="flex items-center justify-between mb-6">
-        <h2 id="revenue-trend-title" className="text-lg font-semibold text-gray-900">
-          📈 營收趨勢
-        </h2>
+        <div className="flex items-center gap-3">
+          <h2 id="revenue-trend-title" className="text-lg font-semibold text-gray-900">
+            📈 營收趨勢
+          </h2>
+          {isLoading && (
+            <span className="text-xs text-gray-400 animate-pulse">載入中...</span>
+          )}
+          {!isLoading && dailyData.length > 0 && (
+            <span className="text-xs text-green-500 font-medium">● 即時數據</span>
+          )}
+          {!isLoading && error && (
+            <span className="text-xs text-amber-500">⚠️ 使用備用數據</span>
+          )}
+        </div>
         <div className="flex gap-1 p-1 bg-gray-100 rounded-lg" role="tablist">
           {(['daily', 'weekly'] as TimeRange[]).map((range) => (
             <button
@@ -147,6 +178,7 @@ const RevenueTrendChart = memo(function RevenueTrendChart() {
               axisLine={false}
               tickLine={false}
               tickFormatter={(value) => `${(value / 1000).toFixed(0)}K`}
+              domain={[0, yAxisMax]}
               dx={-8}
             />
             <YAxis 
@@ -155,7 +187,7 @@ const RevenueTrendChart = memo(function RevenueTrendChart() {
               tick={{ fill: '#6B7280', fontSize: 12 }}
               axisLine={false}
               tickLine={false}
-              domain={[0, 1.5]}
+              domain={[0, roasMax]}
               dx={8}
             />
             <Tooltip content={renderTooltip} />
