@@ -159,7 +159,7 @@ export default function Dashboard() {
               title="📦 訂單數"
               value={weeklyData?.orders ?? data.summary.order_count}
               format="number"
-              change={weeklyChanges?.orders}
+              change={weeklyChanges?.orders ?? undefined}
               changeLabel="vs 上週"
               icon={<ShoppingCart className="w-5 h-5" />}
               theme="orders"
@@ -168,7 +168,7 @@ export default function Dashboard() {
               title="📊 MER"
               value={weeklyData?.mer ?? (data.summary.total_spend > 0 ? data.summary.total_revenue / data.summary.total_spend : 0)}
               format="roas"
-              change={weeklyChanges?.mer}
+              change={weeklyChanges?.mer ?? undefined}
               changeLabel="vs 上週"
               icon={<TrendingUp className="w-5 h-5" />}
               theme="roas"
@@ -177,7 +177,7 @@ export default function Dashboard() {
               title="👤 新增會員"
               value={weeklyData?.newMembers ?? data.summary.new_members}
               format="number"
-              change={weeklyChanges?.newMembers}
+              change={weeklyChanges?.newMembers ?? undefined}
               changeLabel="vs 上週"
               icon={<Users className="w-5 h-5" />}
               theme="orders"
