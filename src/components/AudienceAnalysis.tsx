@@ -20,8 +20,12 @@ import { Users } from 'lucide-react';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TooltipPayload = any;
 
-// 藍紫色調色系
-const GENDER_COLORS = ['#6366F1', '#EC4899', '#9CA3AF'];
+// 性別顏色對照 - 男性藍色、女性粉紅、未知灰色
+const GENDER_COLOR_MAP: Record<string, string> = {
+  '男性': '#3B82F6',  // 藍色
+  '女性': '#EC4899',  // 粉紅色
+  '未知': '#9CA3AF',  // 灰色
+};
 const AGE_COLORS = ['#6366F1', '#818CF8', '#A78BFA', '#C4B5FD', '#67E8F9', '#10B981'];
 
 interface AgeData {
@@ -166,10 +170,10 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
                   labelLine={false}
                   label={renderPieLabel}
                 >
-                  {genderData.map((_, index) => (
+                  {genderData.map((entry, index) => (
                     <Cell 
                       key={`cell-${index}`} 
-                      fill={GENDER_COLORS[index]} 
+                      fill={GENDER_COLOR_MAP[entry.name] || '#9CA3AF'} 
                       stroke="#fff"
                       strokeWidth={2}
                     />
@@ -182,11 +186,11 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
           
           {/* Gender Legend */}
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-3">
-            {genderData.map((g, i) => (
+            {genderData.map((g) => (
               <div key={g.name} className="flex items-center gap-1.5 shrink-0">
                 <div 
                   className="w-3 h-3 rounded-full shrink-0" 
-                  style={{ backgroundColor: GENDER_COLORS[i] }} 
+                  style={{ backgroundColor: GENDER_COLOR_MAP[g.name] || '#9CA3AF' }} 
                   aria-hidden="true"
                 />
                 <span className="text-xs font-medium text-gray-600 whitespace-nowrap">{g.name}</span>
