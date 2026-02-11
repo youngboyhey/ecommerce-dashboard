@@ -26,6 +26,7 @@ export interface DeviceData {
 interface DeviceBreakdownProps {
   data?: DeviceData[];
   className?: string;
+  isLive?: boolean; // 標示數據是否為真實數據
 }
 
 // 預設模擬數據
@@ -142,23 +143,27 @@ const CustomTooltip = memo(function CustomTooltip({ active, payload }: CustomToo
 });
 
 const DeviceBreakdown = memo(function DeviceBreakdown({ 
-  data = defaultData,
-  className 
+  data,
+  className,
+  isLive = false
 }: DeviceBreakdownProps) {
+  // 判斷是否使用模擬數據
+  const actualData = data && data.length > 0 ? data : defaultData;
+  const isUsingMockData = !data || data.length === 0 || !isLive;
   // 準備圓餅圖數據
   const pieData = useMemo(() => 
-    data.map(d => ({
+    actualData.map(d => ({
       ...d,
       name: getDeviceName(d.device),
       value: d.sessions,
     })),
-    [data]
+    [actualData]
   );
 
   // 計算洞察
   const insights = useMemo(() => {
-    const mobile = data.find(d => d.device === 'mobile');
-    const desktop = data.find(d => d.device === 'desktop');
+    const mobile = actualData.find(d => d.device === 'mobile');
+    const desktop = actualData.find(d => d.device === 'desktop');
     
     if (!mobile || !desktop) return null;
 
@@ -171,7 +176,7 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
       isMobileDominant: mobileShare > 60,
       hasConversionGap: conversionRatio > 1.5,
     };
-  }, [data]);
+  }, [actualData]);
 
   return (
     <section 
@@ -182,9 +187,16 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
       aria-labelledby="device-breakdown-title"
     >
       <div className="flex items-center justify-between mb-6">
-        <h2 id="device-breakdown-title" className="text-lg font-semibold text-gray-900">
-          📱 裝置分布
-        </h2>
+        <div className="flex items-center gap-3">
+          <h2 id="device-breakdown-title" className="text-lg font-semibold text-gray-900">
+            📱 裝置分布
+          </h2>
+          {isUsingMockData && (
+            <span className="px-2 py-0.5 text-xs font-medium bg-amber-100 text-amber-700 rounded-full">
+              數據來源：模擬
+            </span>
+          )}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -218,9 +230,9 @@ const DeviceBreakdown = memo(function DeviceBreakdown({
 
         {/* 裝置列表 */}
         <div className="space-y-3">
-          {data.map((device) => {
+          {actualData.map((device) => {
             const colors = DEVICE_COLORS[device.device];
-            const isTopDevice = device.sessionPercent === Math.max(...data.map(d => d.sessionPercent));
+            const isTopDevice = device.sessionPercent === Math.max(...actualData.map(d => d.sessionPercent));
             
             return (
               <div 

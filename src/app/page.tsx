@@ -267,7 +267,7 @@ export default function Dashboard() {
             </div>
             <div className="flex flex-col gap-6">
               <AudienceAnalysis data={data.meta_audience} />
-              <DeviceBreakdown />
+              <DeviceBreakdown isLive={isLive} />
             </div>
           </div>
         </section>
