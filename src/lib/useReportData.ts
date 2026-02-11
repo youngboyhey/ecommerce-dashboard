@@ -557,6 +557,10 @@ function aggregateDailyReports(dailyReports: ReportRow[], dateRange: DateRange):
       const raw = r.raw_data as Record<string, unknown> | undefined;
       const gsc = raw?.gsc as GscRawData | undefined;
       const pages = gsc?.top_pages || [];
+      // Debug: 檢查原始資料
+      if (pages.length > 0) {
+        console.log(`[GSC Aggregate] ${(r as { start_date?: string }).start_date} first page:`, pages[0]);
+      }
       for (const p of pages) {
         const existing = pageMap.get(p.page);
         if (existing) {
