@@ -19,28 +19,28 @@ interface KPICardProps {
 
 const THEME_CONFIG = {
   revenue: {
-    gradient: 'from-emerald-50 to-emerald-100/50',
+    gradient: 'from-white to-white',
     iconBg: 'bg-gradient-to-br from-emerald-500 to-emerald-600',
     iconShadow: 'shadow-emerald-500/30',
     accentColor: 'text-emerald-600',
     border: 'border-emerald-100',
   },
   orders: {
-    gradient: 'from-indigo-50 to-indigo-100/50',
+    gradient: 'from-white to-white',
     iconBg: 'bg-gradient-to-br from-indigo-500 to-indigo-600',
     iconShadow: 'shadow-indigo-500/30',
     accentColor: 'text-indigo-600',
     border: 'border-indigo-100',
   },
   roas: {
-    gradient: 'from-purple-50 to-purple-100/50',
+    gradient: 'from-white to-white',
     iconBg: 'bg-gradient-to-br from-purple-500 to-purple-600',
     iconShadow: 'shadow-purple-500/30',
     accentColor: 'text-purple-600',
     border: 'border-purple-100',
   },
   members: {
-    gradient: 'from-pink-50 to-pink-100/50',
+    gradient: 'from-white to-white',
     iconBg: 'bg-gradient-to-br from-pink-500 to-pink-600',
     iconShadow: 'shadow-pink-500/30',
     accentColor: 'text-pink-600',
