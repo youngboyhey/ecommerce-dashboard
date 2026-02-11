@@ -323,9 +323,9 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
       {/* Gauge 卡片網格 */}
       <div>
         <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-3">
-          Campaign ROAS 儀表板
+          廣告活動 ROAS 儀表板
         </h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-2 sm:gap-3">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3">
           {campaigns.map((campaign, index) => (
             <GaugeCard key={campaign.campaign_id || index} campaign={campaign} />
           ))}
