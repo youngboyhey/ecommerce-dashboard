@@ -331,6 +331,37 @@ function findTopAudienceSegment(
  * 將多個 daily 報表聚合為一個 weekly 報表格式
  */
 function aggregateDailyReports(dailyReports: ReportRow[], dateRange: DateRange): ReportRow {
+  // 🛡️ 空數組保護：防止 undefined 存取導致 crash
+  if (dailyReports.length === 0) {
+    return {
+      id: `empty-${dateRange.start}-${dateRange.end}`,
+      mode: 'weekly',
+      start_date: dateRange.start,
+      end_date: dateRange.end,
+      generated_at: new Date().toISOString(),
+      meta_spend: 0,
+      meta_ctr: 0,
+      meta_clicks: 0,
+      meta_roas: 0,
+      meta_purchases: 0,
+      meta_atc: 0,
+      meta_conv_value: 0,
+      meta_cpa: 0,
+      ga4_active_users: 0,
+      ga4_sessions: 0,
+      ga4_atc: 0,
+      ga4_purchases: 0,
+      ga4_revenue: 0,
+      ga4_overall_conversion: 0,
+      cyber_order_count: 0,
+      cyber_revenue: 0,
+      cyber_aov: 0,
+      cyber_new_members: 0,
+      mer: 0,
+      raw_data: {},
+    };
+  }
+
   const count = dailyReports.length;
   
   // 累加值
