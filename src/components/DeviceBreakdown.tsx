@@ -104,7 +104,7 @@ const DeviceTooltip = memo(function DeviceTooltip({
       <p className="font-semibold text-gray-900 mb-3 text-sm">{data.displayName}</p>
       <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
         <div>
-          <p className="text-gray-500">Sessions</p>
+          <p className="text-gray-500">流量</p>
           <p className="font-bold text-gray-900">{formatNumber(data.sessions)}</p>
         </div>
         <div>
