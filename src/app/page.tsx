@@ -92,10 +92,6 @@ export default function Dashboard() {
                   selected={selectedWeek}
                   onChange={setSelectedWeek}
                 />
-                <span className="badge badge-purple">
-                  <Sparkles className="w-3 h-3" />
-                  週報
-                </span>
               </div>
 
               {/* Data Source Indicator */}
