@@ -181,15 +181,15 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
           </div>
           
           {/* Gender Legend */}
-          <div className="flex justify-center gap-4 mt-3">
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-3">
             {genderData.map((g, i) => (
-              <div key={g.name} className="flex items-center gap-1.5">
+              <div key={g.name} className="flex items-center gap-1.5 shrink-0">
                 <div 
-                  className="w-3 h-3 rounded-full" 
+                  className="w-3 h-3 rounded-full shrink-0" 
                   style={{ backgroundColor: GENDER_COLORS[i] }} 
                   aria-hidden="true"
                 />
-                <span className="text-xs font-medium text-gray-600">{g.name}</span>
+                <span className="text-xs font-medium text-gray-600 whitespace-nowrap">{g.name}</span>
               </div>
             ))}
           </div>
