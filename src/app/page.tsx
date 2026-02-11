@@ -19,7 +19,6 @@ import WeekSelector from '@/components/WeekSelector';
 import RevenueTrendChart from '@/components/RevenueTrendChart';
 import MetaAdsChart from '@/components/MetaAdsChart';
 import GA4Funnel from '@/components/GA4Funnel';
-import NewVsReturningCard from '@/components/NewVsReturningCard';
 import AudienceAnalysis from '@/components/AudienceAnalysis';
 import ProductRanking from '@/components/ProductRanking';
 import ChannelPerformance from '@/components/ChannelPerformance';
@@ -261,10 +260,7 @@ export default function Dashboard() {
             <span>🔄</span> 網站行為分析
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="flex flex-col gap-6">
-              <GA4Funnel data={data.ga4} />
-              <NewVsReturningCard data={data.ga4} />
-            </div>
+            <GA4Funnel data={data.ga4} />
             <div className="flex flex-col gap-6">
               <AudienceAnalysis data={data.meta_audience} />
               <DeviceBreakdown data={data.ga4_devices} isLive={isLive} />
