@@ -45,6 +45,7 @@ interface DailyReport {
   cyber_new_members: number;
   meta_spend: number;
   meta_roas: number;
+  meta_conv_value: number;  // 🔧 新增：用於計算真正的 ROAS
   ga4_sessions: number;
   ga4_overall_conversion: number;
 }
@@ -78,7 +79,7 @@ export function useWeeklyData(): UseWeeklyDataResult {
       setIsLoading(true);
       const { data, error: fetchError } = await supabase
         .from('reports')
-        .select('start_date, cyber_revenue, cyber_order_count, cyber_aov, cyber_new_members, meta_spend, meta_roas, ga4_sessions, ga4_overall_conversion')
+        .select('start_date, cyber_revenue, cyber_order_count, cyber_aov, cyber_new_members, meta_spend, meta_roas, meta_conv_value, ga4_sessions, ga4_overall_conversion')
         .eq('mode', 'daily')
         .order('start_date', { ascending: false })
         .limit(35); // 5 週數據
@@ -140,6 +141,9 @@ export function useWeeklyData(): UseWeeklyDataResult {
     const newMembers = weekData.reduce((sum, d) => sum + (d.cyber_new_members || 0), 0);
     const sessions = weekData.reduce((sum, d) => sum + (d.ga4_sessions || 0), 0);
     
+    // 🔧 修復：正確計算 ROAS = meta_conv_value / meta_spend
+    const convValue = weekData.reduce((sum, d) => sum + (d.meta_conv_value || 0), 0);
+    
     // 平均值
     const avgConversion = weekData.length > 0 
       ? weekData.reduce((sum, d) => sum + (d.ga4_overall_conversion || 0), 0) / weekData.length 
@@ -150,7 +154,7 @@ export function useWeeklyData(): UseWeeklyDataResult {
       orders,
       adSpend,
       mer: adSpend > 0 ? revenue / adSpend : 0,
-      roas: adSpend > 0 ? revenue / adSpend : 0, // 簡化，實際應用 Meta conv_value
+      roas: adSpend > 0 ? convValue / adSpend : 0, // 🔧 修復：使用 meta_conv_value 計算真正的 ROAS
       newMembers,
       aov: orders > 0 ? revenue / orders : 0,
       sessions,
