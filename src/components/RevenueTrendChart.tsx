@@ -58,7 +58,7 @@ const ChartTooltip = memo(function ChartTooltip({
             <span className="font-medium" style={{ color: entry.color }}>
               {entry.name === '營收' || entry.name === '廣告花費'
                 ? formatCurrency(entry.value as number)
-                : entry.name === 'ROAS'
+                : entry.name === 'MER'
                   ? (entry.value as number).toFixed(2)
                   : entry.value}
             </span>
@@ -219,7 +219,7 @@ const RevenueTrendChart = memo(function RevenueTrendChart() {
               yAxisId="right"
               type="monotone"
               dataKey="roas"
-              name="ROAS"
+              name="MER"
               stroke={CHART_COLORS.roas}
               strokeWidth={2.5}
               dot={{ fill: CHART_COLORS.roas, strokeWidth: 2, r: 4 }}

@@ -63,14 +63,19 @@ export function useHistoricalData(): UseHistoricalDataResult {
         throw new Error('No historical data found');
       }
 
-      // 轉換為前端格式
-      const daily: HistoricalDataPoint[] = reports.map(r => ({
-        date: r.start_date,
-        revenue: r.cyber_revenue || 0,
-        spend: r.meta_spend || 0,
-        roas: r.meta_roas || 0,
-        orders: r.cyber_order_count || 0,
-      }));
+      // 轉換為前端格式，ROAS 改用 MER (實際營收/廣告花費)
+      const daily: HistoricalDataPoint[] = reports.map(r => {
+        const revenue = r.cyber_revenue || 0;
+        const spend = r.meta_spend || 0;
+        const mer = spend > 0 ? revenue / spend : 0;
+        return {
+          date: r.start_date,
+          revenue,
+          spend,
+          roas: mer,  // 實際上是 MER
+          orders: r.cyber_order_count || 0,
+        };
+      });
 
       setDailyData(daily);
 
