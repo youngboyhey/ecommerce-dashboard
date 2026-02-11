@@ -82,7 +82,7 @@ export default function Dashboard() {
 
             {/* Controls */}
             <div className="flex items-center gap-1.5 sm:gap-4">
-              {/* Week Selector - Desktop */}
+              {/* Week Selector - Desktop Only */}
               <div className="hidden md:flex items-center gap-3">
                 <WeekSelector 
                   options={weekOptions}
@@ -93,15 +93,6 @@ export default function Dashboard() {
                   <Sparkles className="w-3 h-3" />
                   週報
                 </span>
-              </div>
-
-              {/* Mobile Week Selector */}
-              <div className="md:hidden">
-                <WeekSelector 
-                  options={weekOptions}
-                  selected={selectedWeek}
-                  onChange={setSelectedWeek}
-                />
               </div>
 
               {/* Data Source Indicator */}
@@ -121,6 +112,19 @@ export default function Dashboard() {
               </button>
             </div>
           </div>
+        </div>
+
+        {/* Mobile Week Selector Bar - 手機版獨立一行 */}
+        <div className="md:hidden border-t border-gray-100 px-3 py-2 flex items-center justify-between bg-gray-50/50">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
+            <span className="text-xs font-medium text-gray-600">週報期間</span>
+          </div>
+          <WeekSelector 
+            options={weekOptions}
+            selected={selectedWeek}
+            onChange={setSelectedWeek}
+          />
         </div>
       </header>
 
