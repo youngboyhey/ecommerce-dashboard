@@ -15,6 +15,7 @@ import {
 
 import AlertBanner from '@/components/AlertBanner';
 import KPICard from '@/components/KPICard';
+import WeekSelector from '@/components/WeekSelector';
 import RevenueTrendChart from '@/components/RevenueTrendChart';
 import MetaAdsChart from '@/components/MetaAdsChart';
 import GA4Funnel from '@/components/GA4Funnel';
@@ -24,14 +25,26 @@ import ChannelPerformance from '@/components/ChannelPerformance';
 import DeviceBreakdown from '@/components/DeviceBreakdown';
 import GSCPerformance from '@/components/GSCPerformance';
 import { useReportData } from '@/lib/useReportData';
+import { useWeeklyData } from '@/lib/useWeeklyData';
 import { formatDate } from '@/lib/utils';
 
 export default function Dashboard() {
   const { data, isLoading, isLive, lastUpdated, refresh } = useReportData('weekly');
+  const { 
+    weekOptions, 
+    selectedWeek, 
+    setSelectedWeek, 
+    comparisonData,
+    isLoading: weekLoading 
+  } = useWeeklyData();
 
   const handleRefresh = async () => {
     await refresh();
   };
+
+  // 使用週報比較數據（如果有的話）
+  const weeklyData = comparisonData?.current;
+  const weeklyChanges = comparisonData?.changes;
 
   // 計算警示所需的指標
   // 模擬 CPM 和 Frequency（實際應從 Meta API 取得）
@@ -66,14 +79,15 @@ export default function Dashboard() {
 
             {/* Controls */}
             <div className="flex items-center gap-2 sm:gap-4">
-              {/* Date Range Display - 響應式隱藏細節 */}
-              <div className="hidden md:flex items-center gap-2 text-sm text-gray-600 bg-gray-100/80 px-4 py-2 rounded-lg">
-                <Calendar className="w-4 h-4" aria-hidden="true" />
-                <span>{formatDate(data.start_date)} - {formatDate(data.end_date)}</span>
-                <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
-                  data.mode === 'weekly' ? 'bg-purple-100 text-purple-700' : 'bg-blue-100 text-blue-700'
-                }`}>
-                  {data.mode === 'weekly' ? '週報' : '日報'}
+              {/* Week Selector */}
+              <div className="hidden md:flex items-center gap-3">
+                <WeekSelector 
+                  options={weekOptions}
+                  selected={selectedWeek}
+                  onChange={setSelectedWeek}
+                />
+                <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-700">
+                  週報
                 </span>
               </div>
 
@@ -134,31 +148,37 @@ export default function Dashboard() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             <KPICard
               title="💰 總營收"
-              value={data.summary.total_revenue}
+              value={weeklyData?.revenue ?? data.summary.total_revenue}
               format="currency"
-              change={data.wow?.cyber_revenue_change}
+              change={weeklyChanges?.revenue ?? data.wow?.cyber_revenue_change}
               changeLabel="vs 上週"
               icon={<DollarSign className="w-5 h-5" />}
               theme="revenue"
             />
             <KPICard
               title="📦 訂單數"
-              value={data.summary.order_count}
+              value={weeklyData?.orders ?? data.summary.order_count}
               format="number"
+              change={weeklyChanges?.orders}
+              changeLabel="vs 上週"
               icon={<ShoppingCart className="w-5 h-5" />}
               theme="orders"
             />
             <KPICard
               title="📊 MER"
-              value={data.summary.total_spend > 0 ? data.summary.total_revenue / data.summary.total_spend : 0}
+              value={weeklyData?.mer ?? (data.summary.total_spend > 0 ? data.summary.total_revenue / data.summary.total_spend : 0)}
               format="roas"
+              change={weeklyChanges?.mer}
+              changeLabel="vs 上週"
               icon={<TrendingUp className="w-5 h-5" />}
               theme="roas"
             />
             <KPICard
               title="👤 新增會員"
-              value={data.summary.new_members}
+              value={weeklyData?.newMembers ?? data.summary.new_members}
               format="number"
+              change={weeklyChanges?.newMembers}
+              changeLabel="vs 上週"
               icon={<Users className="w-5 h-5" />}
               theme="orders"
             />
@@ -171,19 +191,39 @@ export default function Dashboard() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow">
               <p className="text-xs font-medium text-gray-500 mb-1">💸 廣告花費</p>
-              <p className="text-xl font-bold text-gray-900">NT${data.summary.total_spend.toLocaleString()}</p>
+              <p className="text-xl font-bold text-gray-900">NT${(weeklyData?.adSpend ?? data.summary.total_spend).toLocaleString()}</p>
+              {weeklyChanges?.adSpend !== null && weeklyChanges?.adSpend !== undefined && (
+                <p className={`text-xs mt-1 ${weeklyChanges.adSpend > 0 ? 'text-red-500' : 'text-green-500'}`}>
+                  {weeklyChanges.adSpend > 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.adSpend).toFixed(1)}% vs 上週
+                </p>
+              )}
             </article>
             <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow">
               <p className="text-xs font-medium text-gray-500 mb-1">💰 客單價 (AOV)</p>
-              <p className="text-xl font-bold text-gray-900">NT${data.summary.aov.toFixed(0)}</p>
+              <p className="text-xl font-bold text-gray-900">NT${(weeklyData?.aov ?? data.summary.aov).toFixed(0)}</p>
+              {weeklyChanges?.aov !== null && weeklyChanges?.aov !== undefined && (
+                <p className={`text-xs mt-1 ${weeklyChanges.aov >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                  {weeklyChanges.aov >= 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.aov).toFixed(1)}% vs 上週
+                </p>
+              )}
             </article>
             <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow">
               <p className="text-xs font-medium text-gray-500 mb-1">📈 廣告 ROAS</p>
-              <p className="text-xl font-bold text-blue-600">{data.summary.roas.toFixed(2)}</p>
+              <p className="text-xl font-bold text-blue-600">{(weeklyData?.roas ?? data.summary.roas).toFixed(2)}</p>
+              {weeklyChanges?.roas !== null && weeklyChanges?.roas !== undefined && (
+                <p className={`text-xs mt-1 ${weeklyChanges.roas >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                  {weeklyChanges.roas >= 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.roas).toFixed(1)}% vs 上週
+                </p>
+              )}
             </article>
             <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow">
               <p className="text-xs font-medium text-gray-500 mb-1">🎯 轉換率</p>
-              <p className="text-xl font-bold text-emerald-600">{data.summary.ga4_overall_conversion}%</p>
+              <p className="text-xl font-bold text-emerald-600">{(weeklyData?.conversion ?? data.summary.ga4_overall_conversion).toFixed(2)}%</p>
+              {weeklyChanges?.conversion !== null && weeklyChanges?.conversion !== undefined && (
+                <p className={`text-xs mt-1 ${weeklyChanges.conversion >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                  {weeklyChanges.conversion >= 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.conversion).toFixed(1)}% vs 上週
+                </p>
+              )}
             </article>
           </div>
         </section>
