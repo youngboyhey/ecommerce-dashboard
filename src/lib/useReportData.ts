@@ -499,11 +499,15 @@ function aggregateDailyReports(dailyReports: ReportRow[], dateRange: DateRange):
     // 聚合 GSC 數據
     // 🔧 修復：資料庫存的是 { total: {...}, top_queries: [...], top_pages: [...] } 格式
     type GscTotalData = { clicks: number; impressions: number; ctr: number; position: number };
-    type GscRawData = { total?: GscTotalData; top_queries?: unknown[]; top_pages?: unknown[] };
-    const gscAggregated = dailyReports.reduce((acc, r) => {
+    type GscQueryData = { query: string; clicks: number; impressions: number; ctr: number; position: number };
+    type GscPageData = { page: string; clicks: number; impressions: number; ctr: number; position: number };
+    type GscRawData = { total?: GscTotalData; top_queries?: GscQueryData[]; top_pages?: GscPageData[] };
+    
+    // 聚合 total 數據
+    const gscTotalAggregated = dailyReports.reduce((acc, r) => {
       const raw = r.raw_data as Record<string, unknown> | undefined;
       const gsc = raw?.gsc as GscRawData | undefined;
-      const total = gsc?.total; // 🔧 修復：讀取 gsc.total 而非 gsc
+      const total = gsc?.total;
       if (total) {
         acc.clicks += total.clicks || 0;
         acc.impressions += total.impressions || 0;
@@ -513,16 +517,84 @@ function aggregateDailyReports(dailyReports: ReportRow[], dateRange: DateRange):
       return acc;
     }, { clicks: 0, impressions: 0, count: 0, positionSum: 0 });
     
+    // 🔧 修復：聚合 top_queries（按 query 合併）
+    const queryMap = new Map<string, { clicks: number; impressions: number; positionSum: number; count: number }>();
+    for (const r of dailyReports) {
+      const raw = r.raw_data as Record<string, unknown> | undefined;
+      const gsc = raw?.gsc as GscRawData | undefined;
+      const queries = gsc?.top_queries || [];
+      for (const q of queries) {
+        const existing = queryMap.get(q.query);
+        if (existing) {
+          existing.clicks += q.clicks || 0;
+          existing.impressions += q.impressions || 0;
+          existing.positionSum += q.position || 0;
+          existing.count += 1;
+        } else {
+          queryMap.set(q.query, {
+            clicks: q.clicks || 0,
+            impressions: q.impressions || 0,
+            positionSum: q.position || 0,
+            count: 1,
+          });
+        }
+      }
+    }
+    const aggregatedQueries = Array.from(queryMap.entries())
+      .map(([query, data]) => ({
+        query,
+        clicks: data.clicks,
+        impressions: data.impressions,
+        ctr: data.impressions > 0 ? (data.clicks / data.impressions) * 100 : 0,
+        position: data.count > 0 ? data.positionSum / data.count : 0,
+      }))
+      .sort((a, b) => b.clicks - a.clicks) // 按點擊數排序
+      .slice(0, 10); // 取 TOP 10
+    
+    // 🔧 修復：聚合 top_pages（按 page 合併）
+    const pageMap = new Map<string, { clicks: number; impressions: number; positionSum: number; count: number }>();
+    for (const r of dailyReports) {
+      const raw = r.raw_data as Record<string, unknown> | undefined;
+      const gsc = raw?.gsc as GscRawData | undefined;
+      const pages = gsc?.top_pages || [];
+      for (const p of pages) {
+        const existing = pageMap.get(p.page);
+        if (existing) {
+          existing.clicks += p.clicks || 0;
+          existing.impressions += p.impressions || 0;
+          existing.positionSum += p.position || 0;
+          existing.count += 1;
+        } else {
+          pageMap.set(p.page, {
+            clicks: p.clicks || 0,
+            impressions: p.impressions || 0,
+            positionSum: p.position || 0,
+            count: 1,
+          });
+        }
+      }
+    }
+    const aggregatedPages = Array.from(pageMap.entries())
+      .map(([page, data]) => ({
+        page,
+        clicks: data.clicks,
+        impressions: data.impressions,
+        ctr: data.impressions > 0 ? (data.clicks / data.impressions) * 100 : 0,
+        position: data.count > 0 ? data.positionSum / data.count : 0,
+      }))
+      .sort((a, b) => b.clicks - a.clicks) // 按點擊數排序
+      .slice(0, 10); // 取 TOP 10
+    
     // 🔧 修復：GSC 數據必須符合 GSCData 類型格式（包含 total, top_queries, top_pages）
-    const aggregatedGsc = gscAggregated.count > 0 ? {
+    const aggregatedGsc = gscTotalAggregated.count > 0 ? {
       total: {
-        clicks: gscAggregated.clicks,
-        impressions: gscAggregated.impressions,
-        ctr: gscAggregated.impressions > 0 ? (gscAggregated.clicks / gscAggregated.impressions) * 100 : 0,
-        position: gscAggregated.positionSum / gscAggregated.count, // 平均排名
+        clicks: gscTotalAggregated.clicks,
+        impressions: gscTotalAggregated.impressions,
+        ctr: gscTotalAggregated.impressions > 0 ? (gscTotalAggregated.clicks / gscTotalAggregated.impressions) * 100 : 0,
+        position: gscTotalAggregated.positionSum / gscTotalAggregated.count, // 平均排名
       },
-      top_queries: [], // 聚合模式下不提供關鍵字明細
-      top_pages: [],   // 聚合模式下不提供頁面明細
+      top_queries: aggregatedQueries, // 🔧 修復：提供聚合後的關鍵字 TOP 10
+      top_pages: aggregatedPages,     // 🔧 修復：提供聚合後的頁面 TOP 10
     } : null;
 
     // 計算聚合後的漏斗比率

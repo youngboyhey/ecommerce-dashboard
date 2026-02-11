@@ -294,7 +294,7 @@ export default function Dashboard() {
                 position: q.position,
               }))}
               pages={data.gsc?.top_pages?.map(p => ({
-                page: p.page_path,
+                page: p.page,  // 🔧 修復：與資料庫欄位名稱一致（原本是 page_path）
                 impressions: p.impressions,
                 clicks: p.clicks,
                 ctr: p.ctr,

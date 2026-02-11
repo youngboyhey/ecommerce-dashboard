@@ -137,7 +137,7 @@ export interface GSCKeyword {
 }
 
 export interface GSCPage {
-  page_path: string;
+  page: string;  // 🔧 修復：與資料庫欄位名稱一致（原本是 page_path）
   impressions: number;
   clicks: number;
   ctr: number;
