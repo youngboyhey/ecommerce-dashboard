@@ -152,5 +152,5 @@
 
 | 日期 | 問題 | 修復 | Commit |
 |------|------|------|--------|
-| 2026-02-11 | useWeeklyData ROAS 計算錯誤 | 新增 meta_conv_value 查詢並正確計算 ROAS | 待提交 |
+| 2026-02-11 | useWeeklyData ROAS 計算錯誤 | 新增 meta_conv_value 查詢並正確計算 ROAS | `8155ebe` ✅ |
 
