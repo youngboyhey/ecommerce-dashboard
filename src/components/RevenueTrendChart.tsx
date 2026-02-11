@@ -178,8 +178,8 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
         </div>
       </div>
 
-      <div id="revenue-chart" role="tabpanel" aria-label="營收趨勢圖表" className="min-h-[250px] sm:min-h-[350px]">
-        <ResponsiveContainer width="100%" height={isMobile ? 280 : 350}>
+      <div id="revenue-chart" role="tabpanel" aria-label="營收趨勢圖表" className="min-h-[250px] sm:min-h-[420px]">
+        <ResponsiveContainer width="100%" height={isMobile ? 280 : 420}>
           <ComposedChart 
             data={data}
             margin={isMobile ? { top: 5, right: 5, left: 0, bottom: 5 } : { top: 5, right: 20, left: 10, bottom: 5 }}
