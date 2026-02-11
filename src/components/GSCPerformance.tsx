@@ -27,6 +27,7 @@ export interface KeywordData {
 // 頁面數據類型
 export interface PageData {
   page: string;
+  title?: string; // 頁面標題
   impressions: number;
   clicks: number;
   ctr: number;
@@ -353,11 +354,22 @@ const GSCPerformance = memo(function GSCPerformance({
                       className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
                     >
                       <td className="py-3 px-2">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 group">
                           <span className="text-gray-400 text-xs w-5">{index + 1}</span>
-                          <span className="font-medium text-gray-900 truncate max-w-[200px]" title={item.page}>
-                            {item.page}
-                          </span>
+                          <div className="relative">
+                            <span 
+                              className="font-medium text-gray-900 truncate max-w-[200px] block cursor-help" 
+                              title={item.page}
+                            >
+                              {item.title || item.page}
+                            </span>
+                            {/* URL 小字提示 */}
+                            {item.title && (
+                              <span className="text-xs text-gray-400 truncate max-w-[200px] block">
+                                {item.page}
+                              </span>
+                            )}
+                          </div>
                         </div>
                       </td>
                       <td className="text-right py-3 px-2 text-gray-700">

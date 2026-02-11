@@ -138,6 +138,7 @@ export interface GSCKeyword {
 
 export interface GSCPage {
   page: string;  // 🔧 修復：與資料庫欄位名稱一致（原本是 page_path）
+  title?: string; // 頁面標題，從 HTML <title> 抓取
   impressions: number;
   clicks: number;
   ctr: number;
