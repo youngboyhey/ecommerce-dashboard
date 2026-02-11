@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useMemo } from 'react';
+import { memo, useMemo, useState } from 'react';
 import {
   BarChart,
   Bar,
@@ -13,6 +13,10 @@ import {
 } from 'recharts';
 import { formatNumber, formatPercent } from '@/lib/utils';
 import { CHART_COLORS } from '@/lib/constants';
+
+// Sort configuration type
+type SortKey = 'sessions' | 'atc' | 'purchases' | 'session_to_atc_rate';
+type SortDirection = 'asc' | 'desc';
 
 // 流量來源中文名稱對照
 const SOURCE_LABELS: Record<string, string> = {
@@ -86,17 +90,64 @@ interface ChannelPerformanceProps {
 }
 
 const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPerformanceProps) {
+  // Sort state - default by sessions descending
+  const [sortConfig, setSortConfig] = useState<{ key: SortKey; direction: SortDirection }>({
+    key: 'sessions',
+    direction: 'desc'
+  });
+
+  // Handle sort toggle
+  const handleSort = (key: SortKey) => {
+    setSortConfig(prev => ({
+      key,
+      direction: prev.key === key && prev.direction === 'desc' ? 'asc' : 'desc'
+    }));
+  };
+
+  // Get sort indicator
+  const getSortIndicator = (key: SortKey) => {
+    if (sortConfig.key !== key) return null;
+    return sortConfig.direction === 'desc' ? ' ▼' : ' ▲';
+  };
+
+  // Process channels - keep all sources with sessions > 0 (removed strict filter)
   const channels = useMemo(() => {
     const sourceData = data || [];
     return sourceData
-      .filter(c => c.sessions > 20)
-      .sort((a, b) => b.sessions - a.sessions)
-      .slice(0, 6)
+      .filter(c => c.sessions > 0)  // Keep any source with traffic
       .map(c => ({
         ...c,
         displayName: SOURCE_LABELS[c.source.toLowerCase()] || c.source
       }));
   }, [data]);
+
+  // Chart data - top 6 by sessions for visualization
+  const chartData = useMemo(() => {
+    return [...channels]
+      .sort((a, b) => b.sessions - a.sessions)
+      .slice(0, 6);
+  }, [channels]);
+
+  // Sorted table data - all channels sorted by user selection
+  const sortedChannels = useMemo(() => {
+    return [...channels].sort((a, b) => {
+      const aVal = a[sortConfig.key] ?? 0;
+      const bVal = b[sortConfig.key] ?? 0;
+      return sortConfig.direction === 'asc' ? aVal - bVal : bVal - aVal;
+    });
+  }, [channels, sortConfig]);
+
+  // Calculate totals for summary row
+  const totals = useMemo(() => {
+    return channels.reduce(
+      (acc, c) => ({
+        sessions: acc.sessions + c.sessions,
+        atc: acc.atc + c.atc,
+        purchases: acc.purchases + c.purchases
+      }),
+      { sessions: 0, atc: 0, purchases: 0 }
+    );
+  }, [channels]);
 
   return (
     <section 
@@ -115,7 +166,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
 
       <div aria-label="流量來源分佈圖">
         <ResponsiveContainer width="100%" height={240}>
-          <BarChart data={channels} layout="vertical">
+          <BarChart data={chartData} layout="vertical">
             <CartesianGrid 
               strokeDasharray="3 3" 
               stroke="#E5E7EB" 
@@ -142,7 +193,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
               radius={[0, 6, 6, 0]}
               maxBarSize={36}
             >
-              {channels.map((_, index) => (
+              {chartData.map((_, index) => (
                 <Cell 
                   key={`cell-${index}`} 
                   fill={CHART_COLORS.series[index % CHART_COLORS.series.length]} 
@@ -162,15 +213,41 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
         >
           <thead>
             <tr className="border-b border-gray-200">
-              <th scope="col" className="text-left py-3 text-gray-500 font-semibold uppercase tracking-wider">來源</th>
-              <th scope="col" className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider">Sessions</th>
-              <th scope="col" className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider">ATC</th>
-              <th scope="col" className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider">購買</th>
-              <th scope="col" className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider">ATC 率</th>
+              <th scope="col" className="text-left py-3 text-gray-500 font-semibold uppercase tracking-wider">
+                來源
+              </th>
+              <th 
+                scope="col" 
+                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none"
+                onClick={() => handleSort('sessions')}
+              >
+                Sessions{getSortIndicator('sessions')}
+              </th>
+              <th 
+                scope="col" 
+                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none"
+                onClick={() => handleSort('atc')}
+              >
+                ATC{getSortIndicator('atc')}
+              </th>
+              <th 
+                scope="col" 
+                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none"
+                onClick={() => handleSort('purchases')}
+              >
+                購買{getSortIndicator('purchases')}
+              </th>
+              <th 
+                scope="col" 
+                className="text-right py-3 text-gray-500 font-semibold uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none"
+                onClick={() => handleSort('session_to_atc_rate')}
+              >
+                ATC 率{getSortIndicator('session_to_atc_rate')}
+              </th>
             </tr>
           </thead>
           <tbody>
-            {channels.map((channel, index) => (
+            {sortedChannels.map((channel, index) => (
               <tr 
                 key={channel.source} 
                 className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors"
@@ -179,7 +256,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
                   <div className="flex items-center gap-2">
                     <div 
                       className="w-2.5 h-2.5 rounded-full flex-shrink-0" 
-                      style={{ backgroundColor: CHART_COLORS.series[index] }} 
+                      style={{ backgroundColor: CHART_COLORS.series[index % CHART_COLORS.series.length] }} 
                       aria-hidden="true"
                     />
                     <span className="font-medium text-gray-900 truncate max-w-[140px]" title={channel.source}>
@@ -187,7 +264,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
                     </span>
                   </div>
                 </td>
-                <td className="py-3 text-right font-medium text-gray-700">{channel.sessions}</td>
+                <td className="py-3 text-right font-medium text-gray-700">{formatNumber(channel.sessions)}</td>
                 <td className="py-3 text-right text-purple-600 font-medium">{channel.atc}</td>
                 <td className="py-3 text-right">
                   <span className={`font-bold ${channel.purchases > 0 ? 'text-emerald-600' : 'text-gray-300'}`}>
@@ -208,6 +285,16 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
               </tr>
             ))}
           </tbody>
+          {/* Totals row */}
+          <tfoot>
+            <tr className="border-t-2 border-gray-200 bg-gray-50/50 font-semibold">
+              <td className="py-3 text-gray-700">合計</td>
+              <td className="py-3 text-right text-gray-900">{formatNumber(totals.sessions)}</td>
+              <td className="py-3 text-right text-purple-700">{totals.atc}</td>
+              <td className="py-3 text-right text-emerald-700">{totals.purchases}</td>
+              <td className="py-3 text-right text-gray-500">—</td>
+            </tr>
+          </tfoot>
         </table>
       </div>
     </section>
