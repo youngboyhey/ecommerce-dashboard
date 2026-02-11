@@ -1,50 +1,91 @@
 @import "tailwindcss";
 
 :root {
+  /* 色彩系統 */
+  --color-primary: #3B82F6;
+  --color-primary-dark: #2563EB;
+  --color-success: #10B981;
+  --color-danger: #EF4444;
+  --color-warning: #F59E0B;
+  
+  /* 背景 */
   --background: #f9fafb;
   --foreground: #111827;
+  
+  /* 間距單位 (8pt grid) */
+  --space-unit: 8px;
 }
 
+/* 基礎樣式 */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
+/* 自定義 Scrollbar - 更精緻 */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
-  border-radius: 4px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
-  border-radius: 4px;
+  border-radius: 100px;
+  border: 2px solid transparent;
+  background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+  border: 2px solid transparent;
+  background-clip: content-box;
 }
 
-/* Smooth animations */
-* {
-  transition-property: color, background-color, border-color, box-shadow, transform;
+/* 平滑動畫 - 限定特定屬性避免效能問題 */
+.transition-colors {
+  transition-property: color, background-color, border-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-/* Card hover effects */
+.transition-shadow {
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.transition-all {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Focus 樣式 - 無障礙性 */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 卡片懸停效果 */
 .card-hover:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
-/* Gradient text */
+/* 漸層文字 */
 .gradient-text {
   background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
   -webkit-background-clip: text;
@@ -52,8 +93,8 @@ body {
   background-clip: text;
 }
 
-/* Loading animation */
-@keyframes pulse {
+/* 載入動畫 */
+@keyframes pulse-slow {
   0%, 100% {
     opacity: 1;
   }
@@ -63,14 +104,105 @@ body {
 }
 
 .animate-pulse-slow {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Chart container */
+/* 淡入動畫 */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+/* 圖表容器 - 確保字體一致 */
 .recharts-wrapper {
   font-family: inherit !important;
 }
 
 .recharts-text {
   font-family: inherit !important;
+}
+
+.recharts-legend-item-text {
+  font-size: 12px !important;
+  color: #6B7280 !important;
+}
+
+/* 表格優化 */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+th {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* 響應式字體 */
+@media (max-width: 640px) {
+  .text-3xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  
+  .text-2xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+/* 減少動畫偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 高對比模式支援 */
+@media (prefers-contrast: high) {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+  }
+  
+  .border-gray-100 {
+    border-color: #000000;
+  }
+}
+
+/* 深色模式準備 (未來擴展) */
+@media (prefers-color-scheme: dark) {
+  /* 保留淺色模式，未來可在此添加深色樣式 */
+}
+
+/* 螢幕閱讀器專用 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* 數字等寬字體 - 讓數據對齊更美觀 */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
 }
