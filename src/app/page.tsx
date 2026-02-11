@@ -251,8 +251,10 @@ export default function Dashboard() {
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <GA4Funnel data={data.ga4} />
-            <AudienceAnalysis data={data.meta_audience} />
-            <DeviceBreakdown />
+            <div className="flex flex-col gap-6">
+              <AudienceAnalysis data={data.meta_audience} />
+              <DeviceBreakdown />
+            </div>
           </div>
         </section>
 
