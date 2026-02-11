@@ -106,6 +106,7 @@ export const mockReportData: ReportData = {
     order_count: 34,
     total_revenue: 5600.0,
     aov: 164.71,
+    new_members: 0,
     product_ranking: [
       { product_name: '【任選3入】LIQUI MOLY 車用香氛磚', variant: '', sku: 'air-freshener-3pack', total_quantity: 4, total_revenue: 2880.0 },
       { product_name: '【全系列6入】LIQUI MOLY 車用香氛磚', variant: '', sku: 'air-freshener-6pack-fixed', total_quantity: 1, total_revenue: 1350.0 },
@@ -137,6 +138,7 @@ export const mockReportData: ReportData = {
       order_count: 6,
       total_revenue: 7850.0,
       aov: 1308.33,
+      new_members: 0,
       product_ranking: []
     }
   },
@@ -147,6 +149,7 @@ export const mockReportData: ReportData = {
     roas: 0.887556,
     order_count: 34,
     aov: 164.71,
+    new_members: 0,
     ga4_sessions: 715,
     ga4_overall_conversion: 0.98,
     top_audience_segment: 'male 35-44',

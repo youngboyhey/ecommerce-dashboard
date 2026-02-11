@@ -90,6 +90,7 @@ export interface CyberbizData {
   order_count: number;
   total_revenue: number;
   aov: number;
+  new_members: number;
   product_ranking: ProductRanking[];
 }
 
@@ -108,6 +109,7 @@ export interface Summary {
   roas: number;
   order_count: number;
   aov: number;
+  new_members: number;
   ga4_sessions: number;
   ga4_overall_conversion: number;
   top_audience_segment: string;

@@ -148,7 +148,7 @@ export default function Dashboard() {
             />
             <KPICard
               title="👤 新增會員"
-              value={0}
+              value={data.summary.new_members}
               format="number"
               icon={<Users className="w-5 h-5" />}
               theme="orders"

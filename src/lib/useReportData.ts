@@ -219,6 +219,7 @@ function transformToReportData(
       order_count: report.cyber_order_count,
       total_revenue: report.cyber_revenue,
       aov: report.cyber_aov,
+      new_members: report.cyber_new_members || 0,
       product_ranking: products.map(p => ({
         product_name: p.product_name,
         variant: '',
@@ -238,6 +239,7 @@ function transformToReportData(
       roas: report.meta_roas,
       order_count: report.cyber_order_count,
       aov: report.cyber_aov,
+      new_members: report.cyber_new_members || 0,
       ga4_sessions: report.ga4_sessions,
       ga4_overall_conversion: report.ga4_overall_conversion,
       top_audience_segment: topAudienceSegment || 'N/A',

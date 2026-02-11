@@ -42,6 +42,7 @@ export interface ReportRow {
   cyber_order_count: number;
   cyber_revenue: number;
   cyber_aov: number;
+  cyber_new_members: number;
   
   // Calculated
   mer: number;
