@@ -75,6 +75,14 @@ export function useReportData(
           if (dailyError) {
             reportError = dailyError;
           } else if (dailyReports && dailyReports.length > 0) {
+            // Debug: 檢查 Supabase 返回的原始資料
+            const firstReport = dailyReports[0] as Record<string, unknown>;
+            const rawData = firstReport?.raw_data as Record<string, unknown>;
+            const gscData = rawData?.gsc as Record<string, unknown>;
+            console.log('[Supabase Debug] First report raw_data.gsc:', gscData);
+            if (gscData?.top_pages) {
+              console.log('[Supabase Debug] top_pages[0]:', (gscData.top_pages as unknown[])[0]);
+            }
             // 聚合 daily 數據為 weekly 格式
             reportData = aggregateDailyReports(dailyReports as ReportRow[], dateRange);
           } else {
