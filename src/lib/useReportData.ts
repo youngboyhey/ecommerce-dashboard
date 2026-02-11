@@ -307,18 +307,24 @@ function findTopAudienceSegment(
   genderData: AudienceGenderRow[]
 ): string | null {
   // 找出購買轉換率最高的性別
-  const topGender = genderData.reduce((best, current) => {
-    const currentRate = current.spend > 0 ? current.purchases / current.spend : 0;
-    const bestRate = best && best.spend > 0 ? best.purchases / best.spend : 0;
-    return currentRate > bestRate ? current : best;
-  }, genderData[0]);
+  // 🛡️ 空數組保護：防止 reduce 在空數組時 crash
+  const topGender = genderData.length > 0 
+    ? genderData.reduce((best, current) => {
+        const currentRate = current.spend > 0 ? current.purchases / current.spend : 0;
+        const bestRate = best && best.spend > 0 ? best.purchases / best.spend : 0;
+        return currentRate > bestRate ? current : best;
+      }, genderData[0])
+    : null;
 
   // 找出購買轉換率最高的年齡層
-  const topAge = ageData.reduce((best, current) => {
-    const currentRate = current.spend > 0 ? current.purchases / current.spend : 0;
-    const bestRate = best && best.spend > 0 ? best.purchases / best.spend : 0;
-    return currentRate > bestRate ? current : best;
-  }, ageData[0]);
+  // 🛡️ 空數組保護：防止 reduce 在空數組時 crash
+  const topAge = ageData.length > 0
+    ? ageData.reduce((best, current) => {
+        const currentRate = current.spend > 0 ? current.purchases / current.spend : 0;
+        const bestRate = best && best.spend > 0 ? best.purchases / best.spend : 0;
+        return currentRate > bestRate ? current : best;
+      }, ageData[0])
+    : null;
 
   if (topGender && topAge) {
     return `${topGender.gender} ${topAge.age_range}`;

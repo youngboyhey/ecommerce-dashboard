@@ -109,9 +109,14 @@ const AudienceAnalysis = memo(function AudienceAnalysis({ data: propData }: Audi
     ctr: (a.clicks / a.impressions * 100).toFixed(2)
   })), [meta_audience.age]);
 
-  const bestAge = useMemo(() => ageData.reduce((prev, current) => 
-    (current.purchases > prev.purchases) ? current : prev
-  ), [ageData]);
+  // 🛡️ 空數組保護：防止 reduce 在空數組時 crash
+  const bestAge = useMemo(() => 
+    ageData.length > 0 
+      ? ageData.reduce((prev, current) => 
+          (current.purchases > prev.purchases) ? current : prev
+        )
+      : null
+  , [ageData]);
 
   // 自定義 Pie Label
   const renderPieLabel = ({ name, percent }: { name?: string; percent?: number }) => 
