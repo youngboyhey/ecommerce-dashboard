@@ -222,13 +222,9 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
     direction: 'desc'
   });
 
-  // Handle sort toggle
-  const handleSort = (key: SortKey) => {
-    setSortConfig(prev => ({
-      key,
-      direction: prev.key === key && prev.direction === 'desc' ? 'asc' : 'desc'
-    }));
-  };
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 6;
 
   // Get sort indicator
   const getSortIndicator = (key: SortKey) => {
@@ -272,6 +268,22 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
       return sortConfig.direction === 'asc' ? aVal - bVal : bVal - aVal;
     });
   }, [channels, sortConfig]);
+
+  // Pagination calculations
+  const totalPages = Math.ceil(sortedChannels.length / ITEMS_PER_PAGE);
+  const displayData = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return sortedChannels.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [sortedChannels, currentPage]);
+
+  // Reset to page 1 when sort changes
+  const handleSort = (key: SortKey) => {
+    setSortConfig(prev => ({
+      key,
+      direction: prev.key === key && prev.direction === 'desc' ? 'asc' : 'desc'
+    }));
+    setCurrentPage(1);
+  };
 
   // Calculate totals for summary row
   const totals = useMemo(() => {
@@ -398,7 +410,7 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
             </tr>
           </thead>
           <tbody>
-            {sortedChannels.map((channel, index) => (
+            {displayData.map((channel, index) => (
               <tr 
                 key={channel.source} 
                 className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors"
@@ -452,6 +464,29 @@ const ChannelPerformance = memo(function ChannelPerformance({ data }: ChannelPer
             </tr>
           </tfoot>
         </table>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-3 mt-4 pt-4 border-t border-gray-100">
+            <button
+              onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+              disabled={currentPage === 1}
+              className="px-3 py-1.5 text-xs font-medium rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-indigo-500 text-white hover:bg-indigo-600 disabled:hover:bg-indigo-500"
+            >
+              上一頁
+            </button>
+            <span className="text-xs text-gray-500 font-medium">
+              {currentPage} / {totalPages}
+            </span>
+            <button
+              onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+              disabled={currentPage === totalPages}
+              className="px-3 py-1.5 text-xs font-medium rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-indigo-500 text-white hover:bg-indigo-600 disabled:hover:bg-indigo-500"
+            >
+              下一頁
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
