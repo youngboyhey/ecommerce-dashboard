@@ -15,7 +15,7 @@ import {
 import { useHistoricalData } from '@/lib/useHistoricalData';
 import { mockHistoricalData, mockWeeklyData } from '@/lib/mockData';
 import { formatCurrency, formatDate } from '@/lib/utils';
-import { CHART_COLORS } from '@/lib/constants';
+import { TrendingUp } from 'lucide-react';
 
 type TimeRange = 'daily' | 'weekly';
 
@@ -29,7 +29,6 @@ interface RevenueTrendChartProps {
   };
 }
 
-// 提取 Tooltip 組件到外部，避免每次渲染重新創建
 interface ChartTooltipProps {
   active?: boolean;
   payload?: TooltipPayload[];
@@ -37,6 +36,7 @@ interface ChartTooltipProps {
   timeRange: TimeRange;
 }
 
+// 深色主題 Tooltip
 const ChartTooltip = memo(function ChartTooltip({ 
   active, 
   payload, 
@@ -47,13 +47,13 @@ const ChartTooltip = memo(function ChartTooltip({
 
   return (
     <div 
-      className="bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-gray-100"
+      className="glass-card rounded-xl p-4 border border-white/10"
       role="tooltip"
     >
-      <p className="font-semibold text-gray-900 mb-2 text-sm">
+      <p className="font-semibold text-white mb-3 text-sm">
         {timeRange === 'daily' ? formatDate(String(label)) : label}
       </p>
-      <div className="space-y-1.5">
+      <div className="space-y-2">
         {payload.map((entry, index) => (
           <div key={index} className="flex items-center gap-2 text-sm">
             <span 
@@ -61,8 +61,8 @@ const ChartTooltip = memo(function ChartTooltip({
               style={{ backgroundColor: entry.color }}
               aria-hidden="true"
             />
-            <span className="text-gray-600">{entry.name}:</span>
-            <span className="font-medium" style={{ color: entry.color }}>
+            <span className="text-slate-400">{entry.name}:</span>
+            <span className="font-semibold text-white">
               {entry.name === '營收' || entry.name === '廣告花費'
                 ? formatCurrency(entry.value as number)
                 : entry.name === 'MER'
@@ -78,16 +78,11 @@ const ChartTooltip = memo(function ChartTooltip({
 
 const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: RevenueTrendChartProps) {
   const [timeRange, setTimeRange] = useState<TimeRange>('daily');
-  
-  // 從 Supabase 讀取真實數據
   const { dailyData, weeklyData, isLoading, error } = useHistoricalData();
 
-  // 如果沒有真實數據，fallback 到 mock 數據
-  // 並根據選定的週範圍過濾數據
   const data = useMemo(() => {
     if (timeRange === 'daily') {
       const sourceData = dailyData.length > 0 ? dailyData : mockHistoricalData;
-      // 如果有指定日期範圍，過濾日數據
       if (dateRange) {
         return sourceData.filter((d) => {
           return d.date >= dateRange.start && d.date <= dateRange.end;
@@ -103,13 +98,11 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
     setTimeRange(range);
   }, []);
 
-  // 自定義 Tooltip 渲染器
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const renderTooltip = useCallback((props: any) => (
     <ChartTooltip {...props} timeRange={timeRange} />
   ), [timeRange]);
 
-  // 計算 Y 軸最大值和 ROAS 範圍
   const { yAxisMax, roasMax } = useMemo(() => {
     const maxRevenue = Math.max(...data.map(d => d.revenue || 0));
     const maxSpend = Math.max(...data.map(d => d.spend || 0));
@@ -117,31 +110,40 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
     
     return {
       yAxisMax: Math.ceil(Math.max(maxRevenue, maxSpend) / 1000) * 1000 + 1000,
-      roasMax: Math.ceil(maxRoas * 2) / 2 + 0.5, // 給 ROAS 一點空間
+      roasMax: Math.ceil(maxRoas * 2) / 2 + 0.5,
     };
   }, [data]);
 
   return (
     <section 
-      className="bg-white rounded-xl shadow-sm border border-gray-100 p-6"
+      className="glass-card rounded-2xl p-6"
       aria-labelledby="revenue-trend-title"
     >
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <h2 id="revenue-trend-title" className="text-lg font-semibold text-gray-900">
-            📈 營收趨勢
-          </h2>
-          {isLoading && (
-            <span className="text-xs text-gray-400 animate-pulse">載入中...</span>
-          )}
-          {!isLoading && dailyData.length > 0 && (
-            <span className="text-xs text-green-500 font-medium">● 即時數據</span>
-          )}
-          {!isLoading && error && (
-            <span className="text-xs text-amber-500">⚠️ 使用備用數據</span>
-          )}
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
+            <TrendingUp className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <h2 id="revenue-trend-title" className="text-lg font-semibold text-white">
+              營收趨勢
+            </h2>
+            <div className="flex items-center gap-2 mt-0.5">
+              {isLoading && (
+                <span className="text-xs text-slate-400 animate-pulse">載入中...</span>
+              )}
+              {!isLoading && dailyData.length > 0 && (
+                <span className="badge badge-success text-xs">● 即時數據</span>
+              )}
+              {!isLoading && error && (
+                <span className="badge badge-warning text-xs">⚠️ 備用數據</span>
+              )}
+            </div>
+          </div>
         </div>
-        <div className="flex gap-1 p-1 bg-gray-100 rounded-lg" role="tablist">
+        
+        {/* 時間範圍切換 */}
+        <div className="flex gap-1 p-1 rounded-xl bg-white/5 border border-white/10" role="tablist">
           {(['daily', 'weekly'] as TimeRange[]).map((range) => (
             <button
               key={range}
@@ -149,10 +151,10 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
               role="tab"
               aria-selected={timeRange === range}
               aria-controls="revenue-chart"
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                 timeRange === range
-                  ? 'bg-white text-gray-900 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-purple-500/30'
+                  : 'text-slate-400 hover:text-white hover:bg-white/5'
               }`}
             >
               {range === 'daily' ? '日' : '週'}
@@ -161,35 +163,35 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
         </div>
       </div>
 
-      <div 
-        id="revenue-chart"
-        role="tabpanel"
-        aria-label="營收趨勢圖表"
-      >
+      <div id="revenue-chart" role="tabpanel" aria-label="營收趨勢圖表">
         <ResponsiveContainer width="100%" height={350}>
           <ComposedChart data={data}>
             <defs>
               <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor={CHART_COLORS.revenue} stopOpacity={0.2}/>
-                <stop offset="95%" stopColor={CHART_COLORS.revenue} stopOpacity={0}/>
+                <stop offset="5%" stopColor="#10b981" stopOpacity={0.3}/>
+                <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+              </linearGradient>
+              <linearGradient id="colorSpend" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.2}/>
+                <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
               </linearGradient>
             </defs>
             <CartesianGrid 
               strokeDasharray="3 3" 
-              stroke="#E5E7EB" 
+              stroke="rgba(255,255,255,0.05)" 
               vertical={false}
             />
             <XAxis 
               dataKey={timeRange === 'daily' ? 'date' : 'week'}
               tickFormatter={(value) => timeRange === 'daily' ? formatDate(value) : value}
-              tick={{ fill: '#6B7280', fontSize: 12 }}
-              axisLine={{ stroke: '#E5E7EB' }}
+              tick={{ fill: '#64748b', fontSize: 12 }}
+              axisLine={{ stroke: 'rgba(255,255,255,0.1)' }}
               tickLine={false}
               dy={8}
             />
             <YAxis 
               yAxisId="left"
-              tick={{ fill: '#6B7280', fontSize: 12 }}
+              tick={{ fill: '#64748b', fontSize: 12 }}
               axisLine={false}
               tickLine={false}
               tickFormatter={(value) => `${(value / 1000).toFixed(0)}K`}
@@ -199,7 +201,7 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
             <YAxis 
               yAxisId="right"
               orientation="right"
-              tick={{ fill: '#6B7280', fontSize: 12 }}
+              tick={{ fill: '#64748b', fontSize: 12 }}
               axisLine={false}
               tickLine={false}
               domain={[0, roasMax]}
@@ -210,13 +212,14 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
               wrapperStyle={{ paddingTop: '20px' }}
               iconType="circle"
               iconSize={8}
+              formatter={(value) => <span className="text-slate-400 text-sm">{value}</span>}
             />
             <Area
               yAxisId="left"
               type="monotone"
               dataKey="revenue"
               name="營收"
-              stroke={CHART_COLORS.revenue}
+              stroke="#10b981"
               strokeWidth={2}
               fill="url(#colorRevenue)"
             />
@@ -225,7 +228,7 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
               type="monotone"
               dataKey="spend"
               name="廣告花費"
-              stroke={CHART_COLORS.spend}
+              stroke="#f59e0b"
               strokeWidth={2}
               dot={false}
               strokeDasharray="5 5"
@@ -235,10 +238,10 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
               type="monotone"
               dataKey="roas"
               name="MER"
-              stroke={CHART_COLORS.roas}
+              stroke="#8b5cf6"
               strokeWidth={2.5}
-              dot={{ fill: CHART_COLORS.roas, strokeWidth: 2, r: 4 }}
-              activeDot={{ r: 6, strokeWidth: 2 }}
+              dot={{ fill: '#8b5cf6', strokeWidth: 2, r: 4 }}
+              activeDot={{ r: 6, strokeWidth: 2, fill: '#a78bfa' }}
             />
           </ComposedChart>
         </ResponsiveContainer>

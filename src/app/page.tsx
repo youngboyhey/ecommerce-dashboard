@@ -4,13 +4,12 @@ import {
   DollarSign, 
   TrendingUp, 
   ShoppingCart, 
-  Target,
   BarChart3,
-  Calendar,
   RefreshCw,
   Wifi,
   WifiOff,
-  Users
+  Users,
+  Sparkles
 } from 'lucide-react';
 
 import AlertBanner from '@/components/AlertBanner';
@@ -26,7 +25,6 @@ import DeviceBreakdown from '@/components/DeviceBreakdown';
 import GSCPerformance from '@/components/GSCPerformance';
 import { useReportData, DateRange } from '@/lib/useReportData';
 import { useWeeklyData } from '@/lib/useWeeklyData';
-import { formatDate } from '@/lib/utils';
 import { useMemo } from 'react';
 
 export default function Dashboard() {
@@ -57,34 +55,29 @@ export default function Dashboard() {
   const weeklyChanges = comparisonData?.changes;
 
   // 計算警示所需的指標
-  // 模擬 CPM 和 Frequency（實際應從 Meta API 取得）
   const estimatedCpm = data.summary.total_spend > 0 
     ? (data.summary.total_spend / (data.meta.total.clicks / (data.meta.total.ctr / 100))) * 1000 
     : 0;
-  const estimatedFrequency = 1.8; // 模擬值，實際需從 Meta API 取得
-  
-  // 購物車放棄率
+  const estimatedFrequency = 1.8;
   const cartAbandonRate = data.ga4.funnel_rates.atc_drop_off || 0;
-  
-  // 計算跳出率（簡化計算）
   const bounceRate = 100 - (data.ga4.funnel_rates.session_to_atc * 2) || 55;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100/50">
-      {/* Header - 改善響應式設計 */}
-      <header className="bg-white/80 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50">
+    <div className="min-h-screen">
+      {/* ===== Header - 玻璃效果導航 ===== */}
+      <header className="glass-card-static sticky top-0 z-50 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-18">
             {/* Logo & Title */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/30 animate-glow-pulse">
                 <BarChart3 className="w-5 h-5 text-white" aria-hidden="true" />
               </div>
               <div className="hidden sm:block">
-                <h1 className="text-lg font-bold text-gray-900">CarMall Dashboard</h1>
-                <p className="text-xs text-gray-500">車魔商城電商數據儀表板</p>
+                <h1 className="text-lg font-bold gradient-text">CarMall Dashboard</h1>
+                <p className="text-xs text-slate-400">車魔商城電商數據儀表板</p>
               </div>
-              <h1 className="sm:hidden text-lg font-bold text-gray-900">CarMall</h1>
+              <h1 className="sm:hidden text-lg font-bold gradient-text">CarMall</h1>
             </div>
 
             {/* Controls */}
@@ -96,49 +89,44 @@ export default function Dashboard() {
                   selected={selectedWeek}
                   onChange={setSelectedWeek}
                 />
-                <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-700">
+                <span className="badge badge-purple">
+                  <Sparkles className="w-3 h-3" />
                   週報
                 </span>
               </div>
 
               {/* Mobile Date Badge */}
               <div className="md:hidden">
-                <span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${
-                  data.mode === 'weekly' ? 'bg-purple-100 text-purple-700' : 'bg-blue-100 text-blue-700'
-                }`}>
+                <span className="badge badge-purple">
                   {data.mode === 'weekly' ? '週報' : '日報'}
                 </span>
               </div>
 
               {/* Data Source Indicator */}
-              <div className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full text-xs font-semibold ${
-                isLive 
-                  ? 'bg-emerald-100 text-emerald-700' 
-                  : 'bg-amber-100 text-amber-700'
-              }`}>
+              <div className={`badge ${isLive ? 'badge-success' : 'badge-warning'}`}>
                 {isLive ? <Wifi className="w-3.5 h-3.5" /> : <WifiOff className="w-3.5 h-3.5" />}
-                <span className="hidden sm:inline">{isLive ? 'Live Data' : 'Mock Data'}</span>
+                <span className="hidden sm:inline">{isLive ? 'Live' : 'Mock'}</span>
               </div>
 
               {/* Refresh Button */}
               <button
                 onClick={handleRefresh}
-                className="p-2.5 hover:bg-gray-100 rounded-lg transition-colors disabled:opacity-50"
+                className="btn-glass p-2.5"
                 disabled={isLoading}
                 aria-label="重新載入數據"
               >
-                <RefreshCw className={`w-5 h-5 text-gray-600 ${isLoading ? 'animate-spin' : ''}`} aria-hidden="true" />
+                <RefreshCw className={`w-5 h-5 ${isLoading ? 'animate-spin' : ''}`} aria-hidden="true" />
               </button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Main Content */}
+      {/* ===== Main Content ===== */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
         
-        {/* 🚨 Zone 1: 警示區塊 (固定頂部) */}
-        <section aria-labelledby="alert-section" className="mb-6">
+        {/* 🚨 Zone 1: 警示區塊 */}
+        <section aria-labelledby="alert-section" className="mb-6 animate-fade-in-up">
           <h2 id="alert-section" className="sr-only">營運警示</h2>
           <AlertBanner
             roas={data.summary.roas}
@@ -156,42 +144,50 @@ export default function Dashboard() {
         <section aria-labelledby="kpi-section-title" className="mb-8">
           <h2 id="kpi-section-title" className="sr-only">關鍵績效指標</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-            <KPICard
-              title="💰 總營收"
-              value={weeklyData?.revenue ?? data.summary.total_revenue}
-              format="currency"
-              change={weeklyChanges?.revenue ?? data.wow?.cyber_revenue_change}
-              changeLabel="vs 上週"
-              icon={<DollarSign className="w-5 h-5" />}
-              theme="revenue"
-            />
-            <KPICard
-              title="📦 訂單數"
-              value={weeklyData?.orders ?? data.summary.order_count}
-              format="number"
-              change={weeklyChanges?.orders ?? undefined}
-              changeLabel="vs 上週"
-              icon={<ShoppingCart className="w-5 h-5" />}
-              theme="orders"
-            />
-            <KPICard
-              title="📊 MER"
-              value={weeklyData?.mer ?? (data.summary.total_spend > 0 ? data.summary.total_revenue / data.summary.total_spend : 0)}
-              format="roas"
-              change={weeklyChanges?.mer ?? undefined}
-              changeLabel="vs 上週"
-              icon={<TrendingUp className="w-5 h-5" />}
-              theme="roas"
-            />
-            <KPICard
-              title="👤 新增會員"
-              value={weeklyData?.newMembers ?? data.summary.new_members}
-              format="number"
-              change={weeklyChanges?.newMembers ?? undefined}
-              changeLabel="vs 上週"
-              icon={<Users className="w-5 h-5" />}
-              theme="orders"
-            />
+            <div className="animate-fade-in-up stagger-1">
+              <KPICard
+                title="💰 總營收"
+                value={weeklyData?.revenue ?? data.summary.total_revenue}
+                format="currency"
+                change={weeklyChanges?.revenue ?? data.wow?.cyber_revenue_change}
+                changeLabel="vs 上週"
+                icon={<DollarSign className="w-5 h-5" />}
+                theme="revenue"
+              />
+            </div>
+            <div className="animate-fade-in-up stagger-2">
+              <KPICard
+                title="📦 訂單數"
+                value={weeklyData?.orders ?? data.summary.order_count}
+                format="number"
+                change={weeklyChanges?.orders ?? undefined}
+                changeLabel="vs 上週"
+                icon={<ShoppingCart className="w-5 h-5" />}
+                theme="orders"
+              />
+            </div>
+            <div className="animate-fade-in-up stagger-3">
+              <KPICard
+                title="📊 MER"
+                value={weeklyData?.mer ?? (data.summary.total_spend > 0 ? data.summary.total_revenue / data.summary.total_spend : 0)}
+                format="roas"
+                change={weeklyChanges?.mer ?? undefined}
+                changeLabel="vs 上週"
+                icon={<TrendingUp className="w-5 h-5" />}
+                theme="roas"
+              />
+            </div>
+            <div className="animate-fade-in-up stagger-4">
+              <KPICard
+                title="👤 新增會員"
+                value={weeklyData?.newMembers ?? data.summary.new_members}
+                format="number"
+                change={weeklyChanges?.newMembers ?? undefined}
+                changeLabel="vs 上週"
+                icon={<Users className="w-5 h-5" />}
+                theme="orders"
+              />
+            </div>
           </div>
         </section>
 
@@ -199,38 +195,46 @@ export default function Dashboard() {
         <section aria-labelledby="secondary-kpi-title" className="mb-8">
           <h2 id="secondary-kpi-title" className="sr-only">次要績效指標</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow">
-              <p className="text-xs font-medium text-gray-500 mb-1">💸 廣告花費</p>
-              <p className="text-xl font-bold text-gray-900">NT${(weeklyData?.adSpend ?? data.summary.total_spend).toLocaleString()}</p>
+            <article className="glass-card rounded-2xl p-5">
+              <p className="text-xs font-medium text-slate-400 mb-2">💸 廣告花費</p>
+              <p className="text-2xl font-bold text-white font-mono-nums">
+                NT${(weeklyData?.adSpend ?? data.summary.total_spend).toLocaleString()}
+              </p>
               {weeklyChanges?.adSpend !== null && weeklyChanges?.adSpend !== undefined && (
-                <p className={`text-xs mt-1 ${weeklyChanges.adSpend > 0 ? 'text-red-500' : 'text-green-500'}`}>
+                <p className={`text-xs mt-2 ${weeklyChanges.adSpend > 0 ? 'text-red-400' : 'text-emerald-400'}`}>
                   {weeklyChanges.adSpend > 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.adSpend).toFixed(1)}% vs 上週
                 </p>
               )}
             </article>
-            <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow">
-              <p className="text-xs font-medium text-gray-500 mb-1">💰 客單價 (AOV)</p>
-              <p className="text-xl font-bold text-gray-900">NT${(weeklyData?.aov ?? data.summary.aov).toFixed(0)}</p>
+            <article className="glass-card rounded-2xl p-5">
+              <p className="text-xs font-medium text-slate-400 mb-2">💰 客單價 (AOV)</p>
+              <p className="text-2xl font-bold text-white font-mono-nums">
+                NT${(weeklyData?.aov ?? data.summary.aov).toFixed(0)}
+              </p>
               {weeklyChanges?.aov !== null && weeklyChanges?.aov !== undefined && (
-                <p className={`text-xs mt-1 ${weeklyChanges.aov >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                <p className={`text-xs mt-2 ${weeklyChanges.aov >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
                   {weeklyChanges.aov >= 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.aov).toFixed(1)}% vs 上週
                 </p>
               )}
             </article>
-            <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow">
-              <p className="text-xs font-medium text-gray-500 mb-1">📈 廣告 ROAS</p>
-              <p className="text-xl font-bold text-blue-600">{(weeklyData?.roas ?? data.summary.roas).toFixed(2)}</p>
+            <article className="glass-card rounded-2xl p-5">
+              <p className="text-xs font-medium text-slate-400 mb-2">📈 廣告 ROAS</p>
+              <p className="text-2xl font-bold text-blue-400 font-mono-nums">
+                {(weeklyData?.roas ?? data.summary.roas).toFixed(2)}
+              </p>
               {weeklyChanges?.roas !== null && weeklyChanges?.roas !== undefined && (
-                <p className={`text-xs mt-1 ${weeklyChanges.roas >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                <p className={`text-xs mt-2 ${weeklyChanges.roas >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
                   {weeklyChanges.roas >= 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.roas).toFixed(1)}% vs 上週
                 </p>
               )}
             </article>
-            <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow">
-              <p className="text-xs font-medium text-gray-500 mb-1">🎯 轉換率</p>
-              <p className="text-xl font-bold text-emerald-600">{(weeklyData?.conversion ?? data.summary.ga4_overall_conversion).toFixed(2)}%</p>
+            <article className="glass-card rounded-2xl p-5">
+              <p className="text-xs font-medium text-slate-400 mb-2">🎯 轉換率</p>
+              <p className="text-2xl font-bold text-emerald-400 font-mono-nums">
+                {(weeklyData?.conversion ?? data.summary.ga4_overall_conversion).toFixed(2)}%
+              </p>
               {weeklyChanges?.conversion !== null && weeklyChanges?.conversion !== undefined && (
-                <p className={`text-xs mt-1 ${weeklyChanges.conversion >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                <p className={`text-xs mt-2 ${weeklyChanges.conversion >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
                   {weeklyChanges.conversion >= 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.conversion).toFixed(1)}% vs 上週
                 </p>
               )}
@@ -240,8 +244,11 @@ export default function Dashboard() {
 
         {/* 📊 Zone 3: 趨勢與效率區 */}
         <section aria-label="營收與廣告效率" className="mb-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <span>📊</span> 趨勢與效率
+          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+              📊
+            </span>
+            <span className="gradient-text-subtle">趨勢與效率</span>
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <RevenueTrendChart 
@@ -256,18 +263,19 @@ export default function Dashboard() {
 
         {/* 🔄 Zone 4: 網站行為分析區 */}
         <section aria-label="網站行為分析" className="mb-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <span>🔄</span> 網站行為分析
+          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+              🔄
+            </span>
+            <span className="gradient-text-subtle">網站行為分析</span>
           </h3>
           <div className="grid grid-cols-12 gap-6">
-            {/* 第一行：GA4 轉換漏斗 + 受眾分析 並排 */}
             <div className="col-span-12 lg:col-span-6">
               <GA4Funnel data={data.ga4} />
             </div>
             <div className="col-span-12 lg:col-span-6">
               <AudienceAnalysis data={data.meta_audience} />
             </div>
-            {/* 第二行：裝置分布獨佔整行 */}
             <div className="col-span-12">
               <DeviceBreakdown data={data.ga4_devices} isLive={isLive} />
             </div>
@@ -276,8 +284,11 @@ export default function Dashboard() {
 
         {/* 🏆 Zone 5: 商品與 SEO 區 */}
         <section aria-label="商品與 SEO 分析" className="mb-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <span>🏆</span> 商品與 SEO
+          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center">
+              🏆
+            </span>
+            <span className="gradient-text-subtle">商品與 SEO</span>
           </h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <ProductRanking products={data.cyberbiz.product_ranking} summary={data.cyberbiz} />
@@ -295,21 +306,14 @@ export default function Dashboard() {
                 ctr: q.ctr,
                 position: q.position,
               }))}
-              pages={(() => {
-                const pages = data.gsc?.top_pages?.map(p => ({
-                  page: p.page,
-                  title: p.title,
-                  impressions: p.impressions,
-                  clicks: p.clicks,
-                  ctr: p.ctr,
-                  position: p.position,
-                }));
-                // Debug: 檢查 title 是否存在
-                if (pages && pages.length > 0) {
-                  console.log('[GSC Debug] First page:', pages[0]);
-                }
-                return pages;
-              })()}
+              pages={data.gsc?.top_pages?.map(p => ({
+                page: p.page,
+                title: p.title,
+                impressions: p.impressions,
+                clicks: p.clicks,
+                ctr: p.ctr,
+                position: p.position,
+              }))}
             />
           </div>
         </section>
@@ -319,17 +323,23 @@ export default function Dashboard() {
           <ChannelPerformance data={data.ga4_channels} />
         </section>
 
-        {/* Summary Banner */}
+        {/* Summary Banner - 漸層高亮 */}
         <section 
-          className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 rounded-2xl p-6 text-white shadow-xl shadow-purple-500/20"
+          className="glass-card rounded-3xl p-6 overflow-hidden relative"
           aria-labelledby="insights-title"
         >
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          {/* 背景漸層裝飾 */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
+          
+          <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
-              <h3 id="insights-title" className="text-lg font-bold mb-2 flex items-center gap-2">
-                <span>📊</span> 本週洞察
+              <h3 id="insights-title" className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-purple-400" />
+                本週洞察
               </h3>
-              <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-blue-100">
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-300">
                 <p>
                   最佳受眾: <span className="text-white font-semibold">{data.summary.top_audience_segment}</span>
                 </p>
@@ -338,24 +348,24 @@ export default function Dashboard() {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-sm bg-white/10 px-4 py-2 rounded-full">
+            <div className="badge badge-purple text-sm">
               <span>由龍蝦企業 🦞 驅動</span>
             </div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white/80 backdrop-blur-sm border-t border-gray-200/50 mt-8">
+      {/* ===== Footer ===== */}
+      <footer className="glass-card-static border-t border-white/5 mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
-            <p>CarMall 電商 Dashboard v2.0 — 依螃蟹規劃重構 🦀</p>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-slate-400">
+            <p>CarMall 電商 Dashboard v3.0 — <span className="gradient-text-subtle font-medium">Modern Glassmorphism Edition</span></p>
             <p className="flex items-center gap-2">
               最後更新: {lastUpdated 
                 ? lastUpdated.toLocaleString('zh-TW') 
                 : new Date(data.generated_at).toLocaleString('zh-TW')
               }
-              {isLive && <span className="text-emerald-500 font-medium">● Live</span>}
+              {isLive && <span className="text-emerald-400 font-medium">● Live</span>}
             </p>
           </div>
         </div>
