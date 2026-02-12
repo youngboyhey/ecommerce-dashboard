@@ -90,7 +90,7 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
             <h2 id="ga4-funnel-title" className="text-lg font-semibold text-gray-900">
               GA4 轉換漏斗
             </h2>
-            <p className="text-xs text-gray-500 mt-0.5">用戶轉換路徑分析</p>
+            <p className="text-sm text-gray-500 mt-0.5">用戶轉換路徑分析</p>
           </div>
         </div>
         <div className="badge badge-success">
@@ -127,7 +127,7 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
               {index > 0 && (
                 <div className="absolute -top-4 sm:-top-5 left-1/2 transform -translate-x-1/2 z-10">
                   <div className={`
-                    px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold shadow-sm
+                    px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-sm
                     ${conversionFromPrev < 30 
                       ? 'bg-red-100 text-red-700' 
                       : conversionFromPrev < 50 
@@ -152,7 +152,7 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
                       {formatNumber(step.value)}
                     </span>
                     {step.dropOff !== null && (
-                      <span className="px-1.5 py-0.5 bg-red-50 text-red-600 text-[10px] font-semibold rounded-full">
+                      <span className="px-1.5 py-0.5 bg-red-50 text-red-600 text-xs font-semibold rounded-full">
                         -{step.dropOff.toFixed(0)}%
                       </span>
                     )}
@@ -235,22 +235,22 @@ const GA4Funnel = memo(function GA4Funnel({ data: propData }: GA4FunnelProps) {
       {/* Summary Stats */}
       <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-100">
         <div className="text-center p-2.5 sm:p-4 bg-indigo-50 rounded-xl border border-indigo-100">
-          <p className="text-lg sm:text-2xl font-bold text-indigo-600 font-mono-nums">
+          <p className="text-xl sm:text-2xl font-bold text-indigo-600 font-mono-nums">
             {formatNumber(ga4.active_users)}
           </p>
-          <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 font-medium">活躍用戶</p>
+          <p className="text-xs sm:text-sm text-gray-500 mt-0.5 sm:mt-1 font-medium">活躍用戶</p>
         </div>
         <div className="text-center p-2.5 sm:p-4 bg-purple-50 rounded-xl border border-purple-100">
-          <p className="text-lg sm:text-2xl font-bold text-purple-600 font-mono-nums">
+          <p className="text-xl sm:text-2xl font-bold text-purple-600 font-mono-nums">
             {formatPercent(funnel_rates.session_to_atc)}
           </p>
-          <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 font-medium">加購率</p>
+          <p className="text-xs sm:text-sm text-gray-500 mt-0.5 sm:mt-1 font-medium">加購率</p>
         </div>
         <div className="text-center p-2.5 sm:p-4 bg-emerald-50 rounded-xl border border-emerald-100">
-          <p className="text-lg sm:text-2xl font-bold text-emerald-600 font-mono-nums">
+          <p className="text-xl sm:text-2xl font-bold text-emerald-600 font-mono-nums">
             {formatPercent(funnel_rates.overall_conversion)}
           </p>
-          <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 font-medium">轉換率</p>
+          <p className="text-xs sm:text-sm text-gray-500 mt-0.5 sm:mt-1 font-medium">轉換率</p>
         </div>
       </div>
     </section>

@@ -52,7 +52,7 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
                 {adset.adset_name}
               </h3>
               {adset.campaign_name && (
-                <p className="text-white/70 text-xs truncate" title={adset.campaign_name}>
+                <p className="text-white/70 text-sm truncate" title={adset.campaign_name}>
                   {adset.campaign_name}
                 </p>
               )}
@@ -130,7 +130,7 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
             </div>
             <ul className="space-y-1 pl-5">
               {t.strengths.map((s, i) => (
-                <li key={i} className="text-xs text-gray-600 flex items-start gap-1.5">
+                <li key={i} className="text-sm text-gray-600 flex items-start gap-1.5">
                   <span className="text-emerald-500 mt-0.5">•</span>
                   <span>{s}</span>
                 </li>
@@ -148,7 +148,7 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
             </div>
             <ul className="space-y-1 pl-5">
               {t.weaknesses.map((w, i) => (
-                <li key={i} className="text-xs text-gray-600 flex items-start gap-1.5">
+                <li key={i} className="text-sm text-gray-600 flex items-start gap-1.5">
                   <span className="text-amber-500 mt-0.5">•</span>
                   <span>{w}</span>
                 </li>
@@ -166,7 +166,7 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
             </div>
             <ul className="space-y-1 pl-5">
               {t.suggestions.map((s, i) => (
-                <li key={i} className="text-xs text-gray-600 flex items-start gap-1.5">
+                <li key={i} className="text-sm text-gray-600 flex items-start gap-1.5">
                   <span className="text-blue-500 mt-0.5">•</span>
                   <span>{s}</span>
                 </li>
@@ -179,10 +179,10 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
       {/* Assessment Details (Collapsible) */}
       {(t.age_assessment || t.gender_assessment || t.interest_assessment || t.custom_audience_assessment) && (
         <details className="border-t border-gray-100">
-          <summary className="px-4 py-2 text-xs text-gray-500 cursor-pointer hover:bg-gray-50 transition-colors">
+          <summary className="px-4 py-2 text-sm text-gray-500 cursor-pointer hover:bg-gray-50 transition-colors">
             📋 詳細評估
           </summary>
-          <div className="px-4 pb-4 space-y-2 text-xs text-gray-600">
+          <div className="px-4 pb-4 space-y-2 text-sm text-gray-600">
             {t.age_assessment && (
               <div>
                 <span className="font-medium text-gray-700">年齡：</span>
@@ -255,8 +255,8 @@ const ComparisonSummary = memo(function ComparisonSummary({
       
       {/* 關鍵洞察 */}
       <div className="mt-4 pt-3 border-t border-indigo-200">
-        <p className="text-xs text-indigo-700 font-medium mb-2">💡 關鍵洞察</p>
-        <ul className="space-y-1 text-xs text-gray-600">
+        <p className="text-sm text-indigo-700 font-medium mb-2">💡 關鍵洞察</p>
+        <ul className="space-y-1 text-sm text-gray-600">
           {bestAdset.targeting.score >= 7 && (
             <li>• 「{bestAdset.adset_name}」受眾設定較完善，可作為其他組的參考基準</li>
           )}
@@ -399,7 +399,7 @@ const TargetingAnalysis = memo(function TargetingAnalysis({
             <h2 id="targeting-title" className="text-lg font-semibold text-gray-900">
               📊 廣告受眾分析
             </h2>
-            <p className="text-xs text-gray-500 mt-0.5">🦀 螃蟹 AI 分析 • 比較不同廣告組的受眾設定</p>
+            <p className="text-sm text-gray-500 mt-0.5">🦀 螃蟹 AI 分析 • 比較不同廣告組的受眾設定</p>
           </div>
         </div>
         <span className="px-3 py-1 bg-violet-100 text-violet-700 rounded-full text-sm font-medium">

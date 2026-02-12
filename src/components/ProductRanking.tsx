@@ -65,10 +65,10 @@ const ProductRanking = memo(function ProductRanking({ products, summary }: Produ
             <h2 id="product-ranking-title" className="text-base sm:text-lg font-semibold text-gray-900">
               商品銷售排行
             </h2>
-            <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5">本週熱銷商品</p>
+            <p className="text-xs sm:text-sm text-gray-500 mt-0.5">本週熱銷商品</p>
           </div>
         </div>
-        <span className="badge badge-info text-[10px] sm:text-xs">
+        <span className="badge badge-info text-xs sm:text-sm">
           Top {rankedProducts.length}
         </span>
       </div>
@@ -107,18 +107,18 @@ const ProductRanking = memo(function ProductRanking({ products, summary }: Produ
 
                 {/* Product Info */}
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-700 truncate">
+                  <p className="text-sm sm:text-base font-semibold text-gray-700 truncate">
                     {product.product_name}
                   </p>
-                  <p className="text-[10px] sm:text-xs text-gray-400 mt-0.5 truncate">SKU: {product.sku}</p>
+                  <p className="text-xs sm:text-sm text-gray-400 mt-0.5 truncate">SKU: {product.sku}</p>
                 </div>
 
                 {/* Stats */}
                 <div className="text-right flex-shrink-0">
-                  <p className="text-sm sm:text-base font-bold text-gray-900 font-mono-nums">
+                  <p className="text-base sm:text-lg font-bold text-gray-900 font-mono-nums">
                     {formatCurrency(product.total_revenue)}
                   </p>
-                  <p className="text-[10px] sm:text-xs text-gray-400 mt-0.5">
+                  <p className="text-xs sm:text-sm text-gray-400 mt-0.5">
                     <span className="font-medium text-indigo-600">{product.total_quantity}</span> 件
                   </p>
                 </div>
@@ -147,22 +147,22 @@ const ProductRanking = memo(function ProductRanking({ products, summary }: Produ
       <div className="mt-4 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-100">
         <div className="grid grid-cols-3 gap-2 sm:gap-4">
           <div className="text-center p-2 sm:p-4 bg-indigo-50 rounded-lg sm:rounded-xl border border-indigo-100">
-            <p className="text-sm sm:text-2xl font-bold text-indigo-600 font-mono-nums truncate">
+            <p className="text-base sm:text-2xl font-bold text-indigo-600 font-mono-nums truncate">
               {formatCurrency(cyberbizSummary.total_revenue)}
             </p>
-            <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 font-medium">總營收</p>
+            <p className="text-xs sm:text-sm text-gray-500 mt-0.5 sm:mt-1 font-medium">總營收</p>
           </div>
           <div className="text-center p-2 sm:p-4 bg-purple-50 rounded-lg sm:rounded-xl border border-purple-100">
-            <p className="text-sm sm:text-2xl font-bold text-purple-600 font-mono-nums">
+            <p className="text-base sm:text-2xl font-bold text-purple-600 font-mono-nums">
               {cyberbizSummary.order_count}
             </p>
-            <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 font-medium">訂單數</p>
+            <p className="text-xs sm:text-sm text-gray-500 mt-0.5 sm:mt-1 font-medium">訂單數</p>
           </div>
           <div className="text-center p-2 sm:p-4 bg-emerald-50 rounded-lg sm:rounded-xl border border-emerald-100">
-            <p className="text-sm sm:text-2xl font-bold text-emerald-600 font-mono-nums truncate">
+            <p className="text-base sm:text-2xl font-bold text-emerald-600 font-mono-nums truncate">
               {formatCurrency(cyberbizSummary.aov)}
             </p>
-            <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1 font-medium">客單價</p>
+            <p className="text-xs sm:text-sm text-gray-500 mt-0.5 sm:mt-1 font-medium">客單價</p>
           </div>
         </div>
       </div>

@@ -183,7 +183,7 @@ const WeeklyInsights = memo(function WeeklyInsights({
               <h2 id="weekly-insights-title" className="text-base sm:text-lg font-semibold text-gray-900">
                 本週洞察
               </h2>
-              <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5">
+              <p className="text-xs sm:text-sm text-gray-500 mt-0.5">
                 {weeklyInsight.week_start} ~ {weeklyInsight.week_end}
               </p>
             </div>
@@ -193,17 +193,17 @@ const WeeklyInsights = memo(function WeeklyInsights({
           {weeklyInsight.summary && (
             <div className="flex items-center gap-2 flex-wrap">
               {weeklyInsight.summary.critical_count > 0 && (
-                <span className="px-2 py-1 bg-red-100 text-red-700 rounded-full text-xs font-medium">
+                <span className="px-2 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">
                   🔴 {weeklyInsight.summary.critical_count} 緊急
                 </span>
               )}
               {weeklyInsight.summary.high_count > 0 && (
-                <span className="px-2 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-medium">
+                <span className="px-2 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">
                   🟠 {weeklyInsight.summary.high_count} 高
                 </span>
               )}
               {weeklyInsight.summary.medium_count > 0 && (
-                <span className="px-2 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-medium">
+                <span className="px-2 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-medium">
                   🟡 {weeklyInsight.summary.medium_count} 中
                 </span>
               )}
@@ -231,7 +231,7 @@ const WeeklyInsights = memo(function WeeklyInsights({
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-lg">✨</span>
                   <h3 className="font-semibold text-emerald-800">本週亮點</h3>
-                  <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-full text-xs">
+                  <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-full text-sm">
                     {highlights.length}
                   </span>
                 </div>
@@ -252,7 +252,7 @@ const WeeklyInsights = memo(function WeeklyInsights({
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-lg">⚠️</span>
                   <h3 className="font-semibold text-amber-800">注意事項</h3>
-                  <span className="px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full text-xs">
+                  <span className="px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full text-sm">
                     {warnings.length}
                   </span>
                 </div>
@@ -273,7 +273,7 @@ const WeeklyInsights = memo(function WeeklyInsights({
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-lg">💡</span>
                   <h3 className="font-semibold text-indigo-800">行動建議</h3>
-                  <span className="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full text-xs">
+                  <span className="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full text-sm">
                     {recommendations.length}
                   </span>
                 </div>
@@ -304,13 +304,13 @@ const WeeklyInsights = memo(function WeeklyInsights({
 
         {/* Footer */}
         <div className="mt-4 sm:mt-6 pt-4 border-t border-gray-200/50 flex items-center justify-between">
-          <p className="text-xs text-gray-500">
+          <p className="text-sm text-gray-500">
             {hasNewFormat 
               ? `共 ${highlights.length + warnings.length + recommendations.length} 項洞察`
               : `共 ${safeInsights.length} 個洞察`
             } • 由龍蝦企業 🦞 AI 分析
           </p>
-          <span className="badge badge-purple text-[10px] sm:text-xs">
+          <span className="badge badge-purple text-xs sm:text-sm">
             AI 驅動
           </span>
         </div>
@@ -366,7 +366,7 @@ const InsightCard = memo(function InsightCard({
         <div className="flex items-center gap-2">
           {/* Priority Badge */}
           <span className={cn(
-            "px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-semibold",
+            "px-2 py-0.5 rounded-full text-xs sm:text-sm font-semibold",
             priorityConfig.bg, priorityConfig.text
           )}>
             {priorityConfig.label}
@@ -374,7 +374,7 @@ const InsightCard = memo(function InsightCard({
           
           {/* Category */}
           <span className={cn(
-            "flex items-center gap-1 text-[10px] sm:text-xs font-medium",
+            "flex items-center gap-1 text-xs sm:text-sm font-medium",
             categoryConfig.color
           )}>
             <CategoryIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
@@ -388,7 +388,7 @@ const InsightCard = memo(function InsightCard({
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             disabled={!onStatusChange || isUpdating}
             className={cn(
-              "flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] sm:text-xs font-medium transition-colors",
+              "flex items-center gap-1 px-2 py-1 rounded-lg text-xs sm:text-sm font-medium transition-colors",
               statusConfig.bg, statusConfig.text,
               onStatusChange && "hover:opacity-80 cursor-pointer",
               isUpdating && "opacity-50"
@@ -415,7 +415,7 @@ const InsightCard = memo(function InsightCard({
                       key={status}
                       onClick={() => handleStatusChange(status)}
                       className={cn(
-                        "w-full flex items-center gap-2 px-3 py-2 text-xs hover:bg-gray-50 transition-colors",
+                        "w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-50 transition-colors",
                         currentStatus === status && "bg-gray-50"
                       )}
                     >
@@ -440,22 +440,22 @@ const InsightCard = memo(function InsightCard({
 
       {/* Finding */}
       <div className="mb-3">
-        <p className="text-[10px] sm:text-xs font-medium text-gray-500 mb-1">📊 發現</p>
-        <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
+        <p className="text-xs sm:text-sm font-medium text-gray-500 mb-1">📊 發現</p>
+        <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
           {insight.finding}
         </p>
       </div>
 
       {/* Recommendation */}
       <div className="mb-3 p-2 sm:p-3 bg-indigo-50 rounded-lg border border-indigo-100">
-        <p className="text-[10px] sm:text-xs font-medium text-indigo-700 mb-1">💡 建議</p>
-        <p className="text-xs sm:text-sm text-indigo-800 leading-relaxed">
+        <p className="text-xs sm:text-sm font-medium text-indigo-700 mb-1">💡 建議</p>
+        <p className="text-sm sm:text-base text-indigo-800 leading-relaxed">
           {insight.recommendation}
         </p>
       </div>
 
       {/* Expected Impact */}
-      <div className="flex items-start gap-1.5 text-xs text-gray-600">
+      <div className="flex items-start gap-1.5 text-sm text-gray-600">
         <TrendingUp className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0 mt-0.5" />
         <p>
           <span className="font-medium text-emerald-600">預期效果：</span>
@@ -468,7 +468,7 @@ const InsightCard = memo(function InsightCard({
       {/* Notes (if any) */}
       {tracking?.status_notes && (
         <div className="mt-3 pt-3 border-t border-gray-100">
-          <p className="text-[10px] text-gray-500">
+          <p className="text-xs text-gray-500">
             📝 {tracking.status_notes}
           </p>
         </div>
@@ -477,8 +477,8 @@ const InsightCard = memo(function InsightCard({
       {/* Result Summary (if completed) */}
       {tracking?.status === 'completed' && tracking.result_summary && (
         <div className="mt-3 p-2 bg-emerald-50 rounded-lg border border-emerald-100">
-          <p className="text-[10px] font-medium text-emerald-700 mb-0.5">✅ 執行結果</p>
-          <p className="text-xs text-emerald-800">{tracking.result_summary}</p>
+          <p className="text-xs font-medium text-emerald-700 mb-0.5">✅ 執行結果</p>
+          <p className="text-sm text-emerald-800">{tracking.result_summary}</p>
         </div>
       )}
     </article>

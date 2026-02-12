@@ -216,10 +216,10 @@ const CopyAnalysis = memo(function CopyAnalysis({
             <h2 id="copy-analysis-title" className="text-base sm:text-lg font-semibold text-gray-900">
               廣告文案分析
             </h2>
-            <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5">高效 vs 低效文案對比</p>
+            <p className="text-xs sm:text-sm text-gray-500 mt-0.5">高效 vs 低效文案對比</p>
           </div>
         </div>
-        <span className="badge badge-purple text-[10px] sm:text-xs">
+        <span className="badge badge-purple text-xs sm:text-sm">
           A/B 洞察
         </span>
       </div>
@@ -476,13 +476,13 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
       {/* Copy Type & Campaign */}
       <div className="flex items-center justify-between mb-2">
         <span className={cn(
-          "text-[10px] sm:text-xs font-medium px-2 py-0.5 rounded-full",
+          "text-xs sm:text-sm font-medium px-2 py-0.5 rounded-full",
           isHigh ? "bg-emerald-100 text-emerald-700" : "bg-red-100 text-red-700"
         )}>
           {COPY_TYPE_LABELS[copy.copy_type || ''] || copy.copy_type}
         </span>
         {copy.campaign_name && (
-          <span className="text-[10px] text-gray-400 truncate max-w-[120px]">
+          <span className="text-xs text-gray-400 truncate max-w-[120px]">
             {copy.campaign_name}
           </span>
         )}
@@ -494,20 +494,20 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
       </p>
 
       {/* Metrics */}
-      <div className="flex items-center gap-4 mb-3">
+      <div className="flex items-center gap-4 mb-3 flex-wrap">
         <div className="flex items-center gap-1">
-          <span className="text-[10px] text-gray-500">CTR</span>
+          <span className="text-xs text-gray-500">CTR</span>
           <span className={cn(
-            "text-xs font-semibold",
+            "text-sm font-semibold",
             isHigh ? "text-emerald-600" : "text-red-600"
           )}>
             {(copy.metrics?.ctr || 0).toFixed(2)}%
           </span>
         </div>
         <div className="flex items-center gap-1">
-          <span className="text-[10px] text-gray-500">CVR</span>
+          <span className="text-xs text-gray-500">CVR</span>
           <span className={cn(
-            "text-xs font-semibold",
+            "text-sm font-semibold",
             isHigh ? "text-emerald-600" : "text-red-600"
           )}>
             {calculatedCvr.toFixed(2)}%
@@ -515,17 +515,17 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
         </div>
         {copy.copy_length && (
           <div className="flex items-center gap-1">
-            <span className="text-[10px] text-gray-500">字數</span>
-            <span className="text-xs font-medium text-gray-600">
+            <span className="text-xs text-gray-500">字數</span>
+            <span className="text-sm font-medium text-gray-600">
               {copy.copy_length}
             </span>
           </div>
         )}
         {copy.analysis?.overall_score !== undefined && (
           <div className="flex items-center gap-1">
-            <span className="text-[10px] text-gray-500">評分</span>
+            <span className="text-xs text-gray-500">評分</span>
             <span className={cn(
-              "text-xs font-semibold",
+              "text-sm font-semibold",
               copy.analysis.overall_score >= 7 ? "text-emerald-600" : 
               copy.analysis.overall_score >= 4 ? "text-amber-600" : "text-red-600"
             )}>
@@ -546,7 +546,7 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
               return (
                 <span 
                   key={key} 
-                  className="px-1.5 py-0.5 bg-white rounded text-[10px] text-gray-600 border border-gray-200"
+                  className="px-1.5 py-0.5 bg-white rounded text-xs text-gray-600 border border-gray-200"
                 >
                   {config.emoji} {config.label}
                 </span>
@@ -562,7 +562,7 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
           isHigh ? "bg-emerald-50/50" : "bg-red-50/50"
         )}>
           {copy.analysis.headline_score !== undefined && (
-            <div className="flex items-center gap-1 text-[10px]">
+            <div className="flex items-center gap-1 text-xs">
               <span className="text-gray-500">📝 標題</span>
               <span className={cn(
                 "font-semibold",
@@ -574,7 +574,7 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
             </div>
           )}
           {copy.analysis.benefit_score !== undefined && (
-            <div className="flex items-center gap-1 text-[10px]">
+            <div className="flex items-center gap-1 text-xs">
               <span className="text-gray-500">✨ 賣點</span>
               <span className={cn(
                 "font-semibold",
@@ -586,7 +586,7 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
             </div>
           )}
           {copy.analysis.cta_score !== undefined && (
-            <div className="flex items-center gap-1 text-[10px]">
+            <div className="flex items-center gap-1 text-xs">
               <span className="text-gray-500">👆 CTA</span>
               <span className={cn(
                 "font-semibold",
@@ -611,11 +611,11 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
             <div className="mb-2">
               <div className="flex items-center gap-1.5 mb-1.5">
                 <ThumbsUp className="w-3.5 h-3.5 text-emerald-500" />
-                <span className="text-xs font-medium text-emerald-700">為什麼效果好</span>
+                <span className="text-sm font-medium text-emerald-700">為什麼效果好</span>
               </div>
               <ul className="space-y-1">
                 {copy.strengths.map((strength, i) => (
-                  <li key={i} className="text-[11px] text-emerald-700 pl-5 relative">
+                  <li key={i} className="text-xs text-emerald-700 pl-5 relative">
                     <span className="absolute left-0 top-0.5 text-emerald-500">•</span>
                     {strength}
                   </li>
@@ -629,11 +629,11 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
             <div className="mb-2">
               <div className="flex items-center gap-1.5 mb-1.5">
                 <ThumbsDown className="w-3.5 h-3.5 text-red-500" />
-                <span className="text-xs font-medium text-red-700">為什麼效果差</span>
+                <span className="text-sm font-medium text-red-700">為什麼效果差</span>
               </div>
               <ul className="space-y-1">
                 {copy.weaknesses.map((weakness, i) => (
-                  <li key={i} className="text-[11px] text-red-700 pl-5 relative">
+                  <li key={i} className="text-xs text-red-700 pl-5 relative">
                     <span className="absolute left-0 top-0.5 text-red-500">•</span>
                     {weakness}
                   </li>
@@ -646,7 +646,7 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
           {analysisDetails.length > 0 && (
             <button
               onClick={() => setShowFullAnalysis(!showFullAnalysis)}
-              className="flex items-center gap-1 text-[10px] text-gray-500 hover:text-gray-700 mt-2"
+              className="flex items-center gap-1 text-xs text-gray-500 hover:text-gray-700 mt-2"
             >
               <Sparkles className="w-3 h-3" />
               <span>{showFullAnalysis ? '收起分析' : '查看詳細分析'}</span>
@@ -658,15 +658,15 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
             <div className="mt-2 p-2 bg-white/50 rounded-lg">
               <div className="flex flex-wrap gap-2">
                 {analysisDetails.map((detail, i) => (
-                  <span key={i} className="text-[10px] text-gray-600 bg-gray-100 px-2 py-0.5 rounded">
+                  <span key={i} className="text-xs text-gray-600 bg-gray-100 px-2 py-0.5 rounded">
                     {detail}
                   </span>
                 ))}
               </div>
               {copy.analysis?.emotional_triggers && copy.analysis.emotional_triggers.length > 0 && (
                 <div className="mt-2">
-                  <span className="text-[10px] text-gray-500">情緒觸發：</span>
-                  <span className="text-[10px] text-gray-700">
+                  <span className="text-xs text-gray-500">情緒觸發：</span>
+                  <span className="text-xs text-gray-700">
                     {copy.analysis.emotional_triggers.join('、')}
                   </span>
                 </div>
@@ -679,8 +679,8 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
       {/* Suggested Variations for Low Performers */}
       {!isHigh && copy.suggested_variations && copy.suggested_variations.length > 0 && (
         <div className="mt-3 p-2 bg-amber-50 rounded-lg border border-amber-200">
-          <p className="text-[10px] font-medium text-amber-700 mb-1">💡 建議改寫：</p>
-          <p className="text-[11px] text-amber-800 line-clamp-2">
+          <p className="text-xs font-medium text-amber-700 mb-1">💡 建議改寫：</p>
+          <p className="text-xs text-amber-800 line-clamp-2">
             {copy.suggested_variations[0]}
           </p>
         </div>
