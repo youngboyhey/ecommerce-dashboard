@@ -152,7 +152,9 @@ export function useWeeklyAnalysis(reportDate?: string): UseWeeklyAnalysisResult 
       } else if (insightsRes.data) {
         const rawInsight = insightsRes.data;
         
-        // Parse insights if it's a double-stringified JSON string (舊格式)
+        // Parse insights field - can be either:
+        // - 舊格式: array of insight items
+        // - 新格式: object containing { highlights, warnings, recommendations }
         let parsedInsights = rawInsight.insights;
         if (typeof parsedInsights === 'string') {
           try {
@@ -162,16 +164,28 @@ export function useWeeklyAnalysis(reportDate?: string): UseWeeklyAnalysisResult 
             parsedInsights = [];
           }
         }
+        
+        // 檢查 insights 是否為新格式物件（包含 highlights, warnings, recommendations）
+        const insightsObj = (parsedInsights && typeof parsedInsights === 'object' && !Array.isArray(parsedInsights)) 
+          ? parsedInsights as { highlights?: unknown[]; warnings?: unknown[]; recommendations?: unknown[] }
+          : null;
+        
         // Ensure insights is always an array (fix: e.insights is not iterable)
+        // 如果是新格式物件，設為空陣列（舊格式 insights 已不使用）
         if (!Array.isArray(parsedInsights)) {
-          console.warn('insights is not an array, defaulting to []:', parsedInsights);
+          if (insightsObj) {
+            console.log('insights is new format object, extracting nested fields');
+          } else {
+            console.warn('insights is not an array, defaulting to []:', parsedInsights);
+          }
           parsedInsights = [];
         }
         
         // 解析新格式欄位 (highlights, warnings, recommendations)
-        let parsedHighlights = rawInsight.highlights;
-        let parsedWarnings = rawInsight.warnings;
-        let parsedRecommendations = rawInsight.recommendations;
+        // 優先使用頂級欄位，若不存在則從 insights 物件提取
+        let parsedHighlights = rawInsight.highlights || insightsObj?.highlights;
+        let parsedWarnings = rawInsight.warnings || insightsObj?.warnings;
+        let parsedRecommendations = rawInsight.recommendations || insightsObj?.recommendations;
         
         // Parse if stringified
         if (typeof parsedHighlights === 'string') {
