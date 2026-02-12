@@ -35,7 +35,7 @@ interface UseTargetingDataResult {
   refresh: () => Promise<void>;
 }
 
-export function useTargetingData(): UseTargetingDataResult {
+export function useTargetingData(weekStart?: string): UseTargetingDataResult {
   const [adsets, setAdsets] = useState<AdsetWithTargeting[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -51,10 +51,17 @@ export function useTargetingData(): UseTargetingDataResult {
     setError(null);
 
     try {
-      const { data, error: fetchError } = await supabase
+      // Build query with optional week_start filter
+      let query = supabase
         .from('meta_adsets')
-        .select('*')
-        .order('spend', { ascending: false });
+        .select('*');
+      
+      // Filter by week_start if provided
+      if (weekStart) {
+        query = query.eq('week_start', weekStart);
+      }
+      
+      const { data, error: fetchError } = await query.order('spend', { ascending: false });
 
       if (fetchError) {
         console.error('Error fetching meta_adsets:', fetchError);
@@ -111,7 +118,7 @@ export function useTargetingData(): UseTargetingDataResult {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [weekStart]);
 
   useEffect(() => {
     fetchData();

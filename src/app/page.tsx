@@ -367,7 +367,10 @@ export default function Dashboard() {
                   </span>
                   <span className="gradient-text-subtle">廣告受眾設定</span>
                 </h3>
-                <TargetingAnalysis isLoading={analysisLoading} />
+                <TargetingAnalysis 
+                  isLoading={analysisLoading} 
+                  weekStart={selectedWeek?.startDate}
+                />
               </section>
 
               {/* 廣告素材分析 */}

@@ -7,6 +7,7 @@ import { useAdMetrics, type AdMetrics } from '@/contexts/AdMetricsContext';
 
 interface TargetingAnalysisProps {
   isLoading?: boolean;
+  weekStart?: string;  // YYYY-MM-DD format for filtering by week
 }
 
 // 評分顏色配置
@@ -272,9 +273,10 @@ const ComparisonSummary = memo(function ComparisonSummary({
 });
 
 const TargetingAnalysis = memo(function TargetingAnalysis({ 
-  isLoading: propIsLoading = false 
+  isLoading: propIsLoading = false,
+  weekStart 
 }: TargetingAnalysisProps) {
-  const { adsets, isLoading: dataLoading, error } = useTargetingData();
+  const { adsets, isLoading: dataLoading, error } = useTargetingData(weekStart);
   const { getAllMetrics, isLoading: metricsLoading } = useAdMetrics();
   
   // 從統一 AdMetrics Context 獲取所有廣告成效
