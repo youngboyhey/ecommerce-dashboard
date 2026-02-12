@@ -398,6 +398,17 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
   const isHigh = variant === 'high';
   const [showFullAnalysis, setShowFullAnalysis] = useState(false);
   
+  // 計算 CVR（統一使用 purchases / clicks * 100）
+  const calculatedCvr = useMemo(() => {
+    const clicks = copy.metrics?.clicks || 0;
+    const purchases = copy.metrics?.purchases || 0;
+    if (clicks > 0) {
+      return (purchases / clicks) * 100;
+    }
+    // Fallback 到預存的 cvr 值
+    return copy.metrics?.cvr || 0;
+  }, [copy.metrics]);
+  
   // 組合分析說明
   const analysisDetails = useMemo(() => {
     const details: string[] = [];
@@ -464,7 +475,7 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
             "text-xs font-semibold",
             isHigh ? "text-emerald-600" : "text-red-600"
           )}>
-            {(copy.metrics?.cvr || 0).toFixed(2)}%
+            {calculatedCvr.toFixed(2)}%
           </span>
         </div>
         {copy.copy_length && (

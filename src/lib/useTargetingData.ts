@@ -19,8 +19,12 @@ export interface AdsetWithTargeting {
   adset_name: string;
   campaign_name?: string;
   spend?: number;
+  impressions?: number;
+  clicks?: number;
   purchases?: number;
   roas?: number;
+  ctr?: number;
+  cvr?: number;  // 計算欄位：purchases / clicks * 100
   targeting: TargetingAnalysisData;
 }
 
@@ -77,14 +81,25 @@ export function useTargetingData(): UseTargetingDataResult {
           }
         }
 
+        // 計算衍生指標
+        const impressions = row.impressions || 0;
+        const clicks = row.clicks || 0;
+        const purchases = row.purchases || 0;
+        
         return {
           id: row.id,
           adset_id: row.adset_id,
           adset_name: row.adset_name,
           campaign_name: row.campaign_name,
           spend: row.spend,
-          purchases: row.purchases,
+          impressions,
+          clicks,
+          purchases,
           roas: row.roas,
+          // CTR = clicks / impressions * 100
+          ctr: impressions > 0 ? (clicks / impressions) * 100 : 0,
+          // CVR = purchases / clicks * 100 ⬅️ 正確的 CVR 計算
+          cvr: clicks > 0 ? (purchases / clicks) * 100 : 0,
           targeting: targeting as TargetingAnalysisData,
         };
       });

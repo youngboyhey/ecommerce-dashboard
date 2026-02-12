@@ -1,8 +1,9 @@
 'use client';
 
 import { memo } from 'react';
-import { Target, TrendingUp, TrendingDown, Lightbulb, Sparkles, AlertCircle, CheckCircle, Users, DollarSign, ShoppingCart } from 'lucide-react';
+import { Target, TrendingUp, TrendingDown, Lightbulb, Sparkles, AlertCircle, CheckCircle, Users, DollarSign, ShoppingCart, MousePointer } from 'lucide-react';
 import { useTargetingData, type AdsetWithTargeting } from '@/lib/useTargetingData';
+import { calculateDerivedMetrics } from '@/lib/useAdMetrics';
 
 interface TargetingAnalysisProps {
   isLoading?: boolean;
@@ -35,11 +36,6 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
     { bg: 'from-cyan-500 to-blue-500', shadow: 'shadow-cyan-500/30' },
   ];
   const color = colors[index % colors.length];
-  
-  // 計算 CVR
-  const cvr = adset.purchases && adset.spend 
-    ? ((adset.purchases / (adset.spend / 100)) * 100).toFixed(2) 
-    : null;
 
   return (
     <div className="bg-white rounded-xl border border-gray-100 overflow-hidden h-full flex flex-col shadow-sm hover:shadow-md transition-shadow">
@@ -100,6 +96,24 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
               <span className="text-[10px]">購買</span>
             </div>
             <p className="font-semibold text-gray-900">{adset.purchases}</p>
+          </div>
+        )}
+        {adset.ctr !== undefined && adset.ctr > 0 && (
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-1 text-gray-500">
+              <MousePointer className="w-3 h-3" />
+              <span className="text-[10px]">CTR</span>
+            </div>
+            <p className="font-semibold text-purple-600">{adset.ctr.toFixed(2)}%</p>
+          </div>
+        )}
+        {adset.cvr !== undefined && adset.cvr > 0 && (
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-1 text-gray-500">
+              <TrendingUp className="w-3 h-3" />
+              <span className="text-[10px]">CVR</span>
+            </div>
+            <p className="font-semibold text-orange-600">{adset.cvr.toFixed(2)}%</p>
           </div>
         )}
       </div>
