@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { 
   DollarSign, 
   TrendingUp, 
@@ -8,17 +9,18 @@ import {
   RefreshCw,
   Wifi,
   WifiOff,
-  Users,
-  Sparkles
+  Users
 } from 'lucide-react';
 
 import AlertBanner from '@/components/AlertBanner';
 import KPICard from '@/components/KPICard';
 import WeekSelector from '@/components/WeekSelector';
+import DashboardTabs, { TabId } from '@/components/DashboardTabs';
 import RevenueTrendChart from '@/components/RevenueTrendChart';
+import MemberGrowthTrend from '@/components/MemberGrowthTrend';
+import AverageOrderValueTrend from '@/components/AverageOrderValueTrend';
 import MetaAdsChart from '@/components/MetaAdsChart';
 import GA4Funnel from '@/components/GA4Funnel';
-import AudienceAnalysis from '@/components/AudienceAnalysis';
 import ProductRanking from '@/components/ProductRanking';
 import ChannelPerformance from '@/components/ChannelPerformance';
 import DeviceBreakdown from '@/components/DeviceBreakdown';
@@ -34,6 +36,8 @@ import { useWeeklyAnalysis } from '@/lib/useWeeklyAnalysis';
 import { useMemo, useCallback } from 'react';
 
 export default function Dashboard() {
+  const [activeTab, setActiveTab] = useState<TabId>('revenue');
+
   const { 
     weekOptions, 
     selectedWeek, 
@@ -276,127 +280,7 @@ export default function Dashboard() {
           </div>
         </section>
 
-        {/* 📊 Zone 3: 趨勢與效率區 */}
-        <section aria-label="營收與廣告效率" className="mb-4 sm:mb-6 lg:mb-8">
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
-            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center text-sm sm:text-base">
-              📊
-            </span>
-            <span className="gradient-text-subtle">趨勢與效率</span>
-          </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
-            <RevenueTrendChart 
-              dateRange={selectedWeek ? { start: selectedWeek.startDate, end: selectedWeek.endDate } : undefined}
-            />
-            <MetaAdsChart 
-              campaigns={data.meta.campaigns}
-              total={data.meta.total}
-            />
-          </div>
-        </section>
-
-        {/* 🔄 Zone 4: 網站行為分析區 */}
-        <section aria-label="網站行為分析" className="mb-4 sm:mb-6 lg:mb-8">
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
-            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center text-sm sm:text-base">
-              🔄
-            </span>
-            <span className="gradient-text-subtle">網站行為分析</span>
-          </h3>
-          <div className="grid grid-cols-12 gap-3 sm:gap-4 lg:gap-6">
-            <div className="col-span-12 lg:col-span-6">
-              <GA4Funnel data={data.ga4} />
-            </div>
-            <div className="col-span-12 lg:col-span-6">
-              <AudienceAnalysis data={data.meta_audience} />
-            </div>
-            <div className="col-span-12">
-              <DeviceBreakdown data={data.ga4_devices} isLive={isLive} />
-            </div>
-          </div>
-        </section>
-
-        {/* 🏆 Zone 5: 商品與 SEO 區 */}
-        <section aria-label="商品與 SEO 分析" className="mb-4 sm:mb-6 lg:mb-8">
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
-            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center text-sm sm:text-base">
-              🏆
-            </span>
-            <span className="gradient-text-subtle">商品與 SEO</span>
-          </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
-            <ProductRanking products={data.cyberbiz.product_ranking} summary={data.cyberbiz} />
-            <GSCPerformance 
-              summary={data.gsc?.total ? {
-                totalImpressions: data.gsc.total.impressions,
-                totalClicks: data.gsc.total.clicks,
-                avgCtr: data.gsc.total.ctr,
-                avgPosition: data.gsc.total.position,
-              } : undefined}
-              keywords={data.gsc?.top_queries?.map(q => ({
-                keyword: q.query,
-                impressions: q.impressions,
-                clicks: q.clicks,
-                ctr: q.ctr,
-                position: q.position,
-              }))}
-              pages={data.gsc?.top_pages?.map(p => ({
-                page: p.page,
-                title: p.title,
-                impressions: p.impressions,
-                clicks: p.clicks,
-                ctr: p.ctr,
-                position: p.position,
-              }))}
-            />
-          </div>
-        </section>
-
-        {/* 流量來源分析 */}
-        <section aria-label="流量來源分析" className="mb-4 sm:mb-6 lg:mb-8">
-          <ChannelPerformance data={data.ga4_channels} />
-        </section>
-
-        {/* 🎯 Zone 5.5: 廣告受眾設定 */}
-        <section aria-label="廣告受眾設定" className="mb-4 sm:mb-6 lg:mb-8">
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
-            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-violet-100 to-purple-100 flex items-center justify-center text-sm sm:text-base">
-              🎯
-            </span>
-            <span className="gradient-text-subtle">廣告受眾設定</span>
-          </h3>
-          <TargetingAnalysis isLoading={analysisLoading} />
-        </section>
-
-        {/* 🎨 Zone 6: 廣告素材分析 */}
-        <section aria-label="廣告素材分析" className="mb-4 sm:mb-6 lg:mb-8">
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
-            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center text-sm sm:text-base">
-              🎨
-            </span>
-            <span className="gradient-text-subtle">廣告素材分析</span>
-          </h3>
-          <CreativeAnalysis 
-            creatives={creatives} 
-            isLoading={analysisLoading} 
-          />
-        </section>
-
-        {/* ✍️ Zone 7: 廣告文案分析 */}
-        <section aria-label="廣告文案分析" className="mb-4 sm:mb-6 lg:mb-8">
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
-            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-violet-100 to-purple-100 flex items-center justify-center text-sm sm:text-base">
-              ✍️
-            </span>
-            <span className="gradient-text-subtle">廣告文案分析</span>
-          </h3>
-          <CopyAnalysis 
-            copies={copies} 
-            isLoading={analysisLoading} 
-          />
-        </section>
-
-        {/* 💡 Zone 8: 本週洞察 (放最底部) */}
+        {/* 💡 Zone 3: 本週洞察（移到這裡） */}
         <section aria-label="本週洞察" className="mb-4 sm:mb-6 lg:mb-8">
           <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
             <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center text-sm sm:text-base">
@@ -412,13 +296,180 @@ export default function Dashboard() {
           />
         </section>
 
+        {/* 📊 Zone 4: TAB 切換區 */}
+        <DashboardTabs activeTab={activeTab} onChange={setActiveTab} />
+
+        {/* TAB 內容區 */}
+        <div role="tabpanel" id={`tabpanel-${activeTab}`} aria-labelledby={`tab-${activeTab}`}>
+          
+          {/* ===== Tab 1: 營收數據 ===== */}
+          {activeTab === 'revenue' && (
+            <div className="space-y-4 sm:space-y-6 lg:space-y-8 animate-fade-in-up">
+              {/* 營收趨勢 */}
+              <RevenueTrendChart 
+                dateRange={selectedWeek ? { start: selectedWeek.startDate, end: selectedWeek.endDate } : undefined}
+              />
+
+              {/* 會員成長趨勢 & 客單價趨勢 */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
+                <MemberGrowthTrend 
+                  dateRange={selectedWeek ? { start: selectedWeek.startDate, end: selectedWeek.endDate } : undefined}
+                />
+                <AverageOrderValueTrend 
+                  dateRange={selectedWeek ? { start: selectedWeek.startDate, end: selectedWeek.endDate } : undefined}
+                />
+              </div>
+
+              {/* 商品銷售排行 */}
+              <section aria-label="商品銷售排行">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+                  <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center text-sm sm:text-base">
+                    🏆
+                  </span>
+                  <span className="gradient-text-subtle">商品銷售排行</span>
+                </h3>
+                <ProductRanking products={data.cyberbiz.product_ranking} summary={data.cyberbiz} />
+              </section>
+            </div>
+          )}
+
+          {/* ===== Tab 2: Meta 廣告分析 ===== */}
+          {activeTab === 'meta-ads' && (
+            <div className="space-y-4 sm:space-y-6 lg:space-y-8 animate-fade-in-up">
+              {/* Meta 廣告成效 */}
+              <section aria-label="Meta 廣告成效">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+                  <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center text-sm sm:text-base">
+                    📊
+                  </span>
+                  <span className="gradient-text-subtle">Meta 廣告成效</span>
+                </h3>
+                <MetaAdsChart 
+                  campaigns={data.meta.campaigns}
+                  total={data.meta.total}
+                />
+              </section>
+
+              {/* 廣告受眾設定 */}
+              <section aria-label="廣告受眾設定">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+                  <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-violet-100 to-purple-100 flex items-center justify-center text-sm sm:text-base">
+                    🎯
+                  </span>
+                  <span className="gradient-text-subtle">廣告受眾設定</span>
+                </h3>
+                <TargetingAnalysis isLoading={analysisLoading} />
+              </section>
+
+              {/* 廣告素材分析 */}
+              <section aria-label="廣告素材分析">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+                  <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center text-sm sm:text-base">
+                    🎨
+                  </span>
+                  <span className="gradient-text-subtle">廣告素材分析</span>
+                </h3>
+                <CreativeAnalysis 
+                  creatives={creatives} 
+                  isLoading={analysisLoading} 
+                />
+              </section>
+
+              {/* 廣告文案分析 */}
+              <section aria-label="廣告文案分析">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+                  <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-violet-100 to-purple-100 flex items-center justify-center text-sm sm:text-base">
+                    ✍️
+                  </span>
+                  <span className="gradient-text-subtle">廣告文案分析</span>
+                </h3>
+                <CopyAnalysis 
+                  copies={copies} 
+                  isLoading={analysisLoading} 
+                />
+              </section>
+            </div>
+          )}
+
+          {/* ===== Tab 3: 網站來源分析 ===== */}
+          {activeTab === 'traffic' && (
+            <div className="space-y-4 sm:space-y-6 lg:space-y-8 animate-fade-in-up">
+              {/* GA4 轉換漏斗 */}
+              <section aria-label="GA4 轉換漏斗">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+                  <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center text-sm sm:text-base">
+                    🔄
+                  </span>
+                  <span className="gradient-text-subtle">GA4 轉換漏斗</span>
+                </h3>
+                <GA4Funnel data={data.ga4} />
+              </section>
+
+              {/* 裝置分布 */}
+              <section aria-label="裝置分布">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+                  <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-cyan-100 to-blue-100 flex items-center justify-center text-sm sm:text-base">
+                    📱
+                  </span>
+                  <span className="gradient-text-subtle">裝置分布</span>
+                </h3>
+                <DeviceBreakdown data={data.ga4_devices} isLive={isLive} />
+              </section>
+
+              {/* 流量來源分析 */}
+              <section aria-label="流量來源分析">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+                  <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-emerald-100 to-teal-100 flex items-center justify-center text-sm sm:text-base">
+                    🌐
+                  </span>
+                  <span className="gradient-text-subtle">流量來源分析</span>
+                </h3>
+                <ChannelPerformance data={data.ga4_channels} />
+              </section>
+
+              {/* SEO 表現 (GSC) */}
+              <section aria-label="SEO 表現">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+                  <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center text-sm sm:text-base">
+                    🔍
+                  </span>
+                  <span className="gradient-text-subtle">SEO 表現 (GSC)</span>
+                </h3>
+                <GSCPerformance 
+                  summary={data.gsc?.total ? {
+                    totalImpressions: data.gsc.total.impressions,
+                    totalClicks: data.gsc.total.clicks,
+                    avgCtr: data.gsc.total.ctr,
+                    avgPosition: data.gsc.total.position,
+                  } : undefined}
+                  keywords={data.gsc?.top_queries?.map(q => ({
+                    keyword: q.query,
+                    impressions: q.impressions,
+                    clicks: q.clicks,
+                    ctr: q.ctr,
+                    position: q.position,
+                  }))}
+                  pages={data.gsc?.top_pages?.map(p => ({
+                    page: p.page,
+                    title: p.title,
+                    impressions: p.impressions,
+                    clicks: p.clicks,
+                    ctr: p.ctr,
+                    position: p.position,
+                  }))}
+                />
+              </section>
+            </div>
+          )}
+        </div>
+
       </main>
 
       {/* ===== Footer ===== */}
       <footer className="bg-white border-t border-gray-100 mt-4 sm:mt-8">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-1 sm:gap-2 text-xs sm:text-sm text-gray-500">
-            <p className="text-center sm:text-left">CarMall 電商 Dashboard v3.0 — <span className="gradient-text-subtle font-medium">Minimal White Edition</span></p>
+            <p className="text-center sm:text-left">CarMall 電商 Dashboard v3.1 — <span className="gradient-text-subtle font-medium">Tabbed Edition</span></p>
             <p className="flex items-center gap-2">
               最後更新: {lastUpdated 
                 ? lastUpdated.toLocaleString('zh-TW') 
