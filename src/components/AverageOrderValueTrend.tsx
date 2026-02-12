@@ -44,6 +44,8 @@ interface AOVDataPoint {
 
 interface WeeklyAOVDataPoint {
   week: string;
+  startDate: string;
+  endDate: string;
   aov: number;
   orders: number;
   revenue: number;
@@ -121,10 +123,10 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
       if (!supabase) {
         // 無 Supabase 時使用 mock 數據
         setWeeklyData([
-          { week: 'W1', aov: 1250, orders: 45, revenue: 56250 },
-          { week: 'W2', aov: 1180, orders: 52, revenue: 61360 },
-          { week: 'W3', aov: 1320, orders: 48, revenue: 63360 },
-          { week: 'W4', aov: 1150, orders: 55, revenue: 63250 },
+          { week: 'W1', startDate: '2026-01-19', endDate: '2026-01-25', aov: 1250, orders: 45, revenue: 56250 },
+          { week: 'W2', startDate: '2026-01-26', endDate: '2026-02-01', aov: 1180, orders: 52, revenue: 61360 },
+          { week: 'W3', startDate: '2026-02-02', endDate: '2026-02-08', aov: 1320, orders: 48, revenue: 63360 },
+          { week: 'W4', startDate: '2026-02-09', endDate: '2026-02-15', aov: 1150, orders: 55, revenue: 63250 },
         ]);
         setIsLoading(false);
         return;
@@ -171,6 +173,8 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
         if (!weeklyError && weeklyReports && weeklyReports.length > 0) {
           const weeklyAovData: WeeklyAOVDataPoint[] = weeklyReports.map((report, index) => ({
             week: `W${index + 1}`,
+            startDate: report.start_date,
+            endDate: report.end_date,
             aov: report.cyber_aov || 0,
             orders: report.cyber_order_count || 0,
             revenue: report.cyber_revenue || 0,
@@ -184,10 +188,10 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
       } catch (err) {
         console.warn('AOV data fetch failed, using mock:', err);
         setWeeklyData([
-          { week: 'W1', aov: 1250, orders: 45, revenue: 56250 },
-          { week: 'W2', aov: 1180, orders: 52, revenue: 61360 },
-          { week: 'W3', aov: 1320, orders: 48, revenue: 63360 },
-          { week: 'W4', aov: 1150, orders: 55, revenue: 63250 },
+          { week: 'W1', startDate: '2026-01-19', endDate: '2026-01-25', aov: 1250, orders: 45, revenue: 56250 },
+          { week: 'W2', startDate: '2026-01-26', endDate: '2026-02-01', aov: 1180, orders: 52, revenue: 61360 },
+          { week: 'W3', startDate: '2026-02-02', endDate: '2026-02-08', aov: 1320, orders: 48, revenue: 63360 },
+          { week: 'W4', startDate: '2026-02-09', endDate: '2026-02-15', aov: 1150, orders: 55, revenue: 63250 },
         ]);
         setIsLive(false);
         setHasDailyData(false);
@@ -211,20 +215,33 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
     return totalOrders > 0 ? Math.round(totalRevenue / totalOrders) : 0;
   }, [timeRange, dailyData, weeklyData]);
 
-  // 根據 timeRange 選擇數據
+  // 根據 timeRange 和 dateRange 選擇數據
   const data = useMemo(() => {
     if (timeRange === 'daily') {
-      return dailyData.map(d => ({
+      // 根據 dateRange 過濾 daily 數據
+      let filtered = dailyData;
+      if (dateRange) {
+        filtered = dailyData.filter(d => d.date >= dateRange.start && d.date <= dateRange.end);
+      }
+      return filtered.map(d => ({
         ...d,
         displayKey: d.label
       }));
     } else {
-      return weeklyData.map(d => ({
+      // weekly 數據：根據 dateRange 過濾
+      let filtered = weeklyData;
+      if (dateRange) {
+        // 過濾出與 dateRange 重疊的週
+        filtered = weeklyData.filter(d => 
+          d.startDate <= dateRange.end && d.endDate >= dateRange.start
+        );
+      }
+      return filtered.map(d => ({
         ...d,
         displayKey: d.week
       }));
     }
-  }, [timeRange, dailyData, weeklyData]);
+  }, [timeRange, dailyData, weeklyData, dateRange]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const renderTooltip = useCallback((props: any) => (

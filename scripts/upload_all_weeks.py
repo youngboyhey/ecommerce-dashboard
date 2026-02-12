@@ -98,6 +98,44 @@ def load_ai_analysis_results(date_str: str) -> tuple[Dict, Dict]:
     return creative_analysis, copy_analysis
 
 
+def upload_daily_aov(week: Dict, data: Dict) -> int:
+    """Upload daily AOV data as mode='daily' reports."""
+    daily_aov = data.get('cyberbiz', {}).get('daily_aov', [])
+    if not daily_aov:
+        return 0
+    
+    count = 0
+    for day in daily_aov:
+        day_date = day.get('date')
+        if not day_date:
+            continue
+        
+        daily_record = {
+            'mode': 'daily',
+            'start_date': day_date,
+            'end_date': day_date,
+            'generated_at': data.get('generated_at', datetime.now().isoformat()),
+            'cyber_aov': day.get('aov', 0),
+            'cyber_order_count': day.get('orders', 0),
+            'cyber_revenue': day.get('revenue', 0),
+        }
+        
+        # Upsert
+        try:
+            existing = supabase.table('reports').select('id').eq('start_date', day_date).eq('mode', 'daily').execute()
+            if existing.data and len(existing.data) > 0:
+                supabase.table('reports').update(daily_record).eq('id', existing.data[0]['id']).execute()
+            else:
+                supabase.table('reports').insert(daily_record).execute()
+            count += 1
+        except Exception as e:
+            print(f"    ⚠️  Failed to insert daily AOV for {day_date}: {e}")
+    
+    if count > 0:
+        print(f"  ✅ daily_aov: {count} days uploaded")
+    return count
+
+
 def upload_report_data(week: Dict) -> Optional[str]:
     """Upload report_data and return report_id."""
     filename = f"report_data_{week['date']}.json"
@@ -105,6 +143,9 @@ def upload_report_data(week: Dict) -> Optional[str]:
     if not data:
         print(f"  ⚠️  {filename} not found, skipping")
         return None
+    
+    # Upload daily AOV data first
+    upload_daily_aov(week, data)
     
     # Extract fields
     meta_total = data.get('meta', {}).get('total', {})
