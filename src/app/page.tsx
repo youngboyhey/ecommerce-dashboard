@@ -28,6 +28,7 @@ import GSCPerformance from '@/components/GSCPerformance';
 import TargetingAnalysis from '@/components/TargetingAnalysis';
 import CreativeAnalysis from '@/components/CreativeAnalysis';
 import CopyAnalysis from '@/components/CopyAnalysis';
+import ErrorBoundary from '@/components/ErrorBoundary';
 import WeeklyInsights from '@/components/WeeklyInsights';
 import { AdMetricsProvider } from '@/contexts/AdMetricsContext';
 import { useReportData, DateRange } from '@/lib/useReportData';
@@ -353,10 +354,12 @@ export default function Dashboard() {
                   </span>
                   <span className="gradient-text-subtle">Meta 廣告成效</span>
                 </h3>
-                <MetaAdsChart 
-                  campaigns={data.meta.campaigns}
-                  total={data.meta.total}
-                />
+                <ErrorBoundary componentName="Meta 廣告成效">
+                  <MetaAdsChart 
+                    campaigns={data.meta.campaigns}
+                    total={data.meta.total}
+                  />
+                </ErrorBoundary>
               </section>
 
               {/* 廣告受眾設定 */}
@@ -367,10 +370,12 @@ export default function Dashboard() {
                   </span>
                   <span className="gradient-text-subtle">廣告受眾設定</span>
                 </h3>
-                <TargetingAnalysis 
-                  isLoading={analysisLoading} 
-                  weekStart={selectedWeek?.startDate}
-                />
+                <ErrorBoundary componentName="廣告受眾設定">
+                  <TargetingAnalysis 
+                    isLoading={analysisLoading} 
+                    weekStart={selectedWeek?.startDate}
+                  />
+                </ErrorBoundary>
               </section>
 
               {/* 廣告素材分析 */}
@@ -381,10 +386,12 @@ export default function Dashboard() {
                   </span>
                   <span className="gradient-text-subtle">廣告素材分析</span>
                 </h3>
-                <CreativeAnalysis 
-                  creatives={creatives} 
-                  isLoading={analysisLoading} 
-                />
+                <ErrorBoundary componentName="廣告素材分析">
+                  <CreativeAnalysis 
+                    creatives={creatives} 
+                    isLoading={analysisLoading} 
+                  />
+                </ErrorBoundary>
               </section>
 
               {/* 廣告文案分析 */}
@@ -395,10 +402,12 @@ export default function Dashboard() {
                   </span>
                   <span className="gradient-text-subtle">廣告文案分析</span>
                 </h3>
-                <CopyAnalysis 
-                  copies={copies} 
-                  isLoading={analysisLoading} 
-                />
+                <ErrorBoundary componentName="廣告文案分析">
+                  <CopyAnalysis 
+                    copies={copies} 
+                    isLoading={analysisLoading} 
+                  />
+                </ErrorBoundary>
               </section>
             </div>
           )}

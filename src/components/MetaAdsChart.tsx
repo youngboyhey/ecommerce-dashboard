@@ -180,7 +180,10 @@ const GaugeCard = memo(function GaugeCard({ campaign }: { campaign: CampaignData
 });
 
 const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, total: propTotal }: MetaAdsChartProps) {
-  const campaigns = propCampaigns || mockReportData.meta.campaigns;
+  // 防護：空陣列也 fallback 到 mockData
+  const campaigns = (propCampaigns && propCampaigns.length > 0) 
+    ? propCampaigns 
+    : mockReportData.meta.campaigns;
   const total = propTotal || mockReportData.meta.total;
 
   // 準備散點圖數據
@@ -196,9 +199,13 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
     }));
   }, [campaigns]);
 
-  // 計算 X 軸範圍
-  const maxSpend = Math.max(...campaigns.map(c => c.spend));
-  const maxRoas = Math.max(...campaigns.map(c => c.roas), 2);
+  // 計算 X 軸範圍（防護空陣列導致 -Infinity）
+  const maxSpend = campaigns.length > 0 
+    ? Math.max(...campaigns.map(c => c.spend)) 
+    : 10000;
+  const maxRoas = campaigns.length > 0 
+    ? Math.max(...campaigns.map(c => c.roas), 2) 
+    : 2;
 
   return (
     <section 
