@@ -144,8 +144,7 @@ interface UseTargetingDataResult {
   refresh: () => Promise<void>;
 }
 
-// Note: weekStart parameter is kept for API compatibility but currently unused
-// because meta_adsets table doesn't have week_start column (uses report_id instead)
+// weekStart: 用來查找對應週報告的 report_id，再過濾 meta_adsets
 export function useTargetingData(weekStart?: string): UseTargetingDataResult {
   const [adsets, setAdsets] = useState<AdsetWithTargeting[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -162,15 +161,34 @@ export function useTargetingData(weekStart?: string): UseTargetingDataResult {
     setError(null);
 
     try {
-      // Build query - meta_adsets uses report_id, not week_start
-      // The table doesn't have week_start column, so we fetch all and let UI handle filtering
-      const query = supabase
+      // 🔧 修正：先根據 weekStart 找到對應的 report_id
+      let reportId: string | null = null;
+      
+      if (weekStart) {
+        const { data: reportData, error: reportError } = await supabase
+          .from('reports')
+          .select('id')
+          .eq('mode', 'weekly')
+          .eq('start_date', weekStart)
+          .single();
+        
+        if (reportError) {
+          console.warn('Failed to find report for week:', weekStart, reportError);
+        } else if (reportData) {
+          reportId = reportData.id;
+          console.log(`Found report_id ${reportId} for week starting ${weekStart}`);
+        }
+      }
+      
+      // Build query - 使用 report_id 過濾
+      let query = supabase
         .from('meta_adsets')
         .select('*');
       
-      // Note: meta_adsets doesn't have week_start column
-      // It uses report_id to relate to weekly reports
-      // For now, we fetch all data - consider adding week_start column to table for consistency
+      // 🔧 修正：如果有 report_id，加上過濾條件
+      if (reportId) {
+        query = query.eq('report_id', reportId);
+      }
       
       const { data, error: fetchError } = await query.order('spend', { ascending: false });
 

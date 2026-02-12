@@ -14,7 +14,8 @@ import {
 } from 'recharts';
 import { ShoppingBag } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
-import { formatDate, formatCurrency } from '@/lib/utils';
+import { formatCurrency } from '@/lib/utils';
+// 🔧 移除 formatDate - 只顯示週數據，不需要日期格式化
 import { tooltipWrapperStyle, tooltipContentStyle } from './ChartTooltipWrapper';
 
 // Hook to detect mobile viewport
@@ -31,14 +32,11 @@ function useIsMobile(breakpoint = 640) {
   return isMobile;
 }
 
-type TimeRange = 'daily' | 'weekly';
+// 🔧 移除 daily 選項，因為我們沒有真正的每日客單價數據
+// 把週數據拆成每日會產生誤導性的圖表
+type TimeRange = 'weekly';
 
-interface AOVDataPoint {
-  date: string;
-  aov: number;
-  orders: number;
-  revenue: number;
-}
+// 🔧 移除 AOVDataPoint（日數據）- 只使用 WeeklyAOVDataPoint
 
 interface WeeklyAOVDataPoint {
   week: string;
@@ -47,122 +45,8 @@ interface WeeklyAOVDataPoint {
   revenue: number;
 }
 
-interface WeeklyAOVReport {
-  start_date: string;
-  end_date: string;
-  cyber_aov: number | null;
-  cyber_order_count: number | null;
-  cyber_revenue: number | null;
-}
-
-/**
- * 使用 seeded random 確保同一日期產生一致的隨機數
- */
-function seededRandom(seed: number): number {
-  const x = Math.sin(seed) * 10000;
-  return x - Math.floor(x);
-}
-
-/**
- * 根據日期字串生成 seed
- */
-function dateToSeed(dateStr: string): number {
-  let hash = 0;
-  for (let i = 0; i < dateStr.length; i++) {
-    const char = dateStr.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-    hash = hash & hash;
-  }
-  return Math.abs(hash);
-}
-
-/**
- * 將週數據拆解為日數據，加入合理的每日變化
- * - 週末訂單量稍低（0.7-0.9 倍）
- * - 每日有 ±15% 的隨機波動
- * - AOV = 當天營收 / 當天訂單數，並加入獨立的小幅波動
- */
-function expandWeeklyToDaily(weeklyReports: WeeklyAOVReport[]): AOVDataPoint[] {
-  const dailyData: AOVDataPoint[] = [];
-
-  const sortedReports = [...weeklyReports].sort(
-    (a, b) => new Date(a.start_date).getTime() - new Date(b.start_date).getTime()
-  );
-
-  for (const report of sortedReports) {
-    const startDate = new Date(report.start_date);
-    const endDate = new Date(report.end_date);
-    const dayCount = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) + 1;
-    
-    const weekRevenue = report.cyber_revenue || 0;
-    const weekOrders = report.cyber_order_count || 0;
-    const weekAOV = report.cyber_aov || (weekOrders > 0 ? weekRevenue / weekOrders : 0);
-
-    // 生成每日權重
-    const weights: number[] = [];
-    for (let i = 0; i < dayCount; i++) {
-      const currentDate = new Date(startDate);
-      currentDate.setDate(startDate.getDate() + i);
-      const dayOfWeek = currentDate.getDay();
-      
-      // 週末權重稍低
-      let baseWeight = (dayOfWeek === 0 || dayOfWeek === 6) ? 0.8 : 1.0;
-      
-      // 加入 ±15% 隨機波動
-      const dateStr = currentDate.toISOString().split('T')[0];
-      const randomFactor = 0.85 + seededRandom(dateToSeed(dateStr + '_aov')) * 0.3;
-      baseWeight *= randomFactor;
-      
-      weights.push(baseWeight);
-    }
-
-    const totalWeight = weights.reduce((sum, w) => sum + w, 0);
-    
-    // 分配訂單數（整數，確保加總正確）
-    let remainingOrders = weekOrders;
-    const dailyOrders: number[] = [];
-    
-    for (let i = 0; i < dayCount - 1; i++) {
-      const ratio = weights[i] / totalWeight;
-      const dayOrders = Math.round(weekOrders * ratio);
-      dailyOrders.push(dayOrders);
-      remainingOrders -= dayOrders;
-    }
-    dailyOrders.push(Math.max(0, remainingOrders));
-
-    // 分配營收（確保加總正確）
-    let remainingRevenue = weekRevenue;
-    const dailyRevenue: number[] = [];
-    
-    for (let i = 0; i < dayCount - 1; i++) {
-      const ratio = weights[i] / totalWeight;
-      const dayRevenue = Math.round(weekRevenue * ratio);
-      dailyRevenue.push(dayRevenue);
-      remainingRevenue -= dayRevenue;
-    }
-    dailyRevenue.push(Math.max(0, remainingRevenue));
-
-    for (let i = 0; i < dayCount; i++) {
-      const currentDate = new Date(startDate);
-      currentDate.setDate(startDate.getDate() + i);
-      const dateStr = currentDate.toISOString().split('T')[0];
-      
-      // 計算當天 AOV，並加入 ±10% 的獨立波動
-      const rawAOV = dailyOrders[i] > 0 ? dailyRevenue[i] / dailyOrders[i] : weekAOV;
-      const aovRandomFactor = 0.9 + seededRandom(dateToSeed(dateStr + '_aov_var')) * 0.2;
-      const dayAOV = Math.round(rawAOV * aovRandomFactor);
-      
-      dailyData.push({
-        date: dateStr,
-        aov: dayAOV,
-        orders: dailyOrders[i],
-        revenue: dailyRevenue[i],
-      });
-    }
-  }
-
-  return dailyData;
-}
+// 🔧 已移除 WeeklyAOVReport interface 和 expandWeeklyToDaily 函數
+// 不再將週數據拆解為每日數據，因為會產生誤導性的圖表
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TooltipPayload = any;
@@ -171,7 +55,7 @@ interface ChartTooltipProps {
   active?: boolean;
   payload?: TooltipPayload[];
   label?: string | number;
-  timeRange: TimeRange;
+  timeRange?: TimeRange;  // 保留參數但現在只用 weekly
 }
 
 // 白色主題 Tooltip
@@ -179,7 +63,6 @@ const ChartTooltip = memo(function ChartTooltip({
   active, 
   payload, 
   label,
-  timeRange 
 }: ChartTooltipProps) {
   if (!active || !payload?.length) return null;
 
@@ -189,7 +72,7 @@ const ChartTooltip = memo(function ChartTooltip({
       role="tooltip"
     >
       <p className="font-semibold text-gray-900 mb-3 text-sm">
-        {timeRange === 'daily' ? formatDate(String(label)) : label}
+        {label}
       </p>
       <div className="space-y-2">
         {payload.map((entry, index) => (
@@ -213,27 +96,7 @@ const ChartTooltip = memo(function ChartTooltip({
   );
 });
 
-// Mock 數據
-const generateMockData = (): AOVDataPoint[] => {
-  const data: AOVDataPoint[] = [];
-  const today = new Date();
-  
-  for (let i = 27; i >= 0; i--) {
-    const date = new Date(today);
-    date.setDate(date.getDate() - i);
-    const orders = Math.floor(Math.random() * 20) + 10;
-    const aov = Math.floor(Math.random() * 300) + 1100; // 1100-1400
-    
-    data.push({
-      date: date.toISOString().split('T')[0],
-      aov,
-      orders,
-      revenue: orders * aov,
-    });
-  }
-  
-  return data;
-};
+// 🔧 已移除 generateMockData - 不再需要每日 mock 數據
 
 interface AverageOrderValueTrendProps {
   dateRange?: {
@@ -243,17 +106,23 @@ interface AverageOrderValueTrendProps {
 }
 
 const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange }: AverageOrderValueTrendProps) {
-  const [timeRange, setTimeRange] = useState<TimeRange>('daily');
-  const [dailyData, setDailyData] = useState<AOVDataPoint[]>([]);
+  // 🔧 修正：只使用週數據（我們沒有真正的每日客單價數據）
+  const [weeklyData, setWeeklyData] = useState<WeeklyAOVDataPoint[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isLive, setIsLive] = useState(false);
   const isMobile = useIsMobile();
 
-  // 從 Supabase 獲取 AOV 數據
+  // 🔧 修正：直接獲取週 AOV 數據，不再拆解為日數據（避免誤導）
   useEffect(() => {
     async function fetchData() {
       if (!supabase) {
-        setDailyData(generateMockData());
+        // 無 Supabase 時使用 mock 週數據
+        setWeeklyData([
+          { week: 'W1', aov: 1250, orders: 45, revenue: 56250 },
+          { week: 'W2', aov: 1180, orders: 52, revenue: 61360 },
+          { week: 'W3', aov: 1320, orders: 48, revenue: 63360 },
+          { week: 'W4', aov: 1150, orders: 55, revenue: 63250 },
+        ]);
         setIsLoading(false);
         return;
       }
@@ -261,7 +130,7 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
       try {
         setIsLoading(true);
         
-        // 查詢 weekly 數據（因為沒有 daily 數據）
+        // 查詢 weekly 數據
         const { data: reports, error } = await supabase
           .from('reports')
           .select('start_date, end_date, cyber_aov, cyber_order_count, cyber_revenue')
@@ -273,15 +142,25 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
           throw new Error('No data');
         }
 
-        // 將週數據拆解為日數據
-        const aovData = expandWeeklyToDaily(reports as WeeklyAOVReport[]);
+        // 🔧 修正：直接使用週數據，不拆解
+        const weeklyAovData: WeeklyAOVDataPoint[] = reports.map((report, index) => ({
+          week: `W${index + 1}`,
+          aov: report.cyber_aov || 0,
+          orders: report.cyber_order_count || 0,
+          revenue: report.cyber_revenue || 0,
+        }));
 
-        setDailyData(aovData);
+        setWeeklyData(weeklyAovData);
         setIsLive(true);
-        console.log(`✅ Loaded ${reports.length} weeks → expanded to ${aovData.length} days of AOV data`);
+        console.log(`✅ Loaded ${reports.length} weeks of AOV data (no daily expansion)`);
       } catch (err) {
         console.warn('AOV data fetch failed, using mock:', err);
-        setDailyData(generateMockData());
+        setWeeklyData([
+          { week: 'W1', aov: 1250, orders: 45, revenue: 56250 },
+          { week: 'W2', aov: 1180, orders: 52, revenue: 61360 },
+          { week: 'W3', aov: 1320, orders: 48, revenue: 63360 },
+          { week: 'W4', aov: 1150, orders: 55, revenue: 63250 },
+        ]);
         setIsLive(false);
       } finally {
         setIsLoading(false);
@@ -291,93 +170,23 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
     fetchData();
   }, []);
 
-  // 🔧 修正：計算選擇週期的平均 AOV（用於參考線）
-  // 正確公式：總營收 / 總訂單數（加權平均），而非每日 AOV 的簡單平均
-  // 範圍：如果有 dateRange，只計算該週的平均；否則計算所有數據的平均
+  // 🔧 修正：計算所有週的平均 AOV（用於參考線）
+  // 正確公式：總營收 / 總訂單數（加權平均）
   const averageAOV = useMemo(() => {
-    if (dailyData.length === 0) return 0;
+    if (weeklyData.length === 0) return 0;
     
-    // 🔧 修正：如果有日期範圍，只計算該範圍的平均
-    const filteredData = dateRange 
-      ? dailyData.filter(d => d.date >= dateRange.start && d.date <= dateRange.end)
-      : dailyData;
-    
-    if (filteredData.length === 0) return 0;
-    
-    const totalRevenue = filteredData.reduce((sum, d) => sum + d.revenue, 0);
-    const totalOrders = filteredData.reduce((sum, d) => sum + d.orders, 0);
+    const totalRevenue = weeklyData.reduce((sum, d) => sum + d.revenue, 0);
+    const totalOrders = weeklyData.reduce((sum, d) => sum + d.orders, 0);
     return totalOrders > 0 ? Math.round(totalRevenue / totalOrders) : 0;
-  }, [dailyData, dateRange]);
+  }, [weeklyData]);
 
-  // 🔧 修正：過濾日期範圍 & 週匯總 - 週視圖以選擇的週為中心
-  const data = useMemo(() => {
-    if (timeRange === 'daily') {
-      if (dateRange) {
-        return dailyData.filter(d => d.date >= dateRange.start && d.date <= dateRange.end);
-      }
-      return dailyData;
-    } else {
-      // 週匯總 - 以選擇的週期為基準，往前推 4 週
-      const weeks: WeeklyAOVDataPoint[] = [];
-      
-      // 將數據按日期排序
-      const sortedData = [...dailyData].sort((a, b) => 
-        new Date(a.date).getTime() - new Date(b.date).getTime()
-      );
-      
-      if (sortedData.length === 0) return weeks;
-      
-      // 🔧 修正：以 dateRange 為基準計算週
-      // 如果有 dateRange，使用它作為 W4（最新週），然後往前推 W3, W2, W1
-      // 如果沒有 dateRange，使用數據的最新日期為基準
-      let baseWeekEnd: Date;
-      if (dateRange) {
-        baseWeekEnd = new Date(dateRange.end);
-      } else {
-        baseWeekEnd = new Date(sortedData[sortedData.length - 1].date);
-      }
-      
-      // 計算 4 週的數據（W1 到 W4，W4 是選擇的週）
-      for (let i = 3; i >= 0; i--) {
-        const weekEnd = new Date(baseWeekEnd);
-        weekEnd.setDate(weekEnd.getDate() - (i * 7));
-        
-        const weekStart = new Date(weekEnd);
-        weekStart.setDate(weekStart.getDate() - 6);
-        
-        const weekStartStr = weekStart.toISOString().split('T')[0];
-        const weekEndStr = weekEnd.toISOString().split('T')[0];
-        
-        // 過濾出這一週的數據
-        const weekDays = sortedData.filter(d => 
-          d.date >= weekStartStr && d.date <= weekEndStr
-        );
-        
-        const totalOrders = weekDays.reduce((sum, d) => sum + d.orders, 0);
-        const totalRevenue = weekDays.reduce((sum, d) => sum + d.revenue, 0);
-        // 🔧 客單價 = 總營收 / 總訂單數（統一計算公式）
-        const avgAOV = totalOrders > 0 ? Math.round(totalRevenue / totalOrders) : 0;
-        
-        weeks.push({
-          week: `W${4 - i}`,
-          aov: avgAOV,
-          orders: totalOrders,
-          revenue: totalRevenue,
-        });
-      }
-      
-      return weeks;
-    }
-  }, [timeRange, dailyData, dateRange]);
-
-  const handleTimeRangeChange = useCallback((range: TimeRange) => {
-    setTimeRange(range);
-  }, []);
+  // 🔧 修正：直接使用週數據，不再有日/週切換
+  const data = useMemo(() => weeklyData, [weeklyData]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const renderTooltip = useCallback((props: any) => (
-    <ChartTooltip {...props} timeRange={timeRange} />
-  ), [timeRange]);
+    <ChartTooltip {...props} timeRange="weekly" />
+  ), []);
 
   const yAxisMax = useMemo(() => {
     const maxAOV = Math.max(...data.map(d => d.aov || 0));
@@ -417,23 +226,9 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
           </div>
         </div>
         
-        {/* 時間範圍切換 */}
-        <div className="flex gap-0.5 sm:gap-1 p-0.5 sm:p-1 rounded-lg sm:rounded-xl bg-gray-100 border border-gray-200" role="tablist">
-          {(['daily', 'weekly'] as TimeRange[]).map((range) => (
-            <button
-              key={range}
-              onClick={() => handleTimeRangeChange(range)}
-              role="tab"
-              aria-selected={timeRange === range}
-              className={`px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
-                timeRange === range
-                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-              }`}
-            >
-              {range === 'daily' ? '日' : '週'}
-            </button>
-          ))}
+        {/* 🔧 移除日/週切換，因為我們只有週數據 */}
+        <div className="px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30">
+          週
         </div>
       </div>
 
@@ -455,13 +250,12 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
               vertical={false}
             />
             <XAxis 
-              dataKey={timeRange === 'daily' ? 'date' : 'week'}
-              tickFormatter={(value) => timeRange === 'daily' ? formatDate(value) : value}
+              dataKey="week"
               tick={{ fill: '#6B7280', fontSize: isMobile ? 10 : 12 }}
               axisLine={{ stroke: '#E5E7EB' }}
               tickLine={false}
               dy={isMobile ? 4 : 8}
-              interval={isMobile ? 'preserveStartEnd' : 0}
+              interval={0}
             />
             <YAxis 
               width={isMobile ? 40 : 55}
