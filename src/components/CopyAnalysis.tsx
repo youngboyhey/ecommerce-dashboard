@@ -3,6 +3,7 @@
 import { memo, useMemo, useState } from 'react';
 import { FileText, TrendingUp, TrendingDown, ThumbsUp, ThumbsDown, Lightbulb, ChevronDown, ChevronUp, Sparkles, Target, MessageCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useAdMetrics } from '@/contexts/AdMetricsContext';
 
 // Types
 export interface AdCopy {
@@ -72,21 +73,51 @@ const CopyAnalysis = memo(function CopyAnalysis({
   isLoading = false 
 }: CopyAnalysisProps) {
   const [expandedInsights, setExpandedInsights] = useState(false);
+  
+  // 從統一的 AdMetrics Context 獲取數據
+  const { getAdMetrics, isLoading: metricsLoading } = useAdMetrics();
+
+  // 用統一 metrics 豐富 copies 數據
+  const enrichedCopies = useMemo<AdCopy[]>(() => {
+    return copies.map(copy => {
+      // 嘗試從統一數據源獲取 metrics
+      const adId = copy.ad_id;
+      if (!adId) return copy;
+      
+      const unifiedMetrics = getAdMetrics(adId);
+      if (unifiedMetrics) {
+        return {
+          ...copy,
+          metrics: {
+            ...copy.metrics,
+            spend: unifiedMetrics.spend,
+            impressions: unifiedMetrics.impressions,
+            clicks: unifiedMetrics.clicks,
+            purchases: unifiedMetrics.purchases,
+            ctr: unifiedMetrics.ctr,
+            cvr: unifiedMetrics.cvr,
+          },
+        };
+      }
+      
+      return copy;
+    });
+  }, [copies, getAdMetrics]);
 
   // 分類高效與低效文案
   const { highPerformers, lowPerformers } = useMemo(() => {
-    const high = copies
+    const high = enrichedCopies
       .filter(c => c.performance_tier === 'high')
       .sort((a, b) => (a.performance_rank ?? 999) - (b.performance_rank ?? 999))
       .slice(0, 3);
     
-    const low = copies
+    const low = enrichedCopies
       .filter(c => c.performance_tier === 'low')
       .sort((a, b) => (b.performance_rank ?? 0) - (a.performance_rank ?? 0))
       .slice(0, 3);
     
     return { highPerformers: high, lowPerformers: low };
-  }, [copies]);
+  }, [enrichedCopies]);
 
   // 彙整所有高效文案的分析洞察
   const aggregatedInsights = useMemo(() => {
@@ -124,7 +155,7 @@ const CopyAnalysis = memo(function CopyAnalysis({
     };
   }, [highPerformers, lowPerformers]);
 
-  if (isLoading) {
+  if (isLoading || metricsLoading) {
     return (
       <section className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100">
         <div className="animate-pulse space-y-4">
@@ -146,7 +177,7 @@ const CopyAnalysis = memo(function CopyAnalysis({
     );
   }
 
-  if (copies.length === 0) {
+  if (enrichedCopies.length === 0) {
     return (
       <section className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100">
         <div className="flex items-center gap-3 mb-4">

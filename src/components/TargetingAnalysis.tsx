@@ -1,9 +1,9 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { Target, TrendingUp, TrendingDown, Lightbulb, Sparkles, AlertCircle, CheckCircle, Users, DollarSign, ShoppingCart, MousePointer } from 'lucide-react';
 import { useTargetingData, type AdsetWithTargeting } from '@/lib/useTargetingData';
-import { calculateDerivedMetrics } from '@/lib/useAdMetrics';
+import { useAdMetrics, type AdMetrics } from '@/contexts/AdMetricsContext';
 
 interface TargetingAnalysisProps {
   isLoading?: boolean;
@@ -275,8 +275,62 @@ const TargetingAnalysis = memo(function TargetingAnalysis({
   isLoading: propIsLoading = false 
 }: TargetingAnalysisProps) {
   const { adsets, isLoading: dataLoading, error } = useTargetingData();
+  const { getAllMetrics, isLoading: metricsLoading } = useAdMetrics();
   
-  const isLoading = propIsLoading || dataLoading;
+  // 從統一 AdMetrics Context 獲取所有廣告成效
+  const allMetrics = useMemo(() => getAllMetrics(), [getAllMetrics]);
+  
+  // 將 adsets 與統一的 metrics 合併
+  // 嘗試根據名稱匹配（因為 adset 和 ad 可能有相似的名稱）
+  const enrichedAdsets = useMemo<AdsetWithTargeting[]>(() => {
+    if (allMetrics.length === 0) return adsets;
+    
+    return adsets.map(adset => {
+      // 嘗試找到對應的 ad metrics
+      // 優先通過 campaign_name 匹配，然後通過名稱相似度
+      let matchedMetrics: AdMetrics | undefined;
+      
+      // 1. 嘗試通過 campaign_name 精確匹配
+      if (adset.campaign_name) {
+        matchedMetrics = allMetrics.find(m => 
+          m.campaignName === adset.campaign_name
+        );
+      }
+      
+      // 2. 如果沒有匹配，嘗試通過名稱模糊匹配
+      if (!matchedMetrics) {
+        const adsetNameLower = adset.adset_name.toLowerCase();
+        matchedMetrics = allMetrics.find(m => {
+          const adNameLower = m.adName.toLowerCase();
+          // 檢查是否有部分匹配
+          return adNameLower.includes(adsetNameLower) || 
+                 adsetNameLower.includes(adNameLower) ||
+                 // 或者檢查關鍵詞匹配
+                 adsetNameLower.split(/\s+/).some(word => 
+                   word.length > 3 && adNameLower.includes(word)
+                 );
+        });
+      }
+      
+      // 如果找到匹配的 metrics，使用統一數據
+      if (matchedMetrics) {
+        return {
+          ...adset,
+          spend: matchedMetrics.spend,
+          impressions: matchedMetrics.impressions,
+          clicks: matchedMetrics.clicks,
+          purchases: matchedMetrics.purchases,
+          roas: matchedMetrics.roas,
+          ctr: matchedMetrics.ctr,
+          cvr: matchedMetrics.cvr,
+        };
+      }
+      
+      return adset;
+    });
+  }, [adsets, allMetrics]);
+  
+  const isLoading = propIsLoading || dataLoading || metricsLoading;
 
   if (isLoading) {
     return (
@@ -310,7 +364,7 @@ const TargetingAnalysis = memo(function TargetingAnalysis({
     );
   }
 
-  if (adsets.length === 0) {
+  if (enrichedAdsets.length === 0) {
     return (
       <section className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100">
         <div className="flex items-center gap-3 mb-4">
@@ -347,21 +401,21 @@ const TargetingAnalysis = memo(function TargetingAnalysis({
           </div>
         </div>
         <span className="px-3 py-1 bg-violet-100 text-violet-700 rounded-full text-sm font-medium">
-          {adsets.length} 組廣告組
+          {enrichedAdsets.length} 組廣告組
         </span>
       </div>
 
       {/* 比較摘要 */}
-      <ComparisonSummary adsets={adsets} />
+      <ComparisonSummary adsets={enrichedAdsets} />
 
       {/* 並排比較區 */}
       <div className={`grid gap-4 ${
-        adsets.length === 1 ? 'grid-cols-1' :
-        adsets.length === 2 ? 'grid-cols-1 md:grid-cols-2' :
-        adsets.length === 3 ? 'grid-cols-1 md:grid-cols-3' :
+        enrichedAdsets.length === 1 ? 'grid-cols-1' :
+        enrichedAdsets.length === 2 ? 'grid-cols-1 md:grid-cols-2' :
+        enrichedAdsets.length === 3 ? 'grid-cols-1 md:grid-cols-3' :
         'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
       }`}>
-        {adsets.map((adset, index) => (
+        {enrichedAdsets.map((adset, index) => (
           <AdsetTargetingCard key={adset.id} adset={adset} index={index} />
         ))}
       </div>

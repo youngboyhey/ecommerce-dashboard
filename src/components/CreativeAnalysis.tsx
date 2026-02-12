@@ -3,6 +3,7 @@
 import { memo, useState, useMemo, useRef } from 'react';
 import { Image, X, ChevronRight, ChevronLeft, Sparkles, AlertTriangle, Lightbulb, Palette, Type, Layout, TrendingUp, DollarSign, MousePointer, ShoppingCart } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useAdMetrics } from '@/contexts/AdMetricsContext';
 
 // Types
 export interface AdCreative {
@@ -358,14 +359,41 @@ const CreativeAnalysis = memo(function CreativeAnalysis({
 }: CreativeAnalysisProps) {
   const [selectedGroupedAd, setSelectedGroupedAd] = useState<GroupedAd | null>(null);
   
-  // Group creatives by original_ad_id
+  // 從統一的 AdMetrics Context 獲取數據
+  const { getAdMetrics, isLoading: metricsLoading } = useAdMetrics();
+  
+  // Group creatives by original_ad_id and enrich with unified metrics
   const groupedAds = useMemo(() => {
     const groups = groupCreativesByAd(creatives);
+    
+    // Enrich each group with metrics from AdMetricsContext
+    const enrichedGroups = groups.map(group => {
+      // 嘗試從統一數據源獲取 metrics
+      const unifiedMetrics = getAdMetrics(group.originalAdId);
+      
+      if (unifiedMetrics) {
+        return {
+          ...group,
+          metrics: {
+            spend: unifiedMetrics.spend,
+            roas: unifiedMetrics.roas,
+            ctr: unifiedMetrics.ctr,
+            cvr: unifiedMetrics.cvr,
+            impressions: unifiedMetrics.impressions,
+            clicks: unifiedMetrics.clicks,
+            purchases: unifiedMetrics.purchases,
+          },
+        };
+      }
+      
+      return group;
+    });
+    
     // Sort by spend (highest first)
-    return groups.sort((a, b) => b.metrics.spend - a.metrics.spend);
-  }, [creatives]);
+    return enrichedGroups.sort((a, b) => b.metrics.spend - a.metrics.spend);
+  }, [creatives, getAdMetrics]);
 
-  if (isLoading) {
+  if (isLoading || metricsLoading) {
     return (
       <section className="bg-white rounded-2xl p-6 shadow-lg shadow-gray-200/50 border border-gray-100">
         <div className="animate-pulse space-y-4">

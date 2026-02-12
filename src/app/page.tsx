@@ -27,6 +27,7 @@ import TargetingAnalysis from '@/components/TargetingAnalysis';
 import CreativeAnalysis from '@/components/CreativeAnalysis';
 import CopyAnalysis from '@/components/CopyAnalysis';
 import WeeklyInsights from '@/components/WeeklyInsights';
+import { AdMetricsProvider } from '@/contexts/AdMetricsContext';
 import { useReportData, DateRange } from '@/lib/useReportData';
 import { useWeeklyData } from '@/lib/useWeeklyData';
 import { useWeeklyAnalysis } from '@/lib/useWeeklyAnalysis';
@@ -94,6 +95,7 @@ export default function Dashboard() {
   const bounceRate = 100 - (data.ga4.funnel_rates.session_to_atc * 2) || 55;
 
   return (
+    <AdMetricsProvider reportDate={reportDateForAnalysis}>
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* ===== Header - 白色導航 ===== */}
       <header className="bg-white sticky top-0 z-50 border-b border-gray-100 shadow-sm">
@@ -428,5 +430,6 @@ export default function Dashboard() {
         </div>
       </footer>
     </div>
+    </AdMetricsProvider>
   );
 }
