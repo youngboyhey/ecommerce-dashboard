@@ -110,7 +110,10 @@ const WeeklyInsights = memo(function WeeklyInsights({
     );
   }
 
-  if (!weeklyInsight || weeklyInsight.insights.length === 0) {
+  // Ensure insights is always an array (defensive check)
+  const safeInsights = Array.isArray(weeklyInsight?.insights) ? weeklyInsight.insights : [];
+  
+  if (!weeklyInsight || safeInsights.length === 0) {
     return (
       <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg shadow-gray-200/50 border border-gray-100 relative overflow-hidden">
         {/* Background decorations */}
@@ -142,9 +145,9 @@ const WeeklyInsights = memo(function WeeklyInsights({
     trackingData.map(t => [t.insight_id, t])
   );
 
-  // Sort insights by priority
+  // Sort insights by priority (use safeInsights for defensive iteration)
   const priorityOrder = { critical: 0, high: 1, medium: 2, low: 3 };
-  const sortedInsights = [...weeklyInsight.insights].sort(
+  const sortedInsights = [...safeInsights].sort(
     (a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]
   );
 
@@ -222,7 +225,7 @@ const WeeklyInsights = memo(function WeeklyInsights({
         {/* Footer */}
         <div className="mt-4 sm:mt-6 pt-4 border-t border-gray-200/50 flex items-center justify-between">
           <p className="text-xs text-gray-500">
-            共 {weeklyInsight.insights.length} 個洞察 • 由龍蝦企業 🦞 AI 分析
+            共 {safeInsights.length} 個洞察 • 由龍蝦企業 🦞 AI 分析
           </p>
           <span className="badge badge-purple text-[10px] sm:text-xs">
             AI 驅動

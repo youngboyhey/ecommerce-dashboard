@@ -162,6 +162,11 @@ export function useWeeklyAnalysis(reportDate?: string): UseWeeklyAnalysisResult 
             parsedInsights = [];
           }
         }
+        // Ensure insights is always an array (fix: e.insights is not iterable)
+        if (!Array.isArray(parsedInsights)) {
+          console.warn('insights is not an array, defaulting to []:', parsedInsights);
+          parsedInsights = [];
+        }
         
         // Parse summary if it's a double-stringified JSON string
         let parsedSummary = rawInsight.summary;
@@ -173,10 +178,15 @@ export function useWeeklyAnalysis(reportDate?: string): UseWeeklyAnalysisResult 
             parsedSummary = null;
           }
         }
+        // Ensure summary has expected shape or is null
+        if (parsedSummary && typeof parsedSummary !== 'object') {
+          console.warn('summary is not an object, defaulting to null:', parsedSummary);
+          parsedSummary = null;
+        }
         
         const insight: WeeklyInsight = {
           ...rawInsight,
-          insights: parsedInsights || [],
+          insights: parsedInsights,
           summary: parsedSummary,
         };
         setWeeklyInsight(insight);
