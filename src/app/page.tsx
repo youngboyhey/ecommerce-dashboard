@@ -117,8 +117,8 @@ export default function Dashboard() {
                 <p className="text-xs text-gray-500">車魔商城電商數據儀表板</p>
               </div>
               <div className="sm:hidden">
-                <h1 className="text-sm font-bold gradient-text">CarMall Dashboard</h1>
-                <p className="text-[10px] text-gray-500">車魔商城電商數據儀表板</p>
+                <h1 className="text-base font-bold gradient-text">CarMall Dashboard</h1>
+                <p className="text-xs text-gray-500">車魔商城電商數據儀表板</p>
               </div>
             </div>
 
@@ -236,45 +236,45 @@ export default function Dashboard() {
           <h2 id="secondary-kpi-title" className="sr-only">次要績效指標</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
             <article className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5 shadow-lg shadow-gray-200/50 border border-gray-100">
-              <p className="text-xs font-medium text-gray-500 mb-1 sm:mb-2">💸 廣告花費</p>
-              <p className="text-lg sm:text-2xl font-bold text-gray-900 font-mono-nums truncate">
+              <p className="text-sm font-medium text-gray-500 mb-1 sm:mb-2">💸 廣告花費</p>
+              <p className="text-xl sm:text-2xl font-bold text-gray-900 font-mono-nums truncate">
                 NT${(weeklyData?.adSpend ?? data.summary.total_spend).toLocaleString()}
               </p>
               {weeklyChanges?.adSpend !== null && weeklyChanges?.adSpend !== undefined && (
-                <p className={`text-xs mt-1 sm:mt-2 ${weeklyChanges.adSpend > 0 ? 'text-red-500' : 'text-emerald-600'}`}>
+                <p className={`text-sm mt-1 sm:mt-2 ${weeklyChanges.adSpend > 0 ? 'text-red-500' : 'text-emerald-600'}`}>
                   {weeklyChanges.adSpend > 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.adSpend).toFixed(1)}% vs 上週
                 </p>
               )}
             </article>
             <article className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5 shadow-lg shadow-gray-200/50 border border-gray-100">
-              <p className="text-xs font-medium text-gray-500 mb-1 sm:mb-2">💰 客單價</p>
-              <p className="text-lg sm:text-2xl font-bold text-gray-900 font-mono-nums truncate">
+              <p className="text-sm font-medium text-gray-500 mb-1 sm:mb-2">💰 客單價</p>
+              <p className="text-xl sm:text-2xl font-bold text-gray-900 font-mono-nums truncate">
                 NT${(weeklyData?.aov ?? data.summary.aov).toFixed(0)}
               </p>
               {weeklyChanges?.aov !== null && weeklyChanges?.aov !== undefined && (
-                <p className={`text-xs mt-1 sm:mt-2 ${weeklyChanges.aov >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
+                <p className={`text-sm mt-1 sm:mt-2 ${weeklyChanges.aov >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
                   {weeklyChanges.aov >= 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.aov).toFixed(1)}% vs 上週
                 </p>
               )}
             </article>
             <article className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5 shadow-lg shadow-gray-200/50 border border-gray-100">
-              <p className="text-xs font-medium text-gray-500 mb-1 sm:mb-2">📈 廣告 ROAS</p>
-              <p className="text-lg sm:text-2xl font-bold text-indigo-600 font-mono-nums">
+              <p className="text-sm font-medium text-gray-500 mb-1 sm:mb-2">📈 廣告 ROAS</p>
+              <p className="text-xl sm:text-2xl font-bold text-indigo-600 font-mono-nums">
                 {(weeklyData?.roas ?? data.summary.roas).toFixed(2)}
               </p>
               {weeklyChanges?.roas !== null && weeklyChanges?.roas !== undefined && (
-                <p className={`text-xs mt-1 sm:mt-2 ${weeklyChanges.roas >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
+                <p className={`text-sm mt-1 sm:mt-2 ${weeklyChanges.roas >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
                   {weeklyChanges.roas >= 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.roas).toFixed(1)}% vs 上週
                 </p>
               )}
             </article>
             <article className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5 shadow-lg shadow-gray-200/50 border border-gray-100">
-              <p className="text-xs font-medium text-gray-500 mb-1 sm:mb-2">🎯 轉換率</p>
-              <p className="text-lg sm:text-2xl font-bold text-emerald-600 font-mono-nums">
+              <p className="text-sm font-medium text-gray-500 mb-1 sm:mb-2">🎯 轉換率</p>
+              <p className="text-xl sm:text-2xl font-bold text-emerald-600 font-mono-nums">
                 {(weeklyData?.conversion ?? data.summary.ga4_overall_conversion).toFixed(2)}%
               </p>
               {weeklyChanges?.conversion !== null && weeklyChanges?.conversion !== undefined && (
-                <p className={`text-xs mt-1 sm:mt-2 ${weeklyChanges.conversion >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
+                <p className={`text-sm mt-1 sm:mt-2 ${weeklyChanges.conversion >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
                   {weeklyChanges.conversion >= 0 ? '↑' : '↓'} {Math.abs(weeklyChanges.conversion).toFixed(1)}% vs 上週
                 </p>
               )}

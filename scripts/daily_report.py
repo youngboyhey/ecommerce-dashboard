@@ -3,6 +3,7 @@ import json
 import requests
 import argparse
 from datetime import datetime, timedelta
+from bs4 import BeautifulSoup
 from google.analytics.data_v1beta import BetaAnalyticsDataClient
 from google.analytics.data_v1beta.types import (
     DateRange,
@@ -1037,6 +1038,38 @@ def format_duration(seconds):
     return f"{minutes}:{secs:02d}"
 
 
+# 頁面標題快取（避免重複爬取相同 URL）
+_page_title_cache = {}
+
+def fetch_page_title(url, timeout=5):
+    """
+    爬取頁面標題
+    - 使用快取避免重複請求
+    - 設定 timeout 避免卡住
+    - 失敗時返回 None（讓呼叫端 fallback）
+    """
+    # 檢查快取
+    if url in _page_title_cache:
+        return _page_title_cache[url]
+    
+    try:
+        response = requests.get(url, timeout=timeout, headers={
+            'User-Agent': 'Mozilla/5.0 (compatible; CarMall Dashboard)'
+        })
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.text, 'html.parser')
+            title_tag = soup.find('title')
+            if title_tag:
+                title = title_tag.get_text().strip()
+                _page_title_cache[url] = title
+                return title
+    except Exception as e:
+        print(f"Failed to fetch title for {url}: {e}")
+    
+    _page_title_cache[url] = None
+    return None
+
+
 def get_gsc_data(start_date, end_date):
     """
     [NEW] 取得 Google Search Console 數據
@@ -1118,30 +1151,18 @@ def get_gsc_data(start_date, end_date):
         ).execute()
         
         if "rows" in page_response:
-            # 嘗試導入 get_page_title 函數
-            try:
-                from skills.gsc.scripts.gsc_query import get_page_title
-                can_fetch_title = True
-            except ImportError:
-                can_fetch_title = False
-            
             for row in page_response["rows"]:
                 # 簡化 URL 顯示
                 page_url = row["keys"][0]
                 page_path = page_url.replace(gsc_site_url, "") or "/"
                 
-                # 抓取頁面標題
-                page_title = None
-                if can_fetch_title:
-                    page_title = get_page_title(page_url)
-                    # 如果標題等於 URL，設為 None（讓前端 fallback）
-                    if page_title == page_url:
-                        page_title = None
+                # 爬取頁面標題（使用本地 fetch_page_title 函數）
+                page_title = fetch_page_title(page_url)
                 
                 gsc_data["top_pages"].append({
                     "page": page_path,
                     "full_url": page_url,
-                    "title": page_title,
+                    "title": page_title,  # None 時前端可 fallback 用 URL
                     "clicks": int(row.get("clicks", 0)),
                     "impressions": int(row.get("impressions", 0)),
                     "ctr": round(row.get("ctr", 0) * 100, 2),

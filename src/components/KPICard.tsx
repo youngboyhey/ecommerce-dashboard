@@ -97,7 +97,7 @@ const KPICard = memo(function KPICard({
       
       {/* Header with Icon */}
       <div className="relative flex items-center justify-between mb-2 sm:mb-4">
-        <h3 className="text-xs sm:text-sm font-medium text-gray-600">{title}</h3>
+        <h3 className="text-sm sm:text-base font-medium text-gray-600">{title}</h3>
         {icon && (
           <div 
             className={cn(
@@ -125,7 +125,7 @@ const KPICard = memo(function KPICard({
           aria-label={`${isPositive ? '增長' : isNegative ? '下降' : '持平'} ${Math.abs(change).toFixed(1)}% ${changeLabel}`}
         >
           <div className={cn(
-            "flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold",
+            "flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-semibold",
             isPositive ? 'bg-emerald-100 text-emerald-700' : 
             isNegative ? 'bg-red-100 text-red-700' : 
             'bg-gray-100 text-gray-600'
@@ -133,7 +133,7 @@ const KPICard = memo(function KPICard({
             <TrendIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" aria-hidden="true" />
             <span>{Math.abs(change).toFixed(1)}%</span>
           </div>
-          <span className="text-[10px] sm:text-xs text-gray-400">{changeLabel}</span>
+          <span className="text-xs sm:text-sm text-gray-400">{changeLabel}</span>
         </div>
       )}
     </article>
