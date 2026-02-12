@@ -58,9 +58,10 @@ export default function Dashboard() {
   const { data, isLoading, isLive, lastUpdated, refresh } = useReportData('weekly', dateRange);
 
   // 週報分析數據（廣告素材、文案、洞察）
+  // 使用 startDate 來查詢，因為 weekly_insights 表使用 week_start 欄位
   const reportDateForAnalysis = useMemo(() => {
     if (selectedWeek) {
-      return selectedWeek.endDate;
+      return selectedWeek.startDate;
     }
     return undefined;
   }, [selectedWeek]);
