@@ -37,15 +37,16 @@ export interface WeeklyComparisonData {
   };
 }
 
-interface DailyReport {
+interface WeeklyReport {
   start_date: string;
+  end_date: string;
   cyber_revenue: number;
   cyber_order_count: number;
   cyber_aov: number;
   cyber_new_members: number;
   meta_spend: number;
   meta_roas: number;
-  meta_conv_value: number;  // 🔧 新增：用於計算真正的 ROAS
+  meta_conv_value: number;
   ga4_sessions: number;
   ga4_overall_conversion: number;
 }
@@ -60,15 +61,16 @@ interface UseWeeklyDataResult {
 }
 
 /**
- * 從 daily 數據計算週報彙總，支持週報切換和 WoW 比較
+ * 從 weekly 數據讀取週報，支持週報切換和 WoW 比較
+ * 直接使用 Supabase 中 mode='weekly' 的彙總數據
  */
 export function useWeeklyData(): UseWeeklyDataResult {
-  const [dailyReports, setDailyReports] = useState<DailyReport[]>([]);
+  const [weeklyReports, setWeeklyReports] = useState<WeeklyReport[]>([]);
   const [selectedWeekIndex, setSelectedWeekIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // 獲取所有 daily 數據
+  // 獲取所有 weekly 數據
   const fetchData = useCallback(async () => {
     if (!supabase) {
       setIsLoading(false);
@@ -79,13 +81,13 @@ export function useWeeklyData(): UseWeeklyDataResult {
       setIsLoading(true);
       const { data, error: fetchError } = await supabase
         .from('reports')
-        .select('start_date, cyber_revenue, cyber_order_count, cyber_aov, cyber_new_members, meta_spend, meta_roas, meta_conv_value, ga4_sessions, ga4_overall_conversion')
-        .eq('mode', 'daily')
+        .select('start_date, end_date, cyber_revenue, cyber_order_count, cyber_aov, cyber_new_members, meta_spend, meta_roas, meta_conv_value, ga4_sessions, ga4_overall_conversion')
+        .eq('mode', 'weekly')
         .order('start_date', { ascending: false })
-        .limit(35); // 5 週數據
+        .limit(5); // 最近 5 週
 
       if (fetchError) throw new Error(fetchError.message);
-      setDailyReports((data || []) as DailyReport[]);
+      setWeeklyReports((data || []) as WeeklyReport[]);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error');
     } finally {
@@ -97,82 +99,48 @@ export function useWeeklyData(): UseWeeklyDataResult {
     fetchData();
   }, [fetchData]);
 
-  // 計算週選項（最近 4 週）
+  // 從 weekly reports 直接生成週選項
   const weekOptions = useMemo(() => {
-    if (dailyReports.length === 0) return [];
+    if (weeklyReports.length === 0) return [];
 
-    const options: WeekOption[] = [];
-    const sortedDates = [...dailyReports].sort((a, b) => 
-      new Date(b.start_date).getTime() - new Date(a.start_date).getTime()
-    );
+    return weeklyReports.map(report => ({
+      label: `${report.start_date.slice(5)} ~ ${report.end_date.slice(5)}`,
+      startDate: report.start_date,
+      endDate: report.end_date,
+    }));
+  }, [weeklyReports]);
 
-    // 找到最新日期，然後往回推算週
-    const latestDate = new Date(sortedDates[0]?.start_date);
-    
-    for (let i = 0; i < 4; i++) {
-      const endDate = new Date(latestDate);
-      endDate.setDate(endDate.getDate() - (i * 7));
-      
-      const startDate = new Date(endDate);
-      startDate.setDate(startDate.getDate() - 6);
-
-      const startStr = startDate.toISOString().split('T')[0];
-      const endStr = endDate.toISOString().split('T')[0];
-
-      options.push({
-        label: `${startStr.slice(5)} ~ ${endStr.slice(5)}`,
-        startDate: startStr,
-        endDate: endStr,
-      });
-    }
-
-    return options;
-  }, [dailyReports]);
-
-  // 計算週彙總
-  const calculateWeekSummary = useCallback((startDate: string, endDate: string): WeeklySummary => {
-    const weekData = dailyReports.filter(r => 
-      r.start_date >= startDate && r.start_date <= endDate
-    );
-
-    const revenue = weekData.reduce((sum, d) => sum + (d.cyber_revenue || 0), 0);
-    const orders = weekData.reduce((sum, d) => sum + (d.cyber_order_count || 0), 0);
-    const adSpend = weekData.reduce((sum, d) => sum + (d.meta_spend || 0), 0);
-    const newMembers = weekData.reduce((sum, d) => sum + (d.cyber_new_members || 0), 0);
-    const sessions = weekData.reduce((sum, d) => sum + (d.ga4_sessions || 0), 0);
-    
-    // 🔧 修復：正確計算 ROAS = meta_conv_value / meta_spend
-    const convValue = weekData.reduce((sum, d) => sum + (d.meta_conv_value || 0), 0);
-    
-    // 平均值
-    const avgConversion = weekData.length > 0 
-      ? weekData.reduce((sum, d) => sum + (d.ga4_overall_conversion || 0), 0) / weekData.length 
-      : 0;
+  // 從 weekly report 轉換為 WeeklySummary
+  const reportToSummary = useCallback((report: WeeklyReport): WeeklySummary => {
+    const revenue = report.cyber_revenue || 0;
+    const orders = report.cyber_order_count || 0;
+    const adSpend = report.meta_spend || 0;
+    const convValue = report.meta_conv_value || 0;
 
     return {
       revenue,
       orders,
       adSpend,
       mer: adSpend > 0 ? revenue / adSpend : 0,
-      roas: adSpend > 0 ? convValue / adSpend : 0, // 🔧 修復：使用 meta_conv_value 計算真正的 ROAS
-      newMembers,
-      aov: orders > 0 ? revenue / orders : 0,
-      sessions,
-      conversion: avgConversion,
+      roas: adSpend > 0 ? convValue / adSpend : 0,
+      newMembers: report.cyber_new_members || 0,
+      aov: report.cyber_aov || (orders > 0 ? revenue / orders : 0),
+      sessions: report.ga4_sessions || 0,
+      conversion: report.ga4_overall_conversion || 0,
     };
-  }, [dailyReports]);
+  }, []);
 
-  // 計算比較數據
+  // 計算比較數據（直接使用 weekly 數據，無需再彙總）
   const comparisonData = useMemo((): WeeklyComparisonData | null => {
-    if (weekOptions.length === 0) return null;
+    if (weeklyReports.length === 0) return null;
 
-    const currentWeek = weekOptions[selectedWeekIndex];
-    const previousWeek = weekOptions[selectedWeekIndex + 1] || null;
+    const currentReport = weeklyReports[selectedWeekIndex];
+    const previousReport = weeklyReports[selectedWeekIndex + 1] || null;
 
-    const current = calculateWeekSummary(currentWeek.startDate, currentWeek.endDate);
-    const previous = previousWeek 
-      ? calculateWeekSummary(previousWeek.startDate, previousWeek.endDate)
-      : null;
+    if (!currentReport) return null;
+
+    const current = reportToSummary(currentReport);
+    const previous = previousReport ? reportToSummary(previousReport) : null;
 
     const calcChange = (curr: number, prev: number | null) => {
       if (prev === null || prev === 0) return null;
@@ -194,7 +162,7 @@ export function useWeeklyData(): UseWeeklyDataResult {
         conversion: previous ? calcChange(current.conversion, previous.conversion) : null,
       },
     };
-  }, [weekOptions, selectedWeekIndex, calculateWeekSummary]);
+  }, [weeklyReports, selectedWeekIndex, reportToSummary]);
 
   const selectedWeek = weekOptions[selectedWeekIndex] || null;
 
