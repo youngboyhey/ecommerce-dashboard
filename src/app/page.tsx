@@ -328,7 +328,16 @@ export default function Dashboard() {
                   </span>
                   <span className="gradient-text-subtle">商品銷售排行</span>
                 </h3>
-                <ProductRanking products={data.cyberbiz.product_ranking} summary={data.cyberbiz} />
+                <ProductRanking 
+                products={data.cyberbiz.product_ranking} 
+                summary={{
+                  ...data.cyberbiz,
+                  // 🔧 統一使用 weeklyData 的 AOV（與頂部小卡一致）
+                  aov: weeklyData?.aov ?? data.cyberbiz.aov,
+                  total_revenue: weeklyData?.revenue ?? data.cyberbiz.total_revenue,
+                  order_count: weeklyData?.orders ?? data.cyberbiz.order_count,
+                }} 
+              />
               </section>
             </div>
           )}

@@ -191,22 +191,52 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
       }
       return dailyData;
     } else {
-      // 週匯總
+      // 週匯總 - 按真實的週日期分組
       const weeks: WeeklyAOVDataPoint[] = [];
+      
+      // 將數據按日期排序
+      const sortedData = [...dailyData].sort((a, b) => 
+        new Date(a.date).getTime() - new Date(b.date).getTime()
+      );
+      
+      if (sortedData.length === 0) return weeks;
+      
+      // 找到最早和最新的日期
+      const startDate = new Date(sortedData[0].date);
+      const endDate = new Date(sortedData[sortedData.length - 1].date);
+      
+      // 計算週的起始日（從第一天開始算，每 7 天一組）
+      let currentWeekStart = new Date(startDate);
       let weekNum = 1;
       
-      for (let i = 0; i < dailyData.length; i += 7) {
-        const weekDays = dailyData.slice(i, Math.min(i + 7, dailyData.length));
-        const totalOrders = weekDays.reduce((sum, d) => sum + d.orders, 0);
-        const totalRevenue = weekDays.reduce((sum, d) => sum + d.revenue, 0);
-        const avgAOV = totalOrders > 0 ? Math.round(totalRevenue / totalOrders) : 0;
+      while (currentWeekStart <= endDate) {
+        const currentWeekEnd = new Date(currentWeekStart);
+        currentWeekEnd.setDate(currentWeekEnd.getDate() + 6);
         
-        weeks.push({
-          week: `W${weekNum}`,
-          aov: avgAOV,
-          orders: totalOrders,
-          revenue: totalRevenue,
-        });
+        const weekStartStr = currentWeekStart.toISOString().split('T')[0];
+        const weekEndStr = currentWeekEnd.toISOString().split('T')[0];
+        
+        // 過濾出這一週的數據
+        const weekDays = sortedData.filter(d => 
+          d.date >= weekStartStr && d.date <= weekEndStr
+        );
+        
+        if (weekDays.length > 0) {
+          const totalOrders = weekDays.reduce((sum, d) => sum + d.orders, 0);
+          const totalRevenue = weekDays.reduce((sum, d) => sum + d.revenue, 0);
+          // 🔧 客單價 = 總營收 / 總訂單數（統一計算公式）
+          const avgAOV = totalOrders > 0 ? Math.round(totalRevenue / totalOrders) : 0;
+          
+          weeks.push({
+            week: `W${weekNum}`,
+            aov: avgAOV,
+            orders: totalOrders,
+            revenue: totalRevenue,
+          });
+        }
+        
+        // 移動到下一週
+        currentWeekStart.setDate(currentWeekStart.getDate() + 7);
         weekNum++;
       }
       
