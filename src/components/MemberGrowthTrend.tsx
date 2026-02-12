@@ -7,10 +7,8 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  Legend,
   Area,
-  ComposedChart,
-  Line
+  AreaChart,
 } from 'recharts';
 import { Users } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
@@ -36,13 +34,11 @@ type TimeRange = 'daily' | 'weekly';
 interface MemberDataPoint {
   date: string;
   newMembers: number;
-  cumulativeMembers: number;
 }
 
 interface WeeklyMemberDataPoint {
   week: string;
   newMembers: number;
-  cumulativeMembers: number;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -95,18 +91,15 @@ const ChartTooltip = memo(function ChartTooltip({
 const generateMockData = (): MemberDataPoint[] => {
   const data: MemberDataPoint[] = [];
   const today = new Date();
-  let cumulative = 12500; // 起始會員數
   
   for (let i = 27; i >= 0; i--) {
     const date = new Date(today);
     date.setDate(date.getDate() - i);
     const newMembers = Math.floor(Math.random() * 30) + 15; // 15-45 新會員
-    cumulative += newMembers;
     
     data.push({
       date: date.toISOString().split('T')[0],
       newMembers,
-      cumulativeMembers: cumulative,
     });
   }
   
@@ -150,17 +143,10 @@ const MemberGrowthTrend = memo(function MemberGrowthTrend({ dateRange }: MemberG
           throw new Error('No data');
         }
 
-        // 計算累積會員數（假設起始 12500）
-        let cumulative = 12500;
-        const memberData: MemberDataPoint[] = reports.map(r => {
-          const newMembers = r.cyber_new_members || 0;
-          cumulative += newMembers;
-          return {
-            date: r.start_date,
-            newMembers,
-            cumulativeMembers: cumulative,
-          };
-        });
+        const memberData: MemberDataPoint[] = reports.map(r => ({
+          date: r.start_date,
+          newMembers: r.cyber_new_members || 0,
+        }));
 
         setDailyData(memberData);
         setIsLive(true);
@@ -191,12 +177,10 @@ const MemberGrowthTrend = memo(function MemberGrowthTrend({ dateRange }: MemberG
       for (let i = 0; i < dailyData.length; i += 7) {
         const weekDays = dailyData.slice(i, Math.min(i + 7, dailyData.length));
         const totalNewMembers = weekDays.reduce((sum, d) => sum + d.newMembers, 0);
-        const lastDay = weekDays[weekDays.length - 1];
         
         weeks.push({
           week: `W${weekNum}`,
           newMembers: totalNewMembers,
-          cumulativeMembers: lastDay?.cumulativeMembers || 0,
         });
         weekNum++;
       }
@@ -214,14 +198,9 @@ const MemberGrowthTrend = memo(function MemberGrowthTrend({ dateRange }: MemberG
     <ChartTooltip {...props} timeRange={timeRange} />
   ), [timeRange]);
 
-  const { yAxisMax, cumulativeMax } = useMemo(() => {
+  const yAxisMax = useMemo(() => {
     const maxNew = Math.max(...data.map(d => d.newMembers || 0));
-    const maxCumulative = Math.max(...data.map(d => d.cumulativeMembers || 0));
-    
-    return {
-      yAxisMax: Math.ceil(maxNew / 10) * 10 + 20,
-      cumulativeMax: Math.ceil(maxCumulative / 1000) * 1000 + 1000,
-    };
+    return Math.ceil(maxNew / 10) * 10 + 20;
   }, [data]);
 
   return (
@@ -236,7 +215,7 @@ const MemberGrowthTrend = memo(function MemberGrowthTrend({ dateRange }: MemberG
           </div>
           <div>
             <h2 id="member-growth-title" className="text-base sm:text-lg font-semibold text-gray-900">
-              會員成長趨勢
+              新增會員趨勢
             </h2>
             <div className="flex items-center gap-2 mt-0.5">
               {isLoading && (
@@ -274,7 +253,7 @@ const MemberGrowthTrend = memo(function MemberGrowthTrend({ dateRange }: MemberG
 
       <div className="min-h-[250px] sm:min-h-[320px]">
         <ResponsiveContainer width="100%" height={isMobile ? 250 : 320}>
-          <ComposedChart 
+          <AreaChart 
             data={data}
             margin={isMobile ? { top: 5, right: 5, left: 0, bottom: 5 } : { top: 5, right: 20, left: 10, bottom: 5 }}
           >
@@ -299,7 +278,6 @@ const MemberGrowthTrend = memo(function MemberGrowthTrend({ dateRange }: MemberG
               interval={isMobile ? 'preserveStartEnd' : 0}
             />
             <YAxis 
-              yAxisId="left"
               width={isMobile ? 30 : 40}
               tick={{ fill: '#6B7280', fontSize: isMobile ? 10 : 12 }}
               axisLine={false}
@@ -307,49 +285,22 @@ const MemberGrowthTrend = memo(function MemberGrowthTrend({ dateRange }: MemberG
               domain={[0, yAxisMax]}
               dx={isMobile ? -4 : -8}
             />
-            <YAxis 
-              yAxisId="right"
-              orientation="right"
-              width={isMobile ? 35 : 50}
-              tick={{ fill: '#6B7280', fontSize: isMobile ? 10 : 12 }}
-              axisLine={false}
-              tickLine={false}
-              domain={[0, cumulativeMax]}
-              tickFormatter={(value) => `${(value / 1000).toFixed(1)}K`}
-              dx={isMobile ? 4 : 8}
-              hide={isMobile}
-            />
             <Tooltip 
               content={renderTooltip}
               wrapperStyle={tooltipWrapperStyle}
               contentStyle={tooltipContentStyle}
             />
-            <Legend 
-              wrapperStyle={{ paddingTop: '16px' }}
-              iconType="circle"
-              iconSize={8}
-              formatter={(value) => <span className="text-gray-600 text-sm">{value}</span>}
-            />
             <Area
-              yAxisId="left"
               type="monotone"
               dataKey="newMembers"
               name="新增會員"
               stroke="#06B6D4"
               strokeWidth={2}
               fill="url(#colorNewMembers)"
+              dot={{ fill: '#06B6D4', strokeWidth: 2, r: 3 }}
+              activeDot={{ r: 5, strokeWidth: 2, fill: '#67E8F9' }}
             />
-            <Line
-              yAxisId="right"
-              type="monotone"
-              dataKey="cumulativeMembers"
-              name="累積會員"
-              stroke="#3B82F6"
-              strokeWidth={2.5}
-              dot={{ fill: '#3B82F6', strokeWidth: 2, r: 3 }}
-              activeDot={{ r: 5, strokeWidth: 2, fill: '#93C5FD' }}
-            />
-          </ComposedChart>
+          </AreaChart>
         </ResponsiveContainer>
       </div>
     </section>
