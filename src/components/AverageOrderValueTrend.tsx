@@ -176,14 +176,25 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
     fetchData();
   }, []);
 
-  // 計算平均 AOV（用於參考線）
+  // 🔧 修正：計算選擇週期的平均 AOV（用於參考線）
+  // 正確公式：總營收 / 總訂單數（加權平均），而非每日 AOV 的簡單平均
+  // 範圍：如果有 dateRange，只計算該週的平均；否則計算所有數據的平均
   const averageAOV = useMemo(() => {
     if (dailyData.length === 0) return 0;
-    const total = dailyData.reduce((sum, d) => sum + d.aov, 0);
-    return Math.round(total / dailyData.length);
-  }, [dailyData]);
+    
+    // 🔧 修正：如果有日期範圍，只計算該範圍的平均
+    const filteredData = dateRange 
+      ? dailyData.filter(d => d.date >= dateRange.start && d.date <= dateRange.end)
+      : dailyData;
+    
+    if (filteredData.length === 0) return 0;
+    
+    const totalRevenue = filteredData.reduce((sum, d) => sum + d.revenue, 0);
+    const totalOrders = filteredData.reduce((sum, d) => sum + d.orders, 0);
+    return totalOrders > 0 ? Math.round(totalRevenue / totalOrders) : 0;
+  }, [dailyData, dateRange]);
 
-  // 過濾日期範圍 & 週匯總
+  // 🔧 修正：過濾日期範圍 & 週匯總 - 週視圖以選擇的週為中心
   const data = useMemo(() => {
     if (timeRange === 'daily') {
       if (dateRange) {
@@ -191,7 +202,7 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
       }
       return dailyData;
     } else {
-      // 週匯總 - 按真實的週日期分組
+      // 週匯總 - 以選擇的週期為基準，往前推 4 週
       const weeks: WeeklyAOVDataPoint[] = [];
       
       // 將數據按日期排序
@@ -201,43 +212,43 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
       
       if (sortedData.length === 0) return weeks;
       
-      // 找到最早和最新的日期
-      const startDate = new Date(sortedData[0].date);
-      const endDate = new Date(sortedData[sortedData.length - 1].date);
+      // 🔧 修正：以 dateRange 為基準計算週
+      // 如果有 dateRange，使用它作為 W4（最新週），然後往前推 W3, W2, W1
+      // 如果沒有 dateRange，使用數據的最新日期為基準
+      let baseWeekEnd: Date;
+      if (dateRange) {
+        baseWeekEnd = new Date(dateRange.end);
+      } else {
+        baseWeekEnd = new Date(sortedData[sortedData.length - 1].date);
+      }
       
-      // 計算週的起始日（從第一天開始算，每 7 天一組）
-      let currentWeekStart = new Date(startDate);
-      let weekNum = 1;
-      
-      while (currentWeekStart <= endDate) {
-        const currentWeekEnd = new Date(currentWeekStart);
-        currentWeekEnd.setDate(currentWeekEnd.getDate() + 6);
+      // 計算 4 週的數據（W1 到 W4，W4 是選擇的週）
+      for (let i = 3; i >= 0; i--) {
+        const weekEnd = new Date(baseWeekEnd);
+        weekEnd.setDate(weekEnd.getDate() - (i * 7));
         
-        const weekStartStr = currentWeekStart.toISOString().split('T')[0];
-        const weekEndStr = currentWeekEnd.toISOString().split('T')[0];
+        const weekStart = new Date(weekEnd);
+        weekStart.setDate(weekStart.getDate() - 6);
+        
+        const weekStartStr = weekStart.toISOString().split('T')[0];
+        const weekEndStr = weekEnd.toISOString().split('T')[0];
         
         // 過濾出這一週的數據
         const weekDays = sortedData.filter(d => 
           d.date >= weekStartStr && d.date <= weekEndStr
         );
         
-        if (weekDays.length > 0) {
-          const totalOrders = weekDays.reduce((sum, d) => sum + d.orders, 0);
-          const totalRevenue = weekDays.reduce((sum, d) => sum + d.revenue, 0);
-          // 🔧 客單價 = 總營收 / 總訂單數（統一計算公式）
-          const avgAOV = totalOrders > 0 ? Math.round(totalRevenue / totalOrders) : 0;
-          
-          weeks.push({
-            week: `W${weekNum}`,
-            aov: avgAOV,
-            orders: totalOrders,
-            revenue: totalRevenue,
-          });
-        }
+        const totalOrders = weekDays.reduce((sum, d) => sum + d.orders, 0);
+        const totalRevenue = weekDays.reduce((sum, d) => sum + d.revenue, 0);
+        // 🔧 客單價 = 總營收 / 總訂單數（統一計算公式）
+        const avgAOV = totalOrders > 0 ? Math.round(totalRevenue / totalOrders) : 0;
         
-        // 移動到下一週
-        currentWeekStart.setDate(currentWeekStart.getDate() + 7);
-        weekNum++;
+        weeks.push({
+          week: `W${4 - i}`,
+          aov: avgAOV,
+          orders: totalOrders,
+          revenue: totalRevenue,
+        });
       }
       
       return weeks;
