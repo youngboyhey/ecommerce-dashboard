@@ -33,11 +33,16 @@ export interface Insight {
 
 export interface WeeklyInsight {
   id: string;
-  report_date: string;
+  report_date?: string;
   week_start: string;
-  week_end: string;
-  insights: Insight[];
-  summary: {
+  week_end?: string;
+  // 新格式：highlights, warnings, recommendations
+  highlights?: string[];
+  warnings?: string[];
+  recommendations?: string[];
+  // 舊格式：insights 陣列
+  insights?: Insight[];
+  summary?: {
     total_insights: number;
     critical_count: number;
     high_count: number;
@@ -110,10 +115,16 @@ const WeeklyInsights = memo(function WeeklyInsights({
     );
   }
 
-  // Ensure insights is always an array (defensive check)
+  // 支援兩種格式：新格式 (highlights/warnings/recommendations) 和舊格式 (insights)
+  const highlights = weeklyInsight?.highlights || [];
+  const warnings = weeklyInsight?.warnings || [];
+  const recommendations = weeklyInsight?.recommendations || [];
+  const hasNewFormat = highlights.length > 0 || warnings.length > 0 || recommendations.length > 0;
+  
+  // 舊格式 insights
   const safeInsights = Array.isArray(weeklyInsight?.insights) ? weeklyInsight.insights : [];
   
-  if (!weeklyInsight || safeInsights.length === 0) {
+  if (!weeklyInsight || (safeInsights.length === 0 && !hasNewFormat)) {
     return (
       <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg shadow-gray-200/50 border border-gray-100 relative overflow-hidden">
         {/* Background decorations */}
@@ -210,22 +221,94 @@ const WeeklyInsights = memo(function WeeklyInsights({
           </div>
         )}
 
-        {/* Insight Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-          {sortedInsights.map((insight) => (
-            <InsightCard
-              key={insight.id}
-              insight={insight}
-              tracking={trackingMap.get(insight.id)}
-              onStatusChange={onStatusChange}
-            />
-          ))}
-        </div>
+        {/* Insight Display - 支援新舊兩種格式 */}
+        {hasNewFormat ? (
+          // 新格式：分區塊顯示 highlights/warnings/recommendations
+          <div className="space-y-4">
+            {/* Highlights 區塊 */}
+            {highlights.length > 0 && (
+              <div className="p-4 bg-emerald-50/80 backdrop-blur-sm rounded-xl border border-emerald-200">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-lg">✨</span>
+                  <h3 className="font-semibold text-emerald-800">本週亮點</h3>
+                  <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-full text-xs">
+                    {highlights.length}
+                  </span>
+                </div>
+                <ul className="space-y-2">
+                  {highlights.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-emerald-900">
+                      <TrendingUp className="w-4 h-4 mt-0.5 text-emerald-500 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Warnings 區塊 */}
+            {warnings.length > 0 && (
+              <div className="p-4 bg-amber-50/80 backdrop-blur-sm rounded-xl border border-amber-200">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-lg">⚠️</span>
+                  <h3 className="font-semibold text-amber-800">注意事項</h3>
+                  <span className="px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full text-xs">
+                    {warnings.length}
+                  </span>
+                </div>
+                <ul className="space-y-2">
+                  {warnings.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-amber-900">
+                      <AlertTriangle className="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Recommendations 區塊 */}
+            {recommendations.length > 0 && (
+              <div className="p-4 bg-indigo-50/80 backdrop-blur-sm rounded-xl border border-indigo-200">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-lg">💡</span>
+                  <h3 className="font-semibold text-indigo-800">行動建議</h3>
+                  <span className="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full text-xs">
+                    {recommendations.length}
+                  </span>
+                </div>
+                <ul className="space-y-2">
+                  {recommendations.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-indigo-900">
+                      <Lightbulb className="w-4 h-4 mt-0.5 text-indigo-500 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        ) : (
+          // 舊格式：Insight Cards Grid
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+            {sortedInsights.map((insight) => (
+              <InsightCard
+                key={insight.id}
+                insight={insight}
+                tracking={trackingMap.get(insight.id)}
+                onStatusChange={onStatusChange}
+              />
+            ))}
+          </div>
+        )}
 
         {/* Footer */}
         <div className="mt-4 sm:mt-6 pt-4 border-t border-gray-200/50 flex items-center justify-between">
           <p className="text-xs text-gray-500">
-            共 {safeInsights.length} 個洞察 • 由龍蝦企業 🦞 AI 分析
+            {hasNewFormat 
+              ? `共 ${highlights.length + warnings.length + recommendations.length} 項洞察`
+              : `共 ${safeInsights.length} 個洞察`
+            } • 由龍蝦企業 🦞 AI 分析
           </p>
           <span className="badge badge-purple text-[10px] sm:text-xs">
             AI 驅動

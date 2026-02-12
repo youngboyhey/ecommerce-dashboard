@@ -152,7 +152,7 @@ export function useWeeklyAnalysis(reportDate?: string): UseWeeklyAnalysisResult 
       } else if (insightsRes.data) {
         const rawInsight = insightsRes.data;
         
-        // Parse insights if it's a double-stringified JSON string
+        // Parse insights if it's a double-stringified JSON string (舊格式)
         let parsedInsights = rawInsight.insights;
         if (typeof parsedInsights === 'string') {
           try {
@@ -167,6 +167,27 @@ export function useWeeklyAnalysis(reportDate?: string): UseWeeklyAnalysisResult 
           console.warn('insights is not an array, defaulting to []:', parsedInsights);
           parsedInsights = [];
         }
+        
+        // 解析新格式欄位 (highlights, warnings, recommendations)
+        let parsedHighlights = rawInsight.highlights;
+        let parsedWarnings = rawInsight.warnings;
+        let parsedRecommendations = rawInsight.recommendations;
+        
+        // Parse if stringified
+        if (typeof parsedHighlights === 'string') {
+          try { parsedHighlights = JSON.parse(parsedHighlights); } catch { parsedHighlights = []; }
+        }
+        if (typeof parsedWarnings === 'string') {
+          try { parsedWarnings = JSON.parse(parsedWarnings); } catch { parsedWarnings = []; }
+        }
+        if (typeof parsedRecommendations === 'string') {
+          try { parsedRecommendations = JSON.parse(parsedRecommendations); } catch { parsedRecommendations = []; }
+        }
+        
+        // Ensure arrays
+        parsedHighlights = Array.isArray(parsedHighlights) ? parsedHighlights : [];
+        parsedWarnings = Array.isArray(parsedWarnings) ? parsedWarnings : [];
+        parsedRecommendations = Array.isArray(parsedRecommendations) ? parsedRecommendations : [];
         
         // Parse summary if it's a double-stringified JSON string
         let parsedSummary = rawInsight.summary;
@@ -187,6 +208,9 @@ export function useWeeklyAnalysis(reportDate?: string): UseWeeklyAnalysisResult 
         const insight: WeeklyInsight = {
           ...rawInsight,
           insights: parsedInsights,
+          highlights: parsedHighlights,
+          warnings: parsedWarnings,
+          recommendations: parsedRecommendations,
           summary: parsedSummary,
         };
         setWeeklyInsight(insight);
