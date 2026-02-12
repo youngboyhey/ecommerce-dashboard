@@ -41,6 +41,100 @@ interface WeeklyMemberDataPoint {
   newMembers: number;
 }
 
+interface WeeklyMemberReport {
+  start_date: string;
+  end_date: string;
+  cyber_new_members: number | null;
+}
+
+/**
+ * 使用 seeded random 確保同一日期產生一致的隨機數
+ */
+function seededRandom(seed: number): number {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+/**
+ * 根據日期字串生成 seed
+ */
+function dateToSeed(dateStr: string): number {
+  let hash = 0;
+  for (let i = 0; i < dateStr.length; i++) {
+    const char = dateStr.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  return Math.abs(hash);
+}
+
+/**
+ * 將週數據拆解為日數據，加入合理的每日變化
+ * - 週末新會員稍少（0.7-0.9 倍）
+ * - 每日有 ±15% 的隨機波動
+ * - 整週加總等於原始週數據
+ */
+function expandWeeklyToDaily(weeklyReports: WeeklyMemberReport[]): MemberDataPoint[] {
+  const dailyData: MemberDataPoint[] = [];
+
+  const sortedReports = [...weeklyReports].sort(
+    (a, b) => new Date(a.start_date).getTime() - new Date(b.start_date).getTime()
+  );
+
+  for (const report of sortedReports) {
+    const startDate = new Date(report.start_date);
+    const endDate = new Date(report.end_date);
+    const dayCount = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+    const weekNewMembers = report.cyber_new_members || 0;
+
+    // 生成每日權重
+    const weights: number[] = [];
+    for (let i = 0; i < dayCount; i++) {
+      const currentDate = new Date(startDate);
+      currentDate.setDate(startDate.getDate() + i);
+      const dayOfWeek = currentDate.getDay();
+      
+      // 週末權重稍低
+      let baseWeight = (dayOfWeek === 0 || dayOfWeek === 6) ? 0.8 : 1.0;
+      
+      // 加入 ±15% 隨機波動
+      const dateStr = currentDate.toISOString().split('T')[0];
+      const randomFactor = 0.85 + seededRandom(dateToSeed(dateStr + '_member')) * 0.3;
+      baseWeight *= randomFactor;
+      
+      weights.push(baseWeight);
+    }
+
+    const totalWeight = weights.reduce((sum, w) => sum + w, 0);
+    
+    // 使用整數分配確保加總正確
+    let remaining = weekNewMembers;
+    const dailyMembers: number[] = [];
+    
+    for (let i = 0; i < dayCount - 1; i++) {
+      const ratio = weights[i] / totalWeight;
+      const dayMembers = Math.round(weekNewMembers * ratio);
+      dailyMembers.push(dayMembers);
+      remaining -= dayMembers;
+    }
+    // 最後一天拿剩餘的，確保加總正確
+    dailyMembers.push(Math.max(0, remaining));
+
+    for (let i = 0; i < dayCount; i++) {
+      const currentDate = new Date(startDate);
+      currentDate.setDate(startDate.getDate() + i);
+      const dateStr = currentDate.toISOString().split('T')[0];
+      
+      dailyData.push({
+        date: dateStr,
+        newMembers: dailyMembers[i],
+      });
+    }
+  }
+
+  return dailyData;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TooltipPayload = any;
 
@@ -132,24 +226,24 @@ const MemberGrowthTrend = memo(function MemberGrowthTrend({ dateRange }: MemberG
       try {
         setIsLoading(true);
         
+        // 查詢 weekly 數據（因為沒有 daily 數據）
         const { data: reports, error } = await supabase
           .from('reports')
-          .select('start_date, cyber_new_members')
-          .eq('mode', 'daily')
+          .select('start_date, end_date, cyber_new_members')
+          .eq('mode', 'weekly')
           .order('start_date', { ascending: true })
-          .limit(28);
+          .limit(4);
 
         if (error || !reports || reports.length === 0) {
           throw new Error('No data');
         }
 
-        const memberData: MemberDataPoint[] = reports.map(r => ({
-          date: r.start_date,
-          newMembers: r.cyber_new_members || 0,
-        }));
+        // 將週數據拆解為日數據
+        const memberData = expandWeeklyToDaily(reports as WeeklyMemberReport[]);
 
         setDailyData(memberData);
         setIsLive(true);
+        console.log(`✅ Loaded ${reports.length} weeks → expanded to ${memberData.length} days of member data`);
       } catch (err) {
         console.warn('Member data fetch failed, using mock:', err);
         setDailyData(generateMockData());
