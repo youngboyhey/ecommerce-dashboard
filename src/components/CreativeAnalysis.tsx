@@ -31,13 +31,21 @@ export interface AdCreative {
   performance_tier: 'high' | 'medium' | 'low' | null;
   performance_rank: number | null;
   vision_analysis: {
+    // 資料庫實際欄位
+    strengths?: string[];
+    weaknesses?: string[];
+    color_scheme?: string[];
+    brand_consistency?: string | null;
+    composition_score?: number | null;
+    cta_effectiveness?: string | null;
+    attractiveness_score?: number | null;
+    improvement_suggestions?: string[];
+    // 備用欄位（相容舊版）
     dominant_colors?: string[];
     detected_objects?: string[];
     text_detected?: string;
     composition?: string;
-    composition_score?: number;
     visual_elements?: string[];
-    color_scheme?: string[];
     text_overlay?: string;
     emotion_appeal?: string;
     product_presentation?: string;
@@ -147,11 +155,23 @@ const groupCreativesByAd = (creatives: AdCreative[]): GroupedAd[] => {
     items.forEach(item => {
       const va = item.vision_analysis;
       if (va) {
+        // 優先讀取資料庫實際欄位 (strengths/weaknesses)
+        if (va.strengths && va.strengths.length > 0) {
+          combinedAnalysis.successFactors.push(...va.strengths);
+        }
+        if (va.weaknesses && va.weaknesses.length > 0) {
+          combinedAnalysis.failureFactors.push(...va.weaknesses);
+        }
+        if (va.improvement_suggestions && va.improvement_suggestions.length > 0) {
+          combinedAnalysis.improvementSuggestions.push(...va.improvement_suggestions);
+        }
+        // 相容舊版欄位
         if (va.visual_elements) combinedAnalysis.visualElements.push(...va.visual_elements);
         if (va.color_scheme) combinedAnalysis.colorScheme.push(...va.color_scheme);
         if (va.emotion_appeal) combinedAnalysis.emotionAppeal.push(va.emotion_appeal);
         if (va.product_presentation) combinedAnalysis.productPresentation.push(va.product_presentation);
       }
+      // 頂層欄位（舊版相容）
       if (item.success_factors) combinedAnalysis.successFactors.push(...item.success_factors);
       if (item.failure_factors) combinedAnalysis.failureFactors.push(...item.failure_factors);
       if (item.improvement_suggestions) combinedAnalysis.improvementSuggestions.push(...item.improvement_suggestions);

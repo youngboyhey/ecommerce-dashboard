@@ -131,14 +131,18 @@ const CopyAnalysis = memo(function CopyAnalysis({
     const ctaPatterns: string[] = [];
     
     highPerformers.forEach(copy => {
-      if (copy.strengths) allStrengths.push(...copy.strengths);
+      // 優先讀取頂層 strengths，否則從 analysis.strengths 讀取
+      const strengths = copy.strengths || (copy.analysis as any)?.strengths;
+      if (strengths) allStrengths.push(...strengths);
       if (copy.analysis?.tone) tones.push(copy.analysis.tone);
       if (copy.analysis?.emotional_triggers) emotionalTriggers.push(...copy.analysis.emotional_triggers);
       if (copy.analysis?.call_to_action) ctaPatterns.push(copy.analysis.call_to_action);
     });
 
     lowPerformers.forEach(copy => {
-      if (copy.weaknesses) allWeaknesses.push(...copy.weaknesses);
+      // 優先讀取頂層 weaknesses，否則從 analysis.weaknesses 讀取
+      const weaknesses = copy.weaknesses || (copy.analysis as any)?.weaknesses;
+      if (weaknesses) allWeaknesses.push(...weaknesses);
     });
 
     // 去重並取前幾項
@@ -443,6 +447,15 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
     // Fallback 到預存的 cvr 值
     return copy.metrics?.cvr || 0;
   }, [copy.metrics]);
+
+  // 讀取 strengths/weaknesses：優先頂層欄位，否則從 analysis 內部讀取
+  const copyStrengths = useMemo(() => {
+    return copy.strengths || (copy.analysis as any)?.strengths || null;
+  }, [copy.strengths, copy.analysis]);
+
+  const copyWeaknesses = useMemo(() => {
+    return copy.weaknesses || (copy.analysis as any)?.weaknesses || null;
+  }, [copy.weaknesses, copy.analysis]);
   
   // 組合分析說明
   const analysisDetails = useMemo(() => {
@@ -601,20 +614,20 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
       )}
 
       {/* Analysis Details - 為什麼效果好/差 */}
-      {(analysisDetails.length > 0 || copy.strengths?.length || copy.weaknesses?.length) && (
+      {(analysisDetails.length > 0 || copyStrengths?.length || copyWeaknesses?.length) && (
         <div className={cn(
           "pt-3 border-t",
           isHigh ? "border-emerald-200/50" : "border-red-200/50"
         )}>
           {/* Strengths (高效文案) */}
-          {isHigh && copy.strengths && copy.strengths.length > 0 && (
+          {isHigh && copyStrengths && copyStrengths.length > 0 && (
             <div className="mb-2">
               <div className="flex items-center gap-1.5 mb-1.5">
                 <ThumbsUp className="w-3.5 h-3.5 text-emerald-500" />
                 <span className="text-sm font-medium text-emerald-700">為什麼效果好</span>
               </div>
               <ul className="space-y-1">
-                {copy.strengths.map((strength, i) => (
+                {copyStrengths.map((strength: string, i: number) => (
                   <li key={i} className="text-xs text-emerald-700 pl-5 relative">
                     <span className="absolute left-0 top-0.5 text-emerald-500">•</span>
                     {strength}
@@ -625,14 +638,14 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
           )}
 
           {/* Weaknesses (低效文案) */}
-          {!isHigh && copy.weaknesses && copy.weaknesses.length > 0 && (
+          {!isHigh && copyWeaknesses && copyWeaknesses.length > 0 && (
             <div className="mb-2">
               <div className="flex items-center gap-1.5 mb-1.5">
                 <ThumbsDown className="w-3.5 h-3.5 text-red-500" />
                 <span className="text-sm font-medium text-red-700">為什麼效果差</span>
               </div>
               <ul className="space-y-1">
-                {copy.weaknesses.map((weakness, i) => (
+                {copyWeaknesses.map((weakness: string, i: number) => (
                   <li key={i} className="text-xs text-red-700 pl-5 relative">
                     <span className="absolute left-0 top-0.5 text-red-500">•</span>
                     {weakness}

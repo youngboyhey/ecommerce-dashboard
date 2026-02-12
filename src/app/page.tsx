@@ -12,7 +12,7 @@ import {
   Users
 } from 'lucide-react';
 
-import AlertBanner from '@/components/AlertBanner';
+import InsightsBanner from '@/components/InsightsBanner';
 import KPICard from '@/components/KPICard';
 import WeekSelector from '@/components/WeekSelector';
 import DashboardTabs, { TabId } from '@/components/DashboardTabs';
@@ -29,7 +29,6 @@ import TargetingAnalysis from '@/components/TargetingAnalysis';
 import CreativeAnalysis from '@/components/CreativeAnalysis';
 import CopyAnalysis from '@/components/CopyAnalysis';
 import ErrorBoundary from '@/components/ErrorBoundary';
-import WeeklyInsights from '@/components/WeeklyInsights';
 import { AdMetricsProvider } from '@/contexts/AdMetricsContext';
 import { useReportData, DateRange } from '@/lib/useReportData';
 import { useWeeklyData } from '@/lib/useWeeklyData';
@@ -165,10 +164,10 @@ export default function Dashboard() {
       {/* ===== Main Content ===== */}
       <main className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
         
-        {/* 🚨 Zone 1: 警示區塊 */}
-        <section aria-labelledby="alert-section" className="mb-4 sm:mb-6 animate-fade-in-up">
-          <h2 id="alert-section" className="sr-only">營運警示</h2>
-          <AlertBanner
+        {/* 🚨 Zone 1: 營運狀態 + 本週洞察（合併區塊） */}
+        <section aria-labelledby="insights-section" className="mb-4 sm:mb-6 animate-fade-in-up">
+          <h2 id="insights-section" className="sr-only">營運狀態與本週洞察</h2>
+          <InsightsBanner
             roas={data.summary.roas}
             cpm={estimatedCpm > 0 ? estimatedCpm : undefined}
             frequency={estimatedFrequency}
@@ -177,6 +176,10 @@ export default function Dashboard() {
             targetCpa={500}
             bounceRate={bounceRate}
             cartAbandonRate={cartAbandonRate}
+            weeklyInsight={weeklyInsight}
+            trackingData={trackingData}
+            isLoading={analysisLoading}
+            onStatusChange={handleInsightStatusChange}
           />
         </section>
 
@@ -282,23 +285,7 @@ export default function Dashboard() {
           </div>
         </section>
 
-        {/* 💡 Zone 3: 本週洞察（移到這裡） */}
-        <section aria-label="本週洞察" className="mb-4 sm:mb-6 lg:mb-8">
-          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
-            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center text-sm sm:text-base">
-              💡
-            </span>
-            <span className="gradient-text-subtle">本週洞察</span>
-          </h3>
-          <WeeklyInsights 
-            weeklyInsight={weeklyInsight}
-            trackingData={trackingData}
-            isLoading={analysisLoading}
-            onStatusChange={handleInsightStatusChange}
-          />
-        </section>
-
-        {/* 📊 Zone 4: TAB 切換區 */}
+        {/* 📊 Zone 3: TAB 切換區 */}
         <DashboardTabs activeTab={activeTab} onChange={setActiveTab} />
 
         {/* TAB 內容區 */}

@@ -55,6 +55,49 @@ def load_json(filename: str) -> Optional[Dict]:
     return None
 
 
+def load_ai_analysis_results(date_str: str) -> tuple[Dict, Dict]:
+    """載入 AI 分析結果並建立 ad_id → analysis 對照表"""
+    ai_file = f"ai_analysis_result_{date_str}.json"
+    ai_data = load_json(ai_file)
+    
+    if not ai_data:
+        print(f"  ℹ️  AI analysis file not found: {ai_file}")
+        return {}, {}
+    
+    # 建立 ad_id → vision_analysis 對照表 (for creatives)
+    creative_analysis = {}
+    # 建立 ad_id → copy_analysis 對照表 (for copies)
+    copy_analysis = {}
+    
+    for ad in ai_data.get('ads_analysis', []):
+        ad_id = ad.get('ad_id')
+        if not ad_id:
+            continue
+        
+        # Vision analysis for creatives
+        vision = ad.get('vision_analysis', {})
+        if vision:
+            creative_analysis[ad_id] = {
+                'vision_analysis': vision,
+                'success_factors': vision.get('success_factors'),
+                'failure_factors': vision.get('failure_factors'),
+                'improvement_suggestions': vision.get('improvement_suggestions'),
+            }
+        
+        # Copy analysis for ad_copies
+        copy = ad.get('copy_analysis', {})
+        if copy:
+            copy_analysis[ad_id] = {
+                'analysis': copy,
+                'strengths': copy.get('strengths'),
+                'weaknesses': copy.get('weaknesses'),
+                'suggested_variations': copy.get('suggested_improvements'),  # map field name
+            }
+    
+    print(f"  ℹ️  Loaded AI analysis: {len(creative_analysis)} creatives, {len(copy_analysis)} copies")
+    return creative_analysis, copy_analysis
+
+
 def upload_report_data(week: Dict) -> Optional[str]:
     """Upload report_data and return report_id."""
     filename = f"report_data_{week['date']}.json"
@@ -265,6 +308,9 @@ def upload_ad_creatives(week: Dict) -> int:
         print(f"  ⚠️  {filename} not found, skipping")
         return 0
     
+    # 載入 AI 分析結果
+    creative_analysis, _ = load_ai_analysis_results(week['date'])
+    
     count = 0
     images_uploaded = 0
     
@@ -300,6 +346,9 @@ def upload_ad_creatives(week: Dict) -> int:
             elif isinstance(img, str):
                 carousel_urls.append(img)
         
+        # 合併 AI 分析結果
+        ai_data = creative_analysis.get(ad_id, {})
+        
         record = {
             'report_date': week['date'],
             'week_start': week['start'],
@@ -319,7 +368,10 @@ def upload_ad_creatives(week: Dict) -> int:
                 'roas': creative.get('roas', 0),
             },
             'performance_tier': 'high' if creative.get('roas', 0) >= 1.5 else ('medium' if creative.get('roas', 0) >= 1 else 'low'),
-            'vision_analysis': creative.get('ai_analysis'),
+            'vision_analysis': ai_data.get('vision_analysis') or creative.get('ai_analysis'),
+            'success_factors': ai_data.get('success_factors'),
+            'failure_factors': ai_data.get('failure_factors'),
+            'improvement_suggestions': ai_data.get('improvement_suggestions'),
             'tags': [],
         }
         
@@ -346,10 +398,16 @@ def upload_ad_copies(week: Dict) -> int:
         print(f"  ⚠️  {filename} not found, skipping")
         return 0
     
+    # 載入 AI 分析結果
+    _, copy_analysis = load_ai_analysis_results(week['date'])
+    
     count = 0
     for copy in data:
         ad_id = copy.get('ad_id')
         primary_text = copy.get('primary_text', '')
+        
+        # 合併 AI 分析結果
+        ai_data = copy_analysis.get(ad_id, {})
         
         record = {
             'report_date': week['date'],
@@ -366,7 +424,10 @@ def upload_ad_copies(week: Dict) -> int:
                 'purchases': copy.get('purchases', 0),
             },
             'performance_tier': 'high' if copy.get('purchases', 0) > 0 else 'low',
-            'analysis': copy.get('ai_analysis'),
+            'analysis': ai_data.get('analysis') or copy.get('ai_analysis'),
+            'strengths': ai_data.get('strengths'),
+            'weaknesses': ai_data.get('weaknesses'),
+            'suggested_variations': ai_data.get('suggested_variations'),
         }
         
         # Upsert
