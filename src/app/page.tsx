@@ -23,6 +23,7 @@ import ProductRanking from '@/components/ProductRanking';
 import ChannelPerformance from '@/components/ChannelPerformance';
 import DeviceBreakdown from '@/components/DeviceBreakdown';
 import GSCPerformance from '@/components/GSCPerformance';
+import TargetingAnalysis from '@/components/TargetingAnalysis';
 import CreativeAnalysis from '@/components/CreativeAnalysis';
 import CopyAnalysis from '@/components/CopyAnalysis';
 import WeeklyInsights from '@/components/WeeklyInsights';
@@ -352,6 +353,17 @@ export default function Dashboard() {
         {/* 流量來源分析 */}
         <section aria-label="流量來源分析" className="mb-4 sm:mb-6 lg:mb-8">
           <ChannelPerformance data={data.ga4_channels} />
+        </section>
+
+        {/* 🎯 Zone 5.5: 廣告受眾設定 */}
+        <section aria-label="廣告受眾設定" className="mb-4 sm:mb-6 lg:mb-8">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-violet-100 to-purple-100 flex items-center justify-center text-sm sm:text-base">
+              🎯
+            </span>
+            <span className="gradient-text-subtle">廣告受眾設定</span>
+          </h3>
+          <TargetingAnalysis isLoading={analysisLoading} />
         </section>
 
         {/* 🎨 Zone 6: 廣告素材分析 */}
