@@ -35,6 +35,8 @@ interface UseTargetingDataResult {
   refresh: () => Promise<void>;
 }
 
+// Note: weekStart parameter is kept for API compatibility but currently unused
+// because meta_adsets table doesn't have week_start column (uses report_id instead)
 export function useTargetingData(weekStart?: string): UseTargetingDataResult {
   const [adsets, setAdsets] = useState<AdsetWithTargeting[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -51,15 +53,15 @@ export function useTargetingData(weekStart?: string): UseTargetingDataResult {
     setError(null);
 
     try {
-      // Build query with optional week_start filter
-      let query = supabase
+      // Build query - meta_adsets uses report_id, not week_start
+      // The table doesn't have week_start column, so we fetch all and let UI handle filtering
+      const query = supabase
         .from('meta_adsets')
         .select('*');
       
-      // Filter by week_start if provided
-      if (weekStart) {
-        query = query.eq('week_start', weekStart);
-      }
+      // Note: meta_adsets doesn't have week_start column
+      // It uses report_id to relate to weekly reports
+      // For now, we fetch all data - consider adding week_start column to table for consistency
       
       const { data, error: fetchError } = await query.order('spend', { ascending: false });
 
