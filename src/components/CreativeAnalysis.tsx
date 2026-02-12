@@ -164,6 +164,11 @@ const groupCreativesByAd = (creatives: AdCreative[]): GroupedAd[] => {
     combinedAnalysis.failureFactors = [...new Set(combinedAnalysis.failureFactors)];
     combinedAnalysis.improvementSuggestions = [...new Set(combinedAnalysis.improvementSuggestions)];
     
+    // Calculate CVR from purchases and clicks (since metrics.cvr might be 0)
+    const clicks = metrics?.clicks || 0;
+    const purchases = metrics?.purchases || 0;
+    const calculatedCvr = clicks > 0 ? (purchases / clicks) * 100 : 0;
+    
     return {
       originalAdId,
       adName: getCleanAdName(firstItem.creative_name),
@@ -172,10 +177,10 @@ const groupCreativesByAd = (creatives: AdCreative[]): GroupedAd[] => {
         spend: metrics?.spend || 0,
         roas: metrics?.roas || 0,
         ctr: metrics?.ctr || 0,
-        cvr: metrics?.cvr || 0,
+        cvr: calculatedCvr,  // Use calculated CVR instead of metrics.cvr
         impressions: metrics?.impressions || 0,
-        clicks: metrics?.clicks || 0,
-        purchases: metrics?.purchases || 0,
+        clicks: clicks,
+        purchases: purchases,
       },
       performanceTier: firstItem.performance_tier || 'medium',
       images: items.map((item, idx) => ({
