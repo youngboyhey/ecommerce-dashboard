@@ -14,6 +14,15 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+// 安全的 URL decode，避免無效編碼導致錯誤
+function safeDecodeURI(uri: string): string {
+  try {
+    return decodeURIComponent(uri);
+  } catch {
+    return uri;
+  }
+}
+
 // 關鍵字數據類型
 export interface KeywordData {
   keyword: string;
@@ -369,17 +378,17 @@ const GSCPerformance = memo(function GSCPerformance({
                           <div className="min-w-0 flex-1">
                             <span 
                               className="font-medium text-gray-900 line-clamp-2 break-words cursor-help" 
-                              title={item.title || item.page}
+                              title={safeDecodeURI(item.title || item.page)}
                             >
-                              {item.title || item.page}
+                              {safeDecodeURI(item.title || item.page)}
                             </span>
                             {/* URL 小字提示 - 手機版隱藏 */}
                             {item.title && (
                               <span 
                                 className="text-[10px] sm:text-xs text-gray-400 line-clamp-1 break-all hidden sm:block mt-0.5"
-                                title={item.page}
+                                title={safeDecodeURI(item.page)}
                               >
-                                {item.page}
+                                {safeDecodeURI(item.page)}
                               </span>
                             )}
                           </div>

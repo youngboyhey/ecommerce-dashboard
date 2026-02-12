@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useState, useMemo, useRef } from 'react';
+import { memo, useState, useMemo, useRef, useEffect } from 'react';
 import { Image, X, ChevronRight, ChevronLeft, Sparkles, AlertTriangle, Lightbulb, Palette, Type, Layout, TrendingUp, DollarSign, MousePointer, ShoppingCart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAdMetrics } from '@/contexts/AdMetricsContext';
@@ -446,7 +446,7 @@ const CreativeAnalysis = memo(function CreativeAnalysis({
                 📊 廣告素材分析
               </h2>
               <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5">
-                共 {groupedAds.length} 組廣告 • {creatives.length} 張素材
+                共 {groupedAds.length} 組輪播廣告 • {groupedAds.reduce((sum, ad) => sum + ad.images.length, 0)} 張素材
               </p>
             </div>
           </div>
@@ -490,7 +490,22 @@ const GroupedAdDetailModal = memo(function GroupedAdDetailModal({
   onClose 
 }: GroupedAdDetailModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const modalRef = useRef<HTMLDivElement>(null);
   const tierConfig = TIER_CONFIG[groupedAd.performanceTier] || TIER_CONFIG.medium;
+
+  // 確保 modal 打開時滾動到視圖中央並禁止背景滾動
+  useEffect(() => {
+    // 禁止背景滾動
+    document.body.style.overflow = 'hidden';
+    
+    // 滾動視窗到頂部確保 modal 居中可見
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    
+    return () => {
+      // 恢復背景滾動
+      document.body.style.overflow = '';
+    };
+  }, []);
 
   const goToPrevImage = () => {
     setCurrentImageIndex(prev => prev === 0 ? groupedAd.images.length - 1 : prev - 1);
@@ -504,7 +519,8 @@ const GroupedAdDetailModal = memo(function GroupedAdDetailModal({
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+      ref={modalRef}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm overflow-y-auto"
       onClick={onClose}
     >
       <div 

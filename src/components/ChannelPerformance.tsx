@@ -71,6 +71,18 @@ const SOURCE_COLORS: Record<string, string> = {
   'Cyberbiz 金流': '#F472B6',
   '內部網路': '#94A3B8',
   
+  // 2025-02 補充
+  'Google 帳戶': '#4285F4',
+  '7-11 電子地圖': '#00A040',
+  'ChatGPT 推薦': '#10A37F',
+  'DuckDuckGo 搜尋': '#DE5833',
+  'Pinterest': '#E60023',
+  'X (Twitter)': '#000000',
+  '蝦皮購物': '#EE4D2D',
+  'PChome': '#003DA5',
+  'momo 購物': '#D91B5B',
+  '露天拍賣': '#ED1C24',
+  
   // 未分類/其他 - 淺灰
   '未分類': '#9CA3AF',
   '(not set)': '#9CA3AF',
@@ -146,10 +158,22 @@ const SOURCE_LABELS: Record<string, string> = {
   'an / paid': 'Audience Network 廣告',
   'boschmanec.cyberbiz.co / referral': 'BOSCH 商城',
   'chatgpt.com / (not set)': 'ChatGPT',
+  'chatgpt.com / referral': 'ChatGPT 推薦',
   'cyberbizpay.com / referral': 'Cyberbiz 金流',
   'facebook.com / referral': 'Facebook',
   'l.instagram.com / referral': 'Instagram 連結',
   'liquimolytaiwan.github.io / referral': '力魔 GitHub',
+  // 2025-02 補充
+  'accounts.google.com / referral': 'Google 帳戶',
+  'emap.pcsc.com.tw / referral': '7-11 電子地圖',
+  'duckduckgo / organic': 'DuckDuckGo 搜尋',
+  'pinterest / referral': 'Pinterest',
+  'twitter.com / referral': 'X (Twitter)',
+  'x.com / referral': 'X (Twitter)',
+  'shopee.tw / referral': '蝦皮購物',
+  'pchome.com.tw / referral': 'PChome',
+  'momo.com / referral': 'momo 購物',
+  'ruten.com.tw / referral': '露天拍賣',
 };
 
 // 取得來源的中文顯示名稱 (case-insensitive)

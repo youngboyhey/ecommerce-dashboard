@@ -33,6 +33,9 @@ export interface AdCopy {
     call_to_action?: string;
     urgency_level?: string;
     overall_score?: number;
+    headline_score?: number;
+    benefit_score?: number;
+    cta_score?: number;
     emotional_triggers?: string[];
   } | null;
   feature_tags: {
@@ -549,6 +552,51 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
                 </span>
               );
             })}
+        </div>
+      )}
+
+      {/* Detailed Scores - 詳細評分 */}
+      {copy.analysis && (copy.analysis.headline_score !== undefined || copy.analysis.benefit_score !== undefined || copy.analysis.cta_score !== undefined) && (
+        <div className={cn(
+          "flex flex-wrap gap-2 mb-3 p-2 rounded-lg",
+          isHigh ? "bg-emerald-50/50" : "bg-red-50/50"
+        )}>
+          {copy.analysis.headline_score !== undefined && (
+            <div className="flex items-center gap-1 text-[10px]">
+              <span className="text-gray-500">📝 標題</span>
+              <span className={cn(
+                "font-semibold",
+                copy.analysis.headline_score >= 7 ? "text-emerald-600" : 
+                copy.analysis.headline_score >= 4 ? "text-amber-600" : "text-red-600"
+              )}>
+                {copy.analysis.headline_score}/10
+              </span>
+            </div>
+          )}
+          {copy.analysis.benefit_score !== undefined && (
+            <div className="flex items-center gap-1 text-[10px]">
+              <span className="text-gray-500">✨ 賣點</span>
+              <span className={cn(
+                "font-semibold",
+                copy.analysis.benefit_score >= 7 ? "text-emerald-600" : 
+                copy.analysis.benefit_score >= 4 ? "text-amber-600" : "text-red-600"
+              )}>
+                {copy.analysis.benefit_score}/10
+              </span>
+            </div>
+          )}
+          {copy.analysis.cta_score !== undefined && (
+            <div className="flex items-center gap-1 text-[10px]">
+              <span className="text-gray-500">👆 CTA</span>
+              <span className={cn(
+                "font-semibold",
+                copy.analysis.cta_score >= 7 ? "text-emerald-600" : 
+                copy.analysis.cta_score >= 4 ? "text-amber-600" : "text-red-600"
+              )}>
+                {copy.analysis.cta_score}/10
+              </span>
+            </div>
+          )}
         </div>
       )}
 
