@@ -535,13 +535,16 @@ const GroupedAdDetailModal = memo(function GroupedAdDetailModal({
   return (
     <div 
       ref={modalRef}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm overflow-y-auto"
+      className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
       onClick={onClose}
     >
-      <div 
-        className="bg-white rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
-        onClick={e => e.stopPropagation()}
-      >
+      {/* Scrollable container */}
+      <div className="fixed inset-0 z-50 overflow-y-auto">
+        <div className="flex min-h-full items-center justify-center p-4">
+          <div 
+            className="relative bg-white rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+            onClick={e => e.stopPropagation()}
+          >
         {/* Modal Header */}
         <div className="sticky top-0 bg-white border-b border-gray-100 px-4 sm:px-6 py-4 flex items-center justify-between rounded-t-2xl sm:rounded-t-3xl z-10">
           <div className="flex items-center gap-3">
@@ -807,6 +810,8 @@ const GroupedAdDetailModal = memo(function GroupedAdDetailModal({
                 <p className="text-xs mt-1">分析將於資料同步後自動產生</p>
               </div>
             )}
+          </div>
+        </div>
           </div>
         </div>
       </div>

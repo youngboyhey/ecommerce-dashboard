@@ -1210,20 +1210,40 @@ def get_cyberbiz_data(start_date, end_date):
             print(f"Error fetching orders page {page}: {e}")
             break
     
-    # 本地篩選日期範圍
+    # 本地篩選日期範圍，同時按日期分組
     actual_orders = []
+    orders_by_date = {}  # {date_str: [order1, order2, ...]}
+    
     for o in all_orders:
         created_at = o.get("created_at", "")
         # Cyberbiz format is "YYYY-MM-DD HH:MM:SS"
         date_part = created_at.split(' ')[0] if created_at else ""
         if date_part and start_date <= date_part <= end_date:
             actual_orders.append(o)
+            # 按日期分組
+            if date_part not in orders_by_date:
+                orders_by_date[date_part] = []
+            orders_by_date[date_part].append(o)
     
     total_revenue = sum(float(o.get("prices", {}).get("total_price", 0)) for o in actual_orders)
     order_count = len(actual_orders)
     
     # [NEW] 計算客單價 (AOV - Average Order Value)
     aov = round(total_revenue / order_count, 2) if order_count > 0 else 0
+    
+    # [NEW] 計算每日 AOV 明細
+    daily_aov = []
+    for date_str in sorted(orders_by_date.keys()):
+        day_orders = orders_by_date[date_str]
+        day_revenue = sum(float(o.get("prices", {}).get("total_price", 0)) for o in day_orders)
+        day_order_count = len(day_orders)
+        day_aov = round(day_revenue / day_order_count, 2) if day_order_count > 0 else 0
+        daily_aov.append({
+            "date": date_str,
+            "aov": day_aov,
+            "orders": day_order_count,
+            "revenue": round(day_revenue, 2)
+        })
     
     # [NEW] 商品銷售排行
     product_ranking = get_product_ranking(actual_orders)
@@ -1235,6 +1255,7 @@ def get_cyberbiz_data(start_date, end_date):
         "order_count": order_count,
         "total_revenue": total_revenue,
         "aov": aov,
+        "daily_aov": daily_aov,  # [NEW] 每日 AOV 明細
         "product_ranking": product_ranking,
         "new_members": new_members
     }

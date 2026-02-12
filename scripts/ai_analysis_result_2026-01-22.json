@@ -1,103 +1,89 @@
 {
-  "analysis_date": "2026-02-12",
-  "report_period": "W2 (2026-01-22 ~ 2026-01-28)",
-  "ads_analyzed": [
+  "task_type": "weekly_ai_analysis",
+  "report_date": "2026-01-28",
+  "analyzed_at": "2026-02-12T21:48:00.000000",
+  "total_creatives_analyzed": 1,
+  "total_copies_analyzed": 0,
+  "ads_analysis": [
     {
       "ad_id": "120238488906660142",
       "adset_id": "120238488906660142",
       "ad_name": "260119_LM香氛磚組合",
       "vision_analysis": {
-        "composition": "無法分析（廣告組內未包含素材圖片）",
-        "composition_score": null,
+        "composition": "無法分析（carousel_images 為空，素材URL缺失）",
+        "composition_score": 0,
         "color_scheme": [],
         "color_harmony": "無法評估",
         "brand_consistency": "無法評估",
-        "attractiveness_score": null,
-        "text_detected": "無圖片可分析",
+        "attractiveness_score": 0,
+        "text_detected": "無",
         "text_readability": "無法評估",
-        "product_presentation": "無法評估",
-        "carousel_narrative": "無法評估",
+        "visual_elements": [],
+        "product_presentation": "無法分析",
+        "emotion_appeal": "無法評估",
         "success_factors": [],
-        "failure_factors": ["無素材圖片供視覺分析"],
-        "improvement_suggestions": ["確保廣告素材圖片正確連結至報表系統"]
+        "failure_factors": ["素材資料缺失，無法進行視覺分析"],
+        "improvement_suggestions": ["確保素材URL正確記錄"]
       },
       "copy_analysis": {
-        "tone": "無法評估（文案欄位為空）",
+        "tone": "無文案",
         "emotional_triggers": [],
         "call_to_action": "無",
-        "cta_effectiveness": "無法評估",
-        "cta_score": null,
-        "overall_score": null,
+        "cta_effectiveness": "無文案可分析",
+        "cta_score": 0,
+        "overall_score": 0,
         "strengths": [],
-        "weaknesses": ["廣告文案資料缺失"],
-        "suggested_improvements": ["補齊廣告文案資料"]
+        "weaknesses": ["完全缺乏文案", "無法透過文字溝通產品價值"],
+        "suggested_improvements": ["補充完整文案", "加入產品特點和CTA"]
       },
       "targeting_analysis": {
-        "age_assessment": "年齡範圍過廣（18+），預算分散效率低。實際數據顯示 35-44 歲佔最高花費（$2,376），建議聚焦 25-54 歲核心區間",
-        "gender_assessment": "設定為不限，但實際花費 97.8% 流向男性（$6,702），女性僅 2%（$137）。若產品確實以男性為主，可直接鎖定男性節省無效曝光",
-        "location_assessment": "全台灣投放，新北市花費最高（$1,595），其次為台北（$886）、高雄（$760）、台中（$735）。地區分布合理",
-        "interests_assessment": "共 14 個興趣標籤，數量適中。但混合「購物類」與「汽車類」標籤，受眾範圍可能過於廣泛。汽車相關標籤（計程車司機、汽車保養、休旅車等）與香氛產品的關聯性待驗證",
-        "custom_audience_assessment": "未使用自訂受眾或類似受眾，建議建立 Lookalike 受眾（來源：加入購物車 / 購買者）提升轉換效率",
-        "audience_product_fit": "興趣標籤瞄準車主族群，與車用香氛產品有一定關聯性，但缺乏更精準的轉換優化設定",
-        "strengths": [
-          "興趣標籤數量適中（14個）",
-          "鎖定汽車相關興趣與產品屬性相符",
-          "CPM（$99.83）在合理範圍"
-        ],
-        "weaknesses": [
-          "年齡範圍過廣，浪費預算",
-          "性別不限但實際 97.8% 為男性，設定不精準",
-          "無自訂/類似受眾，僅靠興趣標籤",
-          "頻率 2.32 偏高，有素材疲乏風險"
-        ],
-        "suggestions": [
-          "縮窄年齡至 25-54 歲",
-          "鎖定男性",
-          "建立加入購物車者 1%-3% Lookalike",
-          "測試排除已購買客戶",
-          "準備新素材應對頻率過高"
-        ],
+        "age_assessment": "18+過於廣泛",
+        "gender_assessment": "不限性別合理",
+        "location_assessment": "台灣全區合理",
+        "interests_assessment": "14個興趣標籤數量適中，涵蓋汽車相關興趣",
+        "custom_audience_assessment": "無自訂受眾",
+        "audience_product_fit": "受眾與產品匹配度中等",
+        "strengths": ["興趣標籤涵蓋汽車保養相關", "包含Engaged Shoppers"],
+        "weaknesses": ["年齡範圍過廣", "缺乏自訂受眾", "無排除已購買客戶"],
+        "suggestions": ["縮窄年齡至25-54歲", "加入Lookalike受眾", "排除60天內購買客戶"],
         "score": 5
+      },
+      "metrics_summary": {
+        "ctr": 1.61,
+        "cvr": 0.0,
+        "roas": 0.0,
+        "spend": 6857.0,
+        "purchases": 0
       }
     }
   ],
   "overall_success_factors": [
-    "CTR 1.61% 表現良好，顯示素材吸引力尚可",
-    "CPM $99.83 成本控制得宜",
-    "觸及 29,643 人，曝光基礎充足"
+    "CTR 1.61%尚可，顯示有一定觸及效果"
   ],
   "overall_failure_factors": [
-    "購買數為 0（Meta 追蹤），ROAS 為 0，轉換效果極差",
-    "花費 $6,857 但 Meta 未追蹤到任何購買，疑似追蹤問題或廣告目標設定錯誤",
-    "頻率 2.32 顯示同一受眾已多次看到廣告，可能產生疲乏",
-    "年齡與性別設定過廣，預算分散"
+    "ROAS 0.0，花費$6,857卻無購買轉換",
+    "素材/文案資料缺失，無法完整分析",
+    "缺乏文案支撐可能是低轉換主因"
   ],
   "priority_improvements": [
-    "【緊急】檢查 Meta Pixel 轉換追蹤是否正常，花費 $6,857 卻 0 購買極不合理",
-    "【高優先】縮窄受眾：年齡 25-54、男性、建立 Lookalike",
-    "【中優先】準備新素材輪替，頻率已超過 2.0 警戒線",
-    "【建議】檢視廣告目標是否為「轉換」而非「流量」"
+    "緊急：為此廣告補充完整文案",
+    "檢查素材資料記錄流程",
+    "考慮暫停此廣告並重新規劃"
   ],
   "summary": {
-    "best_performing": "120238488906660142（唯一活躍廣告）",
-    "best_targeting": "120238488906660142（唯一廣告組）",
+    "best_performing_ad": "N/A（僅一則廣告）",
+    "best_roas_ad": "N/A（ROAS為0）",
+    "best_targeting": "N/A",
     "key_insights": [
-      "本週僅投放 1 個廣告組，缺乏 A/B 測試比較基礎",
-      "Meta 購買追蹤為 0，但 Cyberbiz 實際有 8 筆訂單（$5,250），歸因落差嚴重",
-      "MER（營收/花費）為 0.77，即花 $1 回收 $0.77，尚未回本",
-      "fb/paid 流量 322 sessions 但 0 購買；ig/paid 72 sessions 有 2 購買，IG 轉換率較佳"
+      "高花費低轉換警示：$6,857花費0購買，需立即檢視",
+      "缺乏文案可能是轉換瓶頸",
+      "建議暫停此廣告進行優化"
     ],
-    "targeting_insights": [
-      "男性佔 97.8% 花費，女性可直接排除",
-      "35-44 歲貢獻最高花費與點擊，應為核心受眾",
-      "新北市 ROI 待驗證（花費最高但不確定轉換）"
-    ],
-    "next_week_recommendations": [
-      "修復 Meta Pixel 追蹤或檢查 CAPI 設定",
-      "將預算更多分配給 IG 版位（轉換率較佳）",
-      "測試 Lookalike 受眾（加購者來源）",
-      "準備 2-3 組新素材輪替",
-      "考慮縮減單日預算至看到轉換數據正常再擴大"
-    ]
+    "average_scores": {
+      "vision_avg": 0,
+      "copy_avg": 0,
+      "targeting_avg": 5.0
+    },
+    "alert": "⚠️ 此週廣告表現異常，建議緊急檢視"
   }
 }

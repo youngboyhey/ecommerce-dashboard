@@ -1,7 +1,7 @@
 {
   "task_type": "weekly_ai_analysis",
   "report_date": "2026-02-04",
-  "generated_at": "2026-02-12T14:28:13.174145",
+  "generated_at": "2026-02-12T21:47:44.069780",
   "total_ads": 4,
   "creatives": [
     {
@@ -9,13 +9,13 @@
       "adset_id": "120238815887410142",
       "ad_name": "任選3入",
       "carousel_images": [
-        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/617234530_10225764434936412_1240292357482854728_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=ZQME5g6cCYEQ7kNvwGqVqej&_nc_oc=Adk9tAG5BvJ4JlFpm4e8lzIhloetl-bwB9QTVJf-U5-Cfhmi3eODFwrrjSH4YgBYSLc&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=Je2IXMq1q-Z9b5Ux8Uk_-A&_nc_tpa=Q5bMBQG7W_2G4szekRlKavesmizwgKDEkWbDMtsBTGsaZeYWoX-ExlYD-bNX810ddmZ5yj9T-1GkdBN2&oh=00_AfvTkI4RL6R7eLRGrLLbN2JHMYkOg4DJRBIjLRBZH8QZ1A&oe=69933E93",
-        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/624585715_3313259668847501_971725758878149076_n.png?stp=dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=37PZwHFcMX4Q7kNvwEDEjyl&_nc_oc=AdkQzF0zUAj_G8sKVG9Yt6twYW8cF6LXXxRRVW8X8WmasAWiOKLpj5YaAn5Ckz2UA8g&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=Je2IXMq1q-Z9b5Ux8Uk_-A&_nc_tpa=Q5bMBQGj-DYLUAWLgKwoDMelibzhsFd7irHDDt4bmKgZxcWCIw0J0K1-FMfFmpITrwgwqlwuzyH-Zhrm&oh=00_Aft26gCGc96RySNcoSKCHmwz2A1OIuLj1PjIpYD9gDeExg&oe=69934F5C",
-        "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/623798232_3313263742180427_4924796404111572597_n.png?stp=dst-jpg_tt6&_nc_cat=108&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=U_Fg74DenrUQ7kNvwGdrtas&_nc_oc=AdkhILN077AKwo_hHZRhw1YbkjAk15weAJAK5JTEgXuGqVyP5osufp9mDdF1yfUjjWs&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AJcBmwoEAAAA&_nc_gid=Je2IXMq1q-Z9b5Ux8Uk_-A&_nc_tpa=Q5bMBQEqoxICdEBFWFA2SaMjdS9LzsGj072msUKAMw9GSIXINvwKAvayIXfZPz_4Yv_U8YT8UBTVJHoi&oh=00_AfsHPYVVuxEEkVr9XBuupaIuNohuu8cwrYKVb49Q-GglCA&oe=69932F1C",
-        "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/624464030_3313259732180828_6023952234314053527_n.png?stp=dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=qB0u5t4Hi8IQ7kNvwHbt5Kf&_nc_oc=Adm3WIn1WMKnSla9t-KA1t4UbAQ3pNETJV8k9ySgXf7jA4E9l7IRSd35arfJNfcOCDg&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=Je2IXMq1q-Z9b5Ux8Uk_-A&_nc_tpa=Q5bMBQE0vQNjxlP88aoMxMx46Da1bEjN_sNTrz2TF2ebVsVGvWg4FtKgJC2KJZLI9mEjV0oiNclGGafO&oh=00_AfuWadCbMfR_UVrFFNphfnuxumz0ZlVbKnAABovclmHkhw&oe=69933A0E",
-        "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/625080025_3313259718847496_145108713288155366_n.png?stp=dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=iYCjmnz0jYYQ7kNvwGEpCqa&_nc_oc=Adkh7kSWWwAku-52kn5hyFV0X30FWcsgQS1KGp8JH8KJbJQ0eiNFPC3U21gVUI3eIJY&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AJcBmwoEAAAA&_nc_gid=Je2IXMq1q-Z9b5Ux8Uk_-A&_nc_tpa=Q5bMBQH3wovT8kajtvE_PlJUz6SqaVqoZT9HwwNEsUuqH8lgzvK77soJHoFjAdSf6gmkoeJMrmc-XgJS&oh=00_AfswPweTESPba2ADw07S1C-nOFMVigzWufGGpWRlcYpzOw&oe=69934455",
-        "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/622719572_3313256492181152_7252750987003823260_n.png?stp=dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=H3uk8H7p8IAQ7kNvwEItKq8&_nc_oc=AdnUTBbdVQgwaC3dPqqA3NirxwNw7pZCumPX34ZVSpzBDJ7I6DJuJT91A1zi8xQycEY&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=Je2IXMq1q-Z9b5Ux8Uk_-A&_nc_tpa=Q5bMBQFONJv34r4IVxaaNrkoS-1GF-CTeIfR-zTud848fKFX_CHKTh5AkRMjw-oFcLm6gxXu9UzTP15U&oh=00_AftDxgKH9cjJTAaxMkU1max7LbwfBGpnjTvkdENLwucD7w&oe=69935454",
-        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/633338377_3327469234093211_4608661281965582261_n.png?stp=dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=Od_IqKeac0kQ7kNvwFVY3jd&_nc_oc=AdmwDvVLOFhhlFZT_AoX_GpA3Jbo0tRlfZ7erFzgVkiLP8jpP02yS3TgoOCOUSjXvXI&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=Je2IXMq1q-Z9b5Ux8Uk_-A&_nc_tpa=Q5bMBQF3xjjOvE2gCttTsL3_-yY8IID-CwRtvHxHWf1pjfBxYSUMdqTPEz0rZMTrIFUuC4gKwoIiwLrw&oh=00_AfvR8rtqSH4tYd4p_z7Tt4OkJpb3py69D56XwbLORQ6mLA&oe=699346BC"
+        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/617234530_10225764434936412_1240292357482854728_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=ZQME5g6cCYEQ7kNvwGqVqej&_nc_oc=Adk9tAG5BvJ4JlFpm4e8lzIhloetl-bwB9QTVJf-U5-Cfhmi3eODFwrrjSH4YgBYSLc&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=Z0K-HkwWL3FVNVh_1o_BLA&_nc_tpa=Q5bMBQEfNO66WqEJAvS_SmoIfYUIzePlsAwi1kUbGRY1oth5dM-5MhsSZeHVCA9fFRnQMKku9inl4VEX&oh=00_AfsqT_n8GinpupHHCz-1pRjxOZe3IsDjUOQAshhBt7RT5g&oe=6993AF13",
+        "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/623798232_3313263742180427_4924796404111572597_n.png?stp=dst-jpg_tt6&_nc_cat=108&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=U_Fg74DenrUQ7kNvwGdrtas&_nc_oc=AdkhILN077AKwo_hHZRhw1YbkjAk15weAJAK5JTEgXuGqVyP5osufp9mDdF1yfUjjWs&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AJcBmwoEAAAA&_nc_gid=Z0K-HkwWL3FVNVh_1o_BLA&_nc_tpa=Q5bMBQE6hvR_nK5l69WRfFa0sSRs2pelhQ9dteW37T6giQsPh_zy48KK4hBC5elNcEk7sTl3FxBm2I-X&oh=00_AfuXksyX_dYdoTT0F50XquuXGcfvg79jYM6SLvtOKPz5Qw&oe=69939F9C",
+        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/624585715_3313259668847501_971725758878149076_n.png?stp=dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=37PZwHFcMX4Q7kNvwEDEjyl&_nc_oc=AdkQzF0zUAj_G8sKVG9Yt6twYW8cF6LXXxRRVW8X8WmasAWiOKLpj5YaAn5Ckz2UA8g&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=Z0K-HkwWL3FVNVh_1o_BLA&_nc_tpa=Q5bMBQEHWqYi2ngfN5wKG7RYtMSZbFoaLGtnTA80cTJk9fZjE1vMwcI4MJrozrldE-kLfDNDhDl7lmxr&oh=00_AftJsPCq13BkP4vxbd5peIvR15oRs5xAt4FZoiwtoRPMAQ&oe=6993BFDC",
+        "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/624464030_3313259732180828_6023952234314053527_n.png?stp=dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=qB0u5t4Hi8IQ7kNvwHbt5Kf&_nc_oc=Adm3WIn1WMKnSla9t-KA1t4UbAQ3pNETJV8k9ySgXf7jA4E9l7IRSd35arfJNfcOCDg&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=Z0K-HkwWL3FVNVh_1o_BLA&_nc_tpa=Q5bMBQF0rah3IUQkoPLQhyOMoD2rxZoISMs0DnSDXkkfwl62uJ1gkeQVlM50byHQiaWholwpmvRJQVeF&oh=00_Afu2TbVYfaChD3j5TfstSloWMZ11_aBHkG5dOdxTjC0jAQ&oe=6993AA8E",
+        "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/625080025_3313259718847496_145108713288155366_n.png?stp=dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=iYCjmnz0jYYQ7kNvwGEpCqa&_nc_oc=Adkh7kSWWwAku-52kn5hyFV0X30FWcsgQS1KGp8JH8KJbJQ0eiNFPC3U21gVUI3eIJY&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AJcBmwoEAAAA&_nc_gid=Z0K-HkwWL3FVNVh_1o_BLA&_nc_tpa=Q5bMBQF1lSp0L9TI2j9O7Dq-vvp4HOe9ROxFFwd1b5buBWuaHZJ1k6D_Vy0qxY8iq8M6gojIyLLXabK6&oh=00_AfsyQKCjdRRueNjBt-58a1-M4i3YdbGNPs8z6Q4T2cklOQ&oe=6993B4D5",
+        "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/622719572_3313256492181152_7252750987003823260_n.png?stp=dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=H3uk8H7p8IAQ7kNvwEItKq8&_nc_oc=AdnUTBbdVQgwaC3dPqqA3NirxwNw7pZCumPX34ZVSpzBDJ7I6DJuJT91A1zi8xQycEY&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=Z0K-HkwWL3FVNVh_1o_BLA&_nc_tpa=Q5bMBQFLB1Jae6TftPNJneLHWuChOok33hCLEtHR7vxhVjh8L7nVs8qjCqrXGe9jq52gd7dvlJplmlzn&oh=00_AfvT3S19puvesOb_oS0xQtTpt2CQuLCIinPzlpkqA4THEg&oe=6993C4D4",
+        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/633338377_3327469234093211_4608661281965582261_n.png?stp=dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=Od_IqKeac0kQ7kNvwFVY3jd&_nc_oc=AdmwDvVLOFhhlFZT_AoX_GpA3Jbo0tRlfZ7erFzgVkiLP8jpP02yS3TgoOCOUSjXvXI&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=Z0K-HkwWL3FVNVh_1o_BLA&_nc_tpa=Q5bMBQGwqZ1tLm9wHz4DuAIS-sHf16sFIS1ygDtOFIW9IZpnsjEEu5pI1yYdKpJMyl98rG_o4hAVybS1&oh=00_Afs9OiqncdbPlIRo8X6INJQ2zZWD18v5td8a0DkRaPLrtQ&oe=6993B73C"
       ],
       "image_count": 7,
       "is_carousel": true,
@@ -28,20 +28,55 @@
         "impressions": 23633,
         "cpm": 124.57
       },
-      "copy": "車內異味讓你好困擾😥\n快來試試\nLIQUI MOLY 車用香氛磚\n\n細膩不刺鼻，輕香不打擾\n讓每一次呼吸都很舒服🌿\n\n✅30天持久留香\n✅轉彎，依然從容\n✅德國原廠固體香氛磚\n\n六種調香： 🔹 海洋 Ocean｜🔹 櫻桃 Cherry \n🔹 香草 Vanilla｜🔹 新車 New Car\n🔹泡泡糖 Berry bubblegum\n🔹熱帶浴 Tropical shower\n\n高品質香氛\n讓您放鬆啟程☀️\n🛒嘗鮮優惠3入組：https://www.carmall.com.tw/products/air-freshener-3pack",
-      "targeting": null
+      "copy": "車內異味讓你好困擾😥\n快來試試  \nLIQUI MOLY 車用香氛磚\n立即擁有🔗https://reurl.cc/Eb3A0m\n\n細膩不刺鼻，輕香不打擾\n讓每一次呼吸都很舒服🌿\n\n✅30天持久留香\n✅轉彎，依然從容\n✅德國原廠固體香氛磚\n\n六種調香： 🔹 海洋 Ocean｜🔹 櫻桃 Cherry \n🔹 香草 Vanilla｜🔹 新車 New Car\n🔹泡泡糖 Berry bubblegum\n🔹熱帶浴 Tropical shower\n\n高品質香氛\n讓您放鬆啟程☀️\n🛒嘗鮮優惠3入組：https://www.carmall.com.tw/products/air-freshener-3pack",
+      "targeting": {
+        "age_range": "18+",
+        "genders": [
+          "不限"
+        ],
+        "locations": [
+          "台灣"
+        ],
+        "interests": [
+          "汽車維修廠（交通工具）",
+          "汽車美容（交通工具）",
+          "車輛（交通運輸）",
+          "汽車（交通工具）",
+          "汽車經銷（零售業者）",
+          "家用車 (汽車)",
+          "休旅車（交通工具）",
+          "汽車業（產業）",
+          "網路購物（零售）",
+          "洗車 (汽車零件和服務)",
+          "汽車保養（交通工具）",
+          "轎車（汽車）",
+          "都會車 (汽車)",
+          "促銷（行銷）",
+          "駕駛（交通工具）",
+          "汽車（交通工具）",
+          "高爾夫球（體育運動）",
+          "豪華轎車（交通工具）",
+          "Engaged Shoppers",
+          "Interested in Upcoming Events",
+          "露營（戶外活動）"
+        ],
+        "custom_audiences": [
+          "60天內/看過內容",
+          "類似廣告受眾 (TW, 3%) - CYBERBIZ-FBEMeta 像素 - Website using AddToCart"
+        ]
+      }
     },
     {
       "ad_id": "120238855887160142",
       "adset_id": "120238855887150142",
       "ad_name": "260130_LM芳香磚廣告(J)_龍蝦優化標題版",
       "carousel_images": [
-        "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/625004734_10225869973694815_361282308505806340_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=crb9gOufgbIQ7kNvwEFeaL0&_nc_oc=AdkPu2XCx8O83P9VFrjDtaenokGZJ4AkljQbgOmhj0NF2KDha6rsMgnLwZS-Hv9NHRk&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=Je2IXMq1q-Z9b5Ux8Uk_-A&_nc_tpa=Q5bMBQEtSg-z64hYbu4IVQlnKHuy2YgneOv1Q02NHXJcebbOobSr3Tmtpoqdpf7CE2Z-HqWmK5VcRkrI&oh=00_AfskXoK3uelmhSryz_QnyrUZ6LNsIHpzmE71tazJOqRf3w&oe=6993459D",
-        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/624550097_10225869997655414_4391765911216872472_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=3F6hH4t2fN4Q7kNvwEbG0_D&_nc_oc=AdkMOcg6_wAX9qU2bvy9FE5BMykjrrAmZWWFVPHPSZXFsrwA3Roal0JFSMvA1_pIOkI&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=Je2IXMq1q-Z9b5Ux8Uk_-A&_nc_tpa=Q5bMBQFYEd5ygjEftXLBT6ZzZslzuLsu1R2ZTL-FlE36U_iZwQtRXLdXXlDwcZOuIPUdtGbVMu2gRlen&oh=00_AfvdefhbPAyje-COZ0JicJSIzyjC3d1IAd3zRwoz2Es77w&oe=69935A4B",
-        "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/622569679_10225869998655439_6037381665563382132_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=Vk4NfNfETWAQ7kNvwGx5rKS&_nc_oc=AdldXPjIUTobZ1551k_LxL3e9ShDc5VHm4fE7uv7IryX7mcs-GVQqTLhiy8TVWR4rWc&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=Je2IXMq1q-Z9b5Ux8Uk_-A&_nc_tpa=Q5bMBQHqbDjAQBoJirFZgcV9y32xvUUx7Heu83az4aEG5LPlIlHAhR4g30hkATsraXQUVSd92AMd8tsq&oh=00_Afv34PBioF8wmy7my-P9zXQMKVDPx8Er_EqN-1fWx6pdHw&oe=6993472A",
-        "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/625004745_10225869999735466_5698897275973365012_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=sbjad3M2opcQ7kNvwH5xaoo&_nc_oc=AdkiUviSb2Hc3WhOYBhXy3cp38CrQ2GnN8gbz_8owSluwa_E0L2x4X-ctqgBPQD8mVM&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=Je2IXMq1q-Z9b5Ux8Uk_-A&_nc_tpa=Q5bMBQGJh7-AKFnfGlsYlwtYqZBP55ygTpTiQzVundEMroLj2EOYCZcCXxW9uK7susBBYSvrLDztdYdz&oh=00_AfsnhSiEgpD34DB23HwwZYHeVCNHE2H10eRRd6TFGDAqSA&oe=69935AC5",
-        "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/625363390_10225870000495485_8606450010034294557_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=VuTRlEMRlIgQ7kNvwH1AgIv&_nc_oc=Adlf4PqgRYadGlCb77xb5AuStpGI9B3A5_shxoAojfwN8SwVTLN-OsvAB9cMQRhTSJA&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=Je2IXMq1q-Z9b5Ux8Uk_-A&_nc_tpa=Q5bMBQHXpjnxn-4gEib8KmivwE0KcpAF4gb2H-qgWMfAFgMY_DO5R-KmKnP5ykMAUxkHAod4TR2tlZsd&oh=00_Afu6nzgvhrceURwR6wu3Ss1RZvlnp0o4MB1OKLAOvqtEZA&oe=69935CDA",
-        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/625088748_10225870001375507_3709200890756287490_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=3RuzJqxdGfgQ7kNvwHVV37n&_nc_oc=Adm1a6F_QKbYrrJyHYm_oUjefbfhsjr0UWhwp9wRJdF-l294IxO9vDYDoKD88vBOJ4A&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=Je2IXMq1q-Z9b5Ux8Uk_-A&_nc_tpa=Q5bMBQFW1h1fOBXn6IOD4qBZEZe0htbjGaTOxA7xkzmotr-juCN7FM9gfgTlf9qnpr4624EwN4YnH-9w&oh=00_AfsZYQzDgfjDw0HSs7Ftd_2MyAO3eOnzmDOwhkI0edDS8g&oe=699339A7"
+        "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/625004734_10225869973694815_361282308505806340_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=crb9gOufgbIQ7kNvwEFeaL0&_nc_oc=AdkPu2XCx8O83P9VFrjDtaenokGZJ4AkljQbgOmhj0NF2KDha6rsMgnLwZS-Hv9NHRk&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=Z0K-HkwWL3FVNVh_1o_BLA&_nc_tpa=Q5bMBQGmy-8iLql0fG8YwDrF3ZbidKKXGY8kjVg4oM0wSKYkRjhcllCBKVZlaPk6WzfUvP5kKlzCvjcE&oh=00_Afu2pDfuqqlGIYn4gPxkK0btRS5hlRWam_W-4NGZJXXomw&oe=6993B61D",
+        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/624550097_10225869997655414_4391765911216872472_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=3F6hH4t2fN4Q7kNvwEbG0_D&_nc_oc=AdkMOcg6_wAX9qU2bvy9FE5BMykjrrAmZWWFVPHPSZXFsrwA3Roal0JFSMvA1_pIOkI&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=Z0K-HkwWL3FVNVh_1o_BLA&_nc_tpa=Q5bMBQEUaUV2BPC78tG1Jy_uiXOzsXMFvBiqsyu_1VVDpoXx-ajTIty37pCBgzo1oJE-vv9gTAgpXKf3&oh=00_Afv0QXbhvh2CwP3iJtFRYHgKy3NEOJAv-hbv_uxhqdt-zA&oe=6993928B",
+        "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/622569679_10225869998655439_6037381665563382132_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=Vk4NfNfETWAQ7kNvwGx5rKS&_nc_oc=AdldXPjIUTobZ1551k_LxL3e9ShDc5VHm4fE7uv7IryX7mcs-GVQqTLhiy8TVWR4rWc&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=Z0K-HkwWL3FVNVh_1o_BLA&_nc_tpa=Q5bMBQGTnjAJwMp3YatAsLSqOd7HlrOgbBC-hNXXMF_qm2cHkTLqK7sbylH7i5gd8Q1TzxLq-Afcfglu&oh=00_AfsPop34NflGeEVNuwNhl3sJ9nNxudDcPy4R2QmGjSTsvA&oe=6993B7AA",
+        "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/625004745_10225869999735466_5698897275973365012_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=sbjad3M2opcQ7kNvwH5xaoo&_nc_oc=AdkiUviSb2Hc3WhOYBhXy3cp38CrQ2GnN8gbz_8owSluwa_E0L2x4X-ctqgBPQD8mVM&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=Z0K-HkwWL3FVNVh_1o_BLA&_nc_tpa=Q5bMBQF3AmZOKY0y--KYJtuLPGDAHLLBMgi5YNNysstpeW5sJ5DPl80l8HTc8sHwf8wflk6-X6kLw3sO&oh=00_AfspL99M-HUCIqj4RpPY54zKKse-8AcsiemNimQFuYIgWg&oe=69939305",
+        "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/625363390_10225870000495485_8606450010034294557_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=VuTRlEMRlIgQ7kNvwH1AgIv&_nc_oc=Adlf4PqgRYadGlCb77xb5AuStpGI9B3A5_shxoAojfwN8SwVTLN-OsvAB9cMQRhTSJA&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=Z0K-HkwWL3FVNVh_1o_BLA&_nc_tpa=Q5bMBQFpUJtBM1fs9e03zsufZ6DPEotLxumZTomcSr32AjXOrjJxfarIlqJuUKjWP0U4YPJSnU9OWTRf&oh=00_AfuxewRz5Y7d9F9OuOfddhlObFnc32hS9pEyYiKgduwQrA&oe=6993951A",
+        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/625088748_10225870001375507_3709200890756287490_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=3RuzJqxdGfgQ7kNvwHVV37n&_nc_oc=Adm1a6F_QKbYrrJyHYm_oUjefbfhsjr0UWhwp9wRJdF-l294IxO9vDYDoKD88vBOJ4A&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=Z0K-HkwWL3FVNVh_1o_BLA&_nc_tpa=Q5bMBQHx2UySRTxLD4tpZ1TOHitMo_OcIrT5ehLFUe9d-jkzzg3JgA2npWQg4vJjqNRw4kdZX22HBFqI&oh=00_Afse4yFDF54b9hBETT9sIA7uKWpRycck_ZXO6TyEWQwNxw&oe=6993AA27"
       ],
       "image_count": 6,
       "is_carousel": true,
@@ -55,14 +90,44 @@
         "cpm": 126.62
       },
       "copy": "說真的，車內質感80%來自氣味🤓\n\n✅ 來自德國力魔：品質保證，拒絕劣質香精味\n✅ 固體香氛技術：不含酒精、絕不洩漏\n✅ 1 秒安裝：通用型出風口夾，隨插即用\n✅ 長效留香：氣味持久30天，展現優雅品味\n\n✨LIQUI MOLY 車用香氛磚系列：\n🆕 新車清香 New Car\n🌊 海洋 Ocean\n🍒 櫻桃 Cherry\n🍦 香草 Vanilla\n🍬 泡泡糖 Berry Bubblegum\n🚿 熱帶浴 Tropical Shower\n\n推薦大家試試「3入任選優惠」，印象直接加爆\n🛒 立即升級你的愛車： https://reurl.cc/R9bN7G\n\n#LIQUIMOLY #德國製造 #車用香氛 #香氛磚 #車魔商城 #質感生活 #總代理宜福工業 #愛車日常",
-      "targeting": null
+      "targeting": {
+        "age_range": "18+",
+        "genders": [
+          "不限"
+        ],
+        "locations": [
+          "台灣"
+        ],
+        "interests": [
+          "汽車維修廠（交通工具）",
+          "汽車美容（交通工具）",
+          "車輛（交通運輸）",
+          "汽車（交通工具）",
+          "購物（零售）",
+          "休旅車（交通工具）",
+          "網路購物（零售）",
+          "洗車 (汽車零件和服務)",
+          "汽車保養（交通工具）",
+          "轎車（汽車）",
+          "駕駛（交通工具）",
+          "汽車（交通工具）",
+          "豪華轎車（交通工具）",
+          "Engaged Shoppers"
+        ],
+        "custom_audiences": [
+          "類似廣告受眾 (TW, 1%) - CYBERBIZ-FBEMeta 像素 - Website using AddToCart"
+        ],
+        "excluded_audiences": [
+          "60天購買過"
+        ]
+      }
     },
     {
       "ad_id": "120238833956440142",
       "adset_id": "120238488906660142",
       "ad_name": "260130_LM芳香磚廣告_互動目標",
       "carousel_images": [
-        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/623752634_10225856068667198_5643539378511753849_n.jpg?_nc_cat=100&ccb=1-7&_nc_ohc=6WAlusrAAM8Q7kNvwHRch74&_nc_oc=AdmSylQsyvHG4fQeyzXQEZ8UvMDa-DuNSEENAhAFV1pguO1RJ88yR2XanQQFZ86jcYM&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=oVXQSM_egonpq1bevJaowA&_nc_tpa=Q5bMBQHwSuB9S-FdizoTSWnS7TyVGljkPYndLURGWHlTgbf4EfregpK3fd93v2OYLj8AAG9OlhNczg-L&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=52f3c4&_nc_sid=58080a&oh=00_AftTQWckC-vqJCP6njf2wElJW4BTeZmWHMixLvXT0geOAQ&oe=69935880"
+        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/623752634_10225856068667198_5643539378511753849_n.jpg?_nc_cat=100&ccb=1-7&_nc_ohc=6WAlusrAAM8Q7kNvwHRch74&_nc_oc=AdmSylQsyvHG4fQeyzXQEZ8UvMDa-DuNSEENAhAFV1pguO1RJ88yR2XanQQFZ86jcYM&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=S0290QjyqLZ_grHyIg19aA&_nc_tpa=Q5bMBQEQJ12TomdGkOB2s7O97V8ncbLHmdO5scZQBrCaa7i4zNaq57xZx68WqpCvx--VxqoJ5u_fTaTg&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=52f3c4&_nc_sid=58080a&oh=00_AftMfytxnFo4v8hGaYkdmICgShmLkxzUfZg79YJfboe8dQ&oe=699390C0"
       ],
       "image_count": 1,
       "is_carousel": false,
@@ -76,14 +141,39 @@
         "cpm": 114.55
       },
       "copy": "",
-      "targeting": null
+      "targeting": {
+        "age_range": "18+",
+        "genders": [
+          "不限"
+        ],
+        "locations": [
+          "台灣"
+        ],
+        "interests": [
+          "購物（零售）",
+          "網路購物（零售）",
+          "Engaged Shoppers",
+          "汽車美容（交通工具）",
+          "計程車司機",
+          "車輛（交通運輸）",
+          "汽車（交通工具）",
+          "出租車",
+          "休旅車（交通工具）",
+          "洗車 (汽車零件和服務)",
+          "汽車保養（交通工具）",
+          "轎車（汽車）",
+          "駕駛（交通工具）",
+          "豪華轎車（交通工具）"
+        ],
+        "custom_audiences": []
+      }
     },
     {
       "ad_id": "120238833956440142",
       "adset_id": "120238833956450142",
       "ad_name": "260130_LM芳香磚廣告_互動目標",
       "carousel_images": [
-        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/623752634_10225856068667198_5643539378511753849_n.jpg?_nc_cat=100&ccb=1-7&_nc_ohc=6WAlusrAAM8Q7kNvwHRch74&_nc_oc=AdmSylQsyvHG4fQeyzXQEZ8UvMDa-DuNSEENAhAFV1pguO1RJ88yR2XanQQFZ86jcYM&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=oVXQSM_egonpq1bevJaowA&_nc_tpa=Q5bMBQHwSuB9S-FdizoTSWnS7TyVGljkPYndLURGWHlTgbf4EfregpK3fd93v2OYLj8AAG9OlhNczg-L&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=52f3c4&_nc_sid=58080a&oh=00_AftTQWckC-vqJCP6njf2wElJW4BTeZmWHMixLvXT0geOAQ&oe=69935880"
+        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/623752634_10225856068667198_5643539378511753849_n.jpg?_nc_cat=100&ccb=1-7&_nc_ohc=6WAlusrAAM8Q7kNvwHRch74&_nc_oc=AdmSylQsyvHG4fQeyzXQEZ8UvMDa-DuNSEENAhAFV1pguO1RJ88yR2XanQQFZ86jcYM&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=S0290QjyqLZ_grHyIg19aA&_nc_tpa=Q5bMBQEQJ12TomdGkOB2s7O97V8ncbLHmdO5scZQBrCaa7i4zNaq57xZx68WqpCvx--VxqoJ5u_fTaTg&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=52f3c4&_nc_sid=58080a&oh=00_AftMfytxnFo4v8hGaYkdmICgShmLkxzUfZg79YJfboe8dQ&oe=699390C0"
       ],
       "image_count": 1,
       "is_carousel": false,
@@ -97,7 +187,37 @@
         "cpm": 70.07
       },
       "copy": "",
-      "targeting": null
+      "targeting": {
+        "age_range": "18+",
+        "genders": [
+          "不限"
+        ],
+        "locations": [
+          "台灣"
+        ],
+        "interests": [
+          "汽車維修廠（交通工具）",
+          "汽車美容（交通工具）",
+          "車輛（交通運輸）",
+          "汽車（交通工具）",
+          "購物（零售）",
+          "休旅車（交通工具）",
+          "網路購物（零售）",
+          "洗車 (汽車零件和服務)",
+          "汽車保養（交通工具）",
+          "轎車（汽車）",
+          "駕駛（交通工具）",
+          "汽車（交通工具）",
+          "豪華轎車（交通工具）",
+          "Engaged Shoppers"
+        ],
+        "custom_audiences": [
+          "類似廣告受眾 (TW, 1%) - CYBERBIZ-FBEMeta 像素 - Website using AddToCart"
+        ],
+        "excluded_audiences": [
+          "60天購買過"
+        ]
+      }
     }
   ],
   "analysis_instructions": "\n請分析以下廣告的視覺元素、文案和受眾設定。\n\n## 重要：每個廣告可能包含多張輪播圖\n- 請將同一廣告的所有輪播圖「綜合分析」\n- 不要把每張圖當成獨立素材\n\n## 分析要求\n\n1. **視覺分析**（針對輪播組合整體，需詳細評估）：\n   - 整體構圖和視覺流動（評分 1-10）\n   - 色彩搭配的和諧度（主色調、對比、品牌一致性）\n   - 吸引力評分（1-10）：第一眼吸睛程度\n   - 文字排版和易讀性\n   - 產品展示方式\n   - 輪播圖之間的關聯性和故事性\n   - 視覺成功因素（為什麼有效）\n   - 視覺待改善項目（哪些地方可以更好）\n   - 視覺優化建議（具體改進方向）\n\n2. **文案分析**（需詳細評估）：\n   - 語調和風格：專業、親切、幽默、急迫感...\n   - 情感觸發點：FOMO、社會認同、獨特性、稀缺性...\n   - CTA 有效性：\n     * 是否明確告知下一步行動\n     * 用詞是否有動力（立即、限時、免費...）\n     * 是否減少購買阻力\n   - CTA 評分 (1-10)：根據明確性和動力評分\n   - 整體評分 (1-10)：根據清晰度、說服力、行動呼籲強度綜合評分\n   - 文案成功因素（為什麼這個文案有效）\n   - 文案待改善項目（哪些地方可以更好）\n   - 文案優化建議（具體改寫方向或範例）\n\n3. **受眾分析**（分析 targeting 設定）：\n   - 年齡範圍是否合適（太廣或太窄）\n   - 性別設定是否合理\n   - 地區設定是否精準\n   - 興趣標籤的相關性和精準度\n   - 自訂受眾/類似受眾的品質評估\n   - 受眾與產品/文案的匹配度\n   \n   評估標準：\n   - 興趣標籤數量：5-15 個最佳，超過 20 個可能過於分散\n   - Lookalike 受眾：檢查來源品質（加入購物車 > 瀏覽內容）\n   - 年齡範圍：過廣（18+）可能浪費預算，建議根據產品屬性縮窄\n\n4. **成效歸因**：結合成效數據（CTR、ROAS、購買數）和受眾設定，判斷：\n   - 跨維度成功因素（視覺+文案+受眾的綜合優勢）\n   - 跨維度失敗因素（哪些維度拖累整體表現）\n   - 優先改善建議（最能提升成效的優化方向）\n\n請以結構化方式輸出分析結果。\n",

@@ -1,203 +1,243 @@
 {
-  "task_id": "2026-02-12T14:27:11.149842",
+  "task_type": "weekly_ai_analysis",
   "report_date": "2026-01-21",
-  "analyzed_at": null,
-  "ad_creatives": [
+  "analyzed_at": "2026-02-12T21:48:00.000000",
+  "total_creatives_analyzed": 4,
+  "total_copies_analyzed": 3,
+  "ads_analysis": [
     {
-      "creative_id": "120238333981640142",
       "ad_id": "120238333981640142",
+      "adset_id": "120238488906660142",
       "ad_name": "260114_LM輪框清潔劑",
-      "image_url": "",
-      "carousel_images": [
-        "https://scontent.ftpe7-3.fna.fbcdn.net/v/t15.5256-10/612600736_767862319665364_7139074103934591257_n.jpg?_nc_cat=103&ccb=1-7&_nc_ohc=xRNnPWkfSRwQ7kNvwFxtcUY&_nc_oc=AdnjsInig_-SjuGRplDV2o2thuepRX0hlGZFdj_36JOFyD_Cffr3IRum_EC64T2MeoA&_nc_zt=23&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQHivGMuqeFX-lm57c9JwCO3w-OY_0mTLiDd_v_zgRC2E1np2VlA4w7LkSe5nc12kP3w8OQw2Lhv&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=d2b52d&_nc_sid=58080a&oh=00_AftHr9TlkEFDGunfP5_cbPClionvZJvYa0kpu2mxbyt7KQ&oe=69934CC9"
-      ],
-      "is_carousel": false,
-      "spend": 2180.0,
-      "impressions": 24009,
-      "clicks": 674,
-      "purchases": 5,
-      "ctr": 2.81,
-      "roas": 1.69,
-      "ai_analysis": {
-        "composition_score": null,
-        "brand_consistency": null,
-        "attractiveness_score": null,
-        "cta_effectiveness": null,
-        "color_scheme": [],
-        "strengths": [],
-        "weaknesses": [],
-        "improvement_suggestions": []
+      "vision_analysis": {
+        "composition": "採用垂直式構圖，從上到下依序為：標題文字→產品主體→底部輔助文案。產品佔據畫面中下方核心位置約40-50%，使用深色/黑色背景突出產品",
+        "composition_score": 7,
+        "color_scheme": ["黑色", "藍色", "黃色/金色", "白色"],
+        "color_harmony": "黑底配黃字、藍色產品的搭配形成高對比度，視覺衝擊力強",
+        "brand_consistency": "藍色產品配合LIQUI MOLY品牌調性，專業感強",
+        "attractiveness_score": 7,
+        "text_detected": "輪框清潔劑評選冠軍相關文字",
+        "text_readability": "白色/黃色文字在深色背景上清晰可讀",
+        "visual_elements": ["噴瓶產品實拍", "噴射動態效果", "深色專業背景"],
+        "product_presentation": "產品正在噴射的動態展示，傳達功效感",
+        "emotion_appeal": "專業、高端、科技感",
+        "success_factors": ["高對比度配色吸引注意", "動態產品展示傳達功效", "專業深色調建立信任感"],
+        "failure_factors": ["圖片解析度可能不足", "缺乏使用前後對比"],
+        "improvement_suggestions": ["加入輪框清潔前後對比圖", "增加產品使用場景", "提升圖片解析度"]
+      },
+      "copy_analysis": {
+        "tone": "專業",
+        "emotional_triggers": ["權威認證（德國雜誌冠軍）", "功效保證", "德國品質"],
+        "call_to_action": "手刀購買👉 https://www.carmall.com.tw/products/rim-cleaner",
+        "cta_effectiveness": "CTA 明確但用詞較傳統，「手刀購買」有急迫感但缺乏優惠誘因",
+        "cta_score": 6,
+        "overall_score": 7,
+        "strengths": ["權威背書（Auto Bild 冠軍）", "功效清單明確（✅清單）", "價格透明（$1,200元）"],
+        "weaknesses": ["文案較長可能降低閱讀率", "缺乏限時優惠或稀缺性", "hashtag過多"],
+        "suggested_improvements": ["加入限時優惠增加急迫感", "精簡文案重點", "減少hashtag數量"]
+      },
+      "targeting_analysis": {
+        "age_assessment": "18+過於廣泛，建議縮窄至25-54歲（主要車主年齡層）",
+        "gender_assessment": "不限性別合理，汽車保養男性為主但不排斥女性",
+        "location_assessment": "台灣全區合理",
+        "interests_assessment": "14個興趣標籤數量適中，涵蓋汽車相關興趣精準",
+        "custom_audience_assessment": "無自訂受眾，建議加入購買過相關產品的受眾",
+        "audience_product_fit": "受眾與輪框清潔劑產品匹配度高",
+        "strengths": ["興趣標籤涵蓋汽車保養相關", "包含Engaged Shoppers"],
+        "weaknesses": ["年齡範圍過廣", "缺乏自訂受眾"],
+        "suggestions": ["縮窄年齡至25-54歲", "加入Lookalike受眾", "排除已購買客戶"],
+        "score": 6
+      },
+      "metrics_summary": {
+        "ctr": 2.81,
+        "cvr": 0.74,
+        "roas": 1.69,
+        "spend": 2180.0,
+        "purchases": 5
       }
     },
     {
-      "creative_id": "120238362679490142",
       "ad_id": "120238362679490142",
+      "adset_id": "120238362679500142",
       "ad_name": "260115_LM香氛磚_Reels",
-      "image_url": "",
-      "carousel_images": [
-        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t15.5256-10/615771046_1622467739108597_1842445640742317133_n.jpg?_nc_cat=106&ccb=1-7&_nc_ohc=yyps6S1cQwcQ7kNvwGTOzvR&_nc_oc=Adls-rBgkv0NQ_Bz2WC96eEMVfBm_4Pe94-Kd74vvlsHuJwpLHDqezFrnhqOIO1bb88&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQGK5KBu862oVjap9QnjkCUYzG_yAfRD0iv8i7BcERVAkM0AipTaQnP1lqwQdVG1ze1-gyot3lII&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=b696e2&_nc_sid=58080a&oh=00_AfuLWZgT01eP9Cv5CdQzCAcf0zOx0qUnAJZoEI2_1jnMnw&oe=69934B0F"
-      ],
-      "is_carousel": false,
-      "spend": 1906.0,
-      "impressions": 14877,
-      "clicks": 211,
-      "purchases": 5,
-      "ctr": 1.42,
-      "roas": 1.72,
-      "ai_analysis": {
-        "composition_score": null,
-        "brand_consistency": null,
-        "attractiveness_score": null,
-        "cta_effectiveness": null,
-        "color_scheme": [],
+      "vision_analysis": {
+        "composition": "深色調數位廣告，採用左文右圖或文字疊加在背景上的構圖方式，重心集中在畫面中央偏下方",
+        "composition_score": 6,
+        "color_scheme": ["深色/黑色", "黃色/金色", "白色"],
+        "color_harmony": "黑+金+白的經典商務配色，傳達高端、專業形象",
+        "brand_consistency": "延續LIQUI MOLY專業品牌調性",
+        "attractiveness_score": 6,
+        "text_detected": "品牌標識可見",
+        "text_readability": "白色文字在深色背景上對比強烈",
+        "visual_elements": ["背景紋理", "品牌Logo", "文字標語"],
+        "product_presentation": "概念式/服務導向呈現，未直接展示產品實物",
+        "emotion_appeal": "商務、專業、可信賴",
+        "success_factors": ["高對比配色確保可讀性", "簡潔不雜亂"],
+        "failure_factors": ["產品實物展示不足", "視覺吸引力較弱"],
+        "improvement_suggestions": ["加入產品實物特寫", "增加使用情境", "提升視覺豐富度"]
+      },
+      "copy_analysis": {
+        "tone": "無文案（Reels影片）",
+        "emotional_triggers": [],
+        "call_to_action": "無",
+        "cta_effectiveness": "無文案，完全依賴影片內容",
+        "cta_score": 0,
+        "overall_score": 0,
         "strengths": [],
-        "weaknesses": [],
-        "improvement_suggestions": []
+        "weaknesses": ["缺乏文案支撐", "無法透過文字傳達產品價值"],
+        "suggested_improvements": ["補充簡短吸睛文案", "加入產品特點說明"]
+      },
+      "targeting_analysis": {
+        "age_assessment": "18+過於廣泛",
+        "gender_assessment": "不限性別合理",
+        "location_assessment": "台灣全區合理",
+        "interests_assessment": "18個興趣標籤略多，包含優惠券相關興趣有助轉換",
+        "custom_audience_assessment": "無自訂受眾",
+        "audience_product_fit": "受眾匹配度中等",
+        "strengths": ["包含優惠券/折扣相關興趣", "涵蓋購物行為標籤"],
+        "weaknesses": ["興趣標籤略多可能分散", "年齡過廣"],
+        "suggestions": ["精簡興趣標籤至10-15個", "加入自訂受眾"],
+        "score": 5
+      },
+      "metrics_summary": {
+        "ctr": 1.42,
+        "cvr": 2.37,
+        "roas": 1.72,
+        "spend": 1906.0,
+        "purchases": 5
       }
     },
     {
-      "creative_id": "120238333981640142",
       "ad_id": "120238333981640142",
-      "ad_name": "260114_LM輪框清潔劑",
-      "image_url": "",
-      "carousel_images": [
-        "https://scontent.ftpe7-3.fna.fbcdn.net/v/t15.5256-10/612600736_767862319665364_7139074103934591257_n.jpg?_nc_cat=103&ccb=1-7&_nc_ohc=xRNnPWkfSRwQ7kNvwFxtcUY&_nc_oc=AdnjsInig_-SjuGRplDV2o2thuepRX0hlGZFdj_36JOFyD_Cffr3IRum_EC64T2MeoA&_nc_zt=23&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQHivGMuqeFX-lm57c9JwCO3w-OY_0mTLiDd_v_zgRC2E1np2VlA4w7LkSe5nc12kP3w8OQw2Lhv&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=d2b52d&_nc_sid=58080a&oh=00_AftHr9TlkEFDGunfP5_cbPClionvZJvYa0kpu2mxbyt7KQ&oe=69934CC9"
-      ],
-      "is_carousel": false,
-      "spend": 1889.0,
-      "impressions": 20036,
-      "clicks": 689,
-      "purchases": 2,
-      "ctr": 3.44,
-      "roas": 1.34,
-      "ai_analysis": {
-        "composition_score": null,
-        "brand_consistency": null,
-        "attractiveness_score": null,
-        "cta_effectiveness": null,
-        "color_scheme": [],
-        "strengths": [],
-        "weaknesses": [],
-        "improvement_suggestions": []
+      "adset_id": "120238333981650142",
+      "ad_name": "260114_LM輪框清潔劑（受眾B）",
+      "vision_analysis": {
+        "composition": "同上（與第一則使用相同素材）",
+        "composition_score": 7,
+        "color_scheme": ["黑色", "藍色", "黃色/金色", "白色"],
+        "color_harmony": "高對比度配色",
+        "brand_consistency": "一致",
+        "attractiveness_score": 7,
+        "text_detected": "輪框清潔劑相關",
+        "text_readability": "良好",
+        "visual_elements": ["噴瓶產品", "動態噴射效果"],
+        "product_presentation": "動態展示",
+        "emotion_appeal": "專業、高端",
+        "success_factors": ["同第一則分析"],
+        "failure_factors": ["同第一則分析"],
+        "improvement_suggestions": ["同第一則分析"]
+      },
+      "copy_analysis": {
+        "tone": "專業",
+        "emotional_triggers": ["權威認證", "德國品質"],
+        "call_to_action": "手刀購買👉",
+        "cta_effectiveness": "中等",
+        "cta_score": 6,
+        "overall_score": 7,
+        "strengths": ["同第一則"],
+        "weaknesses": ["同第一則"],
+        "suggested_improvements": ["同第一則"]
+      },
+      "targeting_analysis": {
+        "age_assessment": "18+過於廣泛",
+        "gender_assessment": "合理",
+        "location_assessment": "合理",
+        "interests_assessment": "16個興趣標籤，包含DIY興趣較第一組更精準",
+        "custom_audience_assessment": "無",
+        "audience_product_fit": "高",
+        "strengths": ["包含DIY興趣符合產品特性", "折扣相關興趣有助轉換"],
+        "weaknesses": ["年齡過廣"],
+        "suggestions": ["縮窄年齡"],
+        "score": 6
+      },
+      "metrics_summary": {
+        "ctr": 3.44,
+        "cvr": 0.29,
+        "roas": 1.34,
+        "spend": 1889.0,
+        "purchases": 2
       }
     },
     {
-      "creative_id": "120237517873180142",
       "ad_id": "120237517873180142",
+      "adset_id": "120237517873190142",
       "ad_name": "251218_LM香氛磚",
-      "image_url": "",
-      "carousel_images": [
-        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t15.5256-10/583286284_812711591602289_4480352769905777444_n.jpg?_nc_cat=100&ccb=1-7&_nc_ohc=-r8vwBjCpXgQ7kNvwGUf8LU&_nc_oc=AdnTD_r4Iy180Ipf4d8rT1kCi8jbEm9kbn2NCVELy1ThSN_TZTkPToSJnredXreH2Yg&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQFOfIqshD9qkeq-78qdHzuaaOpzHc_ZaCHyeNxGby-TEdg0hS7R04OugDTQm1CpsaxDm-P60zkO&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=33e7a6&_nc_sid=58080a&oh=00_AftmT5K6X78ZjnPmhKKKf85-DmIgBxMsF9rv8gfEPigHNQ&oe=69935F5B"
-      ],
-      "is_carousel": false,
-      "spend": 64.0,
-      "impressions": 618,
-      "clicks": 16,
-      "purchases": 0,
-      "ctr": 2.75,
-      "roas": 0.0,
-      "ai_analysis": {
-        "composition_score": null,
-        "brand_consistency": null,
-        "attractiveness_score": null,
-        "cta_effectiveness": null,
-        "color_scheme": [],
-        "strengths": [],
-        "weaknesses": [],
-        "improvement_suggestions": []
+      "vision_analysis": {
+        "composition": "中央集中式構圖，產品群組排列在畫面中下方區域，一字排開的陳列方式",
+        "composition_score": 5,
+        "color_scheme": ["深色/黑色背景", "紅色", "綠色", "藍色"],
+        "color_harmony": "深色背景與彩色產品形成反差",
+        "brand_consistency": "延續LIQUI MOLY風格",
+        "attractiveness_score": 5,
+        "text_detected": "產品標籤文字",
+        "text_readability": "因解析度較低，文字可讀性受限",
+        "visual_elements": ["數瓶產品並排", "簡約暗色背景"],
+        "product_presentation": "群組展示法，展示系列產品",
+        "emotion_appeal": "成熟、專業",
+        "success_factors": ["一次展示多款香味選擇"],
+        "failure_factors": ["光線較弱", "缺乏情境感", "解析度不足"],
+        "improvement_suggestions": ["提升圖片解析度", "加入車內使用情境", "增加產品細節特寫"]
+      },
+      "copy_analysis": {
+        "tone": "親切帶專業",
+        "emotional_triggers": ["痛點切入（刺鼻化學味）", "德國品質保證", "使用便利性"],
+        "call_to_action": "🔥 立即入手德國工藝香氛：",
+        "cta_effectiveness": "CTA 出現兩次，強調明確；「立即入手」有動力感",
+        "cta_score": 7,
+        "overall_score": 8,
+        "strengths": ["痛點切入精準", "三大理由結構清晰", "四種香味選擇完整", "emoji使用增加親和力"],
+        "weaknesses": ["文案較長", "缺乏價格資訊", "缺乏限時優惠"],
+        "suggested_improvements": ["加入價格或優惠資訊", "精簡文案長度", "加入限時元素"]
+      },
+      "targeting_analysis": {
+        "age_assessment": "18+過於廣泛",
+        "gender_assessment": "合理",
+        "location_assessment": "合理",
+        "interests_assessment": "無興趣標籤（純依賴Lookalike）",
+        "custom_audience_assessment": "使用1%-5% AddToCart Lookalike，品質優良",
+        "audience_product_fit": "高（基於購物車行為）",
+        "strengths": ["Lookalike受眾品質高", "基於購物車行為更接近購買意圖"],
+        "weaknesses": ["完全依賴Lookalike，覆蓋可能受限"],
+        "suggestions": ["可搭配興趣標籤擴大觸及"],
+        "score": 7
+      },
+      "metrics_summary": {
+        "ctr": 2.75,
+        "cvr": 0.0,
+        "roas": 0.0,
+        "spend": 64.0,
+        "purchases": 0
       }
     }
   ],
-  "ad_copies": [
-    {
-      "copy_id": "copy_120238333981640142",
-      "ad_id": "120238333981640142",
-      "ad_name": "260114_LM輪框清潔劑",
-      "primary_text": "#力魔教你用\n󠀠\n榮獲 2025 德國權威雜誌 《Auto Bild》\n輪框清潔劑評選 - 冠軍 🏆\n󠀠\nLIQUI MOLY 中性輪圈除鐵粉專用清潔劑\n✅ 快速帶走粉塵、泥沙\n✅ 有效溶解鐵粉汙垢\n✅ 中性成份不咬鋁、鋼等常見輪框材質\n✅ 高度可生物降解\n󠀠\n定期使用可讓您的愛車輪框常亮如新 ✨\n單罐售價 $1,200元/ 1L大包裝\n手刀購買👉 https://www.carmall.com.tw/products/rim-cleaner\n󠀠\n#LIQUIMOLY #LIQUIMOLYTaiwan #總代理宜福工業 #CARMALL #車魔商城 #輪框清潔 #鐵粉去除 #輪框保養 #洗車工具 #車用美容 #德國製造 #雜誌評選冠軍",
-      "headline": "",
-      "description": "",
-      "spend": 2180.0,
-      "clicks": 674,
-      "purchases": 5,
-      "ai_analysis": {
-        "headline_score": null,
-        "pain_point_score": null,
-        "benefit_score": null,
-        "cta_score": null,
-        "tone": "",
-        "emotional_triggers": [],
-        "strengths": [],
-        "weaknesses": [],
-        "suggested_improvements": []
-      }
-    },
-    {
-      "copy_id": "copy_120238333981640142",
-      "ad_id": "120238333981640142",
-      "ad_name": "260114_LM輪框清潔劑",
-      "primary_text": "#力魔教你用\n󠀠\n榮獲 2025 德國權威雜誌 《Auto Bild》\n輪框清潔劑評選 - 冠軍 🏆\n󠀠\nLIQUI MOLY 中性輪圈除鐵粉專用清潔劑\n✅ 快速帶走粉塵、泥沙\n✅ 有效溶解鐵粉汙垢\n✅ 中性成份不咬鋁、鋼等常見輪框材質\n✅ 高度可生物降解\n󠀠\n定期使用可讓您的愛車輪框常亮如新 ✨\n單罐售價 $1,200元/ 1L大包裝\n手刀購買👉 https://www.carmall.com.tw/products/rim-cleaner\n󠀠\n#LIQUIMOLY #LIQUIMOLYTaiwan #總代理宜福工業 #CARMALL #車魔商城 #輪框清潔 #鐵粉去除 #輪框保養 #洗車工具 #車用美容 #德國製造 #雜誌評選冠軍",
-      "headline": "",
-      "description": "",
-      "spend": 1889.0,
-      "clicks": 689,
-      "purchases": 2,
-      "ai_analysis": {
-        "headline_score": null,
-        "pain_point_score": null,
-        "benefit_score": null,
-        "cta_score": null,
-        "tone": "",
-        "emotional_triggers": [],
-        "strengths": [],
-        "weaknesses": [],
-        "suggested_improvements": []
-      }
-    },
-    {
-      "copy_id": "copy_120237517873180142",
-      "ad_id": "120237517873180142",
-      "ad_name": "251218_LM香氛磚",
-      "primary_text": "🇩🇪 來自德國的堅持！LIQUI MOLY 不只懂車，更懂你的呼吸\n🔥 立即入手德國工藝香氛： https://reurl.cc/R9bN7G\n󠀠\n受夠了廉價芳香劑刺鼻的化學味？ 或是擔心液體香水打翻腐蝕飾板？\n󠀠\n選用 LIQUI MOLY 車用香氛磚，你需要的三大理由： \n✅ 德國原裝：延續品牌嚴謹工藝，品質保證。\n✅ 固體香氛：無酒精、不外漏，香氣持久細膩。\n✅ 隨夾隨用：通用型出風口夾具，安裝只需 1 秒。\n󠀠\n嚴選四種高級調香： 🔹 海洋 Ocean｜🔹 櫻桃 Cherry 🔹 香草 Vanilla｜🔹 新車 New Car\n󠀠\n車要顧，面子也要顧。讓乘客上車的第一秒，就對你印象加分！\n🔥 立即入手德國工藝香氛： https://reurl.cc/R9bN7G\n󠀠\n#LIQUIMOLY #LIQUIMOLYTaiwan #總代理宜福工業 #CARMALL #車魔商城 #車用香氛 #汽車香氛 #香氛磚 #德國製造 #開車日常 #愛車 #新車味道 #車內香氛",
-      "headline": "",
-      "description": "",
-      "spend": 64.0,
-      "clicks": 16,
-      "purchases": 0,
-      "ai_analysis": {
-        "headline_score": null,
-        "pain_point_score": null,
-        "benefit_score": null,
-        "cta_score": null,
-        "tone": "",
-        "emotional_triggers": [],
-        "strengths": [],
-        "weaknesses": [],
-        "suggested_improvements": []
-      }
-    }
+  "overall_success_factors": [
+    "輪框清潔劑高CTR（2.81-3.44%）顯示素材吸引力佳",
+    "德國權威認證背書有效建立信任",
+    "深色專業背景符合汽車保養產品調性"
   ],
-  "weekly_insights": {
-    "week_start": "2026-01-15",
-    "week_end": "2026-01-21",
-    "highlights": [
-      "ROAS 週增長 12.9%，成效持續提升",
-      "營收週增長 36.0%，業績大幅成長"
-    ],
-    "warnings": [
-      "廣告頻率偏高 (2.4)，需注意素材疲乏"
-    ],
-    "recommendations": [
-      "測試新素材和文案，提升廣告轉換率"
-    ]
-  },
-  "overall_success_factors": [],
-  "overall_failure_factors": [],
-  "priority_improvements": [],
+  "overall_failure_factors": [
+    "香氛磚Reels缺乏文案支撐",
+    "部分素材解析度不足影響專業感",
+    "年齡設定過廣可能浪費預算"
+  ],
+  "priority_improvements": [
+    "為Reels類型廣告補充簡短文案",
+    "統一縮窄年齡至25-54歲",
+    "為輪框清潔劑加入使用前後對比素材"
+  ],
   "summary": {
-    "best_performing": null,
-    "best_targeting": null,
-    "key_insights": [],
-    "targeting_insights": [],
-    "next_week_recommendations": []
+    "best_performing_ad": "120238333981640142（輪框清潔劑，CTR 3.44%）",
+    "best_roas_ad": "120238362679490142（香氛磚Reels，ROAS 1.72）",
+    "best_targeting": "120237517873190142（使用Lookalike受眾）",
+    "key_insights": [
+      "輪框清潔劑CTR高但CVR低，需優化轉換路徑",
+      "香氛磚Reels CVR最高（2.37%），影片內容有效",
+      "Lookalike受眾雖花費少但尚未產生購買"
+    ],
+    "average_scores": {
+      "vision_avg": 6.25,
+      "copy_avg": 5.5,
+      "targeting_avg": 6.0
+    }
   }
 }

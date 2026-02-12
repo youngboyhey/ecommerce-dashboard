@@ -187,6 +187,35 @@ def upload_report_data(week: Dict) -> Optional[str]:
         supabase.table('product_rankings').insert(product_records).execute()
         print(f"  ✅ product_rankings: {len(product_records)} records")
     
+    # Upload meta_adsets
+    meta_adsets = data.get('meta_adsets', [])
+    if meta_adsets and report_id:
+        supabase.table('meta_adsets').delete().eq('report_id', report_id).execute()
+        adset_records = []
+        for adset in meta_adsets:
+            # Merge targeting info with extra metrics
+            targeting_data = adset.get('targeting', {})
+            targeting_data['age_distribution'] = adset.get('age_distribution')
+            targeting_data['gender_distribution'] = adset.get('gender_distribution')
+            targeting_data['ctr'] = adset.get('ctr')
+            targeting_data['cpm'] = adset.get('cpm')
+            targeting_data['cpa'] = adset.get('cpa')
+            targeting_data['reach'] = adset.get('reach')
+            
+            adset_records.append({
+                'report_id': report_id,
+                'adset_id': adset.get('adset_id'),
+                'adset_name': adset.get('adset_name'),
+                'spend': adset.get('spend'),
+                'impressions': adset.get('impressions'),
+                'clicks': adset.get('clicks'),
+                'roas': adset.get('roas'),
+                'purchases': adset.get('purchases'),
+                'targeting': targeting_data,
+            })
+        supabase.table('meta_adsets').insert(adset_records).execute()
+        print(f"  ✅ meta_adsets: {len(adset_records)} records")
+    
     return report_id
 
 
@@ -259,6 +288,18 @@ def upload_ad_creatives(week: Dict) -> int:
                 if storage_url:
                     images_uploaded += 1
         
+        # Extract carousel image URLs from the carousel_images array
+        # Handle both dict format (with image_url key) and string format (direct URLs)
+        carousel_images_data = creative.get('carousel_images', [])
+        carousel_urls = []
+        for img in carousel_images_data:
+            if isinstance(img, dict):
+                url = img.get('image_url')
+                if url:
+                    carousel_urls.append(url)
+            elif isinstance(img, str):
+                carousel_urls.append(img)
+        
         record = {
             'report_date': week['date'],
             'week_start': week['start'],
@@ -268,6 +309,7 @@ def upload_ad_creatives(week: Dict) -> int:
             'campaign_name': creative.get('ad_name'),
             'image_url': storage_url or image_url,
             'thumbnail_url': image_url,  # Keep original as thumbnail
+            'carousel_images': carousel_urls,  # Array of image URLs
             'metrics': {
                 'spend': creative.get('spend', 0),
                 'impressions': creative.get('impressions', 0),
