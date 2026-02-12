@@ -1,0 +1,1644 @@
+{
+  "mode": "weekly",
+  "start_date": "2026-01-22",
+  "end_date": "2026-01-28",
+  "generated_at": "2026-02-12T14:35:40.871562",
+  "meta": {
+    "total": {
+      "name": "Account Total",
+      "spend": 6657.0,
+      "ctr": 1.318167,
+      "clicks": 474,
+      "roas": 0.866757,
+      "purchases": 9,
+      "atc": 49,
+      "ic": 37,
+      "vc": 598,
+      "conv_value": 5770.0,
+      "cpa": 739.6666666666666,
+      "cp_atc": 135.85714285714286
+    },
+    "campaigns": [
+      {
+        "name": "260129_LM\u9999\u6c1b\u78da\u7d44\u5408(\u6db5)",
+        "spend": 3365.0,
+        "ctr": 1.413206,
+        "clicks": 248,
+        "roas": 0.903418,
+        "purchases": 4,
+        "atc": 21,
+        "ic": 20,
+        "vc": 269,
+        "conv_value": 3040.0,
+        "cpa": 841.25,
+        "cp_atc": 160.23809523809524,
+        "campaign_id": "120238815887440142"
+      },
+      {
+        "name": "260130_LM\u82b3\u9999\u78da\u5ee3\u544a(J)",
+        "spend": 3292.0,
+        "ctr": 1.196097,
+        "clicks": 226,
+        "roas": 0.829283,
+        "purchases": 5,
+        "atc": 28,
+        "ic": 17,
+        "vc": 329,
+        "conv_value": 2730.0,
+        "cpa": 658.4,
+        "cp_atc": 117.57142857142857,
+        "campaign_id": "120238855887140142"
+      }
+    ]
+  },
+  "meta_audience": {
+    "age": [
+      {
+        "age_range": "18-24",
+        "spend": 182.0,
+        "impressions": 3137,
+        "clicks": 35,
+        "purchases": 0
+      },
+      {
+        "age_range": "25-34",
+        "spend": 1582.0,
+        "impressions": 19003,
+        "clicks": 223,
+        "purchases": 2
+      },
+      {
+        "age_range": "35-44",
+        "spend": 2355.0,
+        "impressions": 24454,
+        "clicks": 324,
+        "purchases": 5
+      },
+      {
+        "age_range": "45-54",
+        "spend": 1916.0,
+        "impressions": 15272,
+        "clicks": 220,
+        "purchases": 1
+      },
+      {
+        "age_range": "55-64",
+        "spend": 540.0,
+        "impressions": 3041,
+        "clicks": 56,
+        "purchases": 1
+      },
+      {
+        "age_range": "65+",
+        "spend": 82.0,
+        "impressions": 411,
+        "clicks": 3,
+        "purchases": 0
+      }
+    ],
+    "gender": [
+      {
+        "gender": "female",
+        "spend": 161.0,
+        "impressions": 1088,
+        "clicks": 12,
+        "purchases": 0
+      },
+      {
+        "gender": "male",
+        "spend": 6477.0,
+        "impressions": 63895,
+        "clicks": 848,
+        "purchases": 9
+      },
+      {
+        "gender": "unknown",
+        "spend": 19.0,
+        "impressions": 335,
+        "clicks": 1,
+        "purchases": 0
+      }
+    ],
+    "region": [
+      {
+        "region": "New Taipei City",
+        "spend": 1522.0,
+        "impressions": 13599,
+        "clicks": 195,
+        "purchases": 0
+      },
+      {
+        "region": "Taoyuan City",
+        "spend": 849.0,
+        "impressions": 7464,
+        "clicks": 84,
+        "purchases": 0
+      },
+      {
+        "region": "Taichung",
+        "spend": 839.0,
+        "impressions": 8463,
+        "clicks": 115,
+        "purchases": 0
+      },
+      {
+        "region": "Kaohsiung",
+        "spend": 725.0,
+        "impressions": 8194,
+        "clicks": 90,
+        "purchases": 0
+      },
+      {
+        "region": "Taipei",
+        "spend": 724.0,
+        "impressions": 7195,
+        "clicks": 95,
+        "purchases": 0
+      },
+      {
+        "region": "Tainan",
+        "spend": 515.0,
+        "impressions": 6127,
+        "clicks": 82,
+        "purchases": 0
+      },
+      {
+        "region": "Changhua",
+        "spend": 221.0,
+        "impressions": 2208,
+        "clicks": 29,
+        "purchases": 0
+      },
+      {
+        "region": "Hsinchu",
+        "spend": 171.0,
+        "impressions": 1616,
+        "clicks": 32,
+        "purchases": 0
+      },
+      {
+        "region": "Pingtung",
+        "spend": 165.0,
+        "impressions": 1466,
+        "clicks": 33,
+        "purchases": 0
+      },
+      {
+        "region": "Keelung City",
+        "spend": 154.0,
+        "impressions": 1176,
+        "clicks": 14,
+        "purchases": 0
+      }
+    ],
+    "age_gender": [
+      {
+        "age_range": "18-24",
+        "gender": "female",
+        "spend": 1.0,
+        "impressions": 54,
+        "clicks": 2,
+        "purchases": 0
+      },
+      {
+        "age_range": "18-24",
+        "gender": "male",
+        "spend": 177.0,
+        "impressions": 3038,
+        "clicks": 33,
+        "purchases": 0
+      },
+      {
+        "age_range": "18-24",
+        "gender": "unknown",
+        "spend": 4.0,
+        "impressions": 45,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "25-34",
+        "gender": "female",
+        "spend": 55.0,
+        "impressions": 319,
+        "clicks": 2,
+        "purchases": 0
+      },
+      {
+        "age_range": "25-34",
+        "gender": "male",
+        "spend": 1522.0,
+        "impressions": 18567,
+        "clicks": 220,
+        "purchases": 2
+      },
+      {
+        "age_range": "25-34",
+        "gender": "unknown",
+        "spend": 5.0,
+        "impressions": 117,
+        "clicks": 1,
+        "purchases": 0
+      },
+      {
+        "age_range": "35-44",
+        "gender": "female",
+        "spend": 63.0,
+        "impressions": 512,
+        "clicks": 6,
+        "purchases": 0
+      },
+      {
+        "age_range": "35-44",
+        "gender": "male",
+        "spend": 2287.0,
+        "impressions": 23873,
+        "clicks": 318,
+        "purchases": 5
+      },
+      {
+        "age_range": "35-44",
+        "gender": "unknown",
+        "spend": 5.0,
+        "impressions": 69,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "45-54",
+        "gender": "female",
+        "spend": 26.0,
+        "impressions": 154,
+        "clicks": 2,
+        "purchases": 0
+      },
+      {
+        "age_range": "45-54",
+        "gender": "male",
+        "spend": 1888.0,
+        "impressions": 15036,
+        "clicks": 218,
+        "purchases": 1
+      },
+      {
+        "age_range": "45-54",
+        "gender": "unknown",
+        "spend": 2.0,
+        "impressions": 82,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "55-64",
+        "gender": "female",
+        "spend": 16.0,
+        "impressions": 44,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "55-64",
+        "gender": "male",
+        "spend": 523.0,
+        "impressions": 2988,
+        "clicks": 56,
+        "purchases": 1
+      },
+      {
+        "age_range": "55-64",
+        "gender": "unknown",
+        "spend": 1.0,
+        "impressions": 9,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "65+",
+        "gender": "female",
+        "spend": 0.0,
+        "impressions": 5,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "65+",
+        "gender": "male",
+        "spend": 80.0,
+        "impressions": 393,
+        "clicks": 3,
+        "purchases": 0
+      },
+      {
+        "age_range": "65+",
+        "gender": "unknown",
+        "spend": 2.0,
+        "impressions": 13,
+        "clicks": 0,
+        "purchases": 0
+      }
+    ]
+  },
+  "meta_efficiency": {
+    "impressions": 65318,
+    "reach": 27269,
+    "frequency": 2.395321,
+    "cpm": 101.916776,
+    "frequency_warning": false,
+    "cpm_warning": false
+  },
+  "meta_adsets": [
+    {
+      "adset_id": "120238815887410142",
+      "adset_name": "260129_LM\u9999\u6c1b\u78da\u7d44\u5408(\u6db5)",
+      "spend": 3365.0,
+      "impressions": 36725,
+      "reach": 17112,
+      "ctr": 1.413206,
+      "cpm": 91.626957,
+      "roas": 0.903418,
+      "purchases": 4,
+      "cpa": 841.25,
+      "targeting": null
+    },
+    {
+      "adset_id": "120238855887150142",
+      "adset_name": "260130_LM\u82b3\u9999\u78da\u5ee3\u544a(J)_\u9f8d\u8766\u7ba1\u7406\u4e2d",
+      "spend": 3292.0,
+      "impressions": 28593,
+      "reach": 15187,
+      "ctr": 1.196097,
+      "cpm": 115.133075,
+      "roas": 0.829283,
+      "purchases": 5,
+      "cpa": 658.4,
+      "targeting": null
+    }
+  ],
+  "ad_creatives": [
+    {
+      "ad_id": "120238855887160142",
+      "ad_name": "260130_LM\u82b3\u9999\u78da\u5ee3\u544a(J)_\u9f8d\u8766\u512a\u5316\u6a19\u984c\u7248",
+      "creative_id": "1459596615554399",
+      "title": "CarMall \u8eca\u9b54\u5546\u57ce",
+      "body": "\u8aaa\u771f\u7684\uff0c\u8eca\u5167\u8cea\u611f80%\u4f86\u81ea\u6c23\u5473\ud83e\udd13\n\n\u2705 \u4f86\u81ea\u5fb7\u570b\u529b\u9b54\uff1a\u54c1\u8cea\u4fdd\u8b49\uff0c\u62d2\u7d55\u52a3\u8cea\u9999\u7cbe\u5473\n\u2705 \u56fa\u9ad4\u9999\u6c1b\u6280\u8853\uff1a\u4e0d\u542b\u9152\u7cbe\u3001\u7d55\u4e0d\u6d29\u6f0f\n\u2705 1 \u79d2\u5b89\u88dd\uff1a\u901a\u7528\u578b\u51fa\u98a8\u53e3\u593e\uff0c\u96a8\u63d2\u5373\u7528\n\u2705 \u9577\u6548\u7559\u9999\uff1a\u6c23\u5473\u6301\u4e4530\u5929\uff0c\u5c55\u73fe\u512a\u96c5\u54c1\u5473\n\n\u2728LIQUI MOLY \u8eca\u7528\u9999\u6c1b\u78da\u7cfb\u5217\uff1a\n\ud83c\udd95 \u65b0\u8eca\u6e05\u9999 New Car\n\ud83c\udf0a \u6d77\u6d0b Ocean\n\ud83c\udf52 \u6afb\u6843 Cherry\n\ud83c\udf66 \u9999\u8349 Vanilla\n\ud83c\udf6c \u6ce1\u6ce1\u7cd6 Berry Bubblegum\n\ud83d\udebf \u71b1\u5e36\u6d74 Tropical Shower\n\n\u63a8\u85a6\u5927\u5bb6\u8a66\u8a66\u300c3\u5165\u4efb\u9078\u512a\u60e0\u300d\uff0c\u5370\u8c61\u76f4\u63a5\u52a0\u7206\n\ud83d\uded2 \u7acb\u5373\u5347\u7d1a\u4f60\u7684\u611b\u8eca\uff1a https://reurl.cc/R9bN7G\n\n#LIQUIMOLY #\u5fb7\u570b\u88fd\u9020 #\u8eca\u7528\u9999\u6c1b #\u9999\u6c1b\u78da #\u8eca\u9b54\u5546\u57ce #\u8cea\u611f\u751f\u6d3b #\u7e3d\u4ee3\u7406\u5b9c\u798f\u5de5\u696d #\u611b\u8eca\u65e5\u5e38",
+      "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/625004734_10225869973694815_361282308505806340_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=crb9gOufgbIQ7kNvwEFeaL0&_nc_oc=AdkPu2XCx8O83P9VFrjDtaenokGZJ4AkljQbgOmhj0NF2KDha6rsMgnLwZS-Hv9NHRk&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQEgp7Ew8pxNEzY89jdVXCpJltweTqhVcp5mFVMUd0ALW9JKpRHbFbGT0HK7icayxEKMap0R9aHw&oh=00_Afv6kXydcQaLMqKO68oVvyfrO33WqzPJ27alzSQSs-mCSA&oe=6993459D",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": "98fb1eb553269787d2627dae1daf3a54",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/625004734_10225869973694815_361282308505806340_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=crb9gOufgbIQ7kNvwEFeaL0&_nc_oc=AdkPu2XCx8O83P9VFrjDtaenokGZJ4AkljQbgOmhj0NF2KDha6rsMgnLwZS-Hv9NHRk&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQEgp7Ew8pxNEzY89jdVXCpJltweTqhVcp5mFVMUd0ALW9JKpRHbFbGT0HK7icayxEKMap0R9aHw&oh=00_Afv6kXydcQaLMqKO68oVvyfrO33WqzPJ27alzSQSs-mCSA&oe=6993459D",
+          "name": "\ud83c\udde9\ud83c\uddea \u65b0\u8eca\u6e05\u9999 | \u9577\u654830\u5929",
+          "description": "\u53f0\u7063\u7e3d\u4ee3\u7406\u516c\u53f8\u8ca8",
+          "link": "https://www.carmall.com.tw/products/air-freshener-new-car"
+        },
+        {
+          "index": 1,
+          "image_hash": "31a50e3c7eb787373abbe05d9c4aa3d3",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/624550097_10225869997655414_4391765911216872472_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=3F6hH4t2fN4Q7kNvwEbG0_D&_nc_oc=AdkMOcg6_wAX9qU2bvy9FE5BMykjrrAmZWWFVPHPSZXFsrwA3Roal0JFSMvA1_pIOkI&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQEckvsaXNru8i20edK7GfE5_KPeOV_c1ZlmCki_Hg8VxO2iyAuqViyJdv9tvg8Gg2Df_NpYQfxj&oh=00_AftjcMW0-QZrZw7QVW5tScvLNLTLXACPNK_2JLn1lTW7ZQ&oe=6993220B",
+          "name": "\ud83c\udf0a \u6d77\u6d0b | \u6e05\u723d\u6301\u4e45",
+          "description": "\u53f0\u7063\u7e3d\u4ee3\u7406\u516c\u53f8\u8ca8",
+          "link": "https://www.carmall.com.tw/products/air-freshener-ocean"
+        },
+        {
+          "index": 2,
+          "image_hash": "793eb0f5fb5c96ca399a42f004c41458",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/622569679_10225869998655439_6037381665563382132_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=Vk4NfNfETWAQ7kNvwGx5rKS&_nc_oc=AdldXPjIUTobZ1551k_LxL3e9ShDc5VHm4fE7uv7IryX7mcs-GVQqTLhiy8TVWR4rWc&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQFBU6aw4b8DYPkgvR2IZe751paqFsPS3zifrO7V8vQy9VfeYCw-q9prTB8yPv-KEWYyRSg4wPex&oh=00_AfsQrFKW8o9O0bo6QRO2DH2Dwf0VfWa-G737qoaPIJs7IA&oe=6993472A",
+          "name": "\ud83c\udf66 \u9999\u8349 | \u6eab\u99a8\u6c1b\u570d",
+          "description": "\u53f0\u7063\u7e3d\u4ee3\u7406\u516c\u53f8\u8ca8",
+          "link": "https://www.carmall.com.tw/products/air-freshener-vanilla"
+        },
+        {
+          "index": 3,
+          "image_hash": "96f3448c6413bb4ca33d15cee147c674",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/625004745_10225869999735466_5698897275973365012_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=sbjad3M2opcQ7kNvwH5xaoo&_nc_oc=AdkiUviSb2Hc3WhOYBhXy3cp38CrQ2GnN8gbz_8owSluwa_E0L2x4X-ctqgBPQD8mVM&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQEI-PCpDRQSJuAWvaHRHx4HSfxpCqOQliMC8c1akiZ5R20GNa_LsKPqNAvf5fCWxBgCQZ41__jA&oh=00_AfvU8voecA38ovVVKz_VWPn1yrufuL_dwPPFG_iAXB9g3Q&oe=69932285",
+          "name": "\ud83c\udf52 \u6afb\u6843 | \u751c\u7f8e\u8a98\u4eba",
+          "description": "\u53f0\u7063\u7e3d\u4ee3\u7406\u516c\u53f8\u8ca8",
+          "link": "https://www.carmall.com.tw/products/air-freshener-cherry"
+        },
+        {
+          "index": 4,
+          "image_hash": "4542a3f838e7f2d5876c246aff59269b",
+          "image_url": "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/625363390_10225870000495485_8606450010034294557_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=VuTRlEMRlIgQ7kNvwH1AgIv&_nc_oc=Adlf4PqgRYadGlCb77xb5AuStpGI9B3A5_shxoAojfwN8SwVTLN-OsvAB9cMQRhTSJA&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQGsB-9woV153-6M5nOzGCMfFOeRQRfuSX7c607VqiKAtMOdEG0L-HJ-tMXOhgNo82tJqR3bEquA&oh=00_AfskEVBVYBOJL6MKPU-0SSi6__wK5yGzXRgMnRpLRePyNw&oe=6993249A",
+          "name": "\ud83c\udf6c \u6ce1\u6ce1\u7cd6 | \u6d3b\u529b\u5341\u8db3",
+          "description": "\u53f0\u7063\u7e3d\u4ee3\u7406\u516c\u53f8\u8ca8",
+          "link": "https://www.carmall.com.tw/products/air-freshener-berry-bubblegum"
+        },
+        {
+          "index": 5,
+          "image_hash": "8a9a94f14ce14b34334a00c47433ace8",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/625088748_10225870001375507_3709200890756287490_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=3RuzJqxdGfgQ7kNvwHVV37n&_nc_oc=Adm1a6F_QKbYrrJyHYm_oUjefbfhsjr0UWhwp9wRJdF-l294IxO9vDYDoKD88vBOJ4A&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQHQUksOvIdoqJkGJOCvHDs9nJQP4CTMhuAR63LGu8Jg_ITLCKeWgvZVWOgo2EsqHkLpjdEOsE5O&oh=00_Afuhh-wCySx2aYBVp2ZEEx_q5trjOQo0LFynmPQ9Y-CZxA&oe=699339A7",
+          "name": "\ud83d\udebf \u71b1\u5e36\u6d74 | \u8212\u723d\u6e05\u65b0",
+          "description": "\u53f0\u7063\u7e3d\u4ee3\u7406\u516c\u53f8\u8ca8",
+          "link": "https://www.carmall.com.tw/products/air-freshener-tropical-shower"
+        }
+      ],
+      "is_carousel": true,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120238815887480142",
+      "ad_name": "\u4efb\u90783\u5165",
+      "creative_id": "890346950368425",
+      "title": "CarMall \u8eca\u9b54\u5546\u57ce",
+      "body": "\u8eca\u5167\u7570\u5473\u8b93\u4f60\u597d\u56f0\u64fe\ud83d\ude25\n\u5feb\u4f86\u8a66\u8a66\nLIQUI MOLY \u8eca\u7528\u9999\u6c1b\u78da\n\n\u7d30\u81a9\u4e0d\u523a\u9f3b\uff0c\u8f15\u9999\u4e0d\u6253\u64fe\n\u8b93\u6bcf\u4e00\u6b21\u547c\u5438\u90fd\u5f88\u8212\u670d\ud83c\udf3f\n\n\u270530\u5929\u6301\u4e45\u7559\u9999\n\u2705\u8f49\u5f4e\uff0c\u4f9d\u7136\u5f9e\u5bb9\n\u2705\u5fb7\u570b\u539f\u5ee0\u56fa\u9ad4\u9999\u6c1b\u78da\n\n\u516d\u7a2e\u8abf\u9999\uff1a \ud83d\udd39 \u6d77\u6d0b Ocean\uff5c\ud83d\udd39 \u6afb\u6843 Cherry \n\ud83d\udd39 \u9999\u8349 Vanilla\uff5c\ud83d\udd39 \u65b0\u8eca New Car\n\ud83d\udd39\u6ce1\u6ce1\u7cd6 Berry bubblegum\n\ud83d\udd39\u71b1\u5e36\u6d74 Tropical shower\n\n\u9ad8\u54c1\u8cea\u9999\u6c1b\n\u8b93\u60a8\u653e\u9b06\u555f\u7a0b\u2600\ufe0f\n\ud83d\uded2\u5617\u9bae\u512a\u60e03\u5165\u7d44\uff1ahttps://www.carmall.com.tw/products/air-freshener-3pack",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/617234530_10225764434936412_1240292357482854728_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=ZQME5g6cCYEQ7kNvwGqVqej&_nc_oc=Adk9tAG5BvJ4JlFpm4e8lzIhloetl-bwB9QTVJf-U5-Cfhmi3eODFwrrjSH4YgBYSLc&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQGQLQTBf5nA3ti3qErITdvCRejnwu8D3KjGZu_1rwUOUWaV0-0HwKarpw2y5S9BQzuWnSNWgGkv&oh=00_AftNSow2XxWhuoRWoe69a0IYGkNjpJpEtAXmp0KBCJG8NQ&oe=69933E93",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": "2706d3a5b9768df11fa1a114b6adfa2b",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/617234530_10225764434936412_1240292357482854728_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=ZQME5g6cCYEQ7kNvwGqVqej&_nc_oc=Adk9tAG5BvJ4JlFpm4e8lzIhloetl-bwB9QTVJf-U5-Cfhmi3eODFwrrjSH4YgBYSLc&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQGQLQTBf5nA3ti3qErITdvCRejnwu8D3KjGZu_1rwUOUWaV0-0HwKarpw2y5S9BQzuWnSNWgGkv&oh=00_AftNSow2XxWhuoRWoe69a0IYGkNjpJpEtAXmp0KBCJG8NQ&oe=69933E93",
+          "name": "\u3010\u4efb\u90783\u5165\u30116\u6b3e\u9999\u6c23 \u81ea\u7531\u642d\u914d",
+          "description": "\u5617\u9bae\u3001\u56de\u8cfc\u90fd\u512a\u60e0\uff01",
+          "link": "https://www.carmall.com.tw/products/air-freshener-3pack"
+        },
+        {
+          "index": 1,
+          "image_hash": "2e12215330ffb64279499f9773ef830d",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/624585715_3313259668847501_971725758878149076_n.png?stp=dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=37PZwHFcMX4Q7kNvwEDEjyl&_nc_oc=AdkQzF0zUAj_G8sKVG9Yt6twYW8cF6LXXxRRVW8X8WmasAWiOKLpj5YaAn5Ckz2UA8g&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQGRQMaxtsCsau_OPUMQiO4aPrWje_6_H5KGmJUW9SKKkLRhHc7tQxltBf8QcfittQaPB9cVgNqN&oh=00_Afs3mYZharcQDb2lf2Xt1vYl_cSdRWFNUftvRD5Oc2WO_A&oe=6993171C",
+          "name": "\u3010\u4efb\u90783\u5165\u30116\u6b3e\u9999\u6c23 \u81ea\u7531\u642d\u914d",
+          "description": "\u5617\u9bae\u3001\u56de\u8cfc\u90fd\u512a\u60e0\uff01",
+          "link": "https://www.carmall.com.tw/products/air-freshener-ocean"
+        },
+        {
+          "index": 2,
+          "image_hash": "ee105b6c22e8e87250ab13f91c93714b",
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/623798232_3313263742180427_4924796404111572597_n.png?stp=dst-jpg_tt6&_nc_cat=108&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=U_Fg74DenrUQ7kNvwGdrtas&_nc_oc=AdkhILN077AKwo_hHZRhw1YbkjAk15weAJAK5JTEgXuGqVyP5osufp9mDdF1yfUjjWs&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQEVO9ukAfPXH39H79HvoLTI9EyL325YHIC-P3oIMX0kCpHBaDC96s-d85cBOnnHa1zgPLGrTh0w&oh=00_AfsKyPm7rucR1OXsQqbIgnpfavahZ4SSRYUF7JMqa0Wzgg&oe=69932F1C",
+          "name": "\u3010\u4efb\u90783\u5165\u30116\u6b3e\u9999\u6c23 \u81ea\u7531\u642d\u914d",
+          "description": "\u5617\u9bae\u3001\u56de\u8cfc\u90fd\u512a\u60e0\uff01",
+          "link": "https://www.carmall.com.tw/products/air-freshener-new-car"
+        },
+        {
+          "index": 3,
+          "image_hash": "5007308e3969b55269fe5260af86d9ed",
+          "image_url": "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/624464030_3313259732180828_6023952234314053527_n.png?stp=dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=qB0u5t4Hi8IQ7kNvwHbt5Kf&_nc_oc=Adm3WIn1WMKnSla9t-KA1t4UbAQ3pNETJV8k9ySgXf7jA4E9l7IRSd35arfJNfcOCDg&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQH19KW_valIoTTxbpnvxKBDPWwsqLDlgj9w7X3yfamlccs6PzqthF2ee7jL84ds1kQLnkbHqiX9&oh=00_Afu9ylEYYIQxdoVIDm13IAwZpT-uXMEkq1dWnOZ8Kc7nRA&oe=69933A0E",
+          "name": "\u3010\u4efb\u90783\u5165\u30116\u6b3e\u9999\u6c23 \u81ea\u7531\u642d\u914d",
+          "description": "\u5617\u9bae\u3001\u56de\u8cfc\u90fd\u512a\u60e0\uff01",
+          "link": "https://www.carmall.com.tw/products/air-freshener-vanilla"
+        },
+        {
+          "index": 4,
+          "image_hash": "569bb2d006fd65bef947679bc4ffc49b",
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/625080025_3313259718847496_145108713288155366_n.png?stp=dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=iYCjmnz0jYYQ7kNvwGEpCqa&_nc_oc=Adkh7kSWWwAku-52kn5hyFV0X30FWcsgQS1KGp8JH8KJbJQ0eiNFPC3U21gVUI3eIJY&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQGxLZT-Ip3gtzsqW2FI2WOiJp96z1LjkfyXibTZ9_oBNXHlmVlLNMW11RRu3r-3e-yLMhZfvzq_&oh=00_AftZ_eVLpWe46QccWpWMbNZcCCSsshmzo1hM6FM3HsLAGA&oe=69934455",
+          "name": "\u3010\u4efb\u90783\u5165\u30116\u6b3e\u9999\u6c23 \u81ea\u7531\u642d\u914d",
+          "description": "\u5617\u9bae\u3001\u56de\u8cfc\u90fd\u512a\u60e0\uff01",
+          "link": "https://www.carmall.com.tw/products/air-freshener-berry-bubblegum"
+        },
+        {
+          "index": 5,
+          "image_hash": "75dacf4189b07f6022311efe241da420",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/622719572_3313256492181152_7252750987003823260_n.png?stp=dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=H3uk8H7p8IAQ7kNvwEItKq8&_nc_oc=AdnUTBbdVQgwaC3dPqqA3NirxwNw7pZCumPX34ZVSpzBDJ7I6DJuJT91A1zi8xQycEY&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQFtCTmDx-S4for-cfA7FKhfL-a69o50qVh5IomoQX1jD98ajf4rkIUEQJAlRhOykSjVcG0ilFwC&oh=00_AftvFbJiA2UPV936hlt-SYqwG_oaWY9q2jIz-qPPnjtRxg&oe=69931C14",
+          "name": "\u3010\u4efb\u90783\u5165\u30116\u6b3e\u9999\u6c23 \u81ea\u7531\u642d\u914d",
+          "description": "\u5617\u9bae\u3001\u56de\u8cfc\u90fd\u512a\u60e0\uff01",
+          "link": "https://www.carmall.com.tw/products/air-freshener-tropical-shower"
+        },
+        {
+          "index": 6,
+          "image_hash": "830b0a16d65a870dbea81af319ad89b3",
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/623781204_3313259672180834_3874312529033000207_n.png?stp=dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=X4LCcpqBCK0Q7kNvwFf-Xuc&_nc_oc=AdktsnBw4-z849nIVrxvZhaO7C8RTMNYLVQjEArJp8a1MNzU7IoE_y9oLdytBVsdcdI&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQFaM7nOf9ksitI1pBan2WnMHFP1WQxeVcAk1vGucrnCFK_pswS--sh6UzKBWT3cc5kODdv68Kx5&oh=00_AfvcVkVfM08xwkHUquNGfJoliCmMJEU6QbA8nkc0RZ7Vlg&oe=69932056",
+          "name": "\u3010\u4efb\u90783\u5165\u30116\u6b3e\u9999\u6c23 \u81ea\u7531\u642d\u914d",
+          "description": "\u5617\u9bae\u3001\u56de\u8cfc\u90fd\u512a\u60e0\uff01",
+          "link": "https://www.carmall.com.tw/products/air-freshener-cherry"
+        }
+      ],
+      "is_carousel": true,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120238833956440142",
+      "ad_name": "260130_LM\u82b3\u9999\u78da\u5ee3\u544a_\u4e92\u52d5\u76ee\u6a19",
+      "creative_id": "1494286958698834",
+      "title": "",
+      "body": "",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/623752634_10225856068667198_5643539378511753849_n.jpg?_nc_cat=100&ccb=1-7&_nc_ohc=6WAlusrAAM8Q7kNvwHRch74&_nc_oc=AdmSylQsyvHG4fQeyzXQEZ8UvMDa-DuNSEENAhAFV1pguO1RJ88yR2XanQQFZ86jcYM&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQFIk9hRAljxDSpHc92rOh_os0EuXplSa0PwIrY7qHtZO-_IxVpCeIvg1WSrfbaI22rBRcKP-emv&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=52f3c4&_nc_sid=58080a&oh=00_Afu7Zhx9jBtkc6zR04Xd7Hon8t9BQ4l6fXd0dcaJJy66wg&oe=69932040",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/623752634_10225856068667198_5643539378511753849_n.jpg?_nc_cat=100&ccb=1-7&_nc_ohc=6WAlusrAAM8Q7kNvwHRch74&_nc_oc=AdmSylQsyvHG4fQeyzXQEZ8UvMDa-DuNSEENAhAFV1pguO1RJ88yR2XanQQFZ86jcYM&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQFIk9hRAljxDSpHc92rOh_os0EuXplSa0PwIrY7qHtZO-_IxVpCeIvg1WSrfbaI22rBRcKP-emv&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=52f3c4&_nc_sid=58080a&oh=00_Afu7Zhx9jBtkc6zR04Xd7Hon8t9BQ4l6fXd0dcaJJy66wg&oe=69932040",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120238522487770142",
+      "ad_name": "\u6c23\u5473\u6539\u5584",
+      "creative_id": "1196125522701290",
+      "title": "CarMall \u8eca\u9b54\u5546\u57ce",
+      "body": "LIQUI MOLY\u8eca\u7528\u9999\u6c1b + \u7e54\u7269\u6ce1\u6cab\u6e05\u6f54\n\u8001\u8eca\u5e03\u6905\u6e05\u6f54\u52a0\u4e0a\u8eca\u7528\u9999\u6c1b-\u6d77\u6d0b\uff01\n\u8b93\u4f60\u7684\u8eca\u5167\u6c23\u5473\u6e05\u9999\u81ea\u7136~\n\n\ud83d\uded2\u6c23\u5473\u6539\u5584\uff1ahttps://www.carmall.com.tw/products/odor-control-pack",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/615885553_10225764625301171_6281017254344712335_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=okaGIemnOb8Q7kNvwGOFcK7&_nc_oc=AdnYitHNFu1qGt_kj5T6b9oH5splrJvlA6Wa4QMN_WaI2R9_bzzkohk0MVRhUWypDU8&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQGxujAfVUa153LpjSVqiuG2tvgB_kWr7i8d7YQ252Lzl_n9LH4x23MPNzaUm6M_bXkGWXA6xM-0&oh=00_Afttz9Y3hL8bvC9-c2D0TH2DCl02Hr6PXi-1nIOUnJTrwA&oe=699342C2",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": "8d5d81c30145abfc8068fed31034db82",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/615885553_10225764625301171_6281017254344712335_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=okaGIemnOb8Q7kNvwGOFcK7&_nc_oc=AdnYitHNFu1qGt_kj5T6b9oH5splrJvlA6Wa4QMN_WaI2R9_bzzkohk0MVRhUWypDU8&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQGxujAfVUa153LpjSVqiuG2tvgB_kWr7i8d7YQ252Lzl_n9LH4x23MPNzaUm6M_bXkGWXA6xM-0&oh=00_Afttz9Y3hL8bvC9-c2D0TH2DCl02Hr6PXi-1nIOUnJTrwA&oe=699342C2",
+          "name": "\u3010\u6c23\u5473\u6539\u5584\u3011\u8eca\u5167\u990a\u8b77\u7d44\u5408",
+          "description": "\u8001\u8eca\u5e03\u6905\u6e05\u6f54\u3001\u8eca\u5167\u7570\u5473\u89e3\u6c7a\uff01",
+          "link": "https://www.carmall.com.tw/products/odor-control-pack"
+        },
+        {
+          "index": 1,
+          "image_hash": "6f81fe42572628f409b3469e9d273882",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/616426705_10225764437256470_416409725086635947_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=n3JaaTOoQwMQ7kNvwG91ifp&_nc_oc=AdmlDNUwxSUMYtCn9-0X9uftVrzGYC2-cQgjz_xh0AbcWzMDqa-qyek72hklhVV_Ass&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQEMJgxkz1nQMr8qrspUU8Fw33THoTUmvbx0P3NK457wwEzyVXLvkNCnjtL5OW5_kc-wGuOEoI37&oh=00_AftFlceVowlzK8vGYMgjEvBaPENfJm0bu421GKohgySruA&oe=699321DF",
+          "name": "LIQUI MOLY \u8eca\u7528\u9999\u6c1b\u78da-\u6d77\u6d0b",
+          "description": "Air Freshener ocean",
+          "link": "https://www.carmall.com.tw/products/odor-control-pack"
+        },
+        {
+          "index": 2,
+          "image_hash": "271930af6c5dc03e5d6443c744906ac3",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/618972124_10225764625621179_5803519356110360391_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=pyFtOh3EUT4Q7kNvwGtP3LK&_nc_oc=AdnVA335-9KY-XxEG3HtJ0vHMf_PtfkQHty4j08y8E5rnGJZP7bbiNHI8Amr7kq75bA&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQG2rAXGE2IjrO3gQNHHrEVWNGnLZIMiBTRNfhEwiv08Wn4gHndnRhuZRZiSTM6Uf7EDHjCH2Uva&oh=00_Aftu3muK_oDItvmhuUDVT_kMIxQPOpOiLJHJJ-PnJVgQlQ&oe=699346E8",
+          "name": "LIQUI MOLY \u5ea7\u6905\u7e54\u7269\u6ce1\u6cab\u6e05\u6f54\u5291",
+          "description": "\u5c08\u70ba\u6c7d\u8eca\u7e54\u7269\u5167\u88dd\u6e05\u6f54\u958b\u767c",
+          "link": "https://www.carmall.com.tw/products/odor-control-pack"
+        }
+      ],
+      "is_carousel": true,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120238522487830142",
+      "ad_name": "\u65b0\u8eca\u63a7",
+      "creative_id": "849676374606022",
+      "title": "CarMall \u8eca\u9b54\u5546\u57ce",
+      "body": "LIQUI MOLY \u8eca\u7528\u9999\u6c1b + \u87a2\u5e55\u6e05\u6f54\u6ce1\u6cab\n\u6062\u5fa9\u611b\u8eca\u5982\u540c\u65b0\u8eca\u7684\u5473\u9053\uff01\n\ud83d\uded2\u65b0\u8eca\u63a7\u5c08\u5c6c\u512a\u60e0\uff1ahttps://www.carmall.com.tw/products/new-car-pack",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/618662126_10225764604780658_5575759270457386633_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=27iOfWXC43wQ7kNvwGVWP1r&_nc_oc=AdnjE8xIdHLJ7tU8i_jUVzMxddHLahPAY9cIPFDcAHFV4dngT8LePuU8BNekzB_2ETY&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQH2ppGs34f-wRZrS6zSo3DS4G7ydCiOn8pazzdwsX5vWyLl-KjS6OpyshiTxF3pNgEq7ng_cepa&oh=00_Aft_7KV8JNtqhaKQP04YP3JE27Sa5RI49-ie_VZE9OLacw&oe=6993374F",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": "541e0e738536d2eb90faeb4bd7831420",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/618662126_10225764604780658_5575759270457386633_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=27iOfWXC43wQ7kNvwGVWP1r&_nc_oc=AdnjE8xIdHLJ7tU8i_jUVzMxddHLahPAY9cIPFDcAHFV4dngT8LePuU8BNekzB_2ETY&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQH2ppGs34f-wRZrS6zSo3DS4G7ydCiOn8pazzdwsX5vWyLl-KjS6OpyshiTxF3pNgEq7ng_cepa&oh=00_Aft_7KV8JNtqhaKQP04YP3JE27Sa5RI49-ie_VZE9OLacw&oe=6993374F",
+          "name": "\u3010\u65b0\u8eca\u63a7\u3011\u8eca\u5167\u990a\u8b77\u7d44\u5408",
+          "description": "\u300c\u65b0\u8eca\u300d\u72c0\u614b\u611b\u597d\u8005\u5c08\u5c6c\uff01",
+          "link": "https://www.carmall.com.tw/products/new-car-pack"
+        },
+        {
+          "index": 1,
+          "image_hash": "6e56ad27b41f5dd78271b65377751a47",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/619784356_10225764436256445_7573755521648372358_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=M9zuQxKSEloQ7kNvwEGf_P5&_nc_oc=AdlGYZGO6_aEJqTFuPMiWmwhloIiEFxN_ljEIxo9acodwMh2WcJjgoFQX8ePSb3ZrPo&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQHfQ379UMB2a4qW1J8Rcjnxvyzjr3sKE7lko_8FfqqRLfW-Xym18HzyMs0Xe6YE5LAafI_JCr4i&oh=00_AfvS55owq-EW7JiZAuhHSLY5IFXJ1IxO3zi4Z-9bWPWTYQ&oe=69932A25",
+          "name": "LIQUI MOLY \u8eca\u7528\u9999\u6c1b\u78da-\u65b0\u8eca\u6e05\u9999",
+          "description": "Air Freshener new car",
+          "link": "https://www.carmall.com.tw/products/new-car-pack"
+        },
+        {
+          "index": 2,
+          "image_hash": "bf126ac0132d67100986baa7fb7105b4",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/616990813_10225764605100666_257436340447782381_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=q4VtfYDo3ewQ7kNvwFzuQYR&_nc_oc=AdkCFGJpr0uTFN8irueIeWXfqGaTSktnrW4HZtCydyHtAKwhhhpPNst2Sb67yfcYxzo&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQEZUJv_bissxcxFOt39ScoQfL2d0HAT-AmkaCv2sJV-PRg_z720TMm8KcIdkKGZcbtmU_T63r2R&oh=00_AfsBORe4wNus-L3ybb6ka3w1DSa3V7-ZTnVkCjIZ6NgJUg&oe=699342AE",
+          "name": "LIQUI MOLY \u6c7d\u8eca\u87a2\u5e55\u5c08\u7528\u6e05\u6f54\u6ce1\u6cab",
+          "description": "\u5c08\u70ba\u6c7d\u8eca\u4e2d\u7684\u5404\u5f0f\u87a2\u5e55\u6e05\u6f54\u958b\u767c",
+          "link": "https://www.carmall.com.tw/products/new-car-pack"
+        }
+      ],
+      "is_carousel": true,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120237510352200142",
+      "ad_name": "251218_LM\u9999\u6c1b\u78da_\u76ee\u9304\u5ee3\u544a",
+      "creative_id": "1989412285248432",
+      "title": "CarMall \u8eca\u9b54\u5546\u57ce \uff5c\u60a8\u7684\u5168\u65b9\u4f4d\u4eba\u8eca\u751f\u6d3b\u5925\u4f34",
+      "body": "",
+      "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t39.2147-6/75341531_494485104475166_2751028116179648512_n.png?_nc_cat=1&ccb=1-7&_nc_ohc=iPBPZfOnxxAQ7kNvwFOImmm&_nc_oc=AdnnqTn6oYPwg6Dg6Telb_QS00u8G36nJVVw7X5lugm7ujEVE59tq0y0KzTw-_s0Zi0&_nc_zt=14&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQEKTZcOYeVY1eN5xbVHxmncMpsBJNe39jnung840-PfPTmKdaktS-x7hO0I5aBEk9ykyCDvp6qM&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=39b8c1&_nc_sid=58080a&oh=00_AfvTxOW4VTffleL6j0rCmtyNYPr5KbG_Ntgyt_VTLxV-Rw&oe=69932584",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t39.2147-6/75341531_494485104475166_2751028116179648512_n.png?_nc_cat=1&ccb=1-7&_nc_ohc=iPBPZfOnxxAQ7kNvwFOImmm&_nc_oc=AdnnqTn6oYPwg6Dg6Telb_QS00u8G36nJVVw7X5lugm7ujEVE59tq0y0KzTw-_s0Zi0&_nc_zt=14&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQEKTZcOYeVY1eN5xbVHxmncMpsBJNe39jnung840-PfPTmKdaktS-x7hO0I5aBEk9ykyCDvp6qM&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=39b8c1&_nc_sid=58080a&oh=00_AfvTxOW4VTffleL6j0rCmtyNYPr5KbG_Ntgyt_VTLxV-Rw&oe=69932584",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120235620649380142",
+      "ad_name": "251113_LM\u9999\u6c1b\u78da",
+      "creative_id": "2609998602730477",
+      "title": "CarMall \u8eca\u9b54\u5546\u57ce",
+      "body": "\ud83c\udde9\ud83c\uddea \u4f86\u81ea\u5fb7\u570b\u7684\u5805\u6301\uff01LIQUI MOLY \u4e0d\u53ea\u61c2\u8eca\uff0c\u66f4\u61c2\u4f60\u7684\u547c\u5438\n\ud83d\udd25 \u7acb\u5373\u5165\u624b\u5fb7\u570b\u5de5\u85dd\u9999\u6c1b\uff1a https://reurl.cc/R9bN7G\n\udb40\udc20\n\u53d7\u5920\u4e86\u5ec9\u50f9\u82b3\u9999\u5291\u523a\u9f3b\u7684\u5316\u5b78\u5473\uff1f \u6216\u662f\u64d4\u5fc3\u6db2\u9ad4\u9999\u6c34\u6253\u7ffb\u8150\u8755\u98fe\u677f\uff1f\n\udb40\udc20\n\u9078\u7528 LIQUI MOLY \u8eca\u7528\u9999\u6c1b\u78da\uff0c\u4f60\u9700\u8981\u7684\u4e09\u5927\u7406\u7531\uff1a \n\u2705 \u5fb7\u570b\u539f\u88dd\uff1a\u5ef6\u7e8c\u54c1\u724c\u56b4\u8b39\u5de5\u85dd\uff0c\u54c1\u8cea\u4fdd\u8b49\u3002\n\u2705 \u56fa\u9ad4\u9999\u6c1b\uff1a\u7121\u9152\u7cbe\u3001\u4e0d\u5916\u6f0f\uff0c\u9999\u6c23\u6301\u4e45\u7d30\u81a9\u3002\n\u2705 \u96a8\u593e\u96a8\u7528\uff1a\u901a\u7528\u578b\u51fa\u98a8\u53e3\u593e\u5177\uff0c\u5b89\u88dd\u53ea\u9700 1 \u79d2\u3002\n\udb40\udc20\n\u56b4\u9078\u56db\u7a2e\u9ad8\u7d1a\u8abf\u9999\uff1a \ud83d\udd39 \u6d77\u6d0b Ocean\uff5c\ud83d\udd39 \u6afb\u6843 Cherry \ud83d\udd39 \u9999\u8349 Vanilla\uff5c\ud83d\udd39 \u65b0\u8eca New Car\n\udb40\udc20\n\u8eca\u8981\u9867\uff0c\u9762\u5b50\u4e5f\u8981\u9867\u3002\u8b93\u4e58\u5ba2\u4e0a\u8eca\u7684\u7b2c\u4e00\u79d2\uff0c\u5c31\u5c0d\u4f60\u5370\u8c61\u52a0\u5206\uff01\n\ud83d\udd25 \u7acb\u5373\u5165\u624b\u5fb7\u570b\u5de5\u85dd\u9999\u6c1b\uff1a https://reurl.cc/R9bN7G\n\udb40\udc20\n#LIQUIMOLY #LIQUIMOLYTaiwan #\u7e3d\u4ee3\u7406\u5b9c\u798f\u5de5\u696d #CARMALL #\u8eca\u9b54\u5546\u57ce #\u8eca\u7528\u9999\u6c1b #\u6c7d\u8eca\u9999\u6c1b #\u9999\u6c1b\u78da #\u5fb7\u570b\u88fd\u9020 #\u958b\u8eca\u65e5\u5e38 #\u611b\u8eca #\u65b0\u8eca\u5473\u9053 #\u8eca\u5167\u9999\u6c1b",
+      "image_url": "https://external.ftpe7-3.fna.fbcdn.net/emg1/v/t13/4167825751087297519?url=https%3A%2F%2Fwww.facebook.com%2Fads%2Fimage%2F%3Fd%3DAQJWiP-g-6C4c727lxHIiRTWD2jqBrKYA4H1Js86r-_BTUKthUyPVjuKzKjp0kS6YK96ZPcrDyVTUcZK6NtgBac_zGY-_XWyie01OuIaXdhWURRuaUs0RMfULErIJkMr3rKokS3mIgjgdVx_R8G3G-ms&fb_obo=1&utld=facebook.com&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_oc=AdnrJU_jnmS-URsrwpBPe7qtxLHGbAbWyYtypz60i8PfAN22BVdtPVy5iHDH4cRtpG4&ccb=13-1&oh=06_Q3-8AW9TVsJndLvwenyOHPRX---6oIngFUlpDKHqnI2HHzR4&oe=698F26A7&_nc_sid=58080a",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://external.ftpe7-3.fna.fbcdn.net/emg1/v/t13/4167825751087297519?url=https%3A%2F%2Fwww.facebook.com%2Fads%2Fimage%2F%3Fd%3DAQJWiP-g-6C4c727lxHIiRTWD2jqBrKYA4H1Js86r-_BTUKthUyPVjuKzKjp0kS6YK96ZPcrDyVTUcZK6NtgBac_zGY-_XWyie01OuIaXdhWURRuaUs0RMfULErIJkMr3rKokS3mIgjgdVx_R8G3G-ms&fb_obo=1&utld=facebook.com&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_oc=AdnrJU_jnmS-URsrwpBPe7qtxLHGbAbWyYtypz60i8PfAN22BVdtPVy5iHDH4cRtpG4&ccb=13-1&oh=06_Q3-8AW9TVsJndLvwenyOHPRX---6oIngFUlpDKHqnI2HHzR4&oe=698F26A7&_nc_sid=58080a",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120236731485190142",
+      "ad_name": "251204_\u96d912\u514d\u904b",
+      "creative_id": "1482257989554014",
+      "title": "{{product.name}}",
+      "body": "\u96d912\u5e74\u7d42\u58d3\u8ef8\uff01\u5168\u7ad9\u3010\u6eff$1,212\u514d\u904b\u5230\u5bb6\u3011\uff01\ud83c\udf89\n\u932f\u904e\u96d911\uff1f\u4eca\u5e74\u6700\u5f8c\u4e00\u6b21\u72c2\u6b61\u76db\u5178\uff0c\u932f\u904e\u771f\u7684\u8981\u7b49\u660e\u5e74\uff01 \udb40\udc20\udb40\udc20\n\udb40\udc20\udb40\udc20\n\ud83d\udcc5 \u5373\u65e5\u8d77 - 12/12 \u671f\u9593\u9650\u5b9a \udb40\udc20\udb40\udc20\n\ud83d\ude9a \u5168\u7ad9\u5546\u54c1\uff5c\u6d88\u8cbb\u6eff $1,212 \u7acb\u5373\u4eab\u3010\u514d\u904b\u512a\u60e0\u3011\uff01\n\udb40\udc20 \u5e74\u5e95\u611b\u8eca\u5927\u6383\u9664\u3001\u8de8\u5e74\u51fa\u904a\u4fdd\u990a\uff0c\u8d81\u73fe\u5728\u4e00\u6b21\u56e4\u8db3\uff01 \udb40\udc20\n\udb40\udc20\n\ud83d\udd25 BOSCH \u96fb\u52d5\u6253\u6c23\u6a5f\uff1a \u544a\u5225\u7b28\u91cd\uff0c\u7cbe\u6e96\u6253\u6c23\uff0c\u51fa\u904a\u884c\u8eca\u5b89\u5168\u5fc5\u5099\uff01\n\u2728 LIQUI MOLY \u9999\u6c1b\u78da\uff1a \u5fb7\u570b\u54c1\u5473\uff0c\u56db\u6b3e\u8ff7\u4eba\u9999\u8abf\uff0c\u8b93\u8eca\u5167\u7a7a\u6c23\u7165\u7136\u4e00\u65b0\uff01\n\ud83d\udee0\ufe0f \u9084\u6709\u66f4\u591a\u6c7d\u6a5f\u8eca\u7528\u54c1\u724c\u7b49\u4f60\u4f86\u6316\u5bf6\uff01 \udb40\udc20\udb40\udc20\n\udb40\udc20\n\u8cfc\u7269\u8eca\u6e05\u7a7a\u8a08\u756b\u555f\u52d5\uff01\u73fe\u5728\u5c31\u7d50\u5e33\uff01\ud83d\uded2\n\u624b\u5200\u4e0b\u55ae\uff01\ud83d\udc49 https://www.carmall.com.tw/ \udb40\udc20\udb40\udc20\n\udb40\udc20\n#\u96d912 #\u5e74\u7d42\u6176 #CarMall #\u8eca\u9b54\u5546\u57ce #\u514d\u904b\u512a\u60e0 #\u6c7d\u8eca\u4fdd\u990a #\u884c\u8eca\u5b89\u5168 #BOSCH #LIQUIMOLY #\u611b\u8eca #\u5e74\u672b\u56e4\u8ca8",
+      "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t39.2147-6/75341531_494485104475166_2751028116179648512_n.png?_nc_cat=1&ccb=1-7&_nc_ohc=iPBPZfOnxxAQ7kNvwFOImmm&_nc_oc=AdnnqTn6oYPwg6Dg6Telb_QS00u8G36nJVVw7X5lugm7ujEVE59tq0y0KzTw-_s0Zi0&_nc_zt=14&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQFwqYb1L2HPVWJ1r7-UxfAiBNAaKk6fAUBin8Z5zO0jTBQYIFAaszKY9rMQI3_ugnFW38hnftox&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=39b8c1&_nc_sid=58080a&oh=00_AfsRTs73fkx2AJMXDHZoi7OLQDQ5n-Ww3Qu9m5o1ktiyuw&oe=69932584",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t39.2147-6/75341531_494485104475166_2751028116179648512_n.png?_nc_cat=1&ccb=1-7&_nc_ohc=iPBPZfOnxxAQ7kNvwFOImmm&_nc_oc=AdnnqTn6oYPwg6Dg6Telb_QS00u8G36nJVVw7X5lugm7ujEVE59tq0y0KzTw-_s0Zi0&_nc_zt=14&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQFwqYb1L2HPVWJ1r7-UxfAiBNAaKk6fAUBin8Z5zO0jTBQYIFAaszKY9rMQI3_ugnFW38hnftox&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=39b8c1&_nc_sid=58080a&oh=00_AfsRTs73fkx2AJMXDHZoi7OLQDQ5n-Ww3Qu9m5o1ktiyuw&oe=69932584",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120233982238470142",
+      "ad_name": "251014_BOSCH\u6253\u6c23\u6a5f",
+      "creative_id": "1194154595952968",
+      "title": "",
+      "body": "BOSCH \u7121\u7dda\u96fb\u52d5\u6253\u6c23\u6a5f\u8b93\u4f60\u544a\u5225\u624b\u5fd9\u8173\u4e82\uff01\ud83d\udeab\n\u9650\u6642\u512a\u60e0\ud83d\udc49 https://reurl.cc/ekrE7K\n\udb40\udc20\n\u7dca\u6025\u6642\u523b\u8f2a\u80ce\u6c92\u6c23\uff0c\u9084\u5728\u7528\u8173\u8e29\u6216\u7ffb\u627e\u8eca\u4e0a\u5de8\u5927\u7b28\u91cd\u7684\u6253\u6c23\u6a5f\u55ce\uff1f\n\u7acb\u5373\u5347\u7d1a BOSCH EasyPump \u96fb\u52d5\u6253\u6c23\u6a5f\uff01 \n\udb40\udc20\n\u2714\ufe0f \u5c0f\u5de7\u5982\u6c34\u74f6\uff0c\u96a8\u6642\u653e\u8eca\u4e0a\u6216\u80cc\u5305\n\u2714\ufe0f \u5167\u5efa\u96fb\u6c60 + USB-C \u5145\u96fb\uff0c\u64fa\u812b\u96fb\u7dda\u675f\u7e1b\n\u2714\ufe0f \u81ea\u52d5\u505c\u6a5f\u529f\u80fd\uff0c\u7cbe\u6e96\u6253\u5230\u8a2d\u5b9a\u7684\u80ce\u58d3\uff0c\u5b89\u5168\u53c8\u7701\u5fc3\uff01\n\udb40\udc20\n\u7121\u8ad6\u6c7d/\u6a5f\u8eca\u3001\u81ea\u884c\u8eca\u3001\u9084\u662f\u5404\u7a2e\u7403\u985e\uff0c\u4e00\u6a5f\u641e\u5b9a\u3002\n\u7acb\u5373\u8cfc\u8cb7\ud83d\udc49 https://reurl.cc/ekrE7K\n\udb40\udc20\n#BOSCH\u535a\u4e16 #\u96fb\u52d5\u6253\u6c23\u6a5f #\u884c\u8eca\u5b89\u5168 #\u55ae\u8eca\u65cf\u5fc5\u5099  #CARMALL #\u8eca\u9b54\u5546\u57ce",
+      "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t39.30808-6/558962996_122125522094976711_7341560635602251012_n.jpg?_nc_cat=108&ccb=1-7&_nc_ohc=GhpSBFRNAREQ7kNvwGXQxYr&_nc_oc=AdkivyVxy3vwWa-nb7WymhRyhqTMNDY4ExwmArAOZUhDqDRRfPr2TPn-Z1sqbwlT3Ns&_nc_zt=23&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQGk35tDwG1wNybmgSTR2o6aqunSZ-rN_IXG9vxRtvv2Z9j_clZbftVt-qwCr2bhL9Ne17E2W6kC&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=8c4ec0&_nc_sid=58080a&oh=00_AfsQph4ZevxoESUAeLhJ1spAro9yHqM2UtRh7hqroSx_CQ&oe=69933928",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t39.30808-6/558962996_122125522094976711_7341560635602251012_n.jpg?_nc_cat=108&ccb=1-7&_nc_ohc=GhpSBFRNAREQ7kNvwGXQxYr&_nc_oc=AdkivyVxy3vwWa-nb7WymhRyhqTMNDY4ExwmArAOZUhDqDRRfPr2TPn-Z1sqbwlT3Ns&_nc_zt=23&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQGk35tDwG1wNybmgSTR2o6aqunSZ-rN_IXG9vxRtvv2Z9j_clZbftVt-qwCr2bhL9Ne17E2W6kC&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=8c4ec0&_nc_sid=58080a&oh=00_AfsQph4ZevxoESUAeLhJ1spAro9yHqM2UtRh7hqroSx_CQ&oe=69933928",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120233982753930142",
+      "ad_name": "251014_LM\u82b3\u9999\u78da",
+      "creative_id": "1196534365621135",
+      "title": "CarMall \u8eca\u9b54\u5546\u57ce",
+      "body": "\u4f60\u7684\u8eca\uff0c\u662f\u4ec0\u9ebc\u5473\u9053\uff1f\ud83e\udd14 \n\u5225\u8b93\u8eca\u5167\u60f1\u4eba\u7684\u6c23\u5473\uff0c\u7834\u58de\u4e86\u4f60\u7684\u99d5\u99ad\u5fc3\u60c5\uff01\n\udb40\udc20\n\u4f86\u81ea\u5fb7\u570b LIQUI MOLY\u7684\u54c1\u5473\u4e4b\u9078 \u2014 \u8eca\u7528\u9999\u6c1b\u78da\uff0c\u6b63\u5f0f\u767b\u5834\uff01\ud83d\ude97\u2728\n\udb40\udc20\n\u63a1\u7528\u9ad8\u54c1\u8cea\u7121\u9152\u7cbe\u9999\u7cbe\u6cb9\uff0c\u9999\u6c23\u6301\u4e45\u3001\u7d30\u81a9\u4e0d\u523a\u9f3b\u3002\u5c08\u70ba\u611b\u8eca\u5167\u88dd\u8a2d\u8a08\uff0c\u53ea\u8981\u8f15\u9b06\u593e\u4e0a\u51fa\u98a8\u53e3\uff0c\u6bcf\u4e00\u6b21\u6d41\u52d5\u7684\u7a7a\u6c23\uff0c\u90fd\u5c07\u5316\u70ba\u4ee4\u4eba\u6c89\u9189\u7684\u8ff7\u4eba\u6c23\u606f\u3002\n\udb40\udc20\n\u56db\u6b3e\u7368\u7279\u9999\u8abf\uff0c\u5b9a\u7fa9\u4f60\u7684\u5c08\u5c6c\u7a7a\u9593\uff1a\n\ud83c\udf0a \u6d77\u6d0b\uff1a\u5982\u6d77\u98a8\u62c2\u9762\uff0c\u5e36\u4f86\u8212\u723d\u6f54\u6de8\u611f\u3002\n\ud83c\udf52 \u6afb\u6843\uff1a\u6563\u767c\u5fae\u751c\u679c\u9999\uff0c\u70ba\u65c5\u7a0b\u6ce8\u5165\u6eff\u6eff\u6d3b\u529b\u3002\n\ud83c\udf66 \u9999\u8349\uff1a\u6eab\u6696\u7642\u7652\u7684\u6c23\u606f\uff0c\u6253\u9020\u6700\u653e\u9b06\u7684\u8eca\u5ba4\u6c1b\u570d\u3002\n\ud83d\ude97 \u65b0\u8eca\u6e05\u9999\uff1a\u91cd\u6eab\u525b\u727d\u8eca\u6642\uff0c\u90a3\u4efd\u7d14\u7cb9\u7684\u60b8\u52d5\u8207\u559c\u6085\u3002\n\udb40\udc20\n\u544a\u5225\u7570\u5473\uff0c\u8fce\u63a5\u6bcf\u4e00\u6b21\u6109\u5feb\u7684\u555f\u7a0b\u3002\n\u7acb\u5373\u6311\u9078\u4f60\u7684\u547d\u5b9a\u9999\u6c23\uff0c\u8b93\u611b\u8eca\u5f9e\u88e1\u5230\u5916\u90fd\u5b8c\u7f8e\uff01\n\udb40\udc20\n\u63a2\u7d22\u6240\u6709\u9999\u8abf\ud83d\udc49\nhttps://reurl.cc/GN3QWx\n\udb40\udc20\n#LIQUIMOLY #LIQUIMOLYTaiwan #\u7e3d\u4ee3\u7406\u5b9c\u798f\u5de5\u696d #CARMALL #\u8eca\u9b54\u5546\u57ce #\u8eca\u7528\u9999\u6c1b #\u6c7d\u8eca\u9999\u6c1b #\u9999\u6c1b\u78da #\u5fb7\u570b\u88fd\u9020 #\u958b\u8eca\u65e5\u5e38 #\u611b\u8eca #\u65b0\u8eca\u5473\u9053 #\u8eca\u5167\u9999\u6c1b",
+      "image_url": "https://external.ftpe7-3.fna.fbcdn.net/emg1/v/t13/11359776304666423602?url=https%3A%2F%2Fwww.facebook.com%2Fads%2Fimage%2F%3Fd%3DAQKPto_pkVO-7s6gMpx0xKb_cbXQieH2fwNFbHLZS3nweEA3eOWsa86waoS0nWuR9RVuxkRgv3oEMmgm77cDxCqBRjO6DorEzBnBMtK0E02EILvDN_1EZ_76plM5dhR0WyLX_8kQeXB7Xb1qjcyNpCsU&fb_obo=1&utld=facebook.com&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_oc=AdmEYcS5WcKeNRmYDKYYbAxpimPXG1JG-tviP_fcx1xOM8u7tbO3-9AD79wlo6dNh-Y&ccb=13-1&oh=06_Q3-8Aa3jUvS7zcwddm7EKs_qrgpdT8OzkzC1Lyvie3kjoxdP&oe=698F4B57&_nc_sid=58080a",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://external.ftpe7-3.fna.fbcdn.net/emg1/v/t13/11359776304666423602?url=https%3A%2F%2Fwww.facebook.com%2Fads%2Fimage%2F%3Fd%3DAQKPto_pkVO-7s6gMpx0xKb_cbXQieH2fwNFbHLZS3nweEA3eOWsa86waoS0nWuR9RVuxkRgv3oEMmgm77cDxCqBRjO6DorEzBnBMtK0E02EILvDN_1EZ_76plM5dhR0WyLX_8kQeXB7Xb1qjcyNpCsU&fb_obo=1&utld=facebook.com&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_oc=AdmEYcS5WcKeNRmYDKYYbAxpimPXG1JG-tviP_fcx1xOM8u7tbO3-9AD79wlo6dNh-Y&ccb=13-1&oh=06_Q3-8Aa3jUvS7zcwddm7EKs_qrgpdT8OzkzC1Lyvie3kjoxdP&oe=698F4B57&_nc_sid=58080a",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120235383340930142",
+      "ad_name": "251101_1111\u514d\u904b - \u8907\u672c",
+      "creative_id": "4143069999265362",
+      "title": "{{product.name}}",
+      "body": "\u26a1\ufe0f 1111\u72c2\u6b61\u8cfc\u7269\u7bc0\uff01\u5168\u7ad9\u3010\u6eff$1,111\u514d\u904b\u5230\u5bb6\u3011\uff01 \u26a1\ufe0f\n\u9084\u5728\u7b49\u4ec0\u9ebc\uff1f\u4e00\u5e74\u50c5\u6709\u4e00\u6b21\u7684\u8cfc\u7269\u76db\u5178\u4f86\u5566\uff01\n\udb40\udc20\udb40\udc20\n\u2728 11/1 - 11/11 \u671f\u9593\u9650\u5b9a \u2728\n\udb40\udc20\udb40\udc20\n\ud83d\ude97 \u5168\u7ad9\u5546\u54c1 \ud83d\udcb0 \u6d88\u8cbb\u6eff $1,111 \u7acb\u5373\u4eab\u3010\u514d\u904b\u5230\u5bb6\u3011\uff01\n\u8f15\u9b06\u6253\u5305\u4f60\u7684\u611b\u8eca\u88dc\u7d66\u54c1\uff0c\u4e0d\u5fc5\u7169\u60f1\u904b\u8cbb\uff01\n\udb40\udc20\n\u2705 BOSCH \u96fb\u52d5\u6253\u6c23\u6a5f\uff1a \u544a\u5225\u7b28\u91cd\uff0c\u7cbe\u6e96\u6253\u6c23\uff0c\u884c\u8eca\u5b89\u5168\u5fc5\u5099\uff01\n\u2705 LIQUI MOLY \u9999\u6c1b\u78da\uff1a \u5fb7\u570b\u54c1\u5473\uff0c\u56db\u6b3e\u8ff7\u4eba\u9999\u8abf\uff0c\u544a\u5225\u8eca\u5167\u7570\u5473\uff01\n\u2705 \u9084\u6709\u66f4\u591a\u990a\u8b77\u7522\u54c1\u3001\u6e05\u6f54\u7528\u54c1\u3001\u8eca\u7528\u7cbe\u54c1\u7b49\u4f60\u4f86\u6316\u5bf6\uff01\n\udb40\udc20\udb40\udc20\n\u4f60\u7684\u6e05\u55ae\u5217\u597d\u4e86\u55ce\uff1f \u7acb\u5373\u958b\u6436\uff01\n\udb40\udc20\u624b\u5200\u4e0b\u55ae\uff01\ud83d\udc49 https://www.carmall.com.tw/\n\udb40\udc20\udb40\udc20\n#\u96d9\u5341\u4e00 #\u96d911\u8cfc\u7269\u7bc0 #CarMall #\u8eca\u9b54\u5546\u57ce #\u514d\u904b\u512a\u60e0 #\u6c7d\u8eca\u4fdd\u990a #\u884c\u8eca\u5b89\u5168 #BOSCH #LIQUIMOLY #\u611b\u8eca",
+      "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t39.2147-6/75341531_494485104475166_2751028116179648512_n.png?_nc_cat=1&ccb=1-7&_nc_ohc=iPBPZfOnxxAQ7kNvwFOImmm&_nc_oc=AdnnqTn6oYPwg6Dg6Telb_QS00u8G36nJVVw7X5lugm7ujEVE59tq0y0KzTw-_s0Zi0&_nc_zt=14&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQGrrUO5xY0d30CxA-g3b4bkMJU6ZH2qFnafOUXwqP19tWIhz4OwanKQis3TpPYrf2J47EI8FmBd&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=39b8c1&_nc_sid=58080a&oh=00_AfvVzkzyZKKWCVw2WMt78YGmFdtXB1wURftX0mlYnDs2pg&oe=69932584",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t39.2147-6/75341531_494485104475166_2751028116179648512_n.png?_nc_cat=1&ccb=1-7&_nc_ohc=iPBPZfOnxxAQ7kNvwFOImmm&_nc_oc=AdnnqTn6oYPwg6Dg6Telb_QS00u8G36nJVVw7X5lugm7ujEVE59tq0y0KzTw-_s0Zi0&_nc_zt=14&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQGrrUO5xY0d30CxA-g3b4bkMJU6ZH2qFnafOUXwqP19tWIhz4OwanKQis3TpPYrf2J47EI8FmBd&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=39b8c1&_nc_sid=58080a&oh=00_AfvVzkzyZKKWCVw2WMt78YGmFdtXB1wURftX0mlYnDs2pg&oe=69932584",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120234971750340142",
+      "ad_name": "251101_1111\u514d\u904b",
+      "creative_id": "3143540522482754",
+      "title": "{{product.name}}",
+      "body": "\u26a1\ufe0f 1111\u72c2\u6b61\u8cfc\u7269\u7bc0\uff01\u5168\u7ad9\u3010\u6eff$1,111\u514d\u904b\u5230\u5bb6\u3011\uff01 \u26a1\ufe0f\n\u9084\u5728\u7b49\u4ec0\u9ebc\uff1f\u4e00\u5e74\u50c5\u6709\u4e00\u6b21\u7684\u8cfc\u7269\u76db\u5178\u4f86\u5566\uff01\n\udb40\udc20\udb40\udc20\n\u2728 11/1 - 11/11 \u671f\u9593\u9650\u5b9a \u2728\n\udb40\udc20\udb40\udc20\n\ud83d\ude97 \u5168\u7ad9\u5546\u54c1 \ud83d\udcb0 \u6d88\u8cbb\u6eff $1,111 \u7acb\u5373\u4eab\u3010\u514d\u904b\u5230\u5bb6\u3011\uff01\n\u8f15\u9b06\u6253\u5305\u4f60\u7684\u611b\u8eca\u88dc\u7d66\u54c1\uff0c\u4e0d\u5fc5\u7169\u60f1\u904b\u8cbb\uff01\n\udb40\udc20\n\u2705 BOSCH \u96fb\u52d5\u6253\u6c23\u6a5f\uff1a \u544a\u5225\u7b28\u91cd\uff0c\u7cbe\u6e96\u6253\u6c23\uff0c\u884c\u8eca\u5b89\u5168\u5fc5\u5099\uff01\n\u2705 LIQUI MOLY \u9999\u6c1b\u78da\uff1a \u5fb7\u570b\u54c1\u5473\uff0c\u56db\u6b3e\u8ff7\u4eba\u9999\u8abf\uff0c\u544a\u5225\u8eca\u5167\u7570\u5473\uff01\n\u2705 \u9084\u6709\u66f4\u591a\u990a\u8b77\u7522\u54c1\u3001\u6e05\u6f54\u7528\u54c1\u3001\u8eca\u7528\u7cbe\u54c1\u7b49\u4f60\u4f86\u6316\u5bf6\uff01\n\udb40\udc20\udb40\udc20\n\u4f60\u7684\u6e05\u55ae\u5217\u597d\u4e86\u55ce\uff1f \u7acb\u5373\u958b\u6436\uff01\n\udb40\udc20\u624b\u5200\u4e0b\u55ae\uff01\ud83d\udc49 https://www.carmall.com.tw/\n\udb40\udc20\udb40\udc20\n#\u96d9\u5341\u4e00 #\u96d911\u8cfc\u7269\u7bc0 #CarMall #\u8eca\u9b54\u5546\u57ce #\u514d\u904b\u512a\u60e0 #\u6c7d\u8eca\u4fdd\u990a #\u884c\u8eca\u5b89\u5168 #BOSCH #LIQUIMOLY #\u611b\u8eca",
+      "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t39.2147-6/75341531_494485104475166_2751028116179648512_n.png?_nc_cat=1&ccb=1-7&_nc_ohc=iPBPZfOnxxAQ7kNvwFOImmm&_nc_oc=AdnnqTn6oYPwg6Dg6Telb_QS00u8G36nJVVw7X5lugm7ujEVE59tq0y0KzTw-_s0Zi0&_nc_zt=14&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQEeW5TW9TMP-c8j37ogSY2xIqFLmw0RPHKpgiwejx47sSMb3dbrR1cAO2O7DNI3v5SbvY8qZk21&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=39b8c1&_nc_sid=58080a&oh=00_AftLoP2gL4tLU_n_S_VlBbhGUdyHdD8agd7ZCQNUZCQ2Ew&oe=69932584",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t39.2147-6/75341531_494485104475166_2751028116179648512_n.png?_nc_cat=1&ccb=1-7&_nc_ohc=iPBPZfOnxxAQ7kNvwFOImmm&_nc_oc=AdnnqTn6oYPwg6Dg6Telb_QS00u8G36nJVVw7X5lugm7ujEVE59tq0y0KzTw-_s0Zi0&_nc_zt=14&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQEeW5TW9TMP-c8j37ogSY2xIqFLmw0RPHKpgiwejx47sSMb3dbrR1cAO2O7DNI3v5SbvY8qZk21&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=39b8c1&_nc_sid=58080a&oh=00_AftLoP2gL4tLU_n_S_VlBbhGUdyHdD8agd7ZCQNUZCQ2Ew&oe=69932584",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120235383340910142",
+      "ad_name": "251101_1111\u514d\u904b - \u8907\u672c",
+      "creative_id": "1222995816332351",
+      "title": "{{product.name}}",
+      "body": "\u26a1\ufe0f 1111\u72c2\u6b61\u8cfc\u7269\u7bc0\uff01\u5168\u7ad9\u3010\u6eff$1,111\u514d\u904b\u5230\u5bb6\u3011\uff01 \u26a1\ufe0f\n\u9084\u5728\u7b49\u4ec0\u9ebc\uff1f\u4e00\u5e74\u50c5\u6709\u4e00\u6b21\u7684\u8cfc\u7269\u76db\u5178\u4f86\u5566\uff01\n\udb40\udc20\udb40\udc20\n\u2728 11/1 - 11/11 \u671f\u9593\u9650\u5b9a \u2728\n\udb40\udc20\udb40\udc20\n\ud83d\ude97 \u5168\u7ad9\u5546\u54c1 \ud83d\udcb0 \u6d88\u8cbb\u6eff $1,111 \u7acb\u5373\u4eab\u3010\u514d\u904b\u5230\u5bb6\u3011\uff01\n\u8f15\u9b06\u6253\u5305\u4f60\u7684\u611b\u8eca\u88dc\u7d66\u54c1\uff0c\u4e0d\u5fc5\u7169\u60f1\u904b\u8cbb\uff01\n\udb40\udc20\n\u2705 BOSCH \u96fb\u52d5\u6253\u6c23\u6a5f\uff1a \u544a\u5225\u7b28\u91cd\uff0c\u7cbe\u6e96\u6253\u6c23\uff0c\u884c\u8eca\u5b89\u5168\u5fc5\u5099\uff01\n\u2705 LIQUI MOLY \u9999\u6c1b\u78da\uff1a \u5fb7\u570b\u54c1\u5473\uff0c\u56db\u6b3e\u8ff7\u4eba\u9999\u8abf\uff0c\u544a\u5225\u8eca\u5167\u7570\u5473\uff01\n\u2705 \u9084\u6709\u66f4\u591a\u990a\u8b77\u7522\u54c1\u3001\u6e05\u6f54\u7528\u54c1\u3001\u8eca\u7528\u7cbe\u54c1\u7b49\u4f60\u4f86\u6316\u5bf6\uff01\n\udb40\udc20\udb40\udc20\n\u4f60\u7684\u6e05\u55ae\u5217\u597d\u4e86\u55ce\uff1f \u7acb\u5373\u958b\u6436\uff01\n\udb40\udc20\u624b\u5200\u4e0b\u55ae\uff01\ud83d\udc49 https://www.carmall.com.tw/\n\udb40\udc20\udb40\udc20\n#\u96d9\u5341\u4e00 #\u96d911\u8cfc\u7269\u7bc0 #CarMall #\u8eca\u9b54\u5546\u57ce #\u514d\u904b\u512a\u60e0 #\u6c7d\u8eca\u4fdd\u990a #\u884c\u8eca\u5b89\u5168 #BOSCH #LIQUIMOLY #\u611b\u8eca",
+      "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t39.2147-6/75341531_494485104475166_2751028116179648512_n.png?_nc_cat=1&ccb=1-7&_nc_ohc=iPBPZfOnxxAQ7kNvwFOImmm&_nc_oc=AdnnqTn6oYPwg6Dg6Telb_QS00u8G36nJVVw7X5lugm7ujEVE59tq0y0KzTw-_s0Zi0&_nc_zt=14&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQEzQ6LeKkZu-rlTppuQL8gQRuq5pvwRqOZxpsb5bMVT5CE6OfdLGSkXYECWUndHtJY2ZpisY8pv&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=39b8c1&_nc_sid=58080a&oh=00_AfvNbZz7GM-hwF4jonBeSRKH5bsEuT_XeEoHqxNYc1d7zA&oe=69932584",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t39.2147-6/75341531_494485104475166_2751028116179648512_n.png?_nc_cat=1&ccb=1-7&_nc_ohc=iPBPZfOnxxAQ7kNvwFOImmm&_nc_oc=AdnnqTn6oYPwg6Dg6Telb_QS00u8G36nJVVw7X5lugm7ujEVE59tq0y0KzTw-_s0Zi0&_nc_zt=14&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQEzQ6LeKkZu-rlTppuQL8gQRuq5pvwRqOZxpsb5bMVT5CE6OfdLGSkXYECWUndHtJY2ZpisY8pv&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=39b8c1&_nc_sid=58080a&oh=00_AfvNbZz7GM-hwF4jonBeSRKH5bsEuT_XeEoHqxNYc1d7zA&oe=69932584",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120234968978460142",
+      "ad_name": "251101_1111\u514d\u904b",
+      "creative_id": "827271783500285",
+      "title": "{{product.name}}",
+      "body": "\u26a1\ufe0f 1111\u72c2\u6b61\u8cfc\u7269\u7bc0\uff01\u5168\u7ad9\u3010\u6eff$1,111\u514d\u904b\u5230\u5bb6\u3011\uff01 \u26a1\ufe0f\n\u9084\u5728\u7b49\u4ec0\u9ebc\uff1f\u4e00\u5e74\u50c5\u6709\u4e00\u6b21\u7684\u8cfc\u7269\u76db\u5178\u4f86\u5566\uff01\n\udb40\udc20\udb40\udc20\n\u2728 11/1 - 11/11 \u671f\u9593\u9650\u5b9a \u2728\n\udb40\udc20\udb40\udc20\n\ud83d\ude97 \u5168\u7ad9\u5546\u54c1 \ud83d\udcb0 \u6d88\u8cbb\u6eff $1,111 \u7acb\u5373\u4eab\u3010\u514d\u904b\u5230\u5bb6\u3011\uff01\n\u8f15\u9b06\u6253\u5305\u4f60\u7684\u611b\u8eca\u88dc\u7d66\u54c1\uff0c\u4e0d\u5fc5\u7169\u60f1\u904b\u8cbb\uff01\n\udb40\udc20\n\u2705 BOSCH \u96fb\u52d5\u6253\u6c23\u6a5f\uff1a \u544a\u5225\u7b28\u91cd\uff0c\u7cbe\u6e96\u6253\u6c23\uff0c\u884c\u8eca\u5b89\u5168\u5fc5\u5099\uff01\n\u2705 LIQUI MOLY \u9999\u6c1b\u78da\uff1a \u5fb7\u570b\u54c1\u5473\uff0c\u56db\u6b3e\u8ff7\u4eba\u9999\u8abf\uff0c\u544a\u5225\u8eca\u5167\u7570\u5473\uff01\n\u2705 \u9084\u6709\u66f4\u591a\u990a\u8b77\u7522\u54c1\u3001\u6e05\u6f54\u7528\u54c1\u3001\u8eca\u7528\u7cbe\u54c1\u7b49\u4f60\u4f86\u6316\u5bf6\uff01\n\udb40\udc20\udb40\udc20\n\u4f60\u7684\u6e05\u55ae\u5217\u597d\u4e86\u55ce\uff1f \u7acb\u5373\u958b\u6436\uff01\n\udb40\udc20\u624b\u5200\u4e0b\u55ae\uff01\ud83d\udc49 https://www.carmall.com.tw/\n\udb40\udc20\udb40\udc20\n#\u96d9\u5341\u4e00 #\u96d911\u8cfc\u7269\u7bc0 #CarMall #\u8eca\u9b54\u5546\u57ce #\u514d\u904b\u512a\u60e0 #\u6c7d\u8eca\u4fdd\u990a #\u884c\u8eca\u5b89\u5168 #BOSCH #LIQUIMOLY #\u611b\u8eca",
+      "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t39.2147-6/75341531_494485104475166_2751028116179648512_n.png?_nc_cat=1&ccb=1-7&_nc_ohc=iPBPZfOnxxAQ7kNvwFOImmm&_nc_oc=AdnnqTn6oYPwg6Dg6Telb_QS00u8G36nJVVw7X5lugm7ujEVE59tq0y0KzTw-_s0Zi0&_nc_zt=14&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQGbxFMKcKj7Md25VyRcHOnRYiYARbmWAJmjh1QTNZK9PLa5M6e85rFJicI5cTxcoxG2t2Pnc9cG&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=39b8c1&_nc_sid=58080a&oh=00_AfugZQ9lxaniJuX1wGS6WKssh9LVi-tAq7uol5bwCS37Ug&oe=69932584",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t39.2147-6/75341531_494485104475166_2751028116179648512_n.png?_nc_cat=1&ccb=1-7&_nc_ohc=iPBPZfOnxxAQ7kNvwFOImmm&_nc_oc=AdnnqTn6oYPwg6Dg6Telb_QS00u8G36nJVVw7X5lugm7ujEVE59tq0y0KzTw-_s0Zi0&_nc_zt=14&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQGbxFMKcKj7Md25VyRcHOnRYiYARbmWAJmjh1QTNZK9PLa5M6e85rFJicI5cTxcoxG2t2Pnc9cG&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=39b8c1&_nc_sid=58080a&oh=00_AfugZQ9lxaniJuX1wGS6WKssh9LVi-tAq7uol5bwCS37Ug&oe=69932584",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120233563906270142",
+      "ad_name": "\u63a8\u5ee3\u7db2\u7ad9\uff1ahttps://www.carmall.com.tw/collections/%E8%BB%8A%E7%94%A8%E9%A6%99%E6%B0%9B",
+      "creative_id": "1469791490951071",
+      "title": "CarMall \u8eca\u9b54\u5546\u57ce \uff5c\u60a8\u7684\u5168\u65b9\u4f4d\u4eba\u8eca\u751f\u6d3b\u5925\u4f34",
+      "body": "\u4f60\u7684\u8eca\uff0c\u662f\u4ec0\u9ebc\u5473\u9053\uff1f\ud83e\udd14 \n\u5225\u8b93\u8eca\u5167\u60f1\u4eba\u7684\u6c23\u5473\uff0c\u7834\u58de\u4e86\u4f60\u7684\u99d5\u99ad\u5fc3\u60c5\uff01\n\udb40\udc20\n\u4f86\u81ea\u5fb7\u570b LIQUI MOLY\u7684\u54c1\u5473\u4e4b\u9078 \u2014 \u8eca\u7528\u9999\u6c1b\u78da\uff0c\u6b63\u5f0f\u767b\u5834\uff01\ud83d\ude97\u2728\n\udb40\udc20\n\u63a1\u7528\u9ad8\u54c1\u8cea\u7121\u9152\u7cbe\u9999\u7cbe\u6cb9\uff0c\u9999\u6c23\u6301\u4e45\u3001\u7d30\u81a9\u4e0d\u523a\u9f3b\u3002\u5c08\u70ba\u611b\u8eca\u5167\u88dd\u8a2d\u8a08\uff0c\u53ea\u8981\u8f15\u9b06\u593e\u4e0a\u51fa\u98a8\u53e3\uff0c\u6bcf\u4e00\u6b21\u6d41\u52d5\u7684\u7a7a\u6c23\uff0c\u90fd\u5c07\u5316\u70ba\u4ee4\u4eba\u6c89\u9189\u7684\u8ff7\u4eba\u6c23\u606f\u3002\n\udb40\udc20\n\u56db\u6b3e\u7368\u7279\u9999\u8abf\uff0c\u5b9a\u7fa9\u4f60\u7684\u5c08\u5c6c\u7a7a\u9593\uff1a\n\ud83c\udf0a \u6d77\u6d0b\uff1a\u5982\u6d77\u98a8\u62c2\u9762\uff0c\u5e36\u4f86\u8212\u723d\u6f54\u6de8\u611f\u3002\n\ud83c\udf52 \u6afb\u6843\uff1a\u6563\u767c\u5fae\u751c\u679c\u9999\uff0c\u70ba\u65c5\u7a0b\u6ce8\u5165\u6eff\u6eff\u6d3b\u529b\u3002\n\ud83c\udf66 \u9999\u8349\uff1a\u6eab\u6696\u7642\u7652\u7684\u6c23\u606f\uff0c\u6253\u9020\u6700\u653e\u9b06\u7684\u8eca\u5ba4\u6c1b\u570d\u3002\n\ud83d\ude97 \u65b0\u8eca\u6e05\u9999\uff1a\u91cd\u6eab\u525b\u727d\u8eca\u6642\uff0c\u90a3\u4efd\u7d14\u7cb9\u7684\u60b8\u52d5\u8207\u559c\u6085\u3002\n\udb40\udc20\n\u544a\u5225\u7570\u5473\uff0c\u8fce\u63a5\u6bcf\u4e00\u6b21\u6109\u5feb\u7684\u555f\u7a0b\u3002\n\u7acb\u5373\u6311\u9078\u4f60\u7684\u547d\u5b9a\u9999\u6c23\uff0c\u8b93\u611b\u8eca\u5f9e\u88e1\u5230\u5916\u90fd\u5b8c\u7f8e\uff01\n\udb40\udc20\n\u63a2\u7d22\u6240\u6709\u9999\u8abf\ud83d\udc49\nhttps://reurl.cc/GN3QWx\n\udb40\udc20\n#LIQUIMOLY #LIQUIMOLYTaiwan #\u7e3d\u4ee3\u7406\u5b9c\u798f\u5de5\u696d #CARMALL #\u8eca\u9b54\u5546\u57ce #\u8eca\u7528\u9999\u6c1b #\u6c7d\u8eca\u9999\u6c1b #\u9999\u6c1b\u78da #\u5fb7\u570b\u88fd\u9020 #\u958b\u8eca\u65e5\u5e38 #\u611b\u8eca #\u65b0\u8eca\u5473\u9053 #\u8eca\u5167\u9999\u6c1b",
+      "image_url": "https://external.ftpe7-3.fna.fbcdn.net/emg1/v/t13/7344501709588463484?url=https%3A%2F%2Fwww.facebook.com%2Fads%2Fimage%2F%3Fd%3DAQJp9Pm7jhtu4BPiJ8OaV-zmUEJ39cpaiVR3ssfkaMJ21N5Aqr6dkwetWzfLrjHMNgJTCFJpiMhV_zuVTjEUamVieLDTMSU2NnPNT4uL0lOykeQSiMnAGpn4TNCXfntDmao5uwcUXPn8f98UIgxiUsUN&fb_obo=1&utld=facebook.com&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_oc=AdnvzWGiWTmBGvwW4fU82rCy_0MeCH7AU1CyTIUu4YiXUR4AEB5l8NYBhiE0guq7l2E&ccb=13-1&oh=06_Q3-8Afb7i3BWYE3ExMBmg-4LFzwQfaBk7YCqXwcfPFgPCdI7&oe=698F29C7&_nc_sid=58080a",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": "825af35bb7b33936988582d267e1d2a6",
+          "image_url": null,
+          "name": "CarMall \u8eca\u9b54\u5546\u57ce \uff5c\u60a8\u7684\u5168\u65b9\u4f4d\u4eba\u8eca\u751f\u6d3b\u5925\u4f34",
+          "description": "",
+          "link": "https://www.carmall.com.tw/collections/%E8%BB%8A%E7%94%A8%E9%A6%99%E6%B0%9B"
+        },
+        {
+          "index": 1,
+          "image_hash": "aec18a5376f1ffffd6d8bca9eef378c8",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/568308323_24384514024557174_687803490150599288_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=Y-z7AYiq8kUQ7kNvwHwVkf0&_nc_oc=AdkWSq9NGLwaqIt1_JHqgSt4FWLLpFTAlY-i1lZgQxMcOYY_YGlkMlyPJUnbKWBy6ZU&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQG77gy0ZO-NkktDW66coLN7Bb9FXd3it9ulWy0L_Z7rIraOmGLCZvG-LDJp6CXhSoF_SAcnXfKK&oh=00_AfseSaIniWXIsGqyYFOYCcl9Ueo30NdAqNdhuTFiJAnUyA&oe=6993175E",
+          "name": "CarMall \u8eca\u9b54\u5546\u57ce \uff5c\u60a8\u7684\u5168\u65b9\u4f4d\u4eba\u8eca\u751f\u6d3b\u5925\u4f34",
+          "description": "",
+          "link": "https://www.carmall.com.tw/collections/%E8%BB%8A%E7%94%A8%E9%A6%99%E6%B0%9B"
+        }
+      ],
+      "is_carousel": true,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120233634232280142",
+      "ad_name": "\u63a8\u5ee3\u7db2\u7ad9\uff1ahttps://reurl.cc/ekrE7K",
+      "creative_id": "1136568677995953",
+      "title": "CarMall \u8eca\u9b54\u5546\u57ce \uff5c\u60a8\u7684\u5168\u65b9\u4f4d\u4eba\u8eca\u751f\u6d3b\u5925\u4f34",
+      "body": "BOSCH \u7121\u7dda\u96fb\u52d5\u6253\u6c23\u6a5f\u8b93\u4f60\u544a\u5225\u624b\u5fd9\u8173\u4e82\uff01\ud83d\udeab\n\u9650\u6642\u512a\u60e0\ud83d\udc49 https://reurl.cc/ekrE7K\n\udb40\udc20\n\u7dca\u6025\u6642\u523b\u8f2a\u80ce\u6c92\u6c23\uff0c\u9084\u5728\u7528\u8173\u8e29\u6216\u7ffb\u627e\u8eca\u4e0a\u5de8\u5927\u7b28\u91cd\u7684\u6253\u6c23\u6a5f\u55ce\uff1f\n\u7acb\u5373\u5347\u7d1a BOSCH EasyPump \u96fb\u52d5\u6253\u6c23\u6a5f\uff01 \n\udb40\udc20\n\u2714\ufe0f \u5c0f\u5de7\u5982\u6c34\u74f6\uff0c\u96a8\u6642\u653e\u8eca\u4e0a\u6216\u80cc\u5305\n\u2714\ufe0f \u5167\u5efa\u96fb\u6c60 + USB-C \u5145\u96fb\uff0c\u64fa\u812b\u96fb\u7dda\u675f\u7e1b\n\u2714\ufe0f \u81ea\u52d5\u505c\u6a5f\u529f\u80fd\uff0c\u7cbe\u6e96\u6253\u5230\u8a2d\u5b9a\u7684\u80ce\u58d3\uff0c\u5b89\u5168\u53c8\u7701\u5fc3\uff01\n\udb40\udc20\n\u7121\u8ad6\u6c7d/\u6a5f\u8eca\u3001\u81ea\u884c\u8eca\u3001\u9084\u662f\u5404\u7a2e\u7403\u985e\uff0c\u4e00\u6a5f\u641e\u5b9a\u3002\n\u7acb\u5373\u8cfc\u8cb7\ud83d\udc49 https://reurl.cc/ekrE7K\n\udb40\udc20\n#BOSCH\u535a\u4e16 #\u96fb\u52d5\u6253\u6c23\u6a5f #\u884c\u8eca\u5b89\u5168 #\u55ae\u8eca\u65cf\u5fc5\u5099  #CARMALL #\u8eca\u9b54\u5546\u57ce",
+      "image_url": "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/560641164_122125526084976711_9103645947316260031_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=qLr9XW-wirMQ7kNvwFHMIel&_nc_oc=Adm2YvCNWQ7uR6mMuZKYQ6Mh-SLhHg9VZutyaXTNWsoqIzjJ1rwR9lVK-3ypLPMX-f4&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQHjwIeyIrImcFbVDc5o_3rbrokJWY8ziULxdhviK77QF_LylITQm96CNlJhDSx4wVufWvaGZAn6&oh=00_AfuVLE86opngVZsWa7IAA3v-AM-gJ1bSGkTk7CS_32ee9g&oe=699317DC",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": "108aea777aa1219e317adb83fe7ae022",
+          "image_url": "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/560641164_122125526084976711_9103645947316260031_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=qLr9XW-wirMQ7kNvwFHMIel&_nc_oc=Adm2YvCNWQ7uR6mMuZKYQ6Mh-SLhHg9VZutyaXTNWsoqIzjJ1rwR9lVK-3ypLPMX-f4&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQHjwIeyIrImcFbVDc5o_3rbrokJWY8ziULxdhviK77QF_LylITQm96CNlJhDSx4wVufWvaGZAn6&oh=00_AfuVLE86opngVZsWa7IAA3v-AM-gJ1bSGkTk7CS_32ee9g&oe=699317DC",
+          "name": "BOSCH EasyPump \u96fb\u52d5\u6253\u6c23\u6a5f \u9650\u6642\u7279\u50f9",
+          "description": "",
+          "link": "https://reurl.cc/ekrE7K"
+        },
+        {
+          "index": 1,
+          "image_hash": "12629260375e4352b23215f2cfacf81b",
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/561738198_122125526612976711_767536939431539102_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=0oAmM2yUVnEQ7kNvwHi87y9&_nc_oc=Adn4FnCIkbwImGh9BmakhrDapuv7f79mBME0-BHlkXXUPCGcsAeopYPSIvfLfjcIeE4&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQFLvaLuJTNXlsmmuhG2sA9fTf4TQ0rSSkpCOcdRf5cToMLWOCHE0YA922JYdp7Zkaw0oJtCSFHE&oh=00_Afuqy_8mI2D7D-zgU27r-Ej10g10ch6-DiiafSlhwhRBrA&oe=69933DB9",
+          "name": "BOSCH EasyPump \u96fb\u52d5\u6253\u6c23\u6a5f \u9650\u6642\u7279\u50f9",
+          "description": "",
+          "link": "https://reurl.cc/ekrE7K"
+        },
+        {
+          "index": 2,
+          "image_hash": "72e38b668a83b735213364c9349613e9",
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/560147587_122125526618976711_4259192543429606623_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=nH-PnS7jBV8Q7kNvwGQ82Jt&_nc_oc=AdmLG6xBMHrnssrJ5PcemJNGcuGQAJrVSD_6BWMFOa8GtVkElrL7HENgUQyRgGHuTHs&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQGrb0NzBVSwtfJGWaLxCxxR42Ine_LugoMmpbS561kHWkcb1VCBcaj4NE2SQPC2kiCxTNeyg2tR&oh=00_AfvTekl-Or1lHuOaPlsrgcIJp-o0GBlGqWEM3uI7XgOEgQ&oe=69932B35",
+          "name": "BOSCH EasyPump \u96fb\u52d5\u6253\u6c23\u6a5f \u9650\u6642\u7279\u50f9",
+          "description": "",
+          "link": "https://reurl.cc/ekrE7K"
+        },
+        {
+          "index": 3,
+          "image_hash": "1ad08dfdc43b68a58056e819336e6ec4",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/561779917_122125526624976711_5827068801002283392_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=4GGtKgrqTZIQ7kNvwHwoRPK&_nc_oc=AdmC81AVBcy7D7Ym_IUpcTrjcAIBDeAZB27nScrbxm_Xreyx8Cyz15Dgk0K8pUpsThg&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQEMrSjBvVQ848xfHKUD2u23spaalHDTauLyz2IpViy32AC12pszkzQQWZsfFh45iMPwHlJsf0vA&oh=00_Afv6hXS0qhKsGztGel8mc_4LjFcdQqLOOwrk7HpZYZlOeA&oe=69931807",
+          "name": "BOSCH EasyPump \u96fb\u52d5\u6253\u6c23\u6a5f \u9650\u6642\u7279\u50f9",
+          "description": "",
+          "link": "https://reurl.cc/ekrE7K"
+        },
+        {
+          "index": 4,
+          "image_hash": "4c37f48cbe9e01984932cce20cac53bb",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/567494541_25426551426948489_8416977597353893837_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=mm96nrwBpBwQ7kNvwH_FaLf&_nc_oc=AdmW8AxrVMToWVKn7TtI4Nx8-uc1h0d2nbPtJlhXQyRZVQyok2E_DzhFeBTf3QLP9zI&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=lsxUUsq0q9EEDuutYp0C5w&_nc_tpa=Q5bMBQGF_Cq5L9KpKdmFmM4ClaYBmhGBo4o5EZvYKqbFIC9HBD8UQQDN1xh0W5jlVzX043iQciXWOoz5&oh=00_Afs7U56ngrzuIKObHa6wTrlB7EWIreCmrtwD6dXFkk5itg&oe=69934B60",
+          "name": "BOSCH EasyPump \u96fb\u52d5\u6253\u6c23\u6a5f \u9650\u6642\u7279\u50f9",
+          "description": "",
+          "link": "https://reurl.cc/ekrE7K"
+        }
+      ],
+      "is_carousel": true,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120232210710900142",
+      "ad_name": "250909_\u93c8\u689d\u6e05\u6f54\u5957\u7d44",
+      "creative_id": "1325857312420537",
+      "title": "",
+      "body": "",
+      "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/535477311_10224473450702613_8053331253203439817_n.jpg?_nc_cat=108&ccb=1-7&_nc_ohc=R0JDXXnvahUQ7kNvwH3GO16&_nc_oc=AdmnsSFKALWvu7wDfdpuFubHylID71KQmxDelywaeGJe93hCOZERXHlOr2BLkmNwyMg&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQFG_Kf5qW79Ce8S4lom5OulWG4ENA9NLOtHV9PCCxtK2UXKdls0JYD4etNWxW9SzgxxdB7LU-v0&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=52f3c4&_nc_sid=58080a&oh=00_AfudnO0ikc4ZI7WkitVvnlpjDNT5t5xWOLOTDDE6T0yjXw&oe=699321C3",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/535477311_10224473450702613_8053331253203439817_n.jpg?_nc_cat=108&ccb=1-7&_nc_ohc=R0JDXXnvahUQ7kNvwH3GO16&_nc_oc=AdmnsSFKALWvu7wDfdpuFubHylID71KQmxDelywaeGJe93hCOZERXHlOr2BLkmNwyMg&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQFG_Kf5qW79Ce8S4lom5OulWG4ENA9NLOtHV9PCCxtK2UXKdls0JYD4etNWxW9SzgxxdB7LU-v0&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=52f3c4&_nc_sid=58080a&oh=00_AfudnO0ikc4ZI7WkitVvnlpjDNT5t5xWOLOTDDE6T0yjXw&oe=699321C3",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120231666171280142",
+      "ad_name": "\u93c8\u689d\u6e05\u6f54\u4fdd\u990a\u5957\u7d44",
+      "creative_id": "660144460478430",
+      "title": "",
+      "body": "\u26d3\ufe0f \u611b\u8eca\u7684\u8072\u97f3\uff0c\u4e0d\u8a72\u662f\u93c8\u689d\u8072\uff01\n\n\u5fb7\u570bLIQUI MOLY \u6469\u6258\u8eca\u93c8\u689d\u6e05\u6f54\u4fdd\u990a\u5957\u7d44\n\u6e05\u6f54 + \u6f64\u6ed1 + \u4fdd\u8b77\uff0c\u4e00\u7d44\u641e\u5b9a \u2705\n\n\u9650\u91cf50\u7d44 \u4e00\u7d44$999 \u5e36\u56de\u5bb6\uff01\n\u9ede\u64ca\u9023\u7d50\uff0c\u7acb\u5373\u8cfc\u8cb7 \ud83d\udc47\nhttps://reurl.cc/WObaax\n\n#CARMALL #\u8eca\u9b54\u5546\u57ce #LIQUIMOLY #\u93c8\u689d\u6e05\u6f54 #\u6469\u6258\u8eca\u4fdd\u990a #\u9a0e\u58eb #DIY #Gogoro\u4e5f\u53ef\u4ee5\u7528",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t39.30808-6/539265298_122113159466976711_4663774765391962506_n.jpg?_nc_cat=110&ccb=1-7&_nc_ohc=X0mUGYHUmAYQ7kNvwF1xfZA&_nc_oc=AdkD_H3kEjwepBdybwR-RNnnbh5LFyjyuZR688bRAlSbFfPto-ImFyBRLUqT3z2UZ54&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQEES-IUYrADbJk2j_4Yn3DdRjFBa6xA5DBqYvwE2UNVuRfyfwUzLCHR-XXUO2gkvrc2NYMq0fnC&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=8c4ec0&_nc_sid=58080a&oh=00_AftSn8_deeqNUNZ-X52WrSFMOIMYsGL5650D_5BeT8WAtA&oe=699331BB",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t39.30808-6/539265298_122113159466976711_4663774765391962506_n.jpg?_nc_cat=110&ccb=1-7&_nc_ohc=X0mUGYHUmAYQ7kNvwF1xfZA&_nc_oc=AdkD_H3kEjwepBdybwR-RNnnbh5LFyjyuZR688bRAlSbFfPto-ImFyBRLUqT3z2UZ54&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQEES-IUYrADbJk2j_4Yn3DdRjFBa6xA5DBqYvwE2UNVuRfyfwUzLCHR-XXUO2gkvrc2NYMq0fnC&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=8c4ec0&_nc_sid=58080a&oh=00_AftSn8_deeqNUNZ-X52WrSFMOIMYsGL5650D_5BeT8WAtA&oe=699331BB",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120231666171270142",
+      "ad_name": "CARMALL\u958b\u5e55\u6d3b\u52d5",
+      "creative_id": "2006526756760097",
+      "title": "",
+      "body": "\u3010 \u4f60\u7684 $100 \u8cfc\u7269\u91d1\u5df2\u5c31\u4f4d \u3011\n\nCarMall\u8eca\u9b54\u5546\u57ce\uff0c\u6b63\u5f0f\u8a66\u71df\u904b\uff01\n\u5c08\u70ba\u611b\u8eca\u7684\u4f60\u6253\u9020\uff0c\u4e00\u7ad9\u5f0f\u6574\u5408\u6c7d\u6a5f\u8eca\u3001\u81ea\u884c\u8eca\u5c08\u696d\u5546\u54c1\u3002\n\n\u70ba\u6176\u795d\u958b\u7ad9\uff0c\u6211\u5011\u6e96\u5099\u4e86\u898b\u9762\u79ae\uff1a\n\ud83d\udc49 \u7acb\u5373\u8a3b\u518a\u6703\u54e1\uff0c\u5c31\u9001 $100 \u512a\u60e0\u5238\uff01\n\n\u4e0d\u8ad6\u662f\u65e5\u5e38\u4fdd\u990a\u6216\u6027\u80fd\u5347\u7d1a\uff0c\u8b93\u5c08\u696d\u7684\u8eca\u9b54\u6210\u70ba\u4f60\u7684\u5f8c\u76fe\u3002\n\u7acb\u5373\u9ede\u64ca\uff0c\u9818\u53d6\u4f60\u7684\u5c08\u5c6c\u512a\u60e0\uff1a\nhttps://www.carmall.com.tw/\n\n#CARMALL #\u8eca\u9b54\u5546\u57ce #\u958b\u5e55\u6176 #\u6703\u54e1\u62db\u52df #\u767e\u5143\u512a\u60e0\u5238 #\u6c7d\u8eca\u767e\u8ca8 #\u6a5f\u8eca\u96f6\u4ef6 #\u81ea\u884c\u8eca\u914d\u4ef6 #\u4eba\u8eca\u751f\u6d3b",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t39.30808-6/539061342_122113151864976711_4229329744680685197_n.jpg?_nc_cat=110&ccb=1-7&_nc_ohc=I3ZsE7o7_yQQ7kNvwEW-Clp&_nc_oc=Adkms4_Hq0Po9y6FQL8b5fTNck-kMR2cND02-RhzGVPbz2dD0e88FmapavhJr2HexGk&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQHdOVhwunDOVX4ijS7LuzXniIpuXR_7SHpANBNPky6xXRWqB8R7oqXvgcmQ3xAYoR8KeQqbmvoU&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=8c4ec0&_nc_sid=58080a&oh=00_AftZBkbp2_qzFiqYE6MTZSIBPoPOVyzctuOyacg5ELFChA&oe=69934A64",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t39.30808-6/539061342_122113151864976711_4229329744680685197_n.jpg?_nc_cat=110&ccb=1-7&_nc_ohc=I3ZsE7o7_yQQ7kNvwEW-Clp&_nc_oc=Adkms4_Hq0Po9y6FQL8b5fTNck-kMR2cND02-RhzGVPbz2dD0e88FmapavhJr2HexGk&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQHdOVhwunDOVX4ijS7LuzXniIpuXR_7SHpANBNPky6xXRWqB8R7oqXvgcmQ3xAYoR8KeQqbmvoU&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=8c4ec0&_nc_sid=58080a&oh=00_AftZBkbp2_qzFiqYE6MTZSIBPoPOVyzctuOyacg5ELFChA&oe=69934A64",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120231666171260142",
+      "ad_name": "\u5b89\u5168\u5e3d\u6e05\u6f54\u4fdd\u990a\u5957\u7d44",
+      "creative_id": "1480141069843774",
+      "title": "",
+      "body": "\u5167\u896f\u7684\u6c57\u5473\u8b93\u4f60\u5c37\u5c2c\uff1f\u5916\u6bbc\u7684\u5149\u6fa4\u9010\u6f38\u9eef\u6de1\uff1f\n\u5225\u64d4\u5fc3\uff0c\u3010\u5fb7\u570bLIQUI MOLY \u5b89\u5168\u5e3d\u6e05\u6f54\u4fdd\u990a\u5957\u7d44\u3011\u4e00\u6b21\u89e3\u6c7a\u4f60\u7684\u5169\u5927\u7169\u60f1\uff01\n\n\u2728 \u5c0d\u5916\uff1a\u9ad8\u5149\u6fa4\u5bc6\u5c01\u5674\u5291\n\u6062\u5fa9\u5e3d\u9ad4\u5149\u6fa4\uff0c\u66f4\u80fd\u9632\u5875\u6297\u6c61\uff0c\u8b93\u4f60\u7684\u5e3d\u5b50\u5728\u967d\u5149\u4e0b\u9583\u9583\u767c\u4eae\u3002\n\n\ud83c\udf2c\ufe0f \u5c0d\u5167\uff1a\u5167\u896f\u6e05\u6f54\u6155\u65af\n\u6df1\u5165\u7e96\u7dad\u5206\u89e3\u6c57\u6c34\u8207\u7570\u5473\uff0c\u4e0d\u9700\u6c34\u6d17\uff0c\u6234\u4e0a\u5b89\u5168\u5e3d\u53ea\u5269\u6e05\u723d\u3002\n\n\u4e00\u5957\u641e\u5b9a\u5167\u5916\u4fdd\u990a\uff0c\u6574\u7d44\u512a\u60e0\u50f9 $999\u3002\n\u662f\u6642\u5019\u8b93\u4f60\u7684\u9802\u4e0a\u88dd\u5099\uff0c\u91cd\u73fe\u51fa\u5ee0\u6642\u7684\u5b8c\u7f8e\u72c0\u614b\u4e86\u3002\n\ud83d\udc49 https://reurl.cc/gYrk84\n\n#CARMALL #\u8eca\u9b54\u5546\u57ce #LIQUIMOLY #\u5b89\u5168\u5e3d\u4fdd\u990a #\u5167\u896f\u6e05\u6f54 #\u5b89\u5168\u5e3d\u934d\u819c #\u9a0e\u58eb\u5fc5\u5099",
+      "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t39.30808-6/539108788_122113165952976711_3288309187133333363_n.jpg?_nc_cat=101&ccb=1-7&_nc_ohc=8E8p-dY0dJkQ7kNvwEzHcQk&_nc_oc=Adl5BnGFLqbExhqS7iPXkHwrdZidYqkjYfwU1n-eQdQQAI1Kirgv9YG3dtEDoRD8040&_nc_zt=23&_nc_ht=scontent.ftpe7-4.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQG2EBxp8C1vSstO7d8QwhcTn-27s3ljpWY9O--flZx9ml45ef5nScnvEGzYBEhIWQBB-a_1cGgO&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=8c4ec0&_nc_sid=58080a&oh=00_Afu6gN4yTYIJ6XUATVer61boVub_qS36NYqkjFrCZMmf4A&oe=69931FFC",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t39.30808-6/539108788_122113165952976711_3288309187133333363_n.jpg?_nc_cat=101&ccb=1-7&_nc_ohc=8E8p-dY0dJkQ7kNvwEzHcQk&_nc_oc=Adl5BnGFLqbExhqS7iPXkHwrdZidYqkjYfwU1n-eQdQQAI1Kirgv9YG3dtEDoRD8040&_nc_zt=23&_nc_ht=scontent.ftpe7-4.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQG2EBxp8C1vSstO7d8QwhcTn-27s3ljpWY9O--flZx9ml45ef5nScnvEGzYBEhIWQBB-a_1cGgO&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=8c4ec0&_nc_sid=58080a&oh=00_Afu6gN4yTYIJ6XUATVer61boVub_qS36NYqkjFrCZMmf4A&oe=69931FFC",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120231906277060142",
+      "ad_name": "250902_\u93c8\u689d\u4fdd\u990a\u6e05\u6f54\u5957\u7d44",
+      "creative_id": "665149312681732",
+      "title": "",
+      "body": "\u26d3\ufe0f \u611b\u8eca\u7684\u8072\u97f3\uff0c\u4e0d\u8a72\u662f\u93c8\u689d\u8072\uff01\n\n\u5fb7\u570bLIQUI MOLY \u6469\u6258\u8eca\u93c8\u689d\u6e05\u6f54\u4fdd\u990a\u5957\u7d44\n\u6e05\u6f54 + \u6f64\u6ed1 + \u4fdd\u8b77\uff0c\u4e00\u7d44\u641e\u5b9a \u2705\n\n\u9650\u91cf50\u7d44 \u4e00\u7d44$999 \u5e36\u56de\u5bb6\uff01\n\u9ede\u64ca\u9023\u7d50\uff0c\u7acb\u5373\u8cfc\u8cb7 \ud83d\udc47\nhttps://reurl.cc/WObaax\n\n#CARMALL #\u8eca\u9b54\u5546\u57ce #LIQUIMOLY #\u93c8\u689d\u6e05\u6f54 #\u6469\u6258\u8eca\u4fdd\u990a #\u9a0e\u58eb #DIY #Gogoro\u4e5f\u53ef\u4ee5\u7528",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t39.30808-6/539265298_122113159466976711_4663774765391962506_n.jpg?_nc_cat=110&ccb=1-7&_nc_ohc=X0mUGYHUmAYQ7kNvwF1xfZA&_nc_oc=AdkD_H3kEjwepBdybwR-RNnnbh5LFyjyuZR688bRAlSbFfPto-ImFyBRLUqT3z2UZ54&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQHWFw9QgVzna8-5CYiP_tjvhFs9mj4voS63iDde_GtFlY81rDrGM83PjtpDFUigu_32nc-6FFNu&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=8c4ec0&_nc_sid=58080a&oh=00_AfuLbDcOvyRg1SGOir0gng90Qq6n1CbqPl_7LhM8Etg4lQ&oe=699331BB",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t39.30808-6/539265298_122113159466976711_4663774765391962506_n.jpg?_nc_cat=110&ccb=1-7&_nc_ohc=X0mUGYHUmAYQ7kNvwF1xfZA&_nc_oc=AdkD_H3kEjwepBdybwR-RNnnbh5LFyjyuZR688bRAlSbFfPto-ImFyBRLUqT3z2UZ54&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQHWFw9QgVzna8-5CYiP_tjvhFs9mj4voS63iDde_GtFlY81rDrGM83PjtpDFUigu_32nc-6FFNu&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=8c4ec0&_nc_sid=58080a&oh=00_AfuLbDcOvyRg1SGOir0gng90Qq6n1CbqPl_7LhM8Etg4lQ&oe=699331BB",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120231726189480142",
+      "ad_name": "\u93c8\u689d\u6e05\u6f54\u4fdd\u990a\u5957\u7d44",
+      "creative_id": "824705806550341",
+      "title": "\u6469\u6258\u8eca\u93c8\u689d\u6e05\u6f54\u4fdd\u990a\u5957\u7d44(\u9001\u93c8\u689d\u5237) Motorbike Chain Care Kit\uff5c",
+      "body": "\u26d3\ufe0f \u611b\u8eca\u7684\u8072\u97f3\uff0c\u4e0d\u8a72\u662f\u93c8\u689d\u8072\uff01\n\n\u5fb7\u570bLIQUI MOLY \u6469\u6258\u8eca\u93c8\u689d\u6e05\u6f54\u4fdd\u990a\u5957\u7d44\n\u6e05\u6f54 + \u6f64\u6ed1 + \u4fdd\u8b77\uff0c\u4e00\u7d44\u641e\u5b9a \u2705\n\n\u9650\u91cf50\u7d44 \u4e00\u7d44$999 \u5e36\u56de\u5bb6\uff01\n\u9ede\u64ca\u9023\u7d50\uff0c\u7acb\u5373\u8cfc\u8cb7 \ud83d\udc47\nhttps://reurl.cc/WObaax\n\n#CARMALL #\u8eca\u9b54\u5546\u57ce #LIQUIMOLY #\u93c8\u689d\u6e05\u6f54 #\u6469\u6258\u8eca\u4fdd\u990a #\u9a0e\u58eb #DIY #Gogoro\u4e5f\u53ef\u4ee5\u7528",
+      "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/535477311_10224473450702613_8053331253203439817_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=R0JDXXnvahUQ7kNvwH3GO16&_nc_oc=AdmnsSFKALWvu7wDfdpuFubHylID71KQmxDelywaeGJe93hCOZERXHlOr2BLkmNwyMg&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQFMpUl2ZEEuQACEvC9VPBgqVHarCs7oDce37rUAtvP2yrHrH8Nxal6ZJh0A6RoKo0x7kdFs0ZP5&oh=00_AfsicrOKs5DdVNo1q2juASFcSV08aW1VfRHMtlDtQVSSxA&oe=699321C3",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/535477311_10224473450702613_8053331253203439817_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=R0JDXXnvahUQ7kNvwH3GO16&_nc_oc=AdmnsSFKALWvu7wDfdpuFubHylID71KQmxDelywaeGJe93hCOZERXHlOr2BLkmNwyMg&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQFMpUl2ZEEuQACEvC9VPBgqVHarCs7oDce37rUAtvP2yrHrH8Nxal6ZJh0A6RoKo0x7kdFs0ZP5&oh=00_AfsicrOKs5DdVNo1q2juASFcSV08aW1VfRHMtlDtQVSSxA&oe=699321C3",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120231726189470142",
+      "ad_name": "CARMALL\u958b\u5e55\u6d3b\u52d5",
+      "creative_id": "1081693070822054",
+      "title": "",
+      "body": "\u3010 \u4f60\u7684 $100 \u8cfc\u7269\u91d1\u5df2\u5c31\u4f4d \u3011\n\nCarMall\u8eca\u9b54\u5546\u57ce\uff0c\u6b63\u5f0f\u8a66\u71df\u904b\uff01\n\u5c08\u70ba\u611b\u8eca\u7684\u4f60\u6253\u9020\uff0c\u4e00\u7ad9\u5f0f\u6574\u5408\u6c7d\u6a5f\u8eca\u3001\u81ea\u884c\u8eca\u5c08\u696d\u5546\u54c1\u3002\n\n\u70ba\u6176\u795d\u958b\u7ad9\uff0c\u6211\u5011\u6e96\u5099\u4e86\u898b\u9762\u79ae\uff1a\n\ud83d\udc49 \u7acb\u5373\u8a3b\u518a\u6703\u54e1\uff0c\u5c31\u9001 $100 \u512a\u60e0\u5238\uff01\n\n\u4e0d\u8ad6\u662f\u65e5\u5e38\u4fdd\u990a\u6216\u6027\u80fd\u5347\u7d1a\uff0c\u8b93\u5c08\u696d\u7684\u8eca\u9b54\u6210\u70ba\u4f60\u7684\u5f8c\u76fe\u3002\n\u7acb\u5373\u9ede\u64ca\uff0c\u9818\u53d6\u4f60\u7684\u5c08\u5c6c\u512a\u60e0\uff1a\nhttps://www.carmall.com.tw/\n\n#CARMALL #\u8eca\u9b54\u5546\u57ce #\u958b\u5e55\u6176 #\u6703\u54e1\u62db\u52df #\u767e\u5143\u512a\u60e0\u5238 #\u6c7d\u8eca\u767e\u8ca8 #\u6a5f\u8eca\u96f6\u4ef6 #\u81ea\u884c\u8eca\u914d\u4ef6 #\u4eba\u8eca\u751f\u6d3b",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t39.30808-6/539061342_122113151864976711_4229329744680685197_n.jpg?_nc_cat=110&ccb=1-7&_nc_ohc=I3ZsE7o7_yQQ7kNvwEW-Clp&_nc_oc=Adkms4_Hq0Po9y6FQL8b5fTNck-kMR2cND02-RhzGVPbz2dD0e88FmapavhJr2HexGk&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQG46SkFf4Hu6RXgZnwX00sbCc3t8R8AZCQzD7NilkceOsO2TMRMzfT0ixOqJvmGBmaz6vpjUBYq&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=8c4ec0&_nc_sid=58080a&oh=00_AfsgG0rQEfPb-X8FTWXQaPpIhSKGWATaO3-vH7sM8cc-TQ&oe=69934A64",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t39.30808-6/539061342_122113151864976711_4229329744680685197_n.jpg?_nc_cat=110&ccb=1-7&_nc_ohc=I3ZsE7o7_yQQ7kNvwEW-Clp&_nc_oc=Adkms4_Hq0Po9y6FQL8b5fTNck-kMR2cND02-RhzGVPbz2dD0e88FmapavhJr2HexGk&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQG46SkFf4Hu6RXgZnwX00sbCc3t8R8AZCQzD7NilkceOsO2TMRMzfT0ixOqJvmGBmaz6vpjUBYq&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=8c4ec0&_nc_sid=58080a&oh=00_AfsgG0rQEfPb-X8FTWXQaPpIhSKGWATaO3-vH7sM8cc-TQ&oe=69934A64",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    },
+    {
+      "ad_id": "120231726189450142",
+      "ad_name": "\u5b89\u5168\u5e3d\u6e05\u6f54\u4fdd\u990a\u5957\u7d44",
+      "creative_id": "1323778556021154",
+      "title": "\u6469\u6258\u8eca\u5b89\u5168\u5e3d\u6e05\u6f54\u4fdd\u990a\u5957\u7d44 Motorbike Helmet Care Kit\uff5c",
+      "body": "\u5167\u896f\u7684\u6c57\u5473\u8b93\u4f60\u5c37\u5c2c\uff1f\u5916\u6bbc\u7684\u5149\u6fa4\u9010\u6f38\u9eef\u6de1\uff1f\n\u5225\u64d4\u5fc3\uff0c\u3010\u5fb7\u570bLIQUI MOLY \u5b89\u5168\u5e3d\u6e05\u6f54\u4fdd\u990a\u5957\u7d44\u3011\u4e00\u6b21\u89e3\u6c7a\u4f60\u7684\u5169\u5927\u7169\u60f1\uff01\n\n\u2728 \u5c0d\u5916\uff1a\u9ad8\u5149\u6fa4\u5bc6\u5c01\u5674\u5291\n\u6062\u5fa9\u5e3d\u9ad4\u5149\u6fa4\uff0c\u66f4\u80fd\u9632\u5875\u6297\u6c61\uff0c\u8b93\u4f60\u7684\u5e3d\u5b50\u5728\u967d\u5149\u4e0b\u9583\u9583\u767c\u4eae\u3002\n\n\ud83c\udf2c\ufe0f \u5c0d\u5167\uff1a\u5167\u896f\u6e05\u6f54\u6155\u65af\n\u6df1\u5165\u7e96\u7dad\u5206\u89e3\u6c57\u6c34\u8207\u7570\u5473\uff0c\u4e0d\u9700\u6c34\u6d17\uff0c\u6234\u4e0a\u5b89\u5168\u5e3d\u53ea\u5269\u6e05\u723d\u3002\n\n\u4e00\u5957\u641e\u5b9a\u5167\u5916\u4fdd\u990a\uff0c\u6574\u7d44\u512a\u60e0\u50f9 $999\u3002\n\u662f\u6642\u5019\u8b93\u4f60\u7684\u9802\u4e0a\u88dd\u5099\uff0c\u91cd\u73fe\u51fa\u5ee0\u6642\u7684\u5b8c\u7f8e\u72c0\u614b\u4e86\u3002\n\ud83d\udc49 https://reurl.cc/gYrk84\n\n#CARMALL #\u8eca\u9b54\u5546\u57ce #LIQUIMOLY #\u5b89\u5168\u5e3d\u4fdd\u990a #\u5167\u896f\u6e05\u6f54 #\u5b89\u5168\u5e3d\u934d\u819c #\u9a0e\u58eb\u5fc5\u5099",
+      "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/535444384_10224473457182775_6505990479817140420_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=8rPNL34NMzEQ7kNvwHlKbjD&_nc_oc=Adn1CWeddi5mCSbZrs9quNa3A0XYf5_8k2SKF3kU06MyDj0xXV3iOxOoKRf960bSyFY&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQHbEl4qGpFm-rb8h6GTFFkFX_RuE298HHz0ChX2m8tLPquPE89hiK4fg9L1zhtVTBRo9gr1RRlm&oh=00_AfsJOcHZtgRkV1ykAUgyuwXLmoetJi6xgiTu7mRTA5Jiaw&oe=69931A5D",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/535444384_10224473457182775_6505990479817140420_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=8rPNL34NMzEQ7kNvwHlKbjD&_nc_oc=Adn1CWeddi5mCSbZrs9quNa3A0XYf5_8k2SKF3kU06MyDj0xXV3iOxOoKRf960bSyFY&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AOgd6ZUEAAAA&_nc_gid=cE1cHkVYXVxtez2Mk77Etg&_nc_tpa=Q5bMBQHbEl4qGpFm-rb8h6GTFFkFX_RuE298HHz0ChX2m8tLPquPE89hiK4fg9L1zhtVTBRo9gr1RRlm&oh=00_AfsJOcHZtgRkV1ykAUgyuwXLmoetJi6xgiTu7mRTA5Jiaw&oe=69931A5D",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": []
+    }
+  ],
+  "top_creatives": [],
+  "ga4": {
+    "active_users": 595,
+    "sessions": 708,
+    "atc": 51,
+    "ic": 44,
+    "purchases": 6,
+    "ecommerce_purchases": 6,
+    "purchase_revenue": 4300.000037,
+    "funnel_rates": {
+      "session_to_atc": 7.2,
+      "atc_to_checkout": 86.27,
+      "checkout_to_purchase": 13.64,
+      "overall_conversion": 0.85,
+      "atc_drop_off": 92.8,
+      "checkout_drop_off": 13.73,
+      "purchase_drop_off": 86.36
+    }
+  },
+  "ga4_channels": [
+    {
+      "source": "fb / paid",
+      "sessions": 134,
+      "atc": 18,
+      "ic": 14,
+      "purchases": 2,
+      "session_to_atc_rate": 13.43,
+      "atc_to_purchase_rate": 11.11
+    },
+    {
+      "source": "m.facebook.com / referral",
+      "sessions": 120,
+      "atc": 16,
+      "ic": 11,
+      "purchases": 1,
+      "session_to_atc_rate": 13.33,
+      "atc_to_purchase_rate": 6.25
+    },
+    {
+      "source": "google / organic",
+      "sessions": 41,
+      "atc": 3,
+      "ic": 5,
+      "purchases": 1,
+      "session_to_atc_rate": 7.32,
+      "atc_to_purchase_rate": 33.33
+    },
+    {
+      "source": "l.facebook.com / referral",
+      "sessions": 36,
+      "atc": 3,
+      "ic": 4,
+      "purchases": 1,
+      "session_to_atc_rate": 8.33,
+      "atc_to_purchase_rate": 33.33
+    },
+    {
+      "source": "(not set)",
+      "sessions": 9,
+      "atc": 1,
+      "ic": 4,
+      "purchases": 1,
+      "session_to_atc_rate": 11.11,
+      "atc_to_purchase_rate": 100.0
+    },
+    {
+      "source": "ig / paid",
+      "sessions": 103,
+      "atc": 9,
+      "ic": 4,
+      "purchases": 0,
+      "session_to_atc_rate": 8.74,
+      "atc_to_purchase_rate": 0.0
+    },
+    {
+      "source": "(direct) / (none)",
+      "sessions": 99,
+      "atc": 0,
+      "ic": 1,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "liqui-moly-tw.com / referral",
+      "sessions": 64,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "th / paid",
+      "sessions": 35,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "facebook.com / referral",
+      "sessions": 19,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "reurl.cc / referral",
+      "sessions": 17,
+      "atc": 1,
+      "ic": 1,
+      "purchases": 0,
+      "session_to_atc_rate": 5.88,
+      "atc_to_purchase_rate": 0.0
+    },
+    {
+      "source": "boschman-giasco.com.tw / referral",
+      "sessions": 11,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "facebook / CPC",
+      "sessions": 6,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "boschmanec.cyberbiz.co / referral",
+      "sessions": 3,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "accounts.google.com / referral",
+      "sessions": 2,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "emap.pcsc.com.tw / referral",
+      "sessions": 2,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "bing / organic",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "chatgpt.com / referral",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "cyberbizpay.com / referral",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "lm.facebook.com / referral",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "tw.search.yahoo.com / referral",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    }
+  ],
+  "ga4_devices": [
+    {
+      "device": "mobile",
+      "sessions": 505,
+      "users": 424,
+      "transactions": 4,
+      "revenue": 2200.00002,
+      "session_pct": 71.4,
+      "conv_rate": 0.79
+    },
+    {
+      "device": "desktop",
+      "sessions": 195,
+      "users": 165,
+      "transactions": 2,
+      "revenue": 2100.000017,
+      "session_pct": 27.6,
+      "conv_rate": 1.03
+    },
+    {
+      "device": "tablet",
+      "sessions": 7,
+      "users": 7,
+      "transactions": 0,
+      "revenue": 0.0,
+      "session_pct": 1.0,
+      "conv_rate": 0.0
+    }
+  ],
+  "ga4_user_types": {
+    "new": {
+      "sessions": 557,
+      "users": 555,
+      "transactions": 3,
+      "revenue": 2465.000014,
+      "session_pct": 78.8,
+      "conv_rate": 0.54
+    },
+    "returning": {
+      "sessions": 102,
+      "users": 72,
+      "transactions": 3,
+      "revenue": 1835.000023,
+      "session_pct": 14.4,
+      "conv_rate": 2.94
+    },
+    "(not set)": {
+      "sessions": 48,
+      "users": 0,
+      "transactions": 0,
+      "revenue": 0.0,
+      "session_pct": 6.8,
+      "conv_rate": 0.0
+    }
+  },
+  "ga4_engagement": {
+    "engagement_rate": 78.67,
+    "avg_session_duration_sec": 75.63213928248587,
+    "avg_session_duration_formatted": "1:15",
+    "page_views": 1305,
+    "pages_per_session": 1.84,
+    "bounce_rate": 21.33
+  },
+  "gsc": {
+    "total": {
+      "clicks": 28,
+      "impressions": 1028,
+      "ctr": 2.72,
+      "position": 7.8
+    },
+    "top_queries": [
+      {
+        "query": "bosch\u96fb\u52d5\u5de5\u5177",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 100,
+        "position": 19
+      },
+      {
+        "query": "carmall",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr": 16.67,
+        "position": 7.3
+      },
+      {
+        "query": "gdx 18v-200",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 20.0,
+        "position": 2.2
+      },
+      {
+        "query": "giasco",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr": 16.67,
+        "position": 2.5
+      },
+      {
+        "query": "oinker",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 50.0,
+        "position": 3
+      },
+      {
+        "query": "12v \u6253\u6c23\u6a5f",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 3.2
+      },
+      {
+        "query": "12v\u6253\u6c23\u6a5f",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 2.2
+      },
+      {
+        "query": "180li",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "query": "18v 4ah",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "query": "18v \u96fb\u52d5 \u677f \u624b",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 32.5
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://www.carmall.com.tw/collections/liqui-moly%E8%BB%8A%E7%94%A8%E9%A6%99%E6%B0%9B",
+        "full_url": "https://www.carmall.com.tw/collections/liqui-moly%E8%BB%8A%E7%94%A8%E9%A6%99%E6%B0%9B",
+        "title": null,
+        "clicks": 3,
+        "impressions": 26,
+        "ctr": 11.54,
+        "position": 2.4
+      },
+      {
+        "page": "https://www.carmall.com.tw/categories/brandlist/giasco",
+        "full_url": "https://www.carmall.com.tw/categories/brandlist/giasco",
+        "title": null,
+        "clicks": 2,
+        "impressions": 17,
+        "ctr": 11.76,
+        "position": 2.1
+      },
+      {
+        "page": "https://www.carmall.com.tw/products/bosch-%E5%8D%9A%E4%B8%96-gdx-18v-200%E5%9B%9B%E5%88%86%E9%9B%BB%E5%8B%95%E5%85%A9%E7%94%A8%E6%89%B3%E6%89%8B%E8%B5%B7%E5%AD%90%E6%A9%9F",
+        "full_url": "https://www.carmall.com.tw/products/bosch-%E5%8D%9A%E4%B8%96-gdx-18v-200%E5%9B%9B%E5%88%86%E9%9B%BB%E5%8B%95%E5%85%A9%E7%94%A8%E6%89%B3%E6%89%8B%E8%B5%B7%E5%AD%90%E6%A9%9F",
+        "title": null,
+        "clicks": 2,
+        "impressions": 49,
+        "ctr": 4.08,
+        "position": 4.8
+      },
+      {
+        "page": "https://www.carmall.com.tw/products/cair-12v-tire-inflator",
+        "full_url": "https://www.carmall.com.tw/products/cair-12v-tire-inflator",
+        "title": null,
+        "clicks": 2,
+        "impressions": 21,
+        "ctr": 9.52,
+        "position": 4.0
+      },
+      {
+        "page": "https://www.carmall.com.tw/",
+        "full_url": "https://www.carmall.com.tw/",
+        "title": null,
+        "clicks": 1,
+        "impressions": 19,
+        "ctr": 5.26,
+        "position": 6.9
+      },
+      {
+        "page": "https://www.carmall.com.tw/collections/bosch%E9%9B%BB%E5%8B%95%E5%B7%A5%E5%85%B7",
+        "full_url": "https://www.carmall.com.tw/collections/bosch%E9%9B%BB%E5%8B%95%E5%B7%A5%E5%85%B7",
+        "title": null,
+        "clicks": 1,
+        "impressions": 44,
+        "ctr": 2.27,
+        "position": 15.2
+      },
+      {
+        "page": "https://www.carmall.com.tw/collections/kube",
+        "full_url": "https://www.carmall.com.tw/collections/kube",
+        "title": null,
+        "clicks": 1,
+        "impressions": 7,
+        "ctr": 14.29,
+        "position": 3.3
+      },
+      {
+        "page": "https://www.carmall.com.tw/collections/liqui-moly%E5%91%A8%E9%82%8A%E7%B2%BE%E5%93%81",
+        "full_url": "https://www.carmall.com.tw/collections/liqui-moly%E5%91%A8%E9%82%8A%E7%B2%BE%E5%93%81",
+        "title": null,
+        "clicks": 1,
+        "impressions": 4,
+        "ctr": 25.0,
+        "position": 3.5
+      },
+      {
+        "page": "https://www.carmall.com.tw/products/%E9%99%90%E9%87%8F%E7%89%88%E5%BD%A9%E7%B9%AA%E5%AE%89%E5%85%A8%E5%B8%BD",
+        "full_url": "https://www.carmall.com.tw/products/%E9%99%90%E9%87%8F%E7%89%88%E5%BD%A9%E7%B9%AA%E5%AE%89%E5%85%A8%E5%B8%BD",
+        "title": null,
+        "clicks": 1,
+        "impressions": 42,
+        "ctr": 2.38,
+        "position": 6.9
+      },
+      {
+        "page": "https://www.carmall.com.tw/products/air-freshener-3pack",
+        "full_url": "https://www.carmall.com.tw/products/air-freshener-3pack",
+        "title": null,
+        "clicks": 1,
+        "impressions": 6,
+        "ctr": 16.67,
+        "position": 8
+      }
+    ]
+  },
+  "cyberbiz": {
+    "order_count": 33,
+    "total_revenue": 5035.0,
+    "aov": 152.58,
+    "product_ranking": [
+      {
+        "product_name": "\u3010\u4efb\u90783\u5165\u3011LIQUI MOLY \u8eca\u7528\u9999\u6c1b\u78da \u8eca\u5167\u6e05\u9999\u81ea\u7531\u914d\u7d44\u5408",
+        "variant": "",
+        "sku": "air-freshener-3pack",
+        "total_quantity": 4,
+        "total_revenue": 2880.0
+      },
+      {
+        "product_name": "\u3010\u5168\u7cfb\u52176\u5165\u3011LIQUI MOLY \u8eca\u7528\u9999\u6c1b\u78da \u9999\u5473\u4e0d\u91cd\u8907\u7d44\u5408",
+        "variant": "",
+        "sku": "air-freshener-6pack-fixed",
+        "total_quantity": 1,
+        "total_revenue": 1350.0
+      },
+      {
+        "product_name": "LIQUI MOLY \u8eca\u7528\u9999\u6c1b\u78da-\u65b0\u8eca\u6e05\u9999 Air Freshener new car",
+        "variant": "",
+        "sku": "LM21831",
+        "total_quantity": 2,
+        "total_revenue": 500.0
+      },
+      {
+        "product_name": "2026 \u65b0\u5e74\u516c\u95dc\u8cc0\u79ae",
+        "variant": "",
+        "sku": "2026newyear",
+        "total_quantity": 26,
+        "total_revenue": 0.0
+      }
+    ],
+    "new_members": 10
+  },
+  "mer": 0.7563467027189424,
+  "wow": null,
+  "dod": {
+    "prev_date": "2026-02-04",
+    "prev_cyberbiz": {
+      "order_count": 1,
+      "total_revenue": 565.0,
+      "aov": 565.0,
+      "product_ranking": [
+        {
+          "product_name": "LIQUI MOLY \u9632\u9f20\u8c82\u4fdd\u8b77\u5674\u5291 Marten Spray",
+          "variant": "",
+          "sku": "LM1515",
+          "total_quantity": 1,
+          "total_revenue": 550.0
+        }
+      ],
+      "new_members": 1
+    },
+    "prev_meta": {
+      "name": "Account Total",
+      "spend": 806.0,
+      "ctr": 1.297297,
+      "clicks": 54,
+      "roas": 0.0,
+      "purchases": 0,
+      "atc": 6,
+      "ic": 5,
+      "vc": 55,
+      "conv_value": 0.0,
+      "cpa": 0,
+      "cp_atc": 134.33333333333334
+    },
+    "prev_ga4": {
+      "active_users": 67,
+      "sessions": 82,
+      "atc": 10,
+      "ic": 7,
+      "purchases": 1,
+      "ecommerce_purchases": 1,
+      "purchase_revenue": 565.000003,
+      "funnel_rates": {
+        "session_to_atc": 12.2,
+        "atc_to_checkout": 70.0,
+        "checkout_to_purchase": 14.29,
+        "overall_conversion": 1.22,
+        "atc_drop_off": 87.8,
+        "checkout_drop_off": 30.0,
+        "purchase_drop_off": 85.71
+      }
+    },
+    "cyber_revenue_change": 791.15,
+    "cyber_order_change": 3200.0,
+    "cyber_aov_change": -72.99,
+    "meta_roas_change": null,
+    "meta_spend_change": 725.93,
+    "meta_purchases_change": null,
+    "meta_cpa_change": null,
+    "ga4_sessions_change": 763.41,
+    "ga4_conversion_change": -0.37
+  },
+  "alerts": [
+    {
+      "type": "caution",
+      "category": "Meta Ads",
+      "message": "\ud83d\udcca \u66dd\u5149\u983b\u7387\u504f\u9ad8 (2.4)\uff0c\u8acb\u95dc\u6ce8\u7d20\u6750\u75b2\u4e4f\u8de1\u8c61",
+      "metric": "frequency",
+      "value": 2.395321,
+      "threshold": 2.0
+    },
+    {
+      "type": "warning",
+      "category": "Meta Ads",
+      "message": "\u26a0\ufe0f ROAS \u904e\u4f4e (0.87)\uff0c\u5ee3\u544a\u53ef\u80fd\u8667\u640d\uff0c\u6aa2\u67e5\u7d20\u6750\u548c\u53d7\u773e",
+      "metric": "roas",
+      "value": 0.866757,
+      "threshold": 1.5
+    }
+  ],
+  "summary": {
+    "total_spend": 6657.0,
+    "total_revenue": 5035.0,
+    "mer": 0.76,
+    "roas": 0.866757,
+    "order_count": 33,
+    "aov": 152.58,
+    "ga4_sessions": 708,
+    "ga4_overall_conversion": 0.85,
+    "top_audience_segment": "male 35-44",
+    "top_product": "\u3010\u4efb\u90783\u5165\u3011LIQUI MOLY \u8eca\u7528\u9999\u6c1b\u78da \u8eca\u5167\u6e05\u9999\u81ea\u7531\u914d\u7d44\u5408",
+    "cpm": 101.916776,
+    "frequency": 2.395321,
+    "reach": 27269,
+    "gsc_clicks": 28,
+    "gsc_avg_position": 7.8
+  }
+}

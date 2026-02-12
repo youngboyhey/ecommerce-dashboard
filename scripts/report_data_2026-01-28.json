@@ -1,0 +1,301 @@
+{
+  "mode": "weekly",
+  "week_start": "2026-01-28",
+  "start_date": "2026-01-28",
+  "end_date": "2026-02-03",
+  "generated_at": "2026-02-12T12:55:13.408480",
+  "meta": {
+    "total": {
+      "name": "Total",
+      "spend": 14000,
+      "impressions": 1400000,
+      "ctr": 1.9,
+      "clicks": 21000,
+      "roas": 2.86,
+      "purchases": 20,
+      "atc": 80,
+      "ic": 50,
+      "vc": 133,
+      "conv_value": 40000.0,
+      "cpa": 700.0,
+      "cp_atc": 175.0
+    },
+    "campaigns": [
+      {
+        "campaign_id": "120214567890123456",
+        "name": "[CONV] Main Campaign - Week 4",
+        "spend": 8400.0,
+        "impressions": 840000,
+        "ctr": 1.8,
+        "clicks": 12600,
+        "roas": 3.33,
+        "purchases": 14,
+        "atc": 56,
+        "ic": 35,
+        "vc": 93,
+        "conv_value": 28000.0,
+        "cpa": 500,
+        "cp_atc": 150
+      },
+      {
+        "campaign_id": "120214567890123457",
+        "name": "[CONV] Retargeting - Week 4",
+        "spend": 5600.0,
+        "impressions": 560000,
+        "ctr": 2.1,
+        "clicks": 8400,
+        "roas": 2.14,
+        "purchases": 6,
+        "atc": 24,
+        "ic": 15,
+        "vc": 40,
+        "conv_value": 12000.0,
+        "cpa": 600,
+        "cp_atc": 180
+      }
+    ]
+  },
+  "meta_audience": {
+    "age": [
+      {
+        "age_range": "18-24",
+        "spend": 1400.0,
+        "impressions": 140000,
+        "clicks": 1400,
+        "purchases": 5
+      },
+      {
+        "age_range": "25-34",
+        "spend": 4900.0,
+        "impressions": 490000,
+        "clicks": 7000,
+        "purchases": 20
+      },
+      {
+        "age_range": "35-44",
+        "spend": 4200.0,
+        "impressions": 420000,
+        "clicks": 6300,
+        "purchases": 18
+      },
+      {
+        "age_range": "45-54",
+        "spend": 2100.0,
+        "impressions": 210000,
+        "clicks": 2800,
+        "purchases": 8
+      },
+      {
+        "age_range": "55-64",
+        "spend": 1120.0,
+        "impressions": 112000,
+        "clicks": 1400,
+        "purchases": 3
+      },
+      {
+        "age_range": "65+",
+        "spend": 280.0,
+        "impressions": 28000,
+        "clicks": 280,
+        "purchases": 1
+      }
+    ],
+    "gender": [
+      {
+        "gender": "male",
+        "spend": 6300.0,
+        "impressions": 630000,
+        "clicks": 8400,
+        "purchases": 25
+      },
+      {
+        "gender": "female",
+        "spend": 7700.000000000001,
+        "impressions": 770000,
+        "clicks": 11200,
+        "purchases": 30
+      }
+    ],
+    "region": [
+      {
+        "region": "Taipei City",
+        "spend": 5600.0,
+        "impressions": 560000,
+        "clicks": 8400,
+        "purchases": 22
+      },
+      {
+        "region": "New Taipei City",
+        "spend": 3500.0,
+        "impressions": 350000,
+        "clicks": 4900,
+        "purchases": 14
+      },
+      {
+        "region": "Taichung City",
+        "spend": 2100.0,
+        "impressions": 210000,
+        "clicks": 2800,
+        "purchases": 8
+      },
+      {
+        "region": "Kaohsiung City",
+        "spend": 1400.0,
+        "impressions": 140000,
+        "clicks": 1680,
+        "purchases": 5
+      },
+      {
+        "region": "Others",
+        "spend": 1400.0,
+        "impressions": 140000,
+        "clicks": 1400,
+        "purchases": 6
+      }
+    ]
+  },
+  "ga4": {
+    "active_users": 5400,
+    "sessions": 8600,
+    "atc": 100,
+    "ic": 66,
+    "purchases": 22,
+    "ecommerce_purchases": 22,
+    "purchase_revenue": 36000.0,
+    "funnel_rates": {
+      "session_to_atc": 3.5,
+      "atc_to_checkout": 45.0,
+      "checkout_to_purchase": 65.0,
+      "overall_conversion": 1.02,
+      "atc_drop_off": 55.0,
+      "checkout_drop_off": 35.0,
+      "purchase_drop_off": 0.0
+    }
+  },
+  "ga4_channels": [
+    {
+      "source": "google / cpc",
+      "sessions": 2000,
+      "atc": 80,
+      "ic": 50,
+      "purchases": 15,
+      "session_to_atc_rate": 4.0,
+      "atc_to_purchase_rate": 18.75
+    },
+    {
+      "source": "facebook / cpc",
+      "sessions": 1800,
+      "atc": 65,
+      "ic": 40,
+      "purchases": 12,
+      "session_to_atc_rate": 3.6,
+      "atc_to_purchase_rate": 18.46
+    },
+    {
+      "source": "(direct) / (none)",
+      "sessions": 1500,
+      "atc": 50,
+      "ic": 35,
+      "purchases": 10,
+      "session_to_atc_rate": 3.3,
+      "atc_to_purchase_rate": 20.0
+    },
+    {
+      "source": "google / organic",
+      "sessions": 1200,
+      "atc": 45,
+      "ic": 30,
+      "purchases": 8,
+      "session_to_atc_rate": 3.75,
+      "atc_to_purchase_rate": 17.78
+    }
+  ],
+  "ga4_devices": [
+    {
+      "device": "mobile",
+      "users": 4000,
+      "sessions": 5500,
+      "session_pct": 68.75,
+      "transactions": 35,
+      "conv_rate": 0.64,
+      "revenue": 24000.0
+    },
+    {
+      "device": "desktop",
+      "users": 1500,
+      "sessions": 2000,
+      "session_pct": 25.0,
+      "transactions": 18,
+      "conv_rate": 0.9,
+      "revenue": 14000.0
+    },
+    {
+      "device": "tablet",
+      "users": 400,
+      "sessions": 500,
+      "session_pct": 6.25,
+      "transactions": 2,
+      "conv_rate": 0.4,
+      "revenue": 2000.0
+    }
+  ],
+  "cyberbiz": {
+    "order_count": 26,
+    "total_revenue": 40000.0,
+    "aov": 1538.46,
+    "new_members": 100,
+    "product_ranking": [
+      {
+        "product_name": "Premium Product A",
+        "variant": "Black",
+        "sku": "SKU-001-BK",
+        "total_quantity": 25,
+        "total_revenue": 12000.0
+      },
+      {
+        "product_name": "Popular Product B",
+        "variant": "White",
+        "sku": "SKU-002-WH",
+        "total_quantity": 20,
+        "total_revenue": 10000.0
+      },
+      {
+        "product_name": "New Product C",
+        "variant": "Blue",
+        "sku": "SKU-003-BL",
+        "total_quantity": 18,
+        "total_revenue": 8000.0
+      },
+      {
+        "product_name": "Trending Product D",
+        "variant": "Red",
+        "sku": "SKU-004-RD",
+        "total_quantity": 15,
+        "total_revenue": 6000.0
+      },
+      {
+        "product_name": "Basic Product E",
+        "variant": "Gray",
+        "sku": "SKU-005-GY",
+        "total_quantity": 12,
+        "total_revenue": 4000.0
+      }
+    ]
+  },
+  "gsc": null,
+  "mer": 2.86,
+  "wow": null,
+  "summary": {
+    "total_spend": 14000,
+    "total_revenue": 40000.0,
+    "mer": 2.86,
+    "roas": 2.86,
+    "order_count": 26,
+    "aov": 1538.46,
+    "new_members": 100,
+    "ga4_sessions": 8600,
+    "ga4_overall_conversion": 1.02,
+    "top_audience_segment": "25-34, Female",
+    "top_product": "Premium Product A"
+  }
+}

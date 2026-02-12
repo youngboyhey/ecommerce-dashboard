@@ -351,26 +351,269 @@ def generate_ai_task(report: dict, output_path: str) -> dict:
     return task
 
 
+def generate_weekly_insights(report: dict) -> dict:
+    """
+    [NEW] 生成本週洞察報告
+    包含亮點、警訊、建議
+    """
+    insights = {
+        "week_start": report.get("start_date", ""),
+        "week_end": report.get("end_date", ""),
+        "highlights": [],
+        "warnings": [],
+        "recommendations": []
+    }
+    
+    # 從 summary 提取數據
+    summary = report.get("summary", {})
+    meta = report.get("meta", {})
+    meta_total = meta.get("total", {}) if meta else {}
+    cyber = report.get("cyberbiz", {})
+    alerts = report.get("alerts", [])
+    
+    # === 亮點分析 ===
+    roas = meta_total.get("roas", 0)
+    if roas >= 3.0:
+        insights["highlights"].append(f"ROAS 表現優異 ({roas:.2f})，廣告投資報酬率高")
+    elif roas >= 2.0:
+        insights["highlights"].append(f"ROAS 穩健 ({roas:.2f})，廣告效益良好")
+    
+    aov = cyber.get("aov", 0)
+    if aov >= 1500:
+        insights["highlights"].append(f"客單價表現出色 (${aov:.0f})，高價商品銷售良好")
+    
+    # WoW 成長亮點
+    wow = report.get("wow", {})
+    if wow:
+        roas_change = wow.get("meta_roas_change")
+        if roas_change and roas_change > 10:
+            insights["highlights"].append(f"ROAS 週增長 {roas_change:.1f}%，成效持續提升")
+        
+        revenue_change = wow.get("cyber_revenue_change")
+        if revenue_change and revenue_change > 15:
+            insights["highlights"].append(f"營收週增長 {revenue_change:.1f}%，業績大幅成長")
+    
+    # 最佳廣告組
+    meta_adsets = report.get("meta_adsets", [])
+    if meta_adsets:
+        best_adset = max(meta_adsets, key=lambda x: x.get("roas", 0), default=None)
+        if best_adset and best_adset.get("roas", 0) >= 3.0:
+            insights["highlights"].append(f"最佳廣告組「{best_adset.get('adset_name', '')[:30]}」ROAS 達 {best_adset.get('roas', 0):.2f}")
+    
+    # === 警訊分析 ===
+    for alert in alerts:
+        if alert.get("type") in ["warning", "critical"]:
+            insights["warnings"].append(alert.get("message", ""))
+    
+    # 額外警訊檢查
+    meta_efficiency = report.get("meta_efficiency", {})
+    freq = meta_efficiency.get("frequency", 0)
+    if freq > 2.0:
+        if not any("頻率" in w for w in insights["warnings"]):
+            insights["warnings"].append(f"廣告頻率偏高 ({freq:.1f})，需注意素材疲乏")
+    
+    # ROAS 下滑警訊
+    if wow:
+        roas_change = wow.get("meta_roas_change")
+        if roas_change and roas_change < -15:
+            insights["warnings"].append(f"ROAS 週下滑 {abs(roas_change):.1f}%，需檢查廣告成效")
+    
+    # === 建議 ===
+    # 基於數據生成建議
+    if freq > 2.5:
+        insights["recommendations"].append("更換廣告素材或擴大受眾範圍，降低重複曝光")
+    
+    cpm = meta_efficiency.get("cpm", 0)
+    if cpm > 300:
+        insights["recommendations"].append("優化受眾定向，降低 CPM 成本")
+    
+    if roas < 2.0 and roas > 0:
+        insights["recommendations"].append("測試新素材和文案，提升廣告轉換率")
+    
+    # 漏斗優化建議
+    ga4 = report.get("ga4", {})
+    funnel = ga4.get("funnel_rates", {})
+    checkout_drop = funnel.get("checkout_drop_off", 0)
+    if checkout_drop > 60:
+        insights["recommendations"].append("優化結帳流程，減少購物車放棄率")
+    
+    # 確保至少有一條建議
+    if not insights["recommendations"]:
+        insights["recommendations"].append("維持現有投放策略，持續監控成效變化")
+    
+    return insights
+
+
+def generate_ad_creatives_analysis(creatives: list) -> list:
+    """
+    [NEW] 為 ad_creatives 生成 AI 分析結構
+    包含視覺分析評分欄位
+    """
+    analyzed_creatives = []
+    
+    for creative in creatives:
+        analyzed = {
+            "creative_id": creative.get("creative_id", creative.get("ad_id", "")),
+            "ad_id": creative.get("ad_id", ""),
+            "ad_name": creative.get("ad_name", ""),
+            "image_url": creative.get("image_url", ""),
+            "carousel_images": creative.get("carousel_images", []),
+            "is_carousel": creative.get("is_carousel", False),
+            
+            # 成效指標
+            "spend": creative.get("metrics", {}).get("spend", 0),
+            "impressions": creative.get("metrics", {}).get("impressions", 0),
+            "clicks": int(creative.get("metrics", {}).get("impressions", 0) * creative.get("metrics", {}).get("ctr", 0) / 100),
+            "purchases": creative.get("metrics", {}).get("purchases", 0),
+            "ctr": creative.get("metrics", {}).get("ctr", 0),
+            "roas": creative.get("metrics", {}).get("roas", 0),
+            
+            # AI 分析欄位（待填入）
+            "ai_analysis": {
+                "composition_score": None,        # 構圖評分 1-10
+                "brand_consistency": None,        # 品牌一致性 1-10
+                "attractiveness_score": None,     # 吸引力評分 1-10
+                "cta_effectiveness": None,        # CTA 有效性 1-10
+                "color_scheme": [],               # 主色調
+                "strengths": [],                  # 優點
+                "weaknesses": [],                 # 缺點
+                "improvement_suggestions": []     # 改進建議
+            }
+        }
+        analyzed_creatives.append(analyzed)
+    
+    return analyzed_creatives
+
+
+def generate_ad_copies_analysis(creatives: list) -> list:
+    """
+    [NEW] 為 ad_copies 生成 AI 分析結構
+    包含文案分析評分欄位
+    """
+    analyzed_copies = []
+    
+    for creative in creatives:
+        copy_text = creative.get("copy", "") or creative.get("body", "") or creative.get("title", "")
+        
+        # 跳過沒有文案的素材
+        if not copy_text:
+            continue
+        
+        analyzed = {
+            "copy_id": f"copy_{creative.get('ad_id', '')}",
+            "ad_id": creative.get("ad_id", ""),
+            "ad_name": creative.get("ad_name", ""),
+            "primary_text": copy_text,
+            "headline": creative.get("title", ""),
+            "description": "",  # Meta API 通常不回傳 description
+            
+            # 成效指標
+            "spend": creative.get("metrics", {}).get("spend", 0),
+            "clicks": int(creative.get("metrics", {}).get("impressions", 0) * creative.get("metrics", {}).get("ctr", 0) / 100),
+            "purchases": creative.get("metrics", {}).get("purchases", 0),
+            
+            # AI 分析欄位（待填入）
+            "ai_analysis": {
+                "headline_score": None,           # 標題評分 1-10
+                "pain_point_score": None,         # 痛點觸發 1-10
+                "benefit_score": None,            # 利益點 1-10
+                "cta_score": None,                # CTA 評分 1-10
+                "tone": "",                       # 語調
+                "emotional_triggers": [],         # 情感觸發點
+                "strengths": [],                  # 優點
+                "weaknesses": [],                 # 缺點
+                "suggested_improvements": []      # 改進建議
+            }
+        }
+        analyzed_copies.append(analyzed)
+    
+    return analyzed_copies
+
+
 def main():
     parser = argparse.ArgumentParser(description="Generate AI analysis task for sub-agent")
     parser.add_argument("--input", "-i", default="report_data.json",
                         help="Input report JSON file (default: report_data.json)")
-    parser.add_argument("--output", "-o", default="ai_analysis_task.json",
-                        help="Output task JSON file (default: ai_analysis_task.json)")
+    parser.add_argument("--output", "-o", default=None,
+                        help="Output task JSON file (default: ai_analysis_task_{start_date}.json)")
     args = parser.parse_args()
     
     print(f"📊 Loading report from {args.input}...")
     report = load_report_data(args.input)
+    
+    # 取得 start_date 用於檔名
+    start_date = report.get("start_date", datetime.now().strftime("%Y-%m-%d"))
+    
+    # 自動生成帶日期的輸出檔名
+    if args.output is None:
+        output_path = f"ai_analysis_task_{start_date}.json"
+    else:
+        output_path = args.output
     
     # 檢查是否為週報
     if report.get("mode") != "weekly":
         print(f"⚠️ Warning: Report mode is '{report.get('mode')}', AI analysis is designed for weekly reports")
     
     print(f"🔧 Generating AI analysis task...\n")
-    task = generate_ai_task(report, args.output)
+    task = generate_ai_task(report, output_path)
     
     if task:
-        print(f"\n📋 Next step: spawn sub-agent (螃蟹) to process {args.output}")
+        # 生成額外的數據檔案
+        print(f"\n📊 Generating additional data files...")
+        
+        # 1. Weekly Insights
+        weekly_insights = generate_weekly_insights(report)
+        insights_path = f"weekly_insights_{start_date}.json"
+        with open(insights_path, "w", encoding="utf-8") as f:
+            json.dump(weekly_insights, f, indent=2, ensure_ascii=False)
+        print(f"   ✓ {insights_path}")
+        
+        # 2. Ad Creatives 分析結構
+        creatives = task.get("creatives", [])
+        ad_creatives_analysis = generate_ad_creatives_analysis(creatives)
+        creatives_path = f"ad_creatives_{start_date}.json"
+        with open(creatives_path, "w", encoding="utf-8") as f:
+            json.dump(ad_creatives_analysis, f, indent=2, ensure_ascii=False)
+        print(f"   ✓ {creatives_path}")
+        
+        # 3. Ad Copies 分析結構
+        ad_copies_analysis = generate_ad_copies_analysis(creatives)
+        copies_path = f"ad_copies_{start_date}.json"
+        with open(copies_path, "w", encoding="utf-8") as f:
+            json.dump(ad_copies_analysis, f, indent=2, ensure_ascii=False)
+        print(f"   ✓ {copies_path}")
+        
+        # 4. 預留 AI 分析結果檔（螃蟹會填入）
+        result_path = f"ai_analysis_result_{start_date}.json"
+        result_template = {
+            "task_id": task.get("generated_at", ""),
+            "report_date": task.get("report_date", ""),
+            "analyzed_at": None,
+            "ad_creatives": ad_creatives_analysis,
+            "ad_copies": ad_copies_analysis,
+            "weekly_insights": weekly_insights,
+            "overall_success_factors": [],
+            "overall_failure_factors": [],
+            "priority_improvements": [],
+            "summary": {
+                "best_performing": None,
+                "best_targeting": None,
+                "key_insights": [],
+                "targeting_insights": [],
+                "next_week_recommendations": []
+            }
+        }
+        with open(result_path, "w", encoding="utf-8") as f:
+            json.dump(result_template, f, indent=2, ensure_ascii=False)
+        print(f"   ✓ {result_path} (template for sub-agent)")
+        
+        print(f"\n📋 Next step: spawn sub-agent (螃蟹) to process {output_path}")
+        print(f"   Output files generated:")
+        print(f"   - {output_path} (AI task)")
+        print(f"   - {insights_path} (weekly insights)")
+        print(f"   - {creatives_path} (ad creatives)")
+        print(f"   - {copies_path} (ad copies)")
+        print(f"   - {result_path} (result template)")
     
     return 0 if task else 1
 

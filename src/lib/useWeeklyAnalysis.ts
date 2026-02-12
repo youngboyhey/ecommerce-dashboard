@@ -34,28 +34,51 @@ export function useWeeklyAnalysis(reportDate?: string): UseWeeklyAnalysisResult 
     setError(null);
 
     try {
-      // Build date filter
-      const dateFilter = reportDate || new Date().toISOString().split('T')[0];
+      // Build week filter - use week_start instead of report_date
+      // If reportDate provided, use it as week_start; otherwise get latest week
+      const weekFilter = reportDate || null;
 
       // Fetch all data in parallel
+      // Use week_start field and order by it to get latest data
       const [creativesRes, copiesRes, insightsRes] = await Promise.all([
-        supabase
-          .from('ad_creatives')
-          .select('*')
-          .eq('report_date', dateFilter)
-          .order('performance_rank', { ascending: true }),
+        weekFilter
+          ? supabase
+              .from('ad_creatives')
+              .select('*')
+              .eq('week_start', weekFilter)
+              .order('performance_rank', { ascending: true })
+          : supabase
+              .from('ad_creatives')
+              .select('*')
+              .order('week_start', { ascending: false })
+              .order('performance_rank', { ascending: true })
+              .limit(50),
         
-        supabase
-          .from('ad_copies')
-          .select('*')
-          .eq('report_date', dateFilter)
-          .order('performance_rank', { ascending: true }),
+        weekFilter
+          ? supabase
+              .from('ad_copies')
+              .select('*')
+              .eq('week_start', weekFilter)
+              .order('performance_rank', { ascending: true })
+          : supabase
+              .from('ad_copies')
+              .select('*')
+              .order('week_start', { ascending: false })
+              .order('performance_rank', { ascending: true })
+              .limit(50),
         
-        supabase
-          .from('weekly_insights')
-          .select('*')
-          .eq('report_date', dateFilter)
-          .single(),
+        weekFilter
+          ? supabase
+              .from('weekly_insights')
+              .select('*')
+              .eq('week_start', weekFilter)
+              .single()
+          : supabase
+              .from('weekly_insights')
+              .select('*')
+              .order('week_start', { ascending: false })
+              .limit(1)
+              .single(),
       ]);
 
       // Handle creatives - parse JSON fields

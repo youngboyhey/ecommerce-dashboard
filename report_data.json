@@ -1,0 +1,966 @@
+{
+  "mode": "weekly",
+  "start_date": "2026-01-22",
+  "end_date": "2026-01-28",
+  "generated_at": "2026-02-12T13:09:24.899986",
+  "meta": {
+    "total": {
+      "name": "Account Total",
+      "spend": 6857.0,
+      "ctr": 1.608677,
+      "clicks": 595,
+      "roas": 0.0,
+      "purchases": 0,
+      "atc": 0,
+      "ic": 0,
+      "vc": 0,
+      "conv_value": 0.0,
+      "cpa": 0,
+      "cp_atc": 0
+    },
+    "campaigns": [
+      {
+        "name": "260119_LM香氛磚組合",
+        "spend": 6857.0,
+        "ctr": 1.608677,
+        "clicks": 595,
+        "roas": 0.0,
+        "purchases": 0,
+        "atc": 0,
+        "ic": 0,
+        "vc": 0,
+        "conv_value": 0.0,
+        "cpa": 0,
+        "cp_atc": 0,
+        "campaign_id": "120238488906650142"
+      }
+    ]
+  },
+  "meta_audience": {
+    "age": [
+      {
+        "age_range": "18-24",
+        "spend": 271.0,
+        "impressions": 4950,
+        "clicks": 44,
+        "purchases": 0
+      },
+      {
+        "age_range": "25-34",
+        "spend": 1489.0,
+        "impressions": 20600,
+        "clicks": 256,
+        "purchases": 0
+      },
+      {
+        "age_range": "35-44",
+        "spend": 2376.0,
+        "impressions": 23576,
+        "clicks": 412,
+        "purchases": 0
+      },
+      {
+        "age_range": "45-54",
+        "spend": 1949.0,
+        "impressions": 15322,
+        "clicks": 309,
+        "purchases": 0
+      },
+      {
+        "age_range": "55-64",
+        "spend": 598.0,
+        "impressions": 3501,
+        "clicks": 59,
+        "purchases": 0
+      },
+      {
+        "age_range": "65+",
+        "spend": 174.0,
+        "impressions": 741,
+        "clicks": 25,
+        "purchases": 0
+      }
+    ],
+    "gender": [
+      {
+        "gender": "female",
+        "spend": 137.0,
+        "impressions": 1183,
+        "clicks": 28,
+        "purchases": 0
+      },
+      {
+        "gender": "male",
+        "spend": 6702.0,
+        "impressions": 67210,
+        "clicks": 1074,
+        "purchases": 0
+      },
+      {
+        "gender": "unknown",
+        "spend": 18.0,
+        "impressions": 297,
+        "clicks": 3,
+        "purchases": 0
+      }
+    ],
+    "region": [
+      {
+        "region": "New Taipei City",
+        "spend": 1595.0,
+        "impressions": 14086,
+        "clicks": 259,
+        "purchases": 0
+      },
+      {
+        "region": "Taipei",
+        "spend": 886.0,
+        "impressions": 8022,
+        "clicks": 151,
+        "purchases": 0
+      },
+      {
+        "region": "Kaohsiung",
+        "spend": 760.0,
+        "impressions": 8415,
+        "clicks": 116,
+        "purchases": 0
+      },
+      {
+        "region": "Taichung",
+        "spend": 735.0,
+        "impressions": 8686,
+        "clicks": 146,
+        "purchases": 0
+      },
+      {
+        "region": "Taoyuan City",
+        "spend": 727.0,
+        "impressions": 7271,
+        "clicks": 112,
+        "purchases": 0
+      },
+      {
+        "region": "Tainan",
+        "spend": 587.0,
+        "impressions": 6459,
+        "clicks": 99,
+        "purchases": 0
+      },
+      {
+        "region": "Changhua",
+        "spend": 289.0,
+        "impressions": 2440,
+        "clicks": 52,
+        "purchases": 0
+      },
+      {
+        "region": "Hsinchu",
+        "spend": 163.0,
+        "impressions": 1692,
+        "clicks": 14,
+        "purchases": 0
+      },
+      {
+        "region": "Pingtung",
+        "spend": 158.0,
+        "impressions": 1734,
+        "clicks": 28,
+        "purchases": 0
+      },
+      {
+        "region": "Hsinchu City",
+        "spend": 144.0,
+        "impressions": 1643,
+        "clicks": 24,
+        "purchases": 0
+      }
+    ],
+    "age_gender": [
+      {
+        "age_range": "18-24",
+        "gender": "female",
+        "spend": 11.0,
+        "impressions": 147,
+        "clicks": 3,
+        "purchases": 0
+      },
+      {
+        "age_range": "18-24",
+        "gender": "male",
+        "spend": 260.0,
+        "impressions": 4753,
+        "clicks": 41,
+        "purchases": 0
+      },
+      {
+        "age_range": "18-24",
+        "gender": "unknown",
+        "spend": 0.0,
+        "impressions": 50,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "25-34",
+        "gender": "female",
+        "spend": 42.0,
+        "impressions": 409,
+        "clicks": 15,
+        "purchases": 0
+      },
+      {
+        "age_range": "25-34",
+        "gender": "male",
+        "spend": 1443.0,
+        "impressions": 20093,
+        "clicks": 241,
+        "purchases": 0
+      },
+      {
+        "age_range": "25-34",
+        "gender": "unknown",
+        "spend": 4.0,
+        "impressions": 98,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "35-44",
+        "gender": "female",
+        "spend": 54.0,
+        "impressions": 363,
+        "clicks": 5,
+        "purchases": 0
+      },
+      {
+        "age_range": "35-44",
+        "gender": "male",
+        "spend": 2313.0,
+        "impressions": 23150,
+        "clicks": 404,
+        "purchases": 0
+      },
+      {
+        "age_range": "35-44",
+        "gender": "unknown",
+        "spend": 9.0,
+        "impressions": 63,
+        "clicks": 3,
+        "purchases": 0
+      },
+      {
+        "age_range": "45-54",
+        "gender": "female",
+        "spend": 24.0,
+        "impressions": 229,
+        "clicks": 3,
+        "purchases": 0
+      },
+      {
+        "age_range": "45-54",
+        "gender": "male",
+        "spend": 1922.0,
+        "impressions": 15033,
+        "clicks": 306,
+        "purchases": 0
+      },
+      {
+        "age_range": "45-54",
+        "gender": "unknown",
+        "spend": 3.0,
+        "impressions": 60,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "55-64",
+        "gender": "female",
+        "spend": 6.0,
+        "impressions": 27,
+        "clicks": 2,
+        "purchases": 0
+      },
+      {
+        "age_range": "55-64",
+        "gender": "male",
+        "spend": 590.0,
+        "impressions": 3466,
+        "clicks": 57,
+        "purchases": 0
+      },
+      {
+        "age_range": "55-64",
+        "gender": "unknown",
+        "spend": 2.0,
+        "impressions": 8,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "65+",
+        "gender": "female",
+        "spend": 0.0,
+        "impressions": 8,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "65+",
+        "gender": "male",
+        "spend": 174.0,
+        "impressions": 715,
+        "clicks": 25,
+        "purchases": 0
+      },
+      {
+        "age_range": "65+",
+        "gender": "unknown",
+        "spend": 0.0,
+        "impressions": 18,
+        "clicks": 0,
+        "purchases": 0
+      }
+    ]
+  },
+  "meta_efficiency": {
+    "impressions": 68690,
+    "reach": 29643,
+    "frequency": 2.317242,
+    "cpm": 99.825302,
+    "frequency_warning": false,
+    "cpm_warning": false
+  },
+  "meta_adsets": [
+    {
+      "adset_id": "120238488906660142",
+      "adset_name": "260119_LM香氛磚組合",
+      "spend": 6857.0,
+      "impressions": 68690,
+      "reach": 29643,
+      "ctr": 1.608677,
+      "cpm": 99.825302,
+      "roas": 0.0,
+      "purchases": 0,
+      "cpa": 0,
+      "targeting": null
+    }
+  ],
+  "ad_creatives": 0,
+  "top_creatives": [],
+  "ga4": {
+    "active_users": 664,
+    "sessions": 802,
+    "atc": 50,
+    "ic": 54,
+    "purchases": 8,
+    "ecommerce_purchases": 8,
+    "purchase_revenue": 5249.999985,
+    "funnel_rates": {
+      "session_to_atc": 6.23,
+      "atc_to_checkout": 108.0,
+      "checkout_to_purchase": 14.81,
+      "overall_conversion": 1.0,
+      "atc_drop_off": 93.77,
+      "checkout_drop_off": -8.0,
+      "purchase_drop_off": 85.19
+    }
+  },
+  "ga4_channels": [
+    {
+      "source": "ig / paid",
+      "sessions": 72,
+      "atc": 8,
+      "ic": 9,
+      "purchases": 2,
+      "session_to_atc_rate": 11.11,
+      "atc_to_purchase_rate": 25.0
+    },
+    {
+      "source": "google / organic",
+      "sessions": 39,
+      "atc": 2,
+      "ic": 8,
+      "purchases": 2,
+      "session_to_atc_rate": 5.13,
+      "atc_to_purchase_rate": 100.0
+    },
+    {
+      "source": "l.facebook.com / referral",
+      "sessions": 29,
+      "atc": 3,
+      "ic": 6,
+      "purchases": 2,
+      "session_to_atc_rate": 10.34,
+      "atc_to_purchase_rate": 66.67
+    },
+    {
+      "source": "(not set)",
+      "sessions": 14,
+      "atc": 8,
+      "ic": 9,
+      "purchases": 2,
+      "session_to_atc_rate": 57.14,
+      "atc_to_purchase_rate": 25.0
+    },
+    {
+      "source": "fb / paid",
+      "sessions": 322,
+      "atc": 13,
+      "ic": 9,
+      "purchases": 0,
+      "session_to_atc_rate": 4.04,
+      "atc_to_purchase_rate": 0.0
+    },
+    {
+      "source": "m.facebook.com / referral",
+      "sessions": 104,
+      "atc": 8,
+      "ic": 12,
+      "purchases": 0,
+      "session_to_atc_rate": 7.69,
+      "atc_to_purchase_rate": 0.0
+    },
+    {
+      "source": "liqui-moly-tw.com / referral",
+      "sessions": 60,
+      "atc": 1,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 1.67,
+      "atc_to_purchase_rate": 0.0
+    },
+    {
+      "source": "th / paid",
+      "sessions": 60,
+      "atc": 4,
+      "ic": 1,
+      "purchases": 0,
+      "session_to_atc_rate": 6.67,
+      "atc_to_purchase_rate": 0.0
+    },
+    {
+      "source": "(direct) / (none)",
+      "sessions": 56,
+      "atc": 1,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 1.79,
+      "atc_to_purchase_rate": 0.0
+    },
+    {
+      "source": "facebook.com / referral",
+      "sessions": 15,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "boschman-giasco.com.tw / referral",
+      "sessions": 8,
+      "atc": 2,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 25.0,
+      "atc_to_purchase_rate": 0.0
+    },
+    {
+      "source": "reurl.cc / referral",
+      "sessions": 5,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "an / paid",
+      "sessions": 4,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "facebook / CPC",
+      "sessions": 4,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "lm.facebook.com / referral",
+      "sessions": 4,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "boschmanec.cyberbiz.co / referral",
+      "sessions": 2,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "accounts.google.com / referral",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "adsmanager.facebook.com / referral",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "bing / organic",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "chatgpt.com / (not set)",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "chatgpt.com / referral",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "emap.pcsc.com.tw / referral",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    }
+  ],
+  "ga4_devices": [
+    {
+      "device": "mobile",
+      "sessions": 641,
+      "users": 534,
+      "transactions": 7,
+      "revenue": 4464.999986,
+      "session_pct": 79.8,
+      "conv_rate": 1.09
+    },
+    {
+      "device": "desktop",
+      "sessions": 152,
+      "users": 122,
+      "transactions": 1,
+      "revenue": 785.0,
+      "session_pct": 18.9,
+      "conv_rate": 0.66
+    },
+    {
+      "device": "tablet",
+      "sessions": 10,
+      "users": 9,
+      "transactions": 0,
+      "revenue": 0.0,
+      "session_pct": 1.2,
+      "conv_rate": 0.0
+    }
+  ],
+  "ga4_user_types": {
+    "new": {
+      "sessions": 625,
+      "users": 626,
+      "transactions": 7,
+      "revenue": 4464.999985,
+      "session_pct": 77.9,
+      "conv_rate": 1.12
+    },
+    "returning": {
+      "sessions": 94,
+      "users": 69,
+      "transactions": 1,
+      "revenue": 785.0,
+      "session_pct": 11.7,
+      "conv_rate": 1.06
+    },
+    "(not set)": {
+      "sessions": 83,
+      "users": 0,
+      "transactions": 0,
+      "revenue": 0.0,
+      "session_pct": 10.3,
+      "conv_rate": 0.0
+    }
+  },
+  "ga4_engagement": {
+    "engagement_rate": 89.53,
+    "avg_session_duration_sec": 59.962094935162085,
+    "avg_session_duration_formatted": "0:59",
+    "page_views": 1288,
+    "pages_per_session": 1.61,
+    "bounce_rate": 10.47
+  },
+  "gsc": {
+    "total": {
+      "clicks": 30,
+      "impressions": 1353,
+      "ctr": 2.22,
+      "position": 8.7
+    },
+    "top_queries": [
+      {
+        "query": "bosch gds250",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 100,
+        "position": 1
+      },
+      {
+        "query": "gdx 18v-200",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 100,
+        "position": 2
+      },
+      {
+        "query": "liqui moly hand cleaner",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 100,
+        "position": 34
+      },
+      {
+        "query": "liqui moly 香氛",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr": 33.33,
+        "position": 2
+      },
+      {
+        "query": "quick detailer",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr": 16.67,
+        "position": 5.7
+      },
+      {
+        "query": "1000 nm",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "query": "12v 打氣機",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "12v打氣機",
+        "clicks": 0,
+        "impressions": 19,
+        "ctr": 0,
+        "position": 1.5
+      },
+      {
+        "query": "22389589",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 5.8
+      },
+      {
+        "query": "3move",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 2
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://www.carmall.com.tw/",
+        "full_url": "https://www.carmall.com.tw/",
+        "title": null,
+        "clicks": 6,
+        "impressions": 42,
+        "ctr": 14.29,
+        "position": 8.9
+      },
+      {
+        "page": "https://www.carmall.com.tw/collections/liqui-moly%E8%BB%8A%E7%94%A8%E9%A6%99%E6%B0%9B",
+        "full_url": "https://www.carmall.com.tw/collections/liqui-moly%E8%BB%8A%E7%94%A8%E9%A6%99%E6%B0%9B",
+        "title": null,
+        "clicks": 3,
+        "impressions": 21,
+        "ctr": 14.29,
+        "position": 3.2
+      },
+      {
+        "page": "https://www.carmall.com.tw/products/bosch-%E5%8D%9A%E4%B8%96-easypump%E9%9B%BB%E5%8B%95%E6%89%93%E6%B0%A3%E6%A9%9F",
+        "full_url": "https://www.carmall.com.tw/products/bosch-%E5%8D%9A%E4%B8%96-easypump%E9%9B%BB%E5%8B%95%E6%89%93%E6%B0%A3%E6%A9%9F",
+        "title": null,
+        "clicks": 3,
+        "impressions": 58,
+        "ctr": 5.17,
+        "position": 6.0
+      },
+      {
+        "page": "https://www.carmall.com.tw/collections/liqui-moly%E5%91%A8%E9%82%8A%E7%B2%BE%E5%93%81",
+        "full_url": "https://www.carmall.com.tw/collections/liqui-moly%E5%91%A8%E9%82%8A%E7%B2%BE%E5%93%81",
+        "title": null,
+        "clicks": 2,
+        "impressions": 3,
+        "ctr": 66.67,
+        "position": 3.7
+      },
+      {
+        "page": "https://www.carmall.com.tw/products/air-freshener-new-car",
+        "full_url": "https://www.carmall.com.tw/products/air-freshener-new-car",
+        "title": null,
+        "clicks": 2,
+        "impressions": 11,
+        "ctr": 18.18,
+        "position": 4.2
+      },
+      {
+        "page": "https://www.carmall.com.tw/products/bosch-%E5%8D%9A%E4%B8%96-gdx-18v-200%E5%9B%9B%E5%88%86%E9%9B%BB%E5%8B%95%E5%85%A9%E7%94%A8%E6%89%B3%E6%89%8B%E8%B5%B7%E5%AD%90%E6%A9%9F",
+        "full_url": "https://www.carmall.com.tw/products/bosch-%E5%8D%9A%E4%B8%96-gdx-18v-200%E5%9B%9B%E5%88%86%E9%9B%BB%E5%8B%95%E5%85%A9%E7%94%A8%E6%89%B3%E6%89%8B%E8%B5%B7%E5%AD%90%E6%A9%9F",
+        "title": null,
+        "clicks": 2,
+        "impressions": 46,
+        "ctr": 4.35,
+        "position": 4.2
+      },
+      {
+        "page": "https://www.carmall.com.tw/products/rim-cleaner",
+        "full_url": "https://www.carmall.com.tw/products/rim-cleaner",
+        "title": null,
+        "clicks": 2,
+        "impressions": 26,
+        "ctr": 7.69,
+        "position": 14.3
+      },
+      {
+        "page": "https://www.carmall.com.tw/categories/brandlist/liquimoly",
+        "full_url": "https://www.carmall.com.tw/categories/brandlist/liquimoly",
+        "title": null,
+        "clicks": 1,
+        "impressions": 26,
+        "ctr": 3.85,
+        "position": 9.5
+      },
+      {
+        "page": "https://www.carmall.com.tw/collections/bosch%E9%9B%BB%E5%8B%95%E5%B7%A5%E5%85%B7",
+        "full_url": "https://www.carmall.com.tw/collections/bosch%E9%9B%BB%E5%8B%95%E5%B7%A5%E5%85%B7",
+        "title": null,
+        "clicks": 1,
+        "impressions": 87,
+        "ctr": 1.15,
+        "position": 11.1
+      },
+      {
+        "page": "https://www.carmall.com.tw/collections/liqui-moly%E9%A4%8A%E8%AD%B7%E7%B3%BB%E5%88%97",
+        "full_url": "https://www.carmall.com.tw/collections/liqui-moly%E9%A4%8A%E8%AD%B7%E7%B3%BB%E5%88%97",
+        "title": null,
+        "clicks": 1,
+        "impressions": 72,
+        "ctr": 1.39,
+        "position": 9.4
+      }
+    ]
+  },
+  "cyberbiz": {
+    "order_count": 8,
+    "total_revenue": 5250.0,
+    "aov": 656.25,
+    "product_ranking": [
+      {
+        "product_name": "【任選3入】LIQUI MOLY 車用香氛磚 車內清香自由配組合",
+        "variant": "",
+        "sku": "air-freshener-3pack",
+        "total_quantity": 4,
+        "total_revenue": 2880.0
+      },
+      {
+        "product_name": "LIQUI MOLY 車用香氛磚-新車清香 Air Freshener new car",
+        "variant": "",
+        "sku": "LM21831",
+        "total_quantity": 3,
+        "total_revenue": 750.0
+      },
+      {
+        "product_name": "LIQUI MOLY 座椅織物泡沫清潔劑 Fabric Foam Cleaner",
+        "variant": "",
+        "sku": "LM23006",
+        "total_quantity": 1,
+        "total_revenue": 650.0
+      },
+      {
+        "product_name": "【新車控】車內養護組合 (車用香氛+螢幕清潔)",
+        "variant": "",
+        "sku": "new-car-pack",
+        "total_quantity": 1,
+        "total_revenue": 500.0
+      }
+    ],
+    "new_members": 6
+  },
+  "mer": 0.7656409508531428,
+  "wow": {
+    "meta_roas_change": -100.0,
+    "cyber_revenue_change": -65.11627906976744,
+    "cyber_aov_change": -34.592805956165975,
+    "prev_meta": {
+      "name": "Account Total",
+      "spend": 6039.0,
+      "ctr": 2.672153,
+      "clicks": 1082,
+      "roas": 1.722967,
+      "purchases": 13,
+      "atc": 76,
+      "ic": 67,
+      "vc": 1217,
+      "conv_value": 10405.0,
+      "cpa": 464.53846153846155,
+      "cp_atc": 79.46052631578948
+    },
+    "prev_cyber": {
+      "order_count": 15,
+      "total_revenue": 15050.0,
+      "aov": 1003.33,
+      "product_ranking": [
+        {
+          "product_name": "LIQUI MOLY 限量版彩繪安全帽",
+          "variant": "M",
+          "sku": "LMHMT01-M",
+          "total_quantity": 1,
+          "total_revenue": 3200.0
+        },
+        {
+          "product_name": "LIQUI MOLY 中性輪圈除鐵粉專用清潔劑 Rim Cleaner",
+          "variant": "",
+          "sku": "LM23017",
+          "total_quantity": 2,
+          "total_revenue": 2400.0
+        },
+        {
+          "product_name": "【任選3入】LIQUI MOLY 車用香氛磚 車內清香自由配組合",
+          "variant": "",
+          "sku": "air-freshener-3pack",
+          "total_quantity": 3,
+          "total_revenue": 2160.0
+        },
+        {
+          "product_name": "【任選6入】LIQUI MOLY 車用香氛磚 好友揪團一起購組合",
+          "variant": "",
+          "sku": "air-freshener-6pack",
+          "total_quantity": 1,
+          "total_revenue": 1380.0
+        },
+        {
+          "product_name": "LIQUI MOLY 車用香氛磚-海洋 Air Freshener ocean",
+          "variant": "",
+          "sku": "LM21833",
+          "total_quantity": 5,
+          "total_revenue": 1250.0
+        },
+        {
+          "product_name": "LIQUI MOLY 車用香氛磚-新車清香 Air Freshener new car",
+          "variant": "",
+          "sku": "LM21831",
+          "total_quantity": 4,
+          "total_revenue": 1000.0
+        },
+        {
+          "product_name": "Oinker 鏈條油工具 Motorbike Chain Lube Tool",
+          "variant": "Oinker 鏈條油工具 525",
+          "sku": "OKR-525",
+          "total_quantity": 1,
+          "total_revenue": 850.0
+        },
+        {
+          "product_name": "【新車控】車內養護組合 (車用香氛+螢幕清潔)",
+          "variant": "",
+          "sku": "new-car-pack",
+          "total_quantity": 1,
+          "total_revenue": 500.0
+        },
+        {
+          "product_name": "LIQUI MOLY 車用香氛磚-泡泡糖 Air Freshener berry bubblegum",
+          "variant": "",
+          "sku": "LM23147",
+          "total_quantity": 2,
+          "total_revenue": 500.0
+        },
+        {
+          "product_name": "LIQUI MOLY 車用香氛磚-香草 Air Freshener vanilla",
+          "variant": "",
+          "sku": "LM21830",
+          "total_quantity": 2,
+          "total_revenue": 500.0
+        }
+      ],
+      "new_members": 13
+    }
+  },
+  "dod": null,
+  "alerts": [
+    {
+      "type": "caution",
+      "category": "Meta Ads",
+      "message": "📊 曝光頻率偏高 (2.3)，請關注素材疲乏跡象",
+      "metric": "frequency",
+      "value": 2.317242,
+      "threshold": 2.0
+    }
+  ],
+  "summary": {
+    "total_spend": 6857.0,
+    "total_revenue": 5250.0,
+    "mer": 0.77,
+    "roas": 0.0,
+    "order_count": 8,
+    "aov": 656.25,
+    "ga4_sessions": 802,
+    "ga4_overall_conversion": 1.0,
+    "top_audience_segment": null,
+    "top_product": "【任選3入】LIQUI MOLY 車用香氛磚 車內清香自由配組合",
+    "cpm": 99.825302,
+    "frequency": 2.317242,
+    "reach": 29643,
+    "gsc_clicks": 30,
+    "gsc_avg_position": 8.7
+  }
+}

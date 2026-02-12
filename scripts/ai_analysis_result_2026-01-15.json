@@ -1,0 +1,203 @@
+{
+  "task_id": "2026-02-12T14:27:11.149842",
+  "report_date": "2026-01-21",
+  "analyzed_at": null,
+  "ad_creatives": [
+    {
+      "creative_id": "120238333981640142",
+      "ad_id": "120238333981640142",
+      "ad_name": "260114_LM輪框清潔劑",
+      "image_url": "",
+      "carousel_images": [
+        "https://scontent.ftpe7-3.fna.fbcdn.net/v/t15.5256-10/612600736_767862319665364_7139074103934591257_n.jpg?_nc_cat=103&ccb=1-7&_nc_ohc=xRNnPWkfSRwQ7kNvwFxtcUY&_nc_oc=AdnjsInig_-SjuGRplDV2o2thuepRX0hlGZFdj_36JOFyD_Cffr3IRum_EC64T2MeoA&_nc_zt=23&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQHivGMuqeFX-lm57c9JwCO3w-OY_0mTLiDd_v_zgRC2E1np2VlA4w7LkSe5nc12kP3w8OQw2Lhv&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=d2b52d&_nc_sid=58080a&oh=00_AftHr9TlkEFDGunfP5_cbPClionvZJvYa0kpu2mxbyt7KQ&oe=69934CC9"
+      ],
+      "is_carousel": false,
+      "spend": 2180.0,
+      "impressions": 24009,
+      "clicks": 674,
+      "purchases": 5,
+      "ctr": 2.81,
+      "roas": 1.69,
+      "ai_analysis": {
+        "composition_score": null,
+        "brand_consistency": null,
+        "attractiveness_score": null,
+        "cta_effectiveness": null,
+        "color_scheme": [],
+        "strengths": [],
+        "weaknesses": [],
+        "improvement_suggestions": []
+      }
+    },
+    {
+      "creative_id": "120238362679490142",
+      "ad_id": "120238362679490142",
+      "ad_name": "260115_LM香氛磚_Reels",
+      "image_url": "",
+      "carousel_images": [
+        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t15.5256-10/615771046_1622467739108597_1842445640742317133_n.jpg?_nc_cat=106&ccb=1-7&_nc_ohc=yyps6S1cQwcQ7kNvwGTOzvR&_nc_oc=Adls-rBgkv0NQ_Bz2WC96eEMVfBm_4Pe94-Kd74vvlsHuJwpLHDqezFrnhqOIO1bb88&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQGK5KBu862oVjap9QnjkCUYzG_yAfRD0iv8i7BcERVAkM0AipTaQnP1lqwQdVG1ze1-gyot3lII&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=b696e2&_nc_sid=58080a&oh=00_AfuLWZgT01eP9Cv5CdQzCAcf0zOx0qUnAJZoEI2_1jnMnw&oe=69934B0F"
+      ],
+      "is_carousel": false,
+      "spend": 1906.0,
+      "impressions": 14877,
+      "clicks": 211,
+      "purchases": 5,
+      "ctr": 1.42,
+      "roas": 1.72,
+      "ai_analysis": {
+        "composition_score": null,
+        "brand_consistency": null,
+        "attractiveness_score": null,
+        "cta_effectiveness": null,
+        "color_scheme": [],
+        "strengths": [],
+        "weaknesses": [],
+        "improvement_suggestions": []
+      }
+    },
+    {
+      "creative_id": "120238333981640142",
+      "ad_id": "120238333981640142",
+      "ad_name": "260114_LM輪框清潔劑",
+      "image_url": "",
+      "carousel_images": [
+        "https://scontent.ftpe7-3.fna.fbcdn.net/v/t15.5256-10/612600736_767862319665364_7139074103934591257_n.jpg?_nc_cat=103&ccb=1-7&_nc_ohc=xRNnPWkfSRwQ7kNvwFxtcUY&_nc_oc=AdnjsInig_-SjuGRplDV2o2thuepRX0hlGZFdj_36JOFyD_Cffr3IRum_EC64T2MeoA&_nc_zt=23&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQHivGMuqeFX-lm57c9JwCO3w-OY_0mTLiDd_v_zgRC2E1np2VlA4w7LkSe5nc12kP3w8OQw2Lhv&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=d2b52d&_nc_sid=58080a&oh=00_AftHr9TlkEFDGunfP5_cbPClionvZJvYa0kpu2mxbyt7KQ&oe=69934CC9"
+      ],
+      "is_carousel": false,
+      "spend": 1889.0,
+      "impressions": 20036,
+      "clicks": 689,
+      "purchases": 2,
+      "ctr": 3.44,
+      "roas": 1.34,
+      "ai_analysis": {
+        "composition_score": null,
+        "brand_consistency": null,
+        "attractiveness_score": null,
+        "cta_effectiveness": null,
+        "color_scheme": [],
+        "strengths": [],
+        "weaknesses": [],
+        "improvement_suggestions": []
+      }
+    },
+    {
+      "creative_id": "120237517873180142",
+      "ad_id": "120237517873180142",
+      "ad_name": "251218_LM香氛磚",
+      "image_url": "",
+      "carousel_images": [
+        "https://scontent.ftpe7-1.fna.fbcdn.net/v/t15.5256-10/583286284_812711591602289_4480352769905777444_n.jpg?_nc_cat=100&ccb=1-7&_nc_ohc=-r8vwBjCpXgQ7kNvwGUf8LU&_nc_oc=AdnTD_r4Iy180Ipf4d8rT1kCi8jbEm9kbn2NCVELy1ThSN_TZTkPToSJnredXreH2Yg&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQFOfIqshD9qkeq-78qdHzuaaOpzHc_ZaCHyeNxGby-TEdg0hS7R04OugDTQm1CpsaxDm-P60zkO&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=33e7a6&_nc_sid=58080a&oh=00_AftmT5K6X78ZjnPmhKKKf85-DmIgBxMsF9rv8gfEPigHNQ&oe=69935F5B"
+      ],
+      "is_carousel": false,
+      "spend": 64.0,
+      "impressions": 618,
+      "clicks": 16,
+      "purchases": 0,
+      "ctr": 2.75,
+      "roas": 0.0,
+      "ai_analysis": {
+        "composition_score": null,
+        "brand_consistency": null,
+        "attractiveness_score": null,
+        "cta_effectiveness": null,
+        "color_scheme": [],
+        "strengths": [],
+        "weaknesses": [],
+        "improvement_suggestions": []
+      }
+    }
+  ],
+  "ad_copies": [
+    {
+      "copy_id": "copy_120238333981640142",
+      "ad_id": "120238333981640142",
+      "ad_name": "260114_LM輪框清潔劑",
+      "primary_text": "#力魔教你用\n󠀠\n榮獲 2025 德國權威雜誌 《Auto Bild》\n輪框清潔劑評選 - 冠軍 🏆\n󠀠\nLIQUI MOLY 中性輪圈除鐵粉專用清潔劑\n✅ 快速帶走粉塵、泥沙\n✅ 有效溶解鐵粉汙垢\n✅ 中性成份不咬鋁、鋼等常見輪框材質\n✅ 高度可生物降解\n󠀠\n定期使用可讓您的愛車輪框常亮如新 ✨\n單罐售價 $1,200元/ 1L大包裝\n手刀購買👉 https://www.carmall.com.tw/products/rim-cleaner\n󠀠\n#LIQUIMOLY #LIQUIMOLYTaiwan #總代理宜福工業 #CARMALL #車魔商城 #輪框清潔 #鐵粉去除 #輪框保養 #洗車工具 #車用美容 #德國製造 #雜誌評選冠軍",
+      "headline": "",
+      "description": "",
+      "spend": 2180.0,
+      "clicks": 674,
+      "purchases": 5,
+      "ai_analysis": {
+        "headline_score": null,
+        "pain_point_score": null,
+        "benefit_score": null,
+        "cta_score": null,
+        "tone": "",
+        "emotional_triggers": [],
+        "strengths": [],
+        "weaknesses": [],
+        "suggested_improvements": []
+      }
+    },
+    {
+      "copy_id": "copy_120238333981640142",
+      "ad_id": "120238333981640142",
+      "ad_name": "260114_LM輪框清潔劑",
+      "primary_text": "#力魔教你用\n󠀠\n榮獲 2025 德國權威雜誌 《Auto Bild》\n輪框清潔劑評選 - 冠軍 🏆\n󠀠\nLIQUI MOLY 中性輪圈除鐵粉專用清潔劑\n✅ 快速帶走粉塵、泥沙\n✅ 有效溶解鐵粉汙垢\n✅ 中性成份不咬鋁、鋼等常見輪框材質\n✅ 高度可生物降解\n󠀠\n定期使用可讓您的愛車輪框常亮如新 ✨\n單罐售價 $1,200元/ 1L大包裝\n手刀購買👉 https://www.carmall.com.tw/products/rim-cleaner\n󠀠\n#LIQUIMOLY #LIQUIMOLYTaiwan #總代理宜福工業 #CARMALL #車魔商城 #輪框清潔 #鐵粉去除 #輪框保養 #洗車工具 #車用美容 #德國製造 #雜誌評選冠軍",
+      "headline": "",
+      "description": "",
+      "spend": 1889.0,
+      "clicks": 689,
+      "purchases": 2,
+      "ai_analysis": {
+        "headline_score": null,
+        "pain_point_score": null,
+        "benefit_score": null,
+        "cta_score": null,
+        "tone": "",
+        "emotional_triggers": [],
+        "strengths": [],
+        "weaknesses": [],
+        "suggested_improvements": []
+      }
+    },
+    {
+      "copy_id": "copy_120237517873180142",
+      "ad_id": "120237517873180142",
+      "ad_name": "251218_LM香氛磚",
+      "primary_text": "🇩🇪 來自德國的堅持！LIQUI MOLY 不只懂車，更懂你的呼吸\n🔥 立即入手德國工藝香氛： https://reurl.cc/R9bN7G\n󠀠\n受夠了廉價芳香劑刺鼻的化學味？ 或是擔心液體香水打翻腐蝕飾板？\n󠀠\n選用 LIQUI MOLY 車用香氛磚，你需要的三大理由： \n✅ 德國原裝：延續品牌嚴謹工藝，品質保證。\n✅ 固體香氛：無酒精、不外漏，香氣持久細膩。\n✅ 隨夾隨用：通用型出風口夾具，安裝只需 1 秒。\n󠀠\n嚴選四種高級調香： 🔹 海洋 Ocean｜🔹 櫻桃 Cherry 🔹 香草 Vanilla｜🔹 新車 New Car\n󠀠\n車要顧，面子也要顧。讓乘客上車的第一秒，就對你印象加分！\n🔥 立即入手德國工藝香氛： https://reurl.cc/R9bN7G\n󠀠\n#LIQUIMOLY #LIQUIMOLYTaiwan #總代理宜福工業 #CARMALL #車魔商城 #車用香氛 #汽車香氛 #香氛磚 #德國製造 #開車日常 #愛車 #新車味道 #車內香氛",
+      "headline": "",
+      "description": "",
+      "spend": 64.0,
+      "clicks": 16,
+      "purchases": 0,
+      "ai_analysis": {
+        "headline_score": null,
+        "pain_point_score": null,
+        "benefit_score": null,
+        "cta_score": null,
+        "tone": "",
+        "emotional_triggers": [],
+        "strengths": [],
+        "weaknesses": [],
+        "suggested_improvements": []
+      }
+    }
+  ],
+  "weekly_insights": {
+    "week_start": "2026-01-15",
+    "week_end": "2026-01-21",
+    "highlights": [
+      "ROAS 週增長 12.9%，成效持續提升",
+      "營收週增長 36.0%，業績大幅成長"
+    ],
+    "warnings": [
+      "廣告頻率偏高 (2.4)，需注意素材疲乏"
+    ],
+    "recommendations": [
+      "測試新素材和文案，提升廣告轉換率"
+    ]
+  },
+  "overall_success_factors": [],
+  "overall_failure_factors": [],
+  "priority_improvements": [],
+  "summary": {
+    "best_performing": null,
+    "best_targeting": null,
+    "key_insights": [],
+    "targeting_insights": [],
+    "next_week_recommendations": []
+  }
+}

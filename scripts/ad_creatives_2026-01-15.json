@@ -1,0 +1,106 @@
+[
+  {
+    "creative_id": "120238333981640142",
+    "ad_id": "120238333981640142",
+    "ad_name": "260114_LM輪框清潔劑",
+    "image_url": "",
+    "carousel_images": [
+      "https://scontent.ftpe7-3.fna.fbcdn.net/v/t15.5256-10/612600736_767862319665364_7139074103934591257_n.jpg?_nc_cat=103&ccb=1-7&_nc_ohc=xRNnPWkfSRwQ7kNvwFxtcUY&_nc_oc=AdnjsInig_-SjuGRplDV2o2thuepRX0hlGZFdj_36JOFyD_Cffr3IRum_EC64T2MeoA&_nc_zt=23&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQHivGMuqeFX-lm57c9JwCO3w-OY_0mTLiDd_v_zgRC2E1np2VlA4w7LkSe5nc12kP3w8OQw2Lhv&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=d2b52d&_nc_sid=58080a&oh=00_AftHr9TlkEFDGunfP5_cbPClionvZJvYa0kpu2mxbyt7KQ&oe=69934CC9"
+    ],
+    "is_carousel": false,
+    "spend": 2180.0,
+    "impressions": 24009,
+    "clicks": 674,
+    "purchases": 5,
+    "ctr": 2.81,
+    "roas": 1.69,
+    "ai_analysis": {
+      "composition_score": null,
+      "brand_consistency": null,
+      "attractiveness_score": null,
+      "cta_effectiveness": null,
+      "color_scheme": [],
+      "strengths": [],
+      "weaknesses": [],
+      "improvement_suggestions": []
+    }
+  },
+  {
+    "creative_id": "120238362679490142",
+    "ad_id": "120238362679490142",
+    "ad_name": "260115_LM香氛磚_Reels",
+    "image_url": "",
+    "carousel_images": [
+      "https://scontent.ftpe7-1.fna.fbcdn.net/v/t15.5256-10/615771046_1622467739108597_1842445640742317133_n.jpg?_nc_cat=106&ccb=1-7&_nc_ohc=yyps6S1cQwcQ7kNvwGTOzvR&_nc_oc=Adls-rBgkv0NQ_Bz2WC96eEMVfBm_4Pe94-Kd74vvlsHuJwpLHDqezFrnhqOIO1bb88&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQGK5KBu862oVjap9QnjkCUYzG_yAfRD0iv8i7BcERVAkM0AipTaQnP1lqwQdVG1ze1-gyot3lII&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=b696e2&_nc_sid=58080a&oh=00_AfuLWZgT01eP9Cv5CdQzCAcf0zOx0qUnAJZoEI2_1jnMnw&oe=69934B0F"
+    ],
+    "is_carousel": false,
+    "spend": 1906.0,
+    "impressions": 14877,
+    "clicks": 211,
+    "purchases": 5,
+    "ctr": 1.42,
+    "roas": 1.72,
+    "ai_analysis": {
+      "composition_score": null,
+      "brand_consistency": null,
+      "attractiveness_score": null,
+      "cta_effectiveness": null,
+      "color_scheme": [],
+      "strengths": [],
+      "weaknesses": [],
+      "improvement_suggestions": []
+    }
+  },
+  {
+    "creative_id": "120238333981640142",
+    "ad_id": "120238333981640142",
+    "ad_name": "260114_LM輪框清潔劑",
+    "image_url": "",
+    "carousel_images": [
+      "https://scontent.ftpe7-3.fna.fbcdn.net/v/t15.5256-10/612600736_767862319665364_7139074103934591257_n.jpg?_nc_cat=103&ccb=1-7&_nc_ohc=xRNnPWkfSRwQ7kNvwFxtcUY&_nc_oc=AdnjsInig_-SjuGRplDV2o2thuepRX0hlGZFdj_36JOFyD_Cffr3IRum_EC64T2MeoA&_nc_zt=23&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQHivGMuqeFX-lm57c9JwCO3w-OY_0mTLiDd_v_zgRC2E1np2VlA4w7LkSe5nc12kP3w8OQw2Lhv&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=d2b52d&_nc_sid=58080a&oh=00_AftHr9TlkEFDGunfP5_cbPClionvZJvYa0kpu2mxbyt7KQ&oe=69934CC9"
+    ],
+    "is_carousel": false,
+    "spend": 1889.0,
+    "impressions": 20036,
+    "clicks": 689,
+    "purchases": 2,
+    "ctr": 3.44,
+    "roas": 1.34,
+    "ai_analysis": {
+      "composition_score": null,
+      "brand_consistency": null,
+      "attractiveness_score": null,
+      "cta_effectiveness": null,
+      "color_scheme": [],
+      "strengths": [],
+      "weaknesses": [],
+      "improvement_suggestions": []
+    }
+  },
+  {
+    "creative_id": "120237517873180142",
+    "ad_id": "120237517873180142",
+    "ad_name": "251218_LM香氛磚",
+    "image_url": "",
+    "carousel_images": [
+      "https://scontent.ftpe7-1.fna.fbcdn.net/v/t15.5256-10/583286284_812711591602289_4480352769905777444_n.jpg?_nc_cat=100&ccb=1-7&_nc_ohc=-r8vwBjCpXgQ7kNvwGUf8LU&_nc_oc=AdnTD_r4Iy180Ipf4d8rT1kCi8jbEm9kbn2NCVELy1ThSN_TZTkPToSJnredXreH2Yg&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQFOfIqshD9qkeq-78qdHzuaaOpzHc_ZaCHyeNxGby-TEdg0hS7R04OugDTQm1CpsaxDm-P60zkO&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=33e7a6&_nc_sid=58080a&oh=00_AftmT5K6X78ZjnPmhKKKf85-DmIgBxMsF9rv8gfEPigHNQ&oe=69935F5B"
+    ],
+    "is_carousel": false,
+    "spend": 64.0,
+    "impressions": 618,
+    "clicks": 16,
+    "purchases": 0,
+    "ctr": 2.75,
+    "roas": 0.0,
+    "ai_analysis": {
+      "composition_score": null,
+      "brand_consistency": null,
+      "attractiveness_score": null,
+      "cta_effectiveness": null,
+      "color_scheme": [],
+      "strengths": [],
+      "weaknesses": [],
+      "improvement_suggestions": []
+    }
+  }
+]

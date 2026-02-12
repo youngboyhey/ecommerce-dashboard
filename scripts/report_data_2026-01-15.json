@@ -1,0 +1,1963 @@
+{
+  "mode": "weekly",
+  "start_date": "2026-01-15",
+  "end_date": "2026-01-21",
+  "generated_at": "2026-02-12T14:26:59.278066",
+  "meta": {
+    "total": {
+      "name": "Account Total",
+      "spend": 6039.0,
+      "ctr": 2.672153,
+      "clicks": 1082,
+      "roas": 1.722967,
+      "purchases": 13,
+      "atc": 76,
+      "ic": 67,
+      "vc": 1217,
+      "conv_value": 10405.0,
+      "cpa": 464.53846153846155,
+      "cp_atc": 79.46052631578948
+    },
+    "campaigns": [
+      {
+        "name": "251218_LM香氛磚",
+        "spend": 64.0,
+        "ctr": 2.750809,
+        "clicks": 8,
+        "roas": 0.0,
+        "purchases": 0,
+        "atc": 1,
+        "ic": 1,
+        "vc": 2,
+        "conv_value": 0.0,
+        "cpa": 0,
+        "cp_atc": 64.0,
+        "campaign_id": "120237517873170142"
+      },
+      {
+        "name": "260114_LM輪框清潔劑",
+        "spend": 1889.0,
+        "ctr": 3.43881,
+        "clicks": 438,
+        "roas": 1.339333,
+        "purchases": 2,
+        "atc": 23,
+        "ic": 30,
+        "vc": 566,
+        "conv_value": 2530.0,
+        "cpa": 944.5,
+        "cp_atc": 82.1304347826087,
+        "campaign_id": "120238333981630142"
+      },
+      {
+        "name": "260115_LM香氛磚_Reels",
+        "spend": 1906.0,
+        "ctr": 1.418297,
+        "clicks": 135,
+        "roas": 1.718258,
+        "purchases": 5,
+        "atc": 21,
+        "ic": 14,
+        "vc": 64,
+        "conv_value": 3275.0,
+        "cpa": 381.2,
+        "cp_atc": 90.76190476190476,
+        "campaign_id": "120238362679480142"
+      },
+      {
+        "name": "260119_LM香氛磚組合",
+        "spend": 2180.0,
+        "ctr": 2.807281,
+        "clicks": 501,
+        "roas": 1.690367,
+        "purchases": 5,
+        "atc": 25,
+        "ic": 20,
+        "vc": 566,
+        "conv_value": 3685.0,
+        "cpa": 436.0,
+        "cp_atc": 87.2,
+        "campaign_id": "120238488906650142"
+      }
+    ]
+  },
+  "meta_audience": {
+    "age": [
+      {
+        "age_range": "18-24",
+        "spend": 226.0,
+        "impressions": 3894,
+        "clicks": 96,
+        "purchases": 2
+      },
+      {
+        "age_range": "25-34",
+        "spend": 1007.0,
+        "impressions": 13797,
+        "clicks": 238,
+        "purchases": 4
+      },
+      {
+        "age_range": "35-44",
+        "spend": 1985.0,
+        "impressions": 20674,
+        "clicks": 554,
+        "purchases": 2
+      },
+      {
+        "age_range": "45-54",
+        "spend": 2066.0,
+        "impressions": 16271,
+        "clicks": 514,
+        "purchases": 5
+      },
+      {
+        "age_range": "55-64",
+        "spend": 684.0,
+        "impressions": 4420,
+        "clicks": 168,
+        "purchases": 0
+      },
+      {
+        "age_range": "65+",
+        "spend": 71.0,
+        "impressions": 484,
+        "clicks": 21,
+        "purchases": 0
+      }
+    ],
+    "gender": [
+      {
+        "gender": "female",
+        "spend": 134.0,
+        "impressions": 931,
+        "clicks": 26,
+        "purchases": 0
+      },
+      {
+        "gender": "male",
+        "spend": 5891.0,
+        "impressions": 58342,
+        "clicks": 1563,
+        "purchases": 13
+      },
+      {
+        "gender": "unknown",
+        "spend": 14.0,
+        "impressions": 267,
+        "clicks": 2,
+        "purchases": 0
+      }
+    ],
+    "region": [
+      {
+        "region": "New Taipei City",
+        "spend": 1427.0,
+        "impressions": 13178,
+        "clicks": 337,
+        "purchases": 0
+      },
+      {
+        "region": "Taipei",
+        "spend": 805.0,
+        "impressions": 7169,
+        "clicks": 222,
+        "purchases": 0
+      },
+      {
+        "region": "Kaohsiung",
+        "spend": 766.0,
+        "impressions": 7566,
+        "clicks": 203,
+        "purchases": 0
+      },
+      {
+        "region": "Taoyuan City",
+        "spend": 686.0,
+        "impressions": 6055,
+        "clicks": 152,
+        "purchases": 0
+      },
+      {
+        "region": "Taichung",
+        "spend": 601.0,
+        "impressions": 7319,
+        "clicks": 185,
+        "purchases": 0
+      },
+      {
+        "region": "Tainan",
+        "spend": 459.0,
+        "impressions": 5527,
+        "clicks": 174,
+        "purchases": 0
+      },
+      {
+        "region": "Changhua",
+        "spend": 203.0,
+        "impressions": 1817,
+        "clicks": 48,
+        "purchases": 0
+      },
+      {
+        "region": "Pingtung",
+        "spend": 138.0,
+        "impressions": 1403,
+        "clicks": 32,
+        "purchases": 0
+      },
+      {
+        "region": "Hsinchu City",
+        "spend": 125.0,
+        "impressions": 1231,
+        "clicks": 22,
+        "purchases": 0
+      },
+      {
+        "region": "Keelung City",
+        "spend": 119.0,
+        "impressions": 958,
+        "clicks": 36,
+        "purchases": 0
+      }
+    ],
+    "age_gender": [
+      {
+        "age_range": "18-24",
+        "gender": "female",
+        "spend": 7.0,
+        "impressions": 69,
+        "clicks": 4,
+        "purchases": 0
+      },
+      {
+        "age_range": "18-24",
+        "gender": "male",
+        "spend": 218.0,
+        "impressions": 3754,
+        "clicks": 92,
+        "purchases": 2
+      },
+      {
+        "age_range": "18-24",
+        "gender": "unknown",
+        "spend": 1.0,
+        "impressions": 71,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "25-34",
+        "gender": "female",
+        "spend": 17.0,
+        "impressions": 245,
+        "clicks": 8,
+        "purchases": 0
+      },
+      {
+        "age_range": "25-34",
+        "gender": "male",
+        "spend": 984.0,
+        "impressions": 13480,
+        "clicks": 230,
+        "purchases": 4
+      },
+      {
+        "age_range": "25-34",
+        "gender": "unknown",
+        "spend": 6.0,
+        "impressions": 72,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "35-44",
+        "gender": "female",
+        "spend": 57.0,
+        "impressions": 353,
+        "clicks": 8,
+        "purchases": 0
+      },
+      {
+        "age_range": "35-44",
+        "gender": "male",
+        "spend": 1925.0,
+        "impressions": 20280,
+        "clicks": 545,
+        "purchases": 2
+      },
+      {
+        "age_range": "35-44",
+        "gender": "unknown",
+        "spend": 3.0,
+        "impressions": 41,
+        "clicks": 1,
+        "purchases": 0
+      },
+      {
+        "age_range": "45-54",
+        "gender": "female",
+        "spend": 44.0,
+        "impressions": 226,
+        "clicks": 6,
+        "purchases": 0
+      },
+      {
+        "age_range": "45-54",
+        "gender": "male",
+        "spend": 2019.0,
+        "impressions": 15986,
+        "clicks": 507,
+        "purchases": 5
+      },
+      {
+        "age_range": "45-54",
+        "gender": "unknown",
+        "spend": 3.0,
+        "impressions": 59,
+        "clicks": 1,
+        "purchases": 0
+      },
+      {
+        "age_range": "55-64",
+        "gender": "female",
+        "spend": 9.0,
+        "impressions": 35,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "55-64",
+        "gender": "male",
+        "spend": 674.0,
+        "impressions": 4374,
+        "clicks": 168,
+        "purchases": 0
+      },
+      {
+        "age_range": "55-64",
+        "gender": "unknown",
+        "spend": 1.0,
+        "impressions": 11,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "65+",
+        "gender": "female",
+        "spend": 0.0,
+        "impressions": 3,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "65+",
+        "gender": "male",
+        "spend": 71.0,
+        "impressions": 468,
+        "clicks": 21,
+        "purchases": 0
+      },
+      {
+        "age_range": "65+",
+        "gender": "unknown",
+        "spend": 0.0,
+        "impressions": 13,
+        "clicks": 0,
+        "purchases": 0
+      }
+    ]
+  },
+  "meta_efficiency": {
+    "impressions": 59540,
+    "reach": 25145,
+    "frequency": 2.367866,
+    "cpm": 101.427612,
+    "frequency_warning": false,
+    "cpm_warning": false
+  },
+  "meta_adsets": [
+    {
+      "adset_id": "120238362679500142",
+      "adset_name": "260115_LM香氛磚_Reels",
+      "spend": 1906.0,
+      "impressions": 14877,
+      "reach": 7732,
+      "clicks": 211,
+      "ctr": 1.418297,
+      "cpm": 128.117228,
+      "roas": 1.718258,
+      "purchases": 5,
+      "cpa": 381.2,
+      "targeting": {
+        "age_range": "18+",
+        "genders": [
+          "不限"
+        ],
+        "locations": [
+          "台灣"
+        ],
+        "interests": [
+          "計程車司機",
+          "車輛（交通運輸）",
+          "汽車（交通工具）",
+          "休旅車（交通工具）",
+          "駕駛（交通工具）",
+          "豪華轎車（交通工具）",
+          "優惠券（優惠券和折扣）",
+          "優惠券",
+          "折扣和折讓（優惠券和折扣）",
+          "折扣商店（零售）",
+          "購物（零售）",
+          "特賣促銷（行銷）",
+          "網路購物（零售）",
+          "黑色星期五 (購物)",
+          "購物中心（零售）",
+          "促銷（行銷）",
+          "本日優惠（零售）",
+          "網路購物網站 (網站)"
+        ],
+        "custom_audiences": []
+      },
+      "age_distribution": [
+        {
+          "age_range": "18-24",
+          "spend": 41.0
+        },
+        {
+          "age_range": "25-34",
+          "spend": 271.0
+        },
+        {
+          "age_range": "35-44",
+          "spend": 587.0
+        },
+        {
+          "age_range": "45-54",
+          "spend": 730.0
+        },
+        {
+          "age_range": "55-64",
+          "spend": 243.0
+        },
+        {
+          "age_range": "65+",
+          "spend": 34.0
+        }
+      ],
+      "gender_distribution": [
+        {
+          "gender": "female",
+          "spend": 58.0
+        },
+        {
+          "gender": "male",
+          "spend": 1843.0
+        },
+        {
+          "gender": "unknown",
+          "spend": 5.0
+        }
+      ],
+      "interests": [
+        "計程車司機",
+        "車輛（交通運輸）",
+        "汽車（交通工具）",
+        "休旅車（交通工具）",
+        "駕駛（交通工具）",
+        "豪華轎車（交通工具）",
+        "優惠券（優惠券和折扣）",
+        "優惠券",
+        "折扣和折讓（優惠券和折扣）",
+        "折扣商店（零售）",
+        "購物（零售）",
+        "特賣促銷（行銷）",
+        "網路購物（零售）",
+        "黑色星期五 (購物)",
+        "購物中心（零售）",
+        "促銷（行銷）",
+        "本日優惠（零售）",
+        "網路購物網站 (網站)"
+      ]
+    },
+    {
+      "adset_id": "120238488906660142",
+      "adset_name": "260119_LM香氛磚組合",
+      "spend": 2180.0,
+      "impressions": 24009,
+      "reach": 11104,
+      "clicks": 674,
+      "ctr": 2.807281,
+      "cpm": 90.799284,
+      "roas": 1.690367,
+      "purchases": 5,
+      "cpa": 436.0,
+      "targeting": {
+        "age_range": "18+",
+        "genders": [
+          "不限"
+        ],
+        "locations": [
+          "台灣"
+        ],
+        "interests": [
+          "購物（零售）",
+          "網路購物（零售）",
+          "Engaged Shoppers",
+          "汽車美容（交通工具）",
+          "計程車司機",
+          "車輛（交通運輸）",
+          "汽車（交通工具）",
+          "出租車",
+          "休旅車（交通工具）",
+          "洗車 (汽車零件和服務)",
+          "汽車保養（交通工具）",
+          "轎車（汽車）",
+          "駕駛（交通工具）",
+          "豪華轎車（交通工具）"
+        ],
+        "custom_audiences": []
+      },
+      "age_distribution": [
+        {
+          "age_range": "18-24",
+          "spend": 66.0
+        },
+        {
+          "age_range": "25-34",
+          "spend": 367.0
+        },
+        {
+          "age_range": "35-44",
+          "spend": 842.0
+        },
+        {
+          "age_range": "45-54",
+          "spend": 711.0
+        },
+        {
+          "age_range": "55-64",
+          "spend": 172.0
+        },
+        {
+          "age_range": "65+",
+          "spend": 22.0
+        }
+      ],
+      "gender_distribution": [
+        {
+          "gender": "female",
+          "spend": 54.0
+        },
+        {
+          "gender": "male",
+          "spend": 2122.0
+        },
+        {
+          "gender": "unknown",
+          "spend": 4.0
+        }
+      ],
+      "interests": [
+        "購物（零售）",
+        "網路購物（零售）",
+        "Engaged Shoppers",
+        "汽車美容（交通工具）",
+        "計程車司機",
+        "車輛（交通運輸）",
+        "汽車（交通工具）",
+        "出租車",
+        "休旅車（交通工具）",
+        "洗車 (汽車零件和服務)",
+        "汽車保養（交通工具）",
+        "轎車（汽車）",
+        "駕駛（交通工具）",
+        "豪華轎車（交通工具）"
+      ]
+    },
+    {
+      "adset_id": "120238333981650142",
+      "adset_name": "260114_LM輪框清潔劑",
+      "spend": 1889.0,
+      "impressions": 20036,
+      "reach": 13605,
+      "clicks": 689,
+      "ctr": 3.43881,
+      "cpm": 94.280295,
+      "roas": 1.339333,
+      "purchases": 2,
+      "cpa": 944.5,
+      "targeting": {
+        "age_range": "18+",
+        "genders": [
+          "不限"
+        ],
+        "locations": [
+          "台灣"
+        ],
+        "interests": [
+          "計程車司機",
+          "車輛（交通運輸）",
+          "汽車（交通工具）",
+          "洗車 (汽車零件和服務)",
+          "摩托車（交通工具）",
+          "自己動手做（DIY）",
+          "優惠券（優惠券和折扣）",
+          "折扣和折讓（優惠券和折扣）",
+          "折扣商店（零售）",
+          "購物（零售）",
+          "特賣促銷（行銷）",
+          "網路購物（零售）",
+          "購物中心（零售）",
+          "折扣（零售）",
+          "本日優惠（零售）",
+          "購物折扣（商業與財務）"
+        ],
+        "custom_audiences": []
+      },
+      "age_distribution": [
+        {
+          "age_range": "18-24",
+          "spend": 115.0
+        },
+        {
+          "age_range": "25-34",
+          "spend": 359.0
+        },
+        {
+          "age_range": "35-44",
+          "spend": 529.0
+        },
+        {
+          "age_range": "45-54",
+          "spend": 606.0
+        },
+        {
+          "age_range": "55-64",
+          "spend": 265.0
+        },
+        {
+          "age_range": "65+",
+          "spend": 15.0
+        }
+      ],
+      "gender_distribution": [
+        {
+          "gender": "female",
+          "spend": 22.0
+        },
+        {
+          "gender": "male",
+          "spend": 1862.0
+        },
+        {
+          "gender": "unknown",
+          "spend": 5.0
+        }
+      ],
+      "interests": [
+        "計程車司機",
+        "車輛（交通運輸）",
+        "汽車（交通工具）",
+        "洗車 (汽車零件和服務)",
+        "摩托車（交通工具）",
+        "自己動手做（DIY）",
+        "優惠券（優惠券和折扣）",
+        "折扣和折讓（優惠券和折扣）",
+        "折扣商店（零售）",
+        "購物（零售）",
+        "特賣促銷（行銷）",
+        "網路購物（零售）",
+        "購物中心（零售）",
+        "折扣（零售）",
+        "本日優惠（零售）",
+        "購物折扣（商業與財務）"
+      ]
+    },
+    {
+      "adset_id": "120237517873190142",
+      "adset_name": "251218_LM香氛磚",
+      "spend": 64.0,
+      "impressions": 618,
+      "reach": 542,
+      "clicks": 17,
+      "ctr": 2.750809,
+      "cpm": 103.559871,
+      "roas": 0.0,
+      "purchases": 0,
+      "cpa": 0,
+      "targeting": {
+        "age_range": "18+",
+        "genders": [
+          "不限"
+        ],
+        "locations": [
+          "台灣"
+        ],
+        "interests": [],
+        "custom_audiences": [
+          "類似廣告受眾 (TW, 1%) - CYBERBIZ-FBEMeta 像素 - Website using AddToCart",
+          "類似廣告受眾 (TW, 1% to 2%) - CYBERBIZ-FBEMeta 像素 - Website using AddToCart",
+          "類似廣告受眾 (TW, 4% to 5%) - CYBERBIZ-FBEMeta 像素 - Website using AddToCart",
+          "類似廣告受眾 (TW, 3% to 4%) - CYBERBIZ-FBEMeta 像素 - Website using AddToCart",
+          "類似廣告受眾 (TW, 2% to 3%) - CYBERBIZ-FBEMeta 像素 - Website using AddToCart"
+        ]
+      },
+      "age_distribution": [
+        {
+          "age_range": "18-24",
+          "spend": 4.0
+        },
+        {
+          "age_range": "25-34",
+          "spend": 10.0
+        },
+        {
+          "age_range": "35-44",
+          "spend": 27.0
+        },
+        {
+          "age_range": "45-54",
+          "spend": 19.0
+        },
+        {
+          "age_range": "55-64",
+          "spend": 4.0
+        },
+        {
+          "age_range": "65+",
+          "spend": 0.0
+        }
+      ],
+      "gender_distribution": [
+        {
+          "gender": "female",
+          "spend": 0.0
+        },
+        {
+          "gender": "male",
+          "spend": 64.0
+        },
+        {
+          "gender": "unknown",
+          "spend": 0.0
+        }
+      ],
+      "interests": []
+    }
+  ],
+  "ad_creatives": [
+    {
+      "ad_id": "120238522487380142",
+      "ad_name": "任選3入",
+      "creative_id": "26928390010084117",
+      "title": "CarMall 車魔商城",
+      "body": "LIQUI MOLY 車用香氛磚｜任選3入\n總覺得車內少了一味？\n嘗鮮使用 LIQUI MOLY 車用香氛磚\n\n🛒嘗鮮優惠3入組：https://www.carmall.com.tw/products/air-freshener-3pack",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/617234530_10225764434936412_1240292357482854728_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=ZQME5g6cCYEQ7kNvwGqVqej&_nc_oc=Adk9tAG5BvJ4JlFpm4e8lzIhloetl-bwB9QTVJf-U5-Cfhmi3eODFwrrjSH4YgBYSLc&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQELmfQObP8V0XDl0ija1rgHTPHvNGrP5lfaVfTl2nD8_r_OzO6zq3502CR3HC-vMK1ckH1FA3uD&oh=00_Afs1_xSSkuSC0dGQO8vxwW-HXoan6RRNaBhWYczcpF8mhA&oe=69933E93",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": "2706d3a5b9768df11fa1a114b6adfa2b",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/617234530_10225764434936412_1240292357482854728_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=ZQME5g6cCYEQ7kNvwGqVqej&_nc_oc=Adk9tAG5BvJ4JlFpm4e8lzIhloetl-bwB9QTVJf-U5-Cfhmi3eODFwrrjSH4YgBYSLc&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQELmfQObP8V0XDl0ija1rgHTPHvNGrP5lfaVfTl2nD8_r_OzO6zq3502CR3HC-vMK1ckH1FA3uD&oh=00_Afs1_xSSkuSC0dGQO8vxwW-HXoan6RRNaBhWYczcpF8mhA&oe=69933E93",
+          "name": "【任選3入】車內清香自由配",
+          "description": "想嘗鮮、季回購都優惠！",
+          "link": "https://www.carmall.com.tw/products/air-freshener-3pack"
+        },
+        {
+          "index": 1,
+          "image_hash": "6e56ad27b41f5dd78271b65377751a47",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/619784356_10225764436256445_7573755521648372358_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=M9zuQxKSEloQ7kNvwEGf_P5&_nc_oc=AdlGYZGO6_aEJqTFuPMiWmwhloIiEFxN_ljEIxo9acodwMh2WcJjgoFQX8ePSb3ZrPo&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQFoG9xsEGc3v1hVQQ-o7LmCBhCwnM-UNphJJeyKaAFXersLkLwT8bJ9-hxr4jIhEqm5ImQYCx4P&oh=00_Aft5tNkFoKT_5Q6OuliU6viAlNwiQpeMScT7-rgPR0Q25A&oe=69932A25",
+          "name": "LIQUI MOLY 車用香氛磚-新車清香",
+          "description": "Air Freshener new car",
+          "link": "https://www.carmall.com.tw/products/air-freshener-3pack"
+        },
+        {
+          "index": 2,
+          "image_hash": "6f81fe42572628f409b3469e9d273882",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/616426705_10225764437256470_416409725086635947_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=n3JaaTOoQwMQ7kNvwG91ifp&_nc_oc=AdmlDNUwxSUMYtCn9-0X9uftVrzGYC2-cQgjz_xh0AbcWzMDqa-qyek72hklhVV_Ass&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQFicU6xXtMQmtgLZBkwSidUr2Fz4RcPQi7ywknCRsWHGRpb2vM6Eqp4seGxbPQpOeZjDCrryUr2&oh=00_Afuz7gI1RcJ47FCub0Tpxh0nCe5idGSBe4msE-yrqVImVw&oe=69935A1F",
+          "name": "LIQUI MOLY 車用香氛磚-海洋",
+          "description": "Air Freshener ocean",
+          "link": "https://www.carmall.com.tw/products/air-freshener-3pack"
+        },
+        {
+          "index": 3,
+          "image_hash": "f4178bdd15cd0843def7f1060e24cf86",
+          "image_url": "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/617070757_10225764437776483_2715525719990082821_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=iWj8WVEGEPIQ7kNvwFyJM3P&_nc_oc=Adnrx-9FMmK6b3uncVYUoqCJfM-UJrnYhLv6i6635lQEsgVgEuFeA3K7j9z9xeTewQE&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQF7qSJOneTZxiDRhDeQ3O2vpgqzJfgJRqmMj0Z3yHFn-AuMXVNhrdMfEmznqFOWQrsNQRdV_9Pt&oh=00_AftxSnDLcbkwO_55-XP6oJv7iJflkylOxCPHNAlIxaAPFQ&oe=69935BB0",
+          "name": "LIQUI MOLY 車用香氛磚-香草",
+          "description": "Air Freshener vanilla",
+          "link": "https://www.carmall.com.tw/products/air-freshener-3pack"
+        },
+        {
+          "index": 4,
+          "image_hash": "14dd042d36fb8252dc673a4dd8d6c9a5",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/617525586_10225764438216494_878147212898299694_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=WiMYjkfH8YoQ7kNvwGCiQFL&_nc_oc=AdmJt1Nat1ZXcdxEhQuJkDn3HVi3AL2yqnvgU6rlN-WqM5Go3xUQAPVM1JYHG7PSQEc&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQH-6GvejsWtxQZp6AVmGVNaHORprEERz4zaApdQRKQLv6i5sOZUsL4E1FWDNEl9eRO2cg1UOpgC&oh=00_AfvMHpx_SXHKktJ3rB-ErEFwNwRzechxQEnA66kkQR9FLQ&oe=69933CC9",
+          "name": "LIQUI MOLY 車用香氛磚-櫻桃",
+          "description": "Air Freshener cherry",
+          "link": "https://www.carmall.com.tw/products/air-freshener-3pack"
+        },
+        {
+          "index": 5,
+          "image_hash": "7e608a3375d2479f1140260fca13b376",
+          "image_url": "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/616937400_10225764438776508_1160195573509201511_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=DPjgDdBC6p4Q7kNvwEKGmGF&_nc_oc=AdmynmLUa-Px3e5QbpWqjrQtXWJIF7K9cOEQ1rvoAtL_EebL0SranMfkxTnVHk-mkHQ&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQHRC48CHroz96OFA_DF93Oq1ABri9eyhwVCFBkf0PJ1sV-b6NUEkV2yEYLZPXvtqyqs-x2LpGIf&oh=00_AfsEHYc1cYM5rx6bIeLaUYvTS_wdauIW4hwqPpzJGH8iLA&oe=69935123",
+          "name": "LIQUI MOLY 車用香氛磚-泡泡糖",
+          "description": "Air Freshener berry bubblegum",
+          "link": "https://www.carmall.com.tw/products/air-freshener-3pack"
+        },
+        {
+          "index": 6,
+          "image_hash": "c9f2a6a60f719b7f8b40d817253b8c33",
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/619057494_10225764439216519_706373487013479641_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=FPDyUyr1a8QQ7kNvwEcwQzA&_nc_oc=AdmE4MKpHUmb8TP1XiU-RP9LA97djB2iz6WpcDJiTuENN37LGpCytxUxf9gwZWk_mls&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQEDuriuh9NJI4I75OiDEB_v4pT7ftA0Zjpjl-fTIMQ_0OpwFle0HE_C3p_WYweIH2pqqnQ-bFJV&oh=00_Afu8tKJt2SMx0JNQRVTbOkDr7_IVTrJnfyU3MDuzdQG5Bg&oe=6993534E",
+          "name": "LIQUI MOLY 車用香氛磚-熱帶浴",
+          "description": "Air Freshener tropical shower",
+          "link": "https://www.carmall.com.tw/products/air-freshener-3pack"
+        }
+      ],
+      "is_carousel": true,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": [],
+      "spend": 566.0,
+      "impressions": 5474,
+      "clicks": 69,
+      "ctr": 1.260504,
+      "cpm": 103.397881,
+      "roas": 4.160777,
+      "purchases": 3,
+      "atc": 7,
+      "conv_value": 2355.0,
+      "cpa": 188.66666666666666
+    },
+    {
+      "ad_id": "120238522485710142",
+      "ad_name": "任選6入",
+      "creative_id": "882485097527364",
+      "title": "CarMall 車魔商城",
+      "body": "LIQUI MOLY 車用香氛磚｜任選6入\n年節送禮、揪團優惠合購！\n🛒口味任選6入組：https://www.carmall.com.tw/products/air-freshener-6pack",
+      "image_url": "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/616426705_10225764488097741_4676698551455015469_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=rrOQy_BPXF8Q7kNvwFt8aGN&_nc_oc=Adn7AN_sHu2DAzL-7k2i1cUifSVbfgN92Zml_DChPr_g8Dq97UzxDaX7KeQEJhrIb8U&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQHE_45g0KBbxo5L9xsD1IiLMPxm8wZQpYE9VbPtgUy8EGEr_Lvdcik9cgl3q3UJ40EBN20esWNB&oh=00_AfsL1LAL5xCk3loPPc-Crcb_UyL0i6faPyH1mvXV8Yd9hg&oe=699336DA",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": "56e751701427e3026512e552a8887c91",
+          "image_url": "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/616426705_10225764488097741_4676698551455015469_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=rrOQy_BPXF8Q7kNvwFt8aGN&_nc_oc=Adn7AN_sHu2DAzL-7k2i1cUifSVbfgN92Zml_DChPr_g8Dq97UzxDaX7KeQEJhrIb8U&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQHE_45g0KBbxo5L9xsD1IiLMPxm8wZQpYE9VbPtgUy8EGEr_Lvdcik9cgl3q3UJ40EBN20esWNB&oh=00_AfsL1LAL5xCk3loPPc-Crcb_UyL0i6faPyH1mvXV8Yd9hg&oe=699336DA",
+          "name": "【任選6入】好友揪團一起購",
+          "description": "節日送禮、揪團團購任選！",
+          "link": "https://www.carmall.com.tw/products/air-freshener-6pack"
+        },
+        {
+          "index": 1,
+          "image_hash": "6e56ad27b41f5dd78271b65377751a47",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/619784356_10225764436256445_7573755521648372358_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=M9zuQxKSEloQ7kNvwEGf_P5&_nc_oc=AdlGYZGO6_aEJqTFuPMiWmwhloIiEFxN_ljEIxo9acodwMh2WcJjgoFQX8ePSb3ZrPo&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQFoG9xsEGc3v1hVQQ-o7LmCBhCwnM-UNphJJeyKaAFXersLkLwT8bJ9-hxr4jIhEqm5ImQYCx4P&oh=00_Aft5tNkFoKT_5Q6OuliU6viAlNwiQpeMScT7-rgPR0Q25A&oe=69932A25",
+          "name": "LIQUI MOLY 車用香氛磚-新車清香",
+          "description": "Air Freshener new car",
+          "link": "https://www.carmall.com.tw/products/air-freshener-6pack"
+        },
+        {
+          "index": 2,
+          "image_hash": "6f81fe42572628f409b3469e9d273882",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/616426705_10225764437256470_416409725086635947_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=n3JaaTOoQwMQ7kNvwG91ifp&_nc_oc=AdmlDNUwxSUMYtCn9-0X9uftVrzGYC2-cQgjz_xh0AbcWzMDqa-qyek72hklhVV_Ass&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQFicU6xXtMQmtgLZBkwSidUr2Fz4RcPQi7ywknCRsWHGRpb2vM6Eqp4seGxbPQpOeZjDCrryUr2&oh=00_Afuz7gI1RcJ47FCub0Tpxh0nCe5idGSBe4msE-yrqVImVw&oe=69935A1F",
+          "name": "LIQUI MOLY 車用香氛磚-海洋",
+          "description": "Air Freshener ocean",
+          "link": "https://www.carmall.com.tw/products/air-freshener-6pack"
+        },
+        {
+          "index": 3,
+          "image_hash": "f4178bdd15cd0843def7f1060e24cf86",
+          "image_url": "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/617070757_10225764437776483_2715525719990082821_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=iWj8WVEGEPIQ7kNvwFyJM3P&_nc_oc=Adnrx-9FMmK6b3uncVYUoqCJfM-UJrnYhLv6i6635lQEsgVgEuFeA3K7j9z9xeTewQE&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQF7qSJOneTZxiDRhDeQ3O2vpgqzJfgJRqmMj0Z3yHFn-AuMXVNhrdMfEmznqFOWQrsNQRdV_9Pt&oh=00_AftxSnDLcbkwO_55-XP6oJv7iJflkylOxCPHNAlIxaAPFQ&oe=69935BB0",
+          "name": "LIQUI MOLY 車用香氛磚-香草",
+          "description": "Air Freshener vanilla",
+          "link": "https://www.carmall.com.tw/products/air-freshener-6pack"
+        },
+        {
+          "index": 4,
+          "image_hash": "14dd042d36fb8252dc673a4dd8d6c9a5",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/617525586_10225764438216494_878147212898299694_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=WiMYjkfH8YoQ7kNvwGCiQFL&_nc_oc=AdmJt1Nat1ZXcdxEhQuJkDn3HVi3AL2yqnvgU6rlN-WqM5Go3xUQAPVM1JYHG7PSQEc&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQH-6GvejsWtxQZp6AVmGVNaHORprEERz4zaApdQRKQLv6i5sOZUsL4E1FWDNEl9eRO2cg1UOpgC&oh=00_AfvMHpx_SXHKktJ3rB-ErEFwNwRzechxQEnA66kkQR9FLQ&oe=69933CC9",
+          "name": "LIQUI MOLY 車用香氛磚-櫻桃",
+          "description": "Air Freshener cherry",
+          "link": "https://www.carmall.com.tw/products/air-freshener-6pack"
+        },
+        {
+          "index": 5,
+          "image_hash": "7e608a3375d2479f1140260fca13b376",
+          "image_url": "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/616937400_10225764438776508_1160195573509201511_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=DPjgDdBC6p4Q7kNvwEKGmGF&_nc_oc=AdmynmLUa-Px3e5QbpWqjrQtXWJIF7K9cOEQ1rvoAtL_EebL0SranMfkxTnVHk-mkHQ&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQHRC48CHroz96OFA_DF93Oq1ABri9eyhwVCFBkf0PJ1sV-b6NUEkV2yEYLZPXvtqyqs-x2LpGIf&oh=00_AfsEHYc1cYM5rx6bIeLaUYvTS_wdauIW4hwqPpzJGH8iLA&oe=69935123",
+          "name": "LIQUI MOLY 車用香氛磚-泡泡糖",
+          "description": "Air Freshener berry bubblegum",
+          "link": "https://www.carmall.com.tw/products/air-freshener-6pack"
+        },
+        {
+          "index": 6,
+          "image_hash": "c9f2a6a60f719b7f8b40d817253b8c33",
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/619057494_10225764439216519_706373487013479641_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=FPDyUyr1a8QQ7kNvwEcwQzA&_nc_oc=AdmE4MKpHUmb8TP1XiU-RP9LA97djB2iz6WpcDJiTuENN37LGpCytxUxf9gwZWk_mls&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQEDuriuh9NJI4I75OiDEB_v4pT7ftA0Zjpjl-fTIMQ_0OpwFle0HE_C3p_WYweIH2pqqnQ-bFJV&oh=00_Afu8tKJt2SMx0JNQRVTbOkDr7_IVTrJnfyU3MDuzdQG5Bg&oe=6993534E",
+          "name": "LIQUI MOLY 車用香氛磚-熱帶浴",
+          "description": "Air Freshener tropical shower",
+          "link": "https://www.carmall.com.tw/products/air-freshener-6pack"
+        }
+      ],
+      "is_carousel": true,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": [],
+      "spend": 215.0,
+      "impressions": 2789,
+      "clicks": 31,
+      "ctr": 1.11151,
+      "cpm": 77.088562,
+      "roas": 0.0,
+      "purchases": 0,
+      "atc": 0,
+      "conv_value": 0.0,
+      "cpa": 0
+    },
+    {
+      "ad_id": "120238522487770142",
+      "ad_name": "氣味改善",
+      "creative_id": "1196125522701290",
+      "title": "CarMall 車魔商城",
+      "body": "LIQUI MOLY車用香氛 + 織物泡沫清潔\n老車布椅清潔加上車用香氛-海洋！\n讓你的車內氣味清香自然~\n\n🛒氣味改善：https://www.carmall.com.tw/products/odor-control-pack",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/615885553_10225764625301171_6281017254344712335_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=okaGIemnOb8Q7kNvwGOFcK7&_nc_oc=AdnYitHNFu1qGt_kj5T6b9oH5splrJvlA6Wa4QMN_WaI2R9_bzzkohk0MVRhUWypDU8&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQGefrjcvTc9nlufUXzWG2R4q627VH1N7hDtNUcLTh761ux52VRO9Eq_EwIEqooTBKDqqPiVkHyq&oh=00_AfuQt3hm7t_NtMU1neAtMsmEmf__kTsOsEks4TaBOzuuiA&oe=699342C2",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": "8d5d81c30145abfc8068fed31034db82",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/615885553_10225764625301171_6281017254344712335_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=okaGIemnOb8Q7kNvwGOFcK7&_nc_oc=AdnYitHNFu1qGt_kj5T6b9oH5splrJvlA6Wa4QMN_WaI2R9_bzzkohk0MVRhUWypDU8&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQGefrjcvTc9nlufUXzWG2R4q627VH1N7hDtNUcLTh761ux52VRO9Eq_EwIEqooTBKDqqPiVkHyq&oh=00_AfuQt3hm7t_NtMU1neAtMsmEmf__kTsOsEks4TaBOzuuiA&oe=699342C2",
+          "name": "【氣味改善】車內養護組合",
+          "description": "老車布椅清潔、車內異味解決！",
+          "link": "https://www.carmall.com.tw/products/odor-control-pack"
+        },
+        {
+          "index": 1,
+          "image_hash": "6f81fe42572628f409b3469e9d273882",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/616426705_10225764437256470_416409725086635947_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=n3JaaTOoQwMQ7kNvwG91ifp&_nc_oc=AdmlDNUwxSUMYtCn9-0X9uftVrzGYC2-cQgjz_xh0AbcWzMDqa-qyek72hklhVV_Ass&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQFicU6xXtMQmtgLZBkwSidUr2Fz4RcPQi7ywknCRsWHGRpb2vM6Eqp4seGxbPQpOeZjDCrryUr2&oh=00_Afuz7gI1RcJ47FCub0Tpxh0nCe5idGSBe4msE-yrqVImVw&oe=69935A1F",
+          "name": "LIQUI MOLY 車用香氛磚-海洋",
+          "description": "Air Freshener ocean",
+          "link": "https://www.carmall.com.tw/products/odor-control-pack"
+        },
+        {
+          "index": 2,
+          "image_hash": "271930af6c5dc03e5d6443c744906ac3",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/618972124_10225764625621179_5803519356110360391_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=pyFtOh3EUT4Q7kNvwGtP3LK&_nc_oc=AdnVA335-9KY-XxEG3HtJ0vHMf_PtfkQHty4j08y8E5rnGJZP7bbiNHI8Amr7kq75bA&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQHRA81QuYzExJWZYs9ZIxsAePggHdF6G3vcmkdVUB-UCSNxuNHlZaerwtVkLTeX9sg6_0j-4w_H&oh=00_AfvmkAniTsAraOVgydLoNR7XKlXp_2KZk-eOZt-38NXUMQ&oe=699346E8",
+          "name": "LIQUI MOLY 座椅織物泡沫清潔劑",
+          "description": "專為汽車織物內裝清潔開發",
+          "link": "https://www.carmall.com.tw/products/odor-control-pack"
+        }
+      ],
+      "is_carousel": true,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": [],
+      "spend": 172.0,
+      "impressions": 1527,
+      "clicks": 36,
+      "ctr": 2.357564,
+      "cpm": 112.639162,
+      "roas": 0.0,
+      "purchases": 0,
+      "atc": 0,
+      "conv_value": 0.0,
+      "cpa": 0
+    },
+    {
+      "ad_id": "120238522487830142",
+      "ad_name": "新車控",
+      "creative_id": "849676374606022",
+      "title": "CarMall 車魔商城",
+      "body": "LIQUI MOLY 車用香氛 + 螢幕清潔泡沫\n恢復愛車如同新車的味道！\n🛒新車控專屬優惠：https://www.carmall.com.tw/products/new-car-pack",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/618662126_10225764604780658_5575759270457386633_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=27iOfWXC43wQ7kNvwGVWP1r&_nc_oc=AdnjE8xIdHLJ7tU8i_jUVzMxddHLahPAY9cIPFDcAHFV4dngT8LePuU8BNekzB_2ETY&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQFqss-5g_uqYgmRZbgeWbOA_bSXohHL8-bcqJDGCzMpMSllvWn_11FYPjirOhG4Sg-RrzA3X1jc&oh=00_AfukglkXmftNIHqV7aRZgM8MmjVa-1e5KyLNK1E890_c7g&oe=6993374F",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": "541e0e738536d2eb90faeb4bd7831420",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/618662126_10225764604780658_5575759270457386633_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=27iOfWXC43wQ7kNvwGVWP1r&_nc_oc=AdnjE8xIdHLJ7tU8i_jUVzMxddHLahPAY9cIPFDcAHFV4dngT8LePuU8BNekzB_2ETY&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQFqss-5g_uqYgmRZbgeWbOA_bSXohHL8-bcqJDGCzMpMSllvWn_11FYPjirOhG4Sg-RrzA3X1jc&oh=00_AfukglkXmftNIHqV7aRZgM8MmjVa-1e5KyLNK1E890_c7g&oe=6993374F",
+          "name": "【新車控】車內養護組合",
+          "description": "「新車」狀態愛好者專屬！",
+          "link": "https://www.carmall.com.tw/products/new-car-pack"
+        },
+        {
+          "index": 1,
+          "image_hash": "6e56ad27b41f5dd78271b65377751a47",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/619784356_10225764436256445_7573755521648372358_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=M9zuQxKSEloQ7kNvwEGf_P5&_nc_oc=AdlGYZGO6_aEJqTFuPMiWmwhloIiEFxN_ljEIxo9acodwMh2WcJjgoFQX8ePSb3ZrPo&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQFoG9xsEGc3v1hVQQ-o7LmCBhCwnM-UNphJJeyKaAFXersLkLwT8bJ9-hxr4jIhEqm5ImQYCx4P&oh=00_Aft5tNkFoKT_5Q6OuliU6viAlNwiQpeMScT7-rgPR0Q25A&oe=69932A25",
+          "name": "LIQUI MOLY 車用香氛磚-新車清香",
+          "description": "Air Freshener new car",
+          "link": "https://www.carmall.com.tw/products/new-car-pack"
+        },
+        {
+          "index": 2,
+          "image_hash": "bf126ac0132d67100986baa7fb7105b4",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/616990813_10225764605100666_257436340447782381_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=q4VtfYDo3ewQ7kNvwFzuQYR&_nc_oc=AdkCFGJpr0uTFN8irueIeWXfqGaTSktnrW4HZtCydyHtAKwhhhpPNst2Sb67yfcYxzo&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQGpn0ItYc3TT2lmoEujQN4ma_UilTyhghvaetbRoguzOpt3NflQke5aEHe5K5kYDpiQW0FuMWQJ&oh=00_Afst5hOLqQLYNT5ObcI9heHvk4OmgYh2mExPRYZScliTug&oe=699342AE",
+          "name": "LIQUI MOLY 汽車螢幕專用清潔泡沫",
+          "description": "專為汽車中的各式螢幕清潔開發",
+          "link": "https://www.carmall.com.tw/products/new-car-pack"
+        }
+      ],
+      "is_carousel": true,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": [],
+      "spend": 86.0,
+      "impressions": 863,
+      "clicks": 17,
+      "ctr": 1.969873,
+      "cpm": 99.652375,
+      "roas": 0.0,
+      "purchases": 0,
+      "atc": 0,
+      "conv_value": 0.0,
+      "cpa": 0
+    },
+    {
+      "ad_id": "120238489180750142",
+      "ad_name": "全系列6入",
+      "creative_id": "4270804839859108",
+      "title": "CarMall 車魔商城",
+      "body": "LIQUI MOLY 車用香氛磚｜全系列組合\n拿不定主意喜歡什麼香味？\n六種口味 一次滿足！\n\n🛒全台首發6入組：https://www.carmall.com.tw/products/air-freshener-6pack-fixed",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/616912270_10225764587140217_1941187748650149064_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=whn2x7nLckgQ7kNvwFu-5ZP&_nc_oc=AdnEMe2Qpb2hGyFZcoggLwnjPUWRkhImUGWkyiDkhECGSjsdt5eljCV4WAr-65T8EaY&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQEO9-NoBj-qTYM94aP28HzKhTCBJ8WIb9EcQelcT-2Hkv0hdHtce6rxC-E_0giSVV32OVadsIkG&oh=00_AfvmNOEzjL7msaqAPEsLsH5H42nakTa_AcFRg39topMErA&oe=699346AD",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": "38fd08d7a0dc0fda39472ec6f9c45569",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/616912270_10225764587140217_1941187748650149064_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=whn2x7nLckgQ7kNvwFu-5ZP&_nc_oc=AdnEMe2Qpb2hGyFZcoggLwnjPUWRkhImUGWkyiDkhECGSjsdt5eljCV4WAr-65T8EaY&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQEO9-NoBj-qTYM94aP28HzKhTCBJ8WIb9EcQelcT-2Hkv0hdHtce6rxC-E_0giSVV32OVadsIkG&oh=00_AfvmNOEzjL7msaqAPEsLsH5H42nakTa_AcFRg39topMErA&oe=699346AD",
+          "name": "【全系列6入】香味不重複",
+          "description": "給喜愛多變香味的你！",
+          "link": "https://www.carmall.com.tw/products/air-freshener-6pack-fixed"
+        },
+        {
+          "index": 1,
+          "image_hash": "6e56ad27b41f5dd78271b65377751a47",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/619784356_10225764436256445_7573755521648372358_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=M9zuQxKSEloQ7kNvwEGf_P5&_nc_oc=AdlGYZGO6_aEJqTFuPMiWmwhloIiEFxN_ljEIxo9acodwMh2WcJjgoFQX8ePSb3ZrPo&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQFoG9xsEGc3v1hVQQ-o7LmCBhCwnM-UNphJJeyKaAFXersLkLwT8bJ9-hxr4jIhEqm5ImQYCx4P&oh=00_Aft5tNkFoKT_5Q6OuliU6viAlNwiQpeMScT7-rgPR0Q25A&oe=69932A25",
+          "name": "LIQUI MOLY 車用香氛磚-新車清香",
+          "description": "Air Freshener new car",
+          "link": "https://www.carmall.com.tw/products/air-freshener-6pack-fixed"
+        },
+        {
+          "index": 2,
+          "image_hash": "6f81fe42572628f409b3469e9d273882",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/616426705_10225764437256470_416409725086635947_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=n3JaaTOoQwMQ7kNvwG91ifp&_nc_oc=AdmlDNUwxSUMYtCn9-0X9uftVrzGYC2-cQgjz_xh0AbcWzMDqa-qyek72hklhVV_Ass&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQFicU6xXtMQmtgLZBkwSidUr2Fz4RcPQi7ywknCRsWHGRpb2vM6Eqp4seGxbPQpOeZjDCrryUr2&oh=00_Afuz7gI1RcJ47FCub0Tpxh0nCe5idGSBe4msE-yrqVImVw&oe=69935A1F",
+          "name": "LIQUI MOLY 車用香氛磚-海洋",
+          "description": "Air Freshener ocean",
+          "link": "https://www.carmall.com.tw/products/air-freshener-6pack-fixed"
+        },
+        {
+          "index": 3,
+          "image_hash": "f4178bdd15cd0843def7f1060e24cf86",
+          "image_url": "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/617070757_10225764437776483_2715525719990082821_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=iWj8WVEGEPIQ7kNvwFyJM3P&_nc_oc=Adnrx-9FMmK6b3uncVYUoqCJfM-UJrnYhLv6i6635lQEsgVgEuFeA3K7j9z9xeTewQE&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQF7qSJOneTZxiDRhDeQ3O2vpgqzJfgJRqmMj0Z3yHFn-AuMXVNhrdMfEmznqFOWQrsNQRdV_9Pt&oh=00_AftxSnDLcbkwO_55-XP6oJv7iJflkylOxCPHNAlIxaAPFQ&oe=69935BB0",
+          "name": "LIQUI MOLY 車用香氛磚-香草",
+          "description": "Air Freshener vanilla",
+          "link": "https://www.carmall.com.tw/products/air-freshener-6pack-fixed"
+        },
+        {
+          "index": 4,
+          "image_hash": "14dd042d36fb8252dc673a4dd8d6c9a5",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/617525586_10225764438216494_878147212898299694_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=WiMYjkfH8YoQ7kNvwGCiQFL&_nc_oc=AdmJt1Nat1ZXcdxEhQuJkDn3HVi3AL2yqnvgU6rlN-WqM5Go3xUQAPVM1JYHG7PSQEc&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQH-6GvejsWtxQZp6AVmGVNaHORprEERz4zaApdQRKQLv6i5sOZUsL4E1FWDNEl9eRO2cg1UOpgC&oh=00_AfvMHpx_SXHKktJ3rB-ErEFwNwRzechxQEnA66kkQR9FLQ&oe=69933CC9",
+          "name": "LIQUI MOLY 車用香氛磚-櫻桃",
+          "description": "Air Freshener cherry",
+          "link": "https://www.carmall.com.tw/products/air-freshener-6pack-fixed"
+        },
+        {
+          "index": 5,
+          "image_hash": "7e608a3375d2479f1140260fca13b376",
+          "image_url": "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/616937400_10225764438776508_1160195573509201511_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=DPjgDdBC6p4Q7kNvwEKGmGF&_nc_oc=AdmynmLUa-Px3e5QbpWqjrQtXWJIF7K9cOEQ1rvoAtL_EebL0SranMfkxTnVHk-mkHQ&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQHRC48CHroz96OFA_DF93Oq1ABri9eyhwVCFBkf0PJ1sV-b6NUEkV2yEYLZPXvtqyqs-x2LpGIf&oh=00_AfsEHYc1cYM5rx6bIeLaUYvTS_wdauIW4hwqPpzJGH8iLA&oe=69935123",
+          "name": "LIQUI MOLY 車用香氛磚-泡泡糖",
+          "description": "Air Freshener berry bubblegum",
+          "link": "https://www.carmall.com.tw/products/air-freshener-6pack-fixed"
+        },
+        {
+          "index": 6,
+          "image_hash": "c9f2a6a60f719b7f8b40d817253b8c33",
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/619057494_10225764439216519_706373487013479641_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=FPDyUyr1a8QQ7kNvwEcwQzA&_nc_oc=AdmE4MKpHUmb8TP1XiU-RP9LA97djB2iz6WpcDJiTuENN37LGpCytxUxf9gwZWk_mls&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AJcBmwoEAAAA&_nc_gid=jYe7jGBTxu4fLP14dMkNvQ&_nc_tpa=Q5bMBQEDuriuh9NJI4I75OiDEB_v4pT7ftA0Zjpjl-fTIMQ_0OpwFle0HE_C3p_WYweIH2pqqnQ-bFJV&oh=00_Afu8tKJt2SMx0JNQRVTbOkDr7_IVTrJnfyU3MDuzdQG5Bg&oe=6993534E",
+          "name": "LIQUI MOLY 車用香氛磚-熱帶浴",
+          "description": "Air Freshener tropical shower",
+          "link": "https://www.carmall.com.tw/products/air-freshener-6pack-fixed"
+        }
+      ],
+      "is_carousel": true,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": [],
+      "spend": 649.0,
+      "impressions": 7837,
+      "clicks": 172,
+      "ctr": 2.194717,
+      "cpm": 82.812301,
+      "roas": 1.255778,
+      "purchases": 1,
+      "atc": 9,
+      "conv_value": 815.0,
+      "cpa": 649.0
+    },
+    {
+      "ad_id": "120238362679490142",
+      "ad_name": "260115_LM香氛磚_Reels",
+      "creative_id": "4234432433497915",
+      "title": "",
+      "body": "",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t15.5256-10/615771046_1622467739108597_1842445640742317133_n.jpg?_nc_cat=106&ccb=1-7&_nc_ohc=yyps6S1cQwcQ7kNvwGTOzvR&_nc_oc=Adls-rBgkv0NQ_Bz2WC96eEMVfBm_4Pe94-Kd74vvlsHuJwpLHDqezFrnhqOIO1bb88&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQGK5KBu862oVjap9QnjkCUYzG_yAfRD0iv8i7BcERVAkM0AipTaQnP1lqwQdVG1ze1-gyot3lII&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=b696e2&_nc_sid=58080a&oh=00_AfuLWZgT01eP9Cv5CdQzCAcf0zOx0qUnAJZoEI2_1jnMnw&oe=69934B0F",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t15.5256-10/615771046_1622467739108597_1842445640742317133_n.jpg?_nc_cat=106&ccb=1-7&_nc_ohc=yyps6S1cQwcQ7kNvwGTOzvR&_nc_oc=Adls-rBgkv0NQ_Bz2WC96eEMVfBm_4Pe94-Kd74vvlsHuJwpLHDqezFrnhqOIO1bb88&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQGK5KBu862oVjap9QnjkCUYzG_yAfRD0iv8i7BcERVAkM0AipTaQnP1lqwQdVG1ze1-gyot3lII&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=b696e2&_nc_sid=58080a&oh=00_AfuLWZgT01eP9Cv5CdQzCAcf0zOx0qUnAJZoEI2_1jnMnw&oe=69934B0F",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": [],
+      "spend": 1906.0,
+      "impressions": 14877,
+      "clicks": 211,
+      "ctr": 1.418297,
+      "cpm": 128.117228,
+      "roas": 1.718258,
+      "purchases": 5,
+      "atc": 21,
+      "conv_value": 3275.0,
+      "cpa": 381.2
+    },
+    {
+      "ad_id": "120238333981640142",
+      "ad_name": "260114_LM輪框清潔劑",
+      "creative_id": "1123609773050104",
+      "title": "",
+      "body": "#力魔教你用\n󠀠\n榮獲 2025 德國權威雜誌 《Auto Bild》\n輪框清潔劑評選 - 冠軍 🏆\n󠀠\nLIQUI MOLY 中性輪圈除鐵粉專用清潔劑\n✅ 快速帶走粉塵、泥沙\n✅ 有效溶解鐵粉汙垢\n✅ 中性成份不咬鋁、鋼等常見輪框材質\n✅ 高度可生物降解\n󠀠\n定期使用可讓您的愛車輪框常亮如新 ✨\n單罐售價 $1,200元/ 1L大包裝\n手刀購買👉 https://www.carmall.com.tw/products/rim-cleaner\n󠀠\n#LIQUIMOLY #LIQUIMOLYTaiwan #總代理宜福工業 #CARMALL #車魔商城 #輪框清潔 #鐵粉去除 #輪框保養 #洗車工具 #車用美容 #德國製造 #雜誌評選冠軍",
+      "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t15.5256-10/612600736_767862319665364_7139074103934591257_n.jpg?_nc_cat=103&ccb=1-7&_nc_ohc=xRNnPWkfSRwQ7kNvwFxtcUY&_nc_oc=AdnjsInig_-SjuGRplDV2o2thuepRX0hlGZFdj_36JOFyD_Cffr3IRum_EC64T2MeoA&_nc_zt=23&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQHivGMuqeFX-lm57c9JwCO3w-OY_0mTLiDd_v_zgRC2E1np2VlA4w7LkSe5nc12kP3w8OQw2Lhv&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=d2b52d&_nc_sid=58080a&oh=00_AftHr9TlkEFDGunfP5_cbPClionvZJvYa0kpu2mxbyt7KQ&oe=69934CC9",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t15.5256-10/612600736_767862319665364_7139074103934591257_n.jpg?_nc_cat=103&ccb=1-7&_nc_ohc=xRNnPWkfSRwQ7kNvwFxtcUY&_nc_oc=AdnjsInig_-SjuGRplDV2o2thuepRX0hlGZFdj_36JOFyD_Cffr3IRum_EC64T2MeoA&_nc_zt=23&_nc_ht=scontent.ftpe7-3.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQHivGMuqeFX-lm57c9JwCO3w-OY_0mTLiDd_v_zgRC2E1np2VlA4w7LkSe5nc12kP3w8OQw2Lhv&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=d2b52d&_nc_sid=58080a&oh=00_AftHr9TlkEFDGunfP5_cbPClionvZJvYa0kpu2mxbyt7KQ&oe=69934CC9",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": [],
+      "spend": 1889.0,
+      "impressions": 20036,
+      "clicks": 689,
+      "ctr": 3.43881,
+      "cpm": 94.280295,
+      "roas": 1.339333,
+      "purchases": 2,
+      "atc": 23,
+      "conv_value": 2530.0,
+      "cpa": 944.5
+    },
+    {
+      "ad_id": "120237517873180142",
+      "ad_name": "251218_LM香氛磚",
+      "creative_id": "806457455774581",
+      "title": "LIQUI MOLY 車用香氛 | CarMall 車魔商城",
+      "body": "🇩🇪 來自德國的堅持！LIQUI MOLY 不只懂車，更懂你的呼吸\n🔥 立即入手德國工藝香氛： https://reurl.cc/R9bN7G\n󠀠\n受夠了廉價芳香劑刺鼻的化學味？ 或是擔心液體香水打翻腐蝕飾板？\n󠀠\n選用 LIQUI MOLY 車用香氛磚，你需要的三大理由： \n✅ 德國原裝：延續品牌嚴謹工藝，品質保證。\n✅ 固體香氛：無酒精、不外漏，香氣持久細膩。\n✅ 隨夾隨用：通用型出風口夾具，安裝只需 1 秒。\n󠀠\n嚴選四種高級調香： 🔹 海洋 Ocean｜🔹 櫻桃 Cherry 🔹 香草 Vanilla｜🔹 新車 New Car\n󠀠\n車要顧，面子也要顧。讓乘客上車的第一秒，就對你印象加分！\n🔥 立即入手德國工藝香氛： https://reurl.cc/R9bN7G\n󠀠\n#LIQUIMOLY #LIQUIMOLYTaiwan #總代理宜福工業 #CARMALL #車魔商城 #車用香氛 #汽車香氛 #香氛磚 #德國製造 #開車日常 #愛車 #新車味道 #車內香氛",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t15.5256-10/583286284_812711591602289_4480352769905777444_n.jpg?_nc_cat=100&ccb=1-7&_nc_ohc=-r8vwBjCpXgQ7kNvwGUf8LU&_nc_oc=AdnTD_r4Iy180Ipf4d8rT1kCi8jbEm9kbn2NCVELy1ThSN_TZTkPToSJnredXreH2Yg&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQFOfIqshD9qkeq-78qdHzuaaOpzHc_ZaCHyeNxGby-TEdg0hS7R04OugDTQm1CpsaxDm-P60zkO&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=33e7a6&_nc_sid=58080a&oh=00_AftmT5K6X78ZjnPmhKKKf85-DmIgBxMsF9rv8gfEPigHNQ&oe=69935F5B",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t15.5256-10/583286284_812711591602289_4480352769905777444_n.jpg?_nc_cat=100&ccb=1-7&_nc_ohc=-r8vwBjCpXgQ7kNvwGUf8LU&_nc_oc=AdnTD_r4Iy180Ipf4d8rT1kCi8jbEm9kbn2NCVELy1ThSN_TZTkPToSJnredXreH2Yg&_nc_zt=23&_nc_ht=scontent.ftpe7-1.fna&edm=AOgd6ZUEAAAA&_nc_gid=TAbTbzNc8nha2X0yjeg5hA&_nc_tpa=Q5bMBQFOfIqshD9qkeq-78qdHzuaaOpzHc_ZaCHyeNxGby-TEdg0hS7R04OugDTQm1CpsaxDm-P60zkO&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=33e7a6&_nc_sid=58080a&oh=00_AftmT5K6X78ZjnPmhKKKf85-DmIgBxMsF9rv8gfEPigHNQ&oe=69935F5B",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": [],
+      "spend": 64.0,
+      "impressions": 618,
+      "clicks": 17,
+      "ctr": 2.750809,
+      "cpm": 103.559871,
+      "roas": 0.0,
+      "purchases": 0,
+      "atc": 1,
+      "conv_value": 0.0,
+      "cpa": 0
+    }
+  ],
+  "ad_copies": [
+    {
+      "copy_id": "copy_120238362679490142",
+      "ad_id": "120238362679490142",
+      "ad_name": "260115_LM香氛磚_Reels",
+      "primary_text": "",
+      "headline": "",
+      "description": "",
+      "spend": 1906.0,
+      "impressions": 14877,
+      "clicks": 211,
+      "purchases": 5,
+      "ctr": 1.418297,
+      "cpm": 128.117228,
+      "roas": 1.718258,
+      "cpa": 381.2,
+      "conv_value": 3275.0
+    },
+    {
+      "copy_id": "copy_120238333981640142",
+      "ad_id": "120238333981640142",
+      "ad_name": "260114_LM輪框清潔劑",
+      "primary_text": "#力魔教你用\n󠀠\n榮獲 2025 德國權威雜誌 《Auto Bild》\n輪框清潔劑評選 - 冠軍 🏆\n󠀠\nLIQUI MOLY 中性輪圈除鐵粉專用清潔劑\n✅ 快速帶走粉塵、泥沙\n✅ 有效溶解鐵粉汙垢\n✅ 中性成份不咬鋁、鋼等常見輪框材質\n✅ 高度可生物降解\n󠀠\n定期使用可讓您的愛車輪框常亮如新 ✨\n單罐售價 $1,200元/ 1L大包裝\n手刀購買👉 https://www.carmall.com.tw/products/rim-cleaner\n󠀠\n#LIQUIMOLY #LIQUIMOLYTaiwan #總代理宜福工業 #CARMALL #車魔商城 #輪框清潔 #鐵粉去除 #輪框保養 #洗車工具 #車用美容 #德國製造 #雜誌評選冠軍",
+      "headline": "",
+      "description": "",
+      "spend": 1889.0,
+      "impressions": 20036,
+      "clicks": 689,
+      "purchases": 2,
+      "ctr": 3.43881,
+      "cpm": 94.280295,
+      "roas": 1.339333,
+      "cpa": 944.5,
+      "conv_value": 2530.0
+    },
+    {
+      "copy_id": "copy_120238489180750142",
+      "ad_id": "120238489180750142",
+      "ad_name": "全系列6入",
+      "primary_text": "LIQUI MOLY 車用香氛磚｜全系列組合\n拿不定主意喜歡什麼香味？\n六種口味 一次滿足！\n\n🛒全台首發6入組：https://www.carmall.com.tw/products/air-freshener-6pack-fixed",
+      "headline": "CarMall 車魔商城",
+      "description": "給喜愛多變香味的你！",
+      "spend": 649.0,
+      "impressions": 7837,
+      "clicks": 172,
+      "purchases": 1,
+      "ctr": 2.194717,
+      "cpm": 82.812301,
+      "roas": 1.255778,
+      "cpa": 649.0,
+      "conv_value": 815.0
+    },
+    {
+      "copy_id": "copy_120238522487380142",
+      "ad_id": "120238522487380142",
+      "ad_name": "任選3入",
+      "primary_text": "LIQUI MOLY 車用香氛磚｜任選3入\n總覺得車內少了一味？\n嘗鮮使用 LIQUI MOLY 車用香氛磚\n\n🛒嘗鮮優惠3入組：https://www.carmall.com.tw/products/air-freshener-3pack",
+      "headline": "CarMall 車魔商城",
+      "description": "想嘗鮮、季回購都優惠！",
+      "spend": 566.0,
+      "impressions": 5474,
+      "clicks": 69,
+      "purchases": 3,
+      "ctr": 1.260504,
+      "cpm": 103.397881,
+      "roas": 4.160777,
+      "cpa": 188.66666666666666,
+      "conv_value": 2355.0
+    },
+    {
+      "copy_id": "copy_120238522485710142",
+      "ad_id": "120238522485710142",
+      "ad_name": "任選6入",
+      "primary_text": "LIQUI MOLY 車用香氛磚｜任選6入\n年節送禮、揪團優惠合購！\n🛒口味任選6入組：https://www.carmall.com.tw/products/air-freshener-6pack",
+      "headline": "CarMall 車魔商城",
+      "description": "節日送禮、揪團團購任選！",
+      "spend": 215.0,
+      "impressions": 2789,
+      "clicks": 31,
+      "purchases": 0,
+      "ctr": 1.11151,
+      "cpm": 77.088562,
+      "roas": 0.0,
+      "cpa": 0,
+      "conv_value": 0.0
+    },
+    {
+      "copy_id": "copy_120238522487770142",
+      "ad_id": "120238522487770142",
+      "ad_name": "氣味改善",
+      "primary_text": "LIQUI MOLY車用香氛 + 織物泡沫清潔\n老車布椅清潔加上車用香氛-海洋！\n讓你的車內氣味清香自然~\n\n🛒氣味改善：https://www.carmall.com.tw/products/odor-control-pack",
+      "headline": "CarMall 車魔商城",
+      "description": "老車布椅清潔、車內異味解決！",
+      "spend": 172.0,
+      "impressions": 1527,
+      "clicks": 36,
+      "purchases": 0,
+      "ctr": 2.357564,
+      "cpm": 112.639162,
+      "roas": 0.0,
+      "cpa": 0,
+      "conv_value": 0.0
+    },
+    {
+      "copy_id": "copy_120238522487830142",
+      "ad_id": "120238522487830142",
+      "ad_name": "新車控",
+      "primary_text": "LIQUI MOLY 車用香氛 + 螢幕清潔泡沫\n恢復愛車如同新車的味道！\n🛒新車控專屬優惠：https://www.carmall.com.tw/products/new-car-pack",
+      "headline": "CarMall 車魔商城",
+      "description": "「新車」狀態愛好者專屬！",
+      "spend": 86.0,
+      "impressions": 863,
+      "clicks": 17,
+      "purchases": 0,
+      "ctr": 1.969873,
+      "cpm": 99.652375,
+      "roas": 0.0,
+      "cpa": 0,
+      "conv_value": 0.0
+    },
+    {
+      "copy_id": "copy_120237517873180142",
+      "ad_id": "120237517873180142",
+      "ad_name": "251218_LM香氛磚",
+      "primary_text": "🇩🇪 來自德國的堅持！LIQUI MOLY 不只懂車，更懂你的呼吸\n🔥 立即入手德國工藝香氛： https://reurl.cc/R9bN7G\n󠀠\n受夠了廉價芳香劑刺鼻的化學味？ 或是擔心液體香水打翻腐蝕飾板？\n󠀠\n選用 LIQUI MOLY 車用香氛磚，你需要的三大理由： \n✅ 德國原裝：延續品牌嚴謹工藝，品質保證。\n✅ 固體香氛：無酒精、不外漏，香氣持久細膩。\n✅ 隨夾隨用：通用型出風口夾具，安裝只需 1 秒。\n󠀠\n嚴選四種高級調香： 🔹 海洋 Ocean｜🔹 櫻桃 Cherry 🔹 香草 Vanilla｜🔹 新車 New Car\n󠀠\n車要顧，面子也要顧。讓乘客上車的第一秒，就對你印象加分！\n🔥 立即入手德國工藝香氛： https://reurl.cc/R9bN7G\n󠀠\n#LIQUIMOLY #LIQUIMOLYTaiwan #總代理宜福工業 #CARMALL #車魔商城 #車用香氛 #汽車香氛 #香氛磚 #德國製造 #開車日常 #愛車 #新車味道 #車內香氛",
+      "headline": "LIQUI MOLY 車用香氛 | CarMall 車魔商城",
+      "description": "",
+      "spend": 64.0,
+      "impressions": 618,
+      "clicks": 17,
+      "purchases": 0,
+      "ctr": 2.750809,
+      "cpm": 103.559871,
+      "roas": 0.0,
+      "cpa": 0,
+      "conv_value": 0.0
+    }
+  ],
+  "top_creatives": [],
+  "ga4": {
+    "active_users": 1129,
+    "sessions": 1351,
+    "atc": 78,
+    "ic": 90,
+    "purchases": 14,
+    "ecommerce_purchases": 14,
+    "purchase_revenue": 14134.999976,
+    "funnel_rates": {
+      "session_to_atc": 5.77,
+      "atc_to_checkout": 115.38,
+      "checkout_to_purchase": 15.56,
+      "overall_conversion": 1.04,
+      "atc_drop_off": 94.23,
+      "checkout_drop_off": -15.38,
+      "purchase_drop_off": 84.44
+    }
+  },
+  "ga4_channels": [
+    {
+      "source": "fb / paid",
+      "sessions": 563,
+      "atc": 52,
+      "ic": 39,
+      "purchases": 6,
+      "session_to_atc_rate": 9.24,
+      "atc_to_purchase_rate": 11.54
+    },
+    {
+      "source": "(direct) / (none)",
+      "sessions": 114,
+      "atc": 3,
+      "ic": 7,
+      "purchases": 2,
+      "session_to_atc_rate": 2.63,
+      "atc_to_purchase_rate": 66.67
+    },
+    {
+      "source": "m.facebook.com / referral",
+      "sessions": 90,
+      "atc": 3,
+      "ic": 9,
+      "purchases": 2,
+      "session_to_atc_rate": 3.33,
+      "atc_to_purchase_rate": 66.67
+    },
+    {
+      "source": "ig / paid",
+      "sessions": 209,
+      "atc": 12,
+      "ic": 17,
+      "purchases": 1,
+      "session_to_atc_rate": 5.74,
+      "atc_to_purchase_rate": 8.33
+    },
+    {
+      "source": "google / organic",
+      "sessions": 59,
+      "atc": 5,
+      "ic": 10,
+      "purchases": 1,
+      "session_to_atc_rate": 8.47,
+      "atc_to_purchase_rate": 20.0
+    },
+    {
+      "source": "liqui-moly-tw.com / referral",
+      "sessions": 48,
+      "atc": 1,
+      "ic": 1,
+      "purchases": 1,
+      "session_to_atc_rate": 2.08,
+      "atc_to_purchase_rate": 100.0
+    },
+    {
+      "source": "l.facebook.com / referral",
+      "sessions": 19,
+      "atc": 1,
+      "ic": 2,
+      "purchases": 1,
+      "session_to_atc_rate": 5.26,
+      "atc_to_purchase_rate": 100.0
+    },
+    {
+      "source": "facebook / CPC",
+      "sessions": 97,
+      "atc": 1,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 1.03,
+      "atc_to_purchase_rate": 0.0
+    },
+    {
+      "source": "reurl.cc / referral",
+      "sessions": 41,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "th / paid",
+      "sessions": 38,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "facebook.com / referral",
+      "sessions": 18,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "google / cpc",
+      "sessions": 17,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "(not set)",
+      "sessions": 14,
+      "atc": 0,
+      "ic": 5,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "boschman-giasco.com.tw / referral",
+      "sessions": 9,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "lm.facebook.com / referral",
+      "sessions": 4,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "boschmanec.cyberbiz.co / referral",
+      "sessions": 3,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "chatgpt.com / (not set)",
+      "sessions": 3,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "chatgpt.com / referral",
+      "sessions": 2,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "an / paid",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "ecosia.org / organic",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "emap.pcsc.com.tw / referral",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    }
+  ],
+  "ga4_devices": [
+    {
+      "device": "mobile",
+      "sessions": 1134,
+      "users": 952,
+      "transactions": 12,
+      "revenue": 13354.999978,
+      "session_pct": 83.9,
+      "conv_rate": 1.06
+    },
+    {
+      "device": "desktop",
+      "sessions": 208,
+      "users": 169,
+      "transactions": 2,
+      "revenue": 779.999998,
+      "session_pct": 15.4,
+      "conv_rate": 0.96
+    },
+    {
+      "device": "tablet",
+      "sessions": 10,
+      "users": 10,
+      "transactions": 0,
+      "revenue": 0.0,
+      "session_pct": 0.7,
+      "conv_rate": 0.0
+    }
+  ],
+  "ga4_user_types": {
+    "new": {
+      "sessions": 1053,
+      "users": 1051,
+      "transactions": 6,
+      "revenue": 7845.000002000001,
+      "session_pct": 78.1,
+      "conv_rate": 0.57
+    },
+    "returning": {
+      "sessions": 175,
+      "users": 114,
+      "transactions": 8,
+      "revenue": 6289.999974,
+      "session_pct": 13.0,
+      "conv_rate": 4.57
+    },
+    "(not set)": {
+      "sessions": 121,
+      "users": 0,
+      "transactions": 0,
+      "revenue": 0.0,
+      "session_pct": 9.0,
+      "conv_rate": 0.0
+    }
+  },
+  "ga4_engagement": {
+    "engagement_rate": 85.27,
+    "avg_session_duration_sec": 54.616000920799394,
+    "avg_session_duration_formatted": "0:54",
+    "page_views": 2174,
+    "pages_per_session": 1.61,
+    "bounce_rate": 14.73
+  },
+  "gsc": {
+    "total": {
+      "clicks": 47,
+      "impressions": 1602,
+      "ctr": 2.93,
+      "position": 7.9
+    },
+    "top_queries": [
+      {
+        "query": "car mall",
+        "clicks": 2,
+        "impressions": 2,
+        "ctr": 100,
+        "position": 1
+      },
+      {
+        "query": "liqui moly bike",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 100,
+        "position": 1
+      },
+      {
+        "query": "liqui moly display",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 100,
+        "position": 6
+      },
+      {
+        "query": "彩繪安全帽",
+        "clicks": 1,
+        "impressions": 29,
+        "ctr": 3.45,
+        "position": 6.5
+      },
+      {
+        "query": "12v 打氣機",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "12v打氣機",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "query": "22389589",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 8.7
+      },
+      {
+        "query": "3move",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "query": "400n.m",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "query": "8.0ah",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://www.carmall.com.tw/products/rim-cleaner",
+        "full_url": "https://www.carmall.com.tw/products/rim-cleaner",
+        "title": null,
+        "clicks": 5,
+        "impressions": 45,
+        "ctr": 11.11,
+        "position": 6.5
+      },
+      {
+        "page": "https://www.carmall.com.tw/zh-TW/products/screen-cleaner",
+        "full_url": "https://www.carmall.com.tw/zh-TW/products/screen-cleaner",
+        "title": null,
+        "clicks": 4,
+        "impressions": 38,
+        "ctr": 10.53,
+        "position": 3.8
+      },
+      {
+        "page": "https://www.carmall.com.tw/",
+        "full_url": "https://www.carmall.com.tw/",
+        "title": null,
+        "clicks": 3,
+        "impressions": 72,
+        "ctr": 4.17,
+        "position": 5.3
+      },
+      {
+        "page": "https://www.carmall.com.tw/products/%E9%99%90%E9%87%8F%E7%89%88%E5%BD%A9%E7%B9%AA%E5%AE%89%E5%85%A8%E5%B8%BD",
+        "full_url": "https://www.carmall.com.tw/products/%E9%99%90%E9%87%8F%E7%89%88%E5%BD%A9%E7%B9%AA%E5%AE%89%E5%85%A8%E5%B8%BD",
+        "title": null,
+        "clicks": 3,
+        "impressions": 98,
+        "ctr": 3.06,
+        "position": 5.5
+      },
+      {
+        "page": "https://www.carmall.com.tw/products/bosch-%E5%8D%9A%E4%B8%96-%E5%8D%9A%E4%B8%96go-2%E9%8B%B0%E9%9B%BB%E8%B5%B7%E5%AD%90%E6%A9%9F",
+        "full_url": "https://www.carmall.com.tw/products/bosch-%E5%8D%9A%E4%B8%96-%E5%8D%9A%E4%B8%96go-2%E9%8B%B0%E9%9B%BB%E8%B5%B7%E5%AD%90%E6%A9%9F",
+        "title": null,
+        "clicks": 3,
+        "impressions": 37,
+        "ctr": 8.11,
+        "position": 6.7
+      },
+      {
+        "page": "https://www.carmall.com.tw/collections/liqui-moly%E8%BB%8A%E7%94%A8%E9%A6%99%E6%B0%9B",
+        "full_url": "https://www.carmall.com.tw/collections/liqui-moly%E8%BB%8A%E7%94%A8%E9%A6%99%E6%B0%9B",
+        "title": null,
+        "clicks": 2,
+        "impressions": 40,
+        "ctr": 5.0,
+        "position": 4.0
+      },
+      {
+        "page": "https://www.carmall.com.tw/products/bike-tire-fix",
+        "full_url": "https://www.carmall.com.tw/products/bike-tire-fix",
+        "title": null,
+        "clicks": 2,
+        "impressions": 29,
+        "ctr": 6.9,
+        "position": 7.4
+      },
+      {
+        "page": "https://www.carmall.com.tw/products/bosch-%E5%8D%9A%E4%B8%96-18v%E5%B7%A5%E5%85%B7%E7%AE%B1",
+        "full_url": "https://www.carmall.com.tw/products/bosch-%E5%8D%9A%E4%B8%96-18v%E5%B7%A5%E5%85%B7%E7%AE%B1",
+        "title": null,
+        "clicks": 2,
+        "impressions": 54,
+        "ctr": 3.7,
+        "position": 6.7
+      },
+      {
+        "page": "https://www.carmall.com.tw/products/bosch-%E5%8D%9A%E4%B8%96-gds-18v-1000%E5%9B%9B%E5%88%86%E9%9B%BB%E5%8B%95%E8%A1%9D%E6%93%8A%E6%89%B3%E6%89%8B1000nm",
+        "full_url": "https://www.carmall.com.tw/products/bosch-%E5%8D%9A%E4%B8%96-gds-18v-1000%E5%9B%9B%E5%88%86%E9%9B%BB%E5%8B%95%E8%A1%9D%E6%93%8A%E6%89%B3%E6%89%8B1000nm",
+        "title": null,
+        "clicks": 2,
+        "impressions": 46,
+        "ctr": 4.35,
+        "position": 5.2
+      },
+      {
+        "page": "https://www.carmall.com.tw/products/volare-s3",
+        "full_url": "https://www.carmall.com.tw/products/volare-s3",
+        "title": null,
+        "clicks": 2,
+        "impressions": 14,
+        "ctr": 14.29,
+        "position": 4.1
+      }
+    ]
+  },
+  "cyberbiz": {
+    "order_count": 15,
+    "total_revenue": 15050.0,
+    "aov": 1003.33,
+    "product_ranking": [
+      {
+        "product_name": "LIQUI MOLY 限量版彩繪安全帽",
+        "variant": "M",
+        "sku": "LMHMT01-M",
+        "total_quantity": 1,
+        "total_revenue": 3200.0
+      },
+      {
+        "product_name": "LIQUI MOLY 中性輪圈除鐵粉專用清潔劑 Rim Cleaner",
+        "variant": "",
+        "sku": "LM23017",
+        "total_quantity": 2,
+        "total_revenue": 2400.0
+      },
+      {
+        "product_name": "【任選3入】LIQUI MOLY 車用香氛磚 車內清香自由配組合",
+        "variant": "",
+        "sku": "air-freshener-3pack",
+        "total_quantity": 3,
+        "total_revenue": 2160.0
+      },
+      {
+        "product_name": "【任選6入】LIQUI MOLY 車用香氛磚 好友揪團一起購組合",
+        "variant": "",
+        "sku": "air-freshener-6pack",
+        "total_quantity": 1,
+        "total_revenue": 1380.0
+      },
+      {
+        "product_name": "LIQUI MOLY 車用香氛磚-海洋 Air Freshener ocean",
+        "variant": "",
+        "sku": "LM21833",
+        "total_quantity": 5,
+        "total_revenue": 1250.0
+      },
+      {
+        "product_name": "LIQUI MOLY 車用香氛磚-新車清香 Air Freshener new car",
+        "variant": "",
+        "sku": "LM21831",
+        "total_quantity": 4,
+        "total_revenue": 1000.0
+      },
+      {
+        "product_name": "Oinker 鏈條油工具 Motorbike Chain Lube Tool",
+        "variant": "Oinker 鏈條油工具 525",
+        "sku": "OKR-525",
+        "total_quantity": 1,
+        "total_revenue": 850.0
+      },
+      {
+        "product_name": "【新車控】車內養護組合 (車用香氛+螢幕清潔)",
+        "variant": "",
+        "sku": "new-car-pack",
+        "total_quantity": 1,
+        "total_revenue": 500.0
+      },
+      {
+        "product_name": "LIQUI MOLY 車用香氛磚-泡泡糖 Air Freshener berry bubblegum",
+        "variant": "",
+        "sku": "LM23147",
+        "total_quantity": 2,
+        "total_revenue": 500.0
+      },
+      {
+        "product_name": "LIQUI MOLY 車用香氛磚-香草 Air Freshener vanilla",
+        "variant": "",
+        "sku": "LM21830",
+        "total_quantity": 2,
+        "total_revenue": 500.0
+      }
+    ],
+    "new_members": 13
+  },
+  "mer": 2.4921344593475743,
+  "wow": {
+    "meta_roas_change": 12.898305051427705,
+    "cyber_revenue_change": 35.95302619692864,
+    "cyber_aov_change": 35.95257452574528,
+    "prev_meta": {
+      "name": "Account Total",
+      "spend": 5455.0,
+      "ctr": 3.100202,
+      "clicks": 881,
+      "roas": 1.526123,
+      "purchases": 12,
+      "atc": 64,
+      "ic": 49,
+      "vc": 909,
+      "conv_value": 8325.0,
+      "cpa": 454.5833333333333,
+      "cp_atc": 85.234375
+    },
+    "prev_cyber": {
+      "order_count": 15,
+      "total_revenue": 11070.0,
+      "aov": 738.0,
+      "product_ranking": [
+        {
+          "product_name": "Oinker 鏈條油工具 Motorbike Chain Lube Tool",
+          "variant": "Oinker 鏈條油工具 520/420",
+          "sku": "OKR-520",
+          "total_quantity": 5,
+          "total_revenue": 4250.0
+        },
+        {
+          "product_name": "LIQUI MOLY 車用香氛磚-新車清香 Air Freshener new car",
+          "variant": "",
+          "sku": "LM21831",
+          "total_quantity": 9,
+          "total_revenue": 2250.0
+        },
+        {
+          "product_name": "LIQUI MOLY 中性輪圈除鐵粉專用清潔劑 Rim Cleaner",
+          "variant": "",
+          "sku": "LM23017",
+          "total_quantity": 1,
+          "total_revenue": 1200.0
+        },
+        {
+          "product_name": "LIQUI MOLY 自行車長效鏈條潤滑噴劑 Bike Chain Spray",
+          "variant": "",
+          "sku": "LM21776",
+          "total_quantity": 1,
+          "total_revenue": 750.0
+        },
+        {
+          "product_name": "LIQUI MOLY 車用香氛磚-櫻桃 Air Freshener cherry",
+          "variant": "",
+          "sku": "LM21832",
+          "total_quantity": 2,
+          "total_revenue": 500.0
+        },
+        {
+          "product_name": "LIQUI MOLY 自行車煞車鏈條清潔劑 Bike Brake and Chain Cleaner",
+          "variant": "",
+          "sku": "LM21777",
+          "total_quantity": 1,
+          "total_revenue": 380.0
+        },
+        {
+          "product_name": "LIQUI MOLY 車用香氛磚-香草 Air Freshener vanilla",
+          "variant": "",
+          "sku": "LM21830",
+          "total_quantity": 1,
+          "total_revenue": 250.0
+        },
+        {
+          "product_name": "LIQUI MOLY 車用香氛磚-海洋 Air Freshener ocean",
+          "variant": "",
+          "sku": "LM21833",
+          "total_quantity": 1,
+          "total_revenue": 250.0
+        },
+        {
+          "product_name": "LIQUI MOLY 掛勾鑰匙圈",
+          "variant": "",
+          "sku": "LMA-3617",
+          "total_quantity": 1,
+          "total_revenue": 180.0
+        }
+      ],
+      "new_members": 15
+    }
+  },
+  "dod": null,
+  "alerts": [
+    {
+      "type": "caution",
+      "category": "Meta Ads",
+      "message": "📊 曝光頻率偏高 (2.4)，請關注素材疲乏跡象",
+      "metric": "frequency",
+      "value": 2.367866,
+      "threshold": 2.0
+    }
+  ],
+  "summary": {
+    "total_spend": 6039.0,
+    "total_revenue": 15050.0,
+    "mer": 2.49,
+    "roas": 1.722967,
+    "order_count": 15,
+    "aov": 1003.33,
+    "ga4_sessions": 1351,
+    "ga4_overall_conversion": 1.04,
+    "top_audience_segment": "male 18-24",
+    "top_product": "LIQUI MOLY 限量版彩繪安全帽",
+    "cpm": 101.427612,
+    "frequency": 2.367866,
+    "reach": 25145,
+    "gsc_clicks": 47,
+    "gsc_avg_position": 7.9
+  }
+}

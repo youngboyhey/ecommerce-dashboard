@@ -1,0 +1,141 @@
+{
+  "task_type": "weekly_ai_analysis",
+  "report_date": "2026-01-28",
+  "generated_at": "2026-02-12T13:19:34.492459",
+  "total_ads": 1,
+  "creatives": [
+    {
+      "ad_id": "120238488906660142",
+      "adset_id": "120238488906660142",
+      "ad_name": "260119_LM香氛磚組合",
+      "carousel_images": [],
+      "image_count": 0,
+      "is_carousel": false,
+      "metrics": {
+        "ctr": 1.61,
+        "cvr": 0.0,
+        "roas": 0.0,
+        "spend": 6857.0,
+        "purchases": 0,
+        "impressions": 68690,
+        "cpm": 99.83
+      },
+      "copy": "",
+      "targeting": {
+        "age_range": "18+",
+        "genders": [
+          "不限"
+        ],
+        "locations": [
+          "台灣"
+        ],
+        "interests": [
+          "購物（零售）",
+          "網路購物（零售）",
+          "Engaged Shoppers",
+          "汽車美容（交通工具）",
+          "計程車司機",
+          "車輛（交通運輸）",
+          "汽車（交通工具）",
+          "出租車",
+          "休旅車（交通工具）",
+          "洗車 (汽車零件和服務)",
+          "汽車保養（交通工具）",
+          "轎車（汽車）",
+          "駕駛（交通工具）",
+          "豪華轎車（交通工具）"
+        ],
+        "custom_audiences": []
+      }
+    }
+  ],
+  "analysis_instructions": "\n請分析以下廣告的視覺元素、文案和受眾設定。\n\n## 重要：每個廣告可能包含多張輪播圖\n- 請將同一廣告的所有輪播圖「綜合分析」\n- 不要把每張圖當成獨立素材\n\n## 分析要求\n\n1. **視覺分析**（針對輪播組合整體，需詳細評估）：\n   - 整體構圖和視覺流動（評分 1-10）\n   - 色彩搭配的和諧度（主色調、對比、品牌一致性）\n   - 吸引力評分（1-10）：第一眼吸睛程度\n   - 文字排版和易讀性\n   - 產品展示方式\n   - 輪播圖之間的關聯性和故事性\n   - 視覺成功因素（為什麼有效）\n   - 視覺待改善項目（哪些地方可以更好）\n   - 視覺優化建議（具體改進方向）\n\n2. **文案分析**（需詳細評估）：\n   - 語調和風格：專業、親切、幽默、急迫感...\n   - 情感觸發點：FOMO、社會認同、獨特性、稀缺性...\n   - CTA 有效性：\n     * 是否明確告知下一步行動\n     * 用詞是否有動力（立即、限時、免費...）\n     * 是否減少購買阻力\n   - CTA 評分 (1-10)：根據明確性和動力評分\n   - 整體評分 (1-10)：根據清晰度、說服力、行動呼籲強度綜合評分\n   - 文案成功因素（為什麼這個文案有效）\n   - 文案待改善項目（哪些地方可以更好）\n   - 文案優化建議（具體改寫方向或範例）\n\n3. **受眾分析**（分析 targeting 設定）：\n   - 年齡範圍是否合適（太廣或太窄）\n   - 性別設定是否合理\n   - 地區設定是否精準\n   - 興趣標籤的相關性和精準度\n   - 自訂受眾/類似受眾的品質評估\n   - 受眾與產品/文案的匹配度\n   \n   評估標準：\n   - 興趣標籤數量：5-15 個最佳，超過 20 個可能過於分散\n   - Lookalike 受眾：檢查來源品質（加入購物車 > 瀏覽內容）\n   - 年齡範圍：過廣（18+）可能浪費預算，建議根據產品屬性縮窄\n\n4. **成效歸因**：結合成效數據（CTR、ROAS、購買數）和受眾設定，判斷：\n   - 跨維度成功因素（視覺+文案+受眾的綜合優勢）\n   - 跨維度失敗因素（哪些維度拖累整體表現）\n   - 優先改善建議（最能提升成效的優化方向）\n\n請以結構化方式輸出分析結果。\n",
+  "output_format": {
+    "per_ad": {
+      "ad_id": "廣告 ID",
+      "adset_id": "廣告組 ID",
+      "vision_analysis": {
+        "composition": "整體構圖描述",
+        "composition_score": "構圖評分 1-10",
+        "color_scheme": [
+          "主色調"
+        ],
+        "color_harmony": "色彩和諧度評估",
+        "brand_consistency": "品牌一致性評估",
+        "attractiveness_score": "吸引力評分 1-10",
+        "text_detected": "圖片文字內容",
+        "text_readability": "文字易讀性評估",
+        "product_presentation": "產品呈現方式",
+        "carousel_narrative": "輪播故事性描述（如有多張圖）",
+        "success_factors": [
+          "視覺成功因素"
+        ],
+        "failure_factors": [
+          "視覺待改善項目"
+        ],
+        "improvement_suggestions": [
+          "視覺優化建議"
+        ]
+      },
+      "copy_analysis": {
+        "tone": "語調（專業/親切/幽默/急迫）",
+        "emotional_triggers": [
+          "情感觸發點"
+        ],
+        "call_to_action": "CTA 內容",
+        "cta_effectiveness": "CTA 有效性評估",
+        "cta_score": "CTA 評分 1-10",
+        "overall_score": "1-10 評分",
+        "strengths": [
+          "文案成功因素"
+        ],
+        "weaknesses": [
+          "文案待改善項目"
+        ],
+        "suggested_improvements": [
+          "文案優化建議"
+        ]
+      },
+      "targeting_analysis": {
+        "age_assessment": "年齡範圍評估（是否適合產品）",
+        "gender_assessment": "性別設定評估",
+        "location_assessment": "地區設定評估",
+        "interests_assessment": "興趣標籤評估（數量、相關性、精準度）",
+        "custom_audience_assessment": "自訂受眾/Lookalike 評估",
+        "audience_product_fit": "受眾與產品匹配度",
+        "strengths": [
+          "受眾設定優點"
+        ],
+        "weaknesses": [
+          "受眾設定缺點"
+        ],
+        "suggestions": [
+          "受眾優化建議"
+        ],
+        "score": "1-10 評分"
+      }
+    },
+    "overall_success_factors": [
+      "跨維度成功因素"
+    ],
+    "overall_failure_factors": [
+      "跨維度失敗因素"
+    ],
+    "priority_improvements": [
+      "優先改善建議"
+    ],
+    "summary": {
+      "best_performing": "表現最佳的廣告 ID",
+      "best_targeting": "受眾設定最佳的廣告組 ID",
+      "key_insights": [
+        "關鍵洞察"
+      ],
+      "targeting_insights": [
+        "受眾相關洞察"
+      ],
+      "next_week_recommendations": [
+        "下週建議"
+      ]
+    }
+  }
+}

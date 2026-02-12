@@ -111,14 +111,22 @@ export function AdMetricsProvider({ children, reportDate }: AdMetricsProviderPro
     setError(null);
 
     try {
-      const dateFilter = reportDate || new Date().toISOString().split('T')[0];
+      // Use week_start instead of report_date
+      // If reportDate provided, use it as week_start; otherwise get latest week
+      const weekFilter = reportDate || null;
 
       // 從 ad_creatives 表獲取所有廣告素材數據
       // 這是 Single Source of Truth - 包含完整的 metrics
-      const { data, error: fetchError } = await supabase
-        .from('ad_creatives')
-        .select('*')
-        .eq('report_date', dateFilter);
+      const { data, error: fetchError } = weekFilter
+        ? await supabase
+            .from('ad_creatives')
+            .select('*')
+            .eq('week_start', weekFilter)
+        : await supabase
+            .from('ad_creatives')
+            .select('*')
+            .order('week_start', { ascending: false })
+            .limit(50);
 
       if (fetchError) {
         throw fetchError;
