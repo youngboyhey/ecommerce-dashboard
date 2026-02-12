@@ -513,16 +513,11 @@ const GroupedAdDetailModal = memo(function GroupedAdDetailModal({
   const modalRef = useRef<HTMLDivElement>(null);
   const tierConfig = TIER_CONFIG[groupedAd.performanceTier] || TIER_CONFIG.medium;
 
-  // 確保 modal 打開時滾動到視圖中央並禁止背景滾動
+  // 禁止背景滾動（Modal 是 fixed position，不需要滾動頁面）
   useEffect(() => {
-    // 禁止背景滾動
     document.body.style.overflow = 'hidden';
     
-    // 滾動視窗到頂部確保 modal 居中可見
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    
     return () => {
-      // 恢復背景滾動
       document.body.style.overflow = '';
     };
   }, []);
