@@ -191,29 +191,16 @@ const groupCreativesByAd = (creatives: AdCreative[]): GroupedAd[] => {
     const conversions = metrics?.conversions ?? metrics?.purchases ?? 0;
     const calculatedCvr = clicks > 0 ? (conversions / clicks) * 100 : 0;
     
-    // Build images array - prioritize carousel_images if available, otherwise use individual records
+    // Build images array - always prioritize image_url (high quality Supabase) over carousel_images/thumbnail_url (64x64 FB CDN thumbnails)
     let images: GroupedAd['images'] = [];
     
-    // Check if any item has carousel_images populated
-    const itemWithCarousel = items.find(item => 
-      item.carousel_images && Array.isArray(item.carousel_images) && item.carousel_images.length > 0
-    );
-    
-    if (itemWithCarousel && itemWithCarousel.carousel_images) {
-      // Use carousel_images array from the record
-      images = itemWithCarousel.carousel_images.map((url, idx) => ({
-        url,
-        index: idx,
-        visionAnalysis: idx === 0 ? itemWithCarousel.vision_analysis : null, // Only first image has analysis
-      })).filter(img => img.url);
-    } else {
-      // Fallback: use individual records (original behavior)
-      images = items.map((item, idx) => ({
-        url: item.thumbnail_url || item.image_url || '',
-        index: getCarouselIndex(item.tags),
-        visionAnalysis: item.vision_analysis,
-      })).filter(img => img.url);
-    }
+    // Use image_url from each record - this is the high quality version uploaded to Supabase
+    // carousel_images and thumbnail_url are Facebook CDN thumbnails (p64x64) and should only be fallbacks
+    images = items.map((item, idx) => ({
+      url: item.image_url || item.thumbnail_url || '',
+      index: getCarouselIndex(item.tags),
+      visionAnalysis: item.vision_analysis,
+    })).filter(img => img.url);
     
     return {
       originalAdId,
