@@ -23,6 +23,7 @@ export interface AdCreative {
     ctr?: number;
     roas?: number;
     purchases?: number;
+    conversions?: number;
     conv_value?: number;
     cvr?: number;
   };
@@ -164,10 +165,10 @@ const groupCreativesByAd = (creatives: AdCreative[]): GroupedAd[] => {
     combinedAnalysis.failureFactors = [...new Set(combinedAnalysis.failureFactors)];
     combinedAnalysis.improvementSuggestions = [...new Set(combinedAnalysis.improvementSuggestions)];
     
-    // Calculate CVR from purchases and clicks (since metrics.cvr might be 0)
+    // Calculate CVR from conversions/purchases and clicks (since metrics.cvr might be 0)
     const clicks = metrics?.clicks || 0;
-    const purchases = metrics?.purchases || 0;
-    const calculatedCvr = clicks > 0 ? (purchases / clicks) * 100 : 0;
+    const conversions = metrics?.conversions ?? metrics?.purchases ?? 0;
+    const calculatedCvr = clicks > 0 ? (conversions / clicks) * 100 : 0;
     
     return {
       originalAdId,
@@ -180,7 +181,7 @@ const groupCreativesByAd = (creatives: AdCreative[]): GroupedAd[] => {
         cvr: calculatedCvr,  // Use calculated CVR instead of metrics.cvr
         impressions: metrics?.impressions || 0,
         clicks: clicks,
-        purchases: purchases,
+        purchases: conversions,  // Use conversions (with purchases fallback)
       },
       performanceTier: firstItem.performance_tier || 'medium',
       images: items.map((item, idx) => ({

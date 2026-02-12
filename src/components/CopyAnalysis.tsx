@@ -21,6 +21,7 @@ export interface AdCopy {
     clicks?: number;
     impressions?: number;
     purchases?: number;
+    conversions?: number;
     spend?: number;
   };
   performance_tier: 'high' | 'low' | null;
@@ -398,12 +399,12 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
   const isHigh = variant === 'high';
   const [showFullAnalysis, setShowFullAnalysis] = useState(false);
   
-  // 計算 CVR（統一使用 purchases / clicks * 100）
+  // 計算 CVR（優先使用 conversions，fallback 到 purchases）
   const calculatedCvr = useMemo(() => {
     const clicks = copy.metrics?.clicks || 0;
-    const purchases = copy.metrics?.purchases || 0;
+    const conversions = copy.metrics?.conversions ?? copy.metrics?.purchases ?? 0;
     if (clicks > 0) {
-      return (purchases / clicks) * 100;
+      return (conversions / clicks) * 100;
     }
     // Fallback 到預存的 cvr 值
     return copy.metrics?.cvr || 0;
