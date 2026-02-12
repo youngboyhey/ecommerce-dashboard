@@ -1634,19 +1634,16 @@ def main():
     except ImportError:
         print("⚠️ report_formatter module not available, skipping preview generation")
     
-    # [NEW] Upload to Supabase for Dashboard integration (weekly only)
-    if args.mode == "weekly":
-        try:
-            from scripts.supabase_uploader import upload_report_to_supabase
-            print("\n📤 Uploading to Supabase (weekly report)...")
-            upload_success = upload_report_to_supabase(report)
-            if upload_success:
-                print("✅ Dashboard data synced to Supabase!")
-        except Exception as e:
-            # Supabase 上傳失敗不影響原有報表流程
-            print(f"⚠️  Supabase upload skipped: {e}")
-    else:
-        print("\n📊 Daily report - skipping Supabase upload (Dashboard uses weekly data)")
+    # [NEW] Upload to Supabase for Dashboard integration (both daily and weekly)
+    try:
+        from scripts.supabase_uploader import upload_report_to_supabase
+        print(f"\n📤 Uploading to Supabase ({args.mode} report)...")
+        upload_success = upload_report_to_supabase(report)
+        if upload_success:
+            print("✅ Dashboard data synced to Supabase!")
+    except Exception as e:
+        # Supabase 上傳失敗不影響原有報表流程
+        print(f"⚠️  Supabase upload skipped: {e}")
 
 
 def generate_alerts(meta, meta_efficiency, ga4, cyber):

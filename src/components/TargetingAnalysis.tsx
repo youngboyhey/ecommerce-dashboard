@@ -41,13 +41,13 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
   return (
     <div className="bg-white rounded-xl border border-gray-100 overflow-hidden h-full flex flex-col shadow-sm hover:shadow-md transition-shadow">
       {/* Header */}
-      <div className={`bg-gradient-to-r ${color.bg} p-4 ${color.shadow}`}>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center text-white font-bold text-lg">
+      <div className={`bg-gradient-to-r ${color.bg} p-4 ${color.shadow} overflow-hidden relative`}>
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3 flex-1 min-w-0">
+            <span className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
               {letters[index]}
             </span>
-            <div className="flex-1 min-w-0">
+            <div className="min-w-0 flex-1">
               <h3 className="text-white font-semibold truncate" title={adset.adset_name}>
                 {adset.adset_name}
               </h3>
@@ -59,8 +59,8 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
             </div>
           </div>
           {/* 受眾評分 */}
-          <div className="flex flex-col items-center">
-            <div className={`w-12 h-12 rounded-full ${scoreConfig.bg} flex items-center justify-center text-white font-bold text-lg shadow-lg`}>
+          <div className="flex flex-col items-center flex-shrink-0">
+            <div className={`w-11 h-11 rounded-full ${scoreConfig.bg} flex items-center justify-center text-white font-bold text-base shadow-lg`}>
               {t.score.toFixed(1)}
             </div>
             <span className="text-white/80 text-[10px] mt-1">{scoreConfig.label}</span>

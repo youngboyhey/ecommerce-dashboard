@@ -566,10 +566,10 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
               <span className="text-gray-500">📝 標題</span>
               <span className={cn(
                 "font-semibold",
-                copy.analysis.headline_score >= 7 ? "text-emerald-600" : 
-                copy.analysis.headline_score >= 4 ? "text-amber-600" : "text-red-600"
+                copy.analysis.headline_score >= 70 ? "text-emerald-600" : 
+                copy.analysis.headline_score >= 40 ? "text-amber-600" : "text-red-600"
               )}>
-                {copy.analysis.headline_score}/10
+                {(copy.analysis.headline_score / 10).toFixed(1)}
               </span>
             </div>
           )}
@@ -578,10 +578,10 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
               <span className="text-gray-500">✨ 賣點</span>
               <span className={cn(
                 "font-semibold",
-                copy.analysis.benefit_score >= 7 ? "text-emerald-600" : 
-                copy.analysis.benefit_score >= 4 ? "text-amber-600" : "text-red-600"
+                copy.analysis.benefit_score >= 70 ? "text-emerald-600" : 
+                copy.analysis.benefit_score >= 40 ? "text-amber-600" : "text-red-600"
               )}>
-                {copy.analysis.benefit_score}/10
+                {(copy.analysis.benefit_score / 10).toFixed(1)}
               </span>
             </div>
           )}
@@ -590,10 +590,10 @@ const CopyCard = memo(function CopyCard({ copy, variant }: CopyCardProps) {
               <span className="text-gray-500">👆 CTA</span>
               <span className={cn(
                 "font-semibold",
-                copy.analysis.cta_score >= 7 ? "text-emerald-600" : 
-                copy.analysis.cta_score >= 4 ? "text-amber-600" : "text-red-600"
+                copy.analysis.cta_score >= 70 ? "text-emerald-600" : 
+                copy.analysis.cta_score >= 40 ? "text-amber-600" : "text-red-600"
               )}>
-                {copy.analysis.cta_score}/10
+                {(copy.analysis.cta_score / 10).toFixed(1)}
               </span>
             </div>
           )}

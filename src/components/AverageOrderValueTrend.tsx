@@ -14,8 +14,7 @@ import {
 } from 'recharts';
 import { ShoppingBag } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
-import { formatCurrency } from '@/lib/utils';
-// 🔧 移除 formatDate - 只顯示週數據，不需要日期格式化
+import { formatCurrency, formatDate } from '@/lib/utils';
 import { tooltipWrapperStyle, tooltipContentStyle } from './ChartTooltipWrapper';
 
 // Hook to detect mobile viewport
@@ -32,11 +31,16 @@ function useIsMobile(breakpoint = 640) {
   return isMobile;
 }
 
-// 🔧 移除 daily 選項，因為我們沒有真正的每日客單價數據
-// 把週數據拆成每日會產生誤導性的圖表
-type TimeRange = 'weekly';
+// 🔧 恢復日/週切換功能
+type TimeRange = 'daily' | 'weekly';
 
-// 🔧 移除 AOVDataPoint（日數據）- 只使用 WeeklyAOVDataPoint
+interface AOVDataPoint {
+  date: string;
+  label: string;
+  aov: number;
+  orders: number;
+  revenue: number;
+}
 
 interface WeeklyAOVDataPoint {
   week: string;
@@ -45,9 +49,6 @@ interface WeeklyAOVDataPoint {
   revenue: number;
 }
 
-// 🔧 已移除 WeeklyAOVReport interface 和 expandWeeklyToDaily 函數
-// 不再將週數據拆解為每日數據，因為會產生誤導性的圖表
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TooltipPayload = any;
 
@@ -55,7 +56,7 @@ interface ChartTooltipProps {
   active?: boolean;
   payload?: TooltipPayload[];
   label?: string | number;
-  timeRange?: TimeRange;  // 保留參數但現在只用 weekly
+  timeRange?: TimeRange;
 }
 
 // 白色主題 Tooltip
@@ -63,6 +64,7 @@ const ChartTooltip = memo(function ChartTooltip({
   active, 
   payload, 
   label,
+  timeRange
 }: ChartTooltipProps) {
   if (!active || !payload?.length) return null;
 
@@ -72,7 +74,7 @@ const ChartTooltip = memo(function ChartTooltip({
       role="tooltip"
     >
       <p className="font-semibold text-gray-900 mb-3 text-sm">
-        {label}
+        {timeRange === 'daily' ? label : label}
       </p>
       <div className="space-y-2">
         {payload.map((entry, index) => (
@@ -96,8 +98,6 @@ const ChartTooltip = memo(function ChartTooltip({
   );
 });
 
-// 🔧 已移除 generateMockData - 不再需要每日 mock 數據
-
 interface AverageOrderValueTrendProps {
   dateRange?: {
     start: string;
@@ -106,17 +106,20 @@ interface AverageOrderValueTrendProps {
 }
 
 const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange }: AverageOrderValueTrendProps) {
-  // 🔧 修正：只使用週數據（我們沒有真正的每日客單價數據）
+  // 🔧 恢復日/週切換功能
+  const [timeRange, setTimeRange] = useState<TimeRange>('daily');
+  const [dailyData, setDailyData] = useState<AOVDataPoint[]>([]);
   const [weeklyData, setWeeklyData] = useState<WeeklyAOVDataPoint[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isLive, setIsLive] = useState(false);
+  const [hasDailyData, setHasDailyData] = useState(false);
   const isMobile = useIsMobile();
 
-  // 🔧 修正：直接獲取週 AOV 數據，不再拆解為日數據（避免誤導）
+  // 獲取數據
   useEffect(() => {
     async function fetchData() {
       if (!supabase) {
-        // 無 Supabase 時使用 mock 週數據
+        // 無 Supabase 時使用 mock 數據
         setWeeklyData([
           { week: 'W1', aov: 1250, orders: 45, revenue: 56250 },
           { week: 'W2', aov: 1180, orders: 52, revenue: 61360 },
@@ -130,29 +133,54 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
       try {
         setIsLoading(true);
         
-        // 查詢 weekly 數據
-        const { data: reports, error } = await supabase
+        // 1. 嘗試獲取 daily 數據
+        const { data: dailyReports, error: dailyError } = await supabase
+          .from('reports')
+          .select('start_date, cyber_aov, cyber_order_count, cyber_revenue')
+          .eq('mode', 'daily')
+          .order('start_date', { ascending: true })
+          .limit(28);
+
+        if (!dailyError && dailyReports && dailyReports.length > 0) {
+          // 有 daily 數據
+          const dailyAovData: AOVDataPoint[] = dailyReports.map((report) => ({
+            date: report.start_date,
+            label: formatDate(report.start_date),
+            aov: report.cyber_aov || 0,
+            orders: report.cyber_order_count || 0,
+            revenue: report.cyber_revenue || 0,
+          }));
+          
+          setDailyData(dailyAovData);
+          setHasDailyData(true);
+          console.log(`✅ Loaded ${dailyReports.length} daily AOV records`);
+        } else {
+          setHasDailyData(false);
+          // 如果沒有 daily 數據，默認切換到 weekly
+          setTimeRange('weekly');
+        }
+        
+        // 2. 獲取 weekly 數據（作為 fallback 或切換用）
+        const { data: weeklyReports, error: weeklyError } = await supabase
           .from('reports')
           .select('start_date, end_date, cyber_aov, cyber_order_count, cyber_revenue')
           .eq('mode', 'weekly')
           .order('start_date', { ascending: true })
           .limit(4);
 
-        if (error || !reports || reports.length === 0) {
-          throw new Error('No data');
+        if (!weeklyError && weeklyReports && weeklyReports.length > 0) {
+          const weeklyAovData: WeeklyAOVDataPoint[] = weeklyReports.map((report, index) => ({
+            week: `W${index + 1}`,
+            aov: report.cyber_aov || 0,
+            orders: report.cyber_order_count || 0,
+            revenue: report.cyber_revenue || 0,
+          }));
+
+          setWeeklyData(weeklyAovData);
+          console.log(`✅ Loaded ${weeklyReports.length} weekly AOV records`);
         }
 
-        // 🔧 修正：直接使用週數據，不拆解
-        const weeklyAovData: WeeklyAOVDataPoint[] = reports.map((report, index) => ({
-          week: `W${index + 1}`,
-          aov: report.cyber_aov || 0,
-          orders: report.cyber_order_count || 0,
-          revenue: report.cyber_revenue || 0,
-        }));
-
-        setWeeklyData(weeklyAovData);
         setIsLive(true);
-        console.log(`✅ Loaded ${reports.length} weeks of AOV data (no daily expansion)`);
       } catch (err) {
         console.warn('AOV data fetch failed, using mock:', err);
         setWeeklyData([
@@ -162,6 +190,8 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
           { week: 'W4', aov: 1150, orders: 55, revenue: 63250 },
         ]);
         setIsLive(false);
+        setHasDailyData(false);
+        setTimeRange('weekly');
       } finally {
         setIsLoading(false);
       }
@@ -170,28 +200,44 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
     fetchData();
   }, []);
 
-  // 🔧 修正：計算所有週的平均 AOV（用於參考線）
+  // 計算平均 AOV（用於參考線）
   // 正確公式：總營收 / 總訂單數（加權平均）
   const averageAOV = useMemo(() => {
-    if (weeklyData.length === 0) return 0;
+    const dataToUse = timeRange === 'daily' ? dailyData : weeklyData;
+    if (dataToUse.length === 0) return 0;
     
-    const totalRevenue = weeklyData.reduce((sum, d) => sum + d.revenue, 0);
-    const totalOrders = weeklyData.reduce((sum, d) => sum + d.orders, 0);
+    const totalRevenue = dataToUse.reduce((sum, d) => sum + d.revenue, 0);
+    const totalOrders = dataToUse.reduce((sum, d) => sum + d.orders, 0);
     return totalOrders > 0 ? Math.round(totalRevenue / totalOrders) : 0;
-  }, [weeklyData]);
+  }, [timeRange, dailyData, weeklyData]);
 
-  // 🔧 修正：直接使用週數據，不再有日/週切換
-  const data = useMemo(() => weeklyData, [weeklyData]);
+  // 根據 timeRange 選擇數據
+  const data = useMemo(() => {
+    if (timeRange === 'daily') {
+      return dailyData.map(d => ({
+        ...d,
+        displayKey: d.label
+      }));
+    } else {
+      return weeklyData.map(d => ({
+        ...d,
+        displayKey: d.week
+      }));
+    }
+  }, [timeRange, dailyData, weeklyData]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const renderTooltip = useCallback((props: any) => (
-    <ChartTooltip {...props} timeRange="weekly" />
-  ), []);
+    <ChartTooltip {...props} timeRange={timeRange} />
+  ), [timeRange]);
 
   const yAxisMax = useMemo(() => {
     const maxAOV = Math.max(...data.map(d => d.aov || 0));
     return Math.ceil(maxAOV / 100) * 100 + 200;
   }, [data]);
+
+  // X 軸的 dataKey
+  const xDataKey = timeRange === 'daily' ? 'label' : 'week';
 
   return (
     <section 
@@ -226,9 +272,32 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
           </div>
         </div>
         
-        {/* 🔧 移除日/週切換，因為我們只有週數據 */}
-        <div className="px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30">
-          週
+        {/* 🔧 恢復日/週切換按鈕 */}
+        <div className="flex gap-1 bg-gray-100 rounded-lg p-1">
+          <button
+            onClick={() => setTimeRange('daily')}
+            disabled={!hasDailyData}
+            className={`px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all
+              ${timeRange === 'daily'
+                ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30'
+                : hasDailyData
+                  ? 'text-gray-600 hover:text-gray-900'
+                  : 'text-gray-400 cursor-not-allowed'
+              }`}
+            title={hasDailyData ? '顯示每日數據' : '無每日數據'}
+          >
+            日
+          </button>
+          <button
+            onClick={() => setTimeRange('weekly')}
+            className={`px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all
+              ${timeRange === 'weekly'
+                ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30'
+                : 'text-gray-600 hover:text-gray-900'
+              }`}
+          >
+            週
+          </button>
         </div>
       </div>
 
@@ -250,12 +319,14 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
               vertical={false}
             />
             <XAxis 
-              dataKey="week"
+              dataKey={xDataKey}
               tick={{ fill: '#6B7280', fontSize: isMobile ? 10 : 12 }}
               axisLine={{ stroke: '#E5E7EB' }}
               tickLine={false}
               dy={isMobile ? 4 : 8}
-              interval={0}
+              interval={timeRange === 'daily' ? (isMobile ? 4 : 2) : 0}
+              angle={timeRange === 'daily' ? -45 : 0}
+              textAnchor={timeRange === 'daily' ? 'end' : 'middle'}
             />
             <YAxis 
               width={isMobile ? 40 : 55}
@@ -296,7 +367,7 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
               stroke="#F59E0B"
               strokeWidth={2.5}
               fill="url(#colorAOV)"
-              dot={{ fill: '#F59E0B', strokeWidth: 2, r: 3 }}
+              dot={{ fill: '#F59E0B', strokeWidth: 2, r: timeRange === 'daily' ? 2 : 3 }}
               activeDot={{ r: 5, strokeWidth: 2, fill: '#FCD34D' }}
             />
           </ComposedChart>
