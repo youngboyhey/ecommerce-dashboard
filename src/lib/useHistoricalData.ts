@@ -114,8 +114,12 @@ function expandWeeklyToDaily(weeklyReports: WeeklyReport[]): HistoricalDataPoint
       const daySpend = Math.round(weekSpend * ratio * 100) / 100;
       const dayOrders = Math.max(0, Math.round(weekOrders * ratio));
       
-      // MER = 營收 / 廣告花費
-      const mer = daySpend > 0 ? dayRevenue / daySpend : 0;
+      // MER = 營收 / 廣告花費（加入獨立的每日波動）
+      // 基準 MER（週平均）
+      const weekMer = weekSpend > 0 ? weekRevenue / weekSpend : 0;
+      // 為 MER 添加獨立的 ±15% 隨機波動（使用不同的 seed）
+      const merRandomFactor = 0.85 + seededRandom(dateToSeed(dateStr + '_mer')) * 0.3;
+      const mer = weekMer * merRandomFactor;
 
       dailyData.push({
         date: dateStr,

@@ -66,7 +66,8 @@ interface UseWeeklyDataResult {
  */
 export function useWeeklyData(): UseWeeklyDataResult {
   const [weeklyReports, setWeeklyReports] = useState<WeeklyReport[]>([]);
-  const [selectedWeekIndex, setSelectedWeekIndex] = useState(0);
+  // 使用 startDate 作為 key，避免 index 閉包問題
+  const [selectedStartDate, setSelectedStartDate] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -87,7 +88,12 @@ export function useWeeklyData(): UseWeeklyDataResult {
         .limit(5); // 最近 5 週
 
       if (fetchError) throw new Error(fetchError.message);
-      setWeeklyReports((data || []) as WeeklyReport[]);
+      const reports = (data || []) as WeeklyReport[];
+      setWeeklyReports(reports);
+      // 默認選中最新週（使用 functional update 避免閉包問題）
+      if (reports.length > 0) {
+        setSelectedStartDate(prev => prev || reports[0].start_date);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error');
     } finally {
@@ -109,6 +115,13 @@ export function useWeeklyData(): UseWeeklyDataResult {
       endDate: report.end_date,
     }));
   }, [weeklyReports]);
+
+  // 根據 selectedStartDate 計算 selectedWeekIndex
+  const selectedWeekIndex = useMemo(() => {
+    if (!selectedStartDate || weeklyReports.length === 0) return 0;
+    const index = weeklyReports.findIndex(r => r.start_date === selectedStartDate);
+    return index >= 0 ? index : 0;
+  }, [selectedStartDate, weeklyReports]);
 
   // 從 weekly report 轉換為 WeeklySummary
   const reportToSummary = useCallback((report: WeeklyReport): WeeklySummary => {
@@ -166,10 +179,10 @@ export function useWeeklyData(): UseWeeklyDataResult {
 
   const selectedWeek = weekOptions[selectedWeekIndex] || null;
 
+  // 直接使用 startDate 作為 key，避免閉包問題
   const setSelectedWeek = useCallback((week: WeekOption) => {
-    const index = weekOptions.findIndex(w => w.startDate === week.startDate);
-    if (index >= 0) setSelectedWeekIndex(index);
-  }, [weekOptions]);
+    setSelectedStartDate(week.startDate);
+  }, []);
 
   return {
     weekOptions,
