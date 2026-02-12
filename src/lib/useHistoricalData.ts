@@ -27,8 +27,112 @@ interface UseHistoricalDataResult {
   refresh: () => Promise<void>;
 }
 
+interface WeeklyReport {
+  start_date: string;
+  end_date: string;
+  cyber_revenue: number | null;
+  cyber_order_count: number | null;
+  meta_spend: number | null;
+  meta_roas: number | null;
+}
+
 /**
- * 從 Supabase 讀取歷史報表數據（最近 28 天）
+ * 使用 seeded random 確保同一日期產生一致的隨機數
+ */
+function seededRandom(seed: number): number {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+/**
+ * 根據日期字串生成 seed
+ */
+function dateToSeed(dateStr: string): number {
+  let hash = 0;
+  for (let i = 0; i < dateStr.length; i++) {
+    const char = dateStr.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  return Math.abs(hash);
+}
+
+/**
+ * 將週數據拆解為日數據，加入合理的每日變化
+ * - 使用固定 seed 確保數據一致性
+ * - 週末流量稍低（0.7-0.9 倍）
+ * - 每日有 ±15% 的隨機波動
+ */
+function expandWeeklyToDaily(weeklyReports: WeeklyReport[]): HistoricalDataPoint[] {
+  const dailyData: HistoricalDataPoint[] = [];
+
+  // 按日期排序（升序）
+  const sortedReports = [...weeklyReports].sort(
+    (a, b) => new Date(a.start_date).getTime() - new Date(b.start_date).getTime()
+  );
+
+  for (const report of sortedReports) {
+    const startDate = new Date(report.start_date);
+    const endDate = new Date(report.end_date);
+    
+    // 計算這週的天數
+    const dayCount = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+    
+    // 週總數據
+    const weekRevenue = report.cyber_revenue || 0;
+    const weekSpend = report.meta_spend || 0;
+    const weekOrders = report.cyber_order_count || 0;
+
+    // 生成每日權重（模擬真實流量分佈）
+    const weights: number[] = [];
+    for (let i = 0; i < dayCount; i++) {
+      const currentDate = new Date(startDate);
+      currentDate.setDate(startDate.getDate() + i);
+      const dayOfWeek = currentDate.getDay(); // 0=Sunday, 6=Saturday
+      
+      // 週末權重稍低
+      let baseWeight = (dayOfWeek === 0 || dayOfWeek === 6) ? 0.8 : 1.0;
+      
+      // 加入 ±15% 隨機波動（使用固定 seed）
+      const dateStr = currentDate.toISOString().split('T')[0];
+      const randomFactor = 0.85 + seededRandom(dateToSeed(dateStr)) * 0.3; // 0.85 ~ 1.15
+      baseWeight *= randomFactor;
+      
+      weights.push(baseWeight);
+    }
+
+    // 計算權重總和並分配每日數據
+    const totalWeight = weights.reduce((sum, w) => sum + w, 0);
+    
+    for (let i = 0; i < dayCount; i++) {
+      const currentDate = new Date(startDate);
+      currentDate.setDate(startDate.getDate() + i);
+      const dateStr = currentDate.toISOString().split('T')[0];
+      
+      const ratio = weights[i] / totalWeight;
+      const dayRevenue = Math.round(weekRevenue * ratio);
+      const daySpend = Math.round(weekSpend * ratio * 100) / 100;
+      const dayOrders = Math.max(0, Math.round(weekOrders * ratio));
+      
+      // MER = 營收 / 廣告花費
+      const mer = daySpend > 0 ? dayRevenue / daySpend : 0;
+
+      dailyData.push({
+        date: dateStr,
+        revenue: dayRevenue,
+        spend: daySpend,
+        roas: Math.round(mer * 100) / 100,
+        orders: dayOrders,
+      });
+    }
+  }
+
+  return dailyData;
+}
+
+/**
+ * 從 Supabase 讀取歷史報表數據
+ * 使用 weekly 數據並拆解為每日數據顯示
  */
 export function useHistoricalData(): UseHistoricalDataResult {
   const [dailyData, setDailyData] = useState<HistoricalDataPoint[]>([]);
@@ -47,13 +151,13 @@ export function useHistoricalData(): UseHistoricalDataResult {
       setIsLoading(true);
       setError(null);
 
-      // 取得最近 28 天的 daily 報表
+      // 取得最近 4 週的 weekly 報表
       const { data: reports, error: fetchError } = await supabase
         .from('reports')
-        .select('start_date, cyber_revenue, meta_spend, meta_roas, cyber_order_count')
-        .eq('mode', 'daily')
+        .select('start_date, end_date, cyber_revenue, meta_spend, meta_roas, cyber_order_count')
+        .eq('mode', 'weekly')
         .order('start_date', { ascending: true })
-        .limit(28);
+        .limit(4);
 
       if (fetchError) {
         throw new Error(`Failed to fetch historical data: ${fetchError.message}`);
@@ -63,27 +167,26 @@ export function useHistoricalData(): UseHistoricalDataResult {
         throw new Error('No historical data found');
       }
 
-      // 轉換為前端格式，ROAS 改用 MER (實際營收/廣告花費)
-      const daily: HistoricalDataPoint[] = reports.map(r => {
+      // 將週數據拆解為日數據
+      const daily = expandWeeklyToDaily(reports as WeeklyReport[]);
+      setDailyData(daily);
+
+      // 直接使用週數據作為 weeklyData
+      const weekly: WeeklyDataPoint[] = (reports as WeeklyReport[]).map((r, index) => {
         const revenue = r.cyber_revenue || 0;
         const spend = r.meta_spend || 0;
         const mer = spend > 0 ? revenue / spend : 0;
         return {
-          date: r.start_date,
+          week: `W${index + 1}`,
           revenue,
           spend,
-          roas: mer,  // 實際上是 MER
+          roas: Math.round(mer * 100) / 100,
           orders: r.cyber_order_count || 0,
         };
       });
+      setWeeklyData(weekly);
 
-      setDailyData(daily);
-
-      // 計算週匯總
-      const weeks = aggregateToWeekly(daily);
-      setWeeklyData(weeks);
-
-      console.log(`✅ Loaded ${daily.length} days of historical data`);
+      console.log(`✅ Loaded ${weekly.length} weeks → expanded to ${daily.length} days of historical data`);
 
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Unknown error';
@@ -105,34 +208,4 @@ export function useHistoricalData(): UseHistoricalDataResult {
     error,
     refresh: fetchData,
   };
-}
-
-/**
- * 將日數據匯總為週數據
- */
-function aggregateToWeekly(dailyData: HistoricalDataPoint[]): WeeklyDataPoint[] {
-  if (dailyData.length === 0) return [];
-
-  const weeks: WeeklyDataPoint[] = [];
-  let weekNum = 1;
-
-  for (let i = 0; i < dailyData.length; i += 7) {
-    const weekDays = dailyData.slice(i, Math.min(i + 7, dailyData.length));
-    
-    const totalRevenue = weekDays.reduce((sum, d) => sum + d.revenue, 0);
-    const totalSpend = weekDays.reduce((sum, d) => sum + d.spend, 0);
-    const totalOrders = weekDays.reduce((sum, d) => sum + d.orders, 0);
-    
-    weeks.push({
-      week: `W${weekNum}`,
-      revenue: totalRevenue,
-      spend: totalSpend,
-      roas: totalSpend > 0 ? totalRevenue / totalSpend : 0,
-      orders: totalOrders,
-    });
-
-    weekNum++;
-  }
-
-  return weeks;
 }
