@@ -61,7 +61,7 @@ export default function Dashboard() {
   // 對應的是報表週期的結束日（Monday），而非 reports.start_date（Tuesday）
   const reportDateForAnalysis = useMemo(() => {
     if (selectedWeek) {
-      return selectedWeek.endDate;
+      return selectedWeek.startDate;
     }
     return undefined;
   }, [selectedWeek]);
@@ -362,7 +362,7 @@ export default function Dashboard() {
                 <ErrorBoundary componentName="廣告受眾設定">
                   <TargetingAnalysis 
                     isLoading={analysisLoading} 
-                    weekStart={selectedWeek?.endDate}
+                    weekStart={selectedWeek?.startDate}
                   />
                 </ErrorBoundary>
               </section>
