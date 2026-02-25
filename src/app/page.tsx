@@ -57,10 +57,11 @@ export default function Dashboard() {
   const { data, isLoading, isLive, lastUpdated, refresh } = useReportData('weekly', dateRange);
 
   // 週報分析數據（廣告素材、文案、洞察）
-  // 使用 startDate 來查詢，因為 weekly_insights 表使用 week_start 欄位
+  // 使用 endDate 來查詢，因為 ad_creatives/ad_copies 的 week_start 欄位
+  // 對應的是報表週期的結束日（Monday），而非 reports.start_date（Tuesday）
   const reportDateForAnalysis = useMemo(() => {
     if (selectedWeek) {
-      return selectedWeek.startDate;
+      return selectedWeek.endDate;
     }
     return undefined;
   }, [selectedWeek]);
@@ -361,7 +362,7 @@ export default function Dashboard() {
                 <ErrorBoundary componentName="廣告受眾設定">
                   <TargetingAnalysis 
                     isLoading={analysisLoading} 
-                    weekStart={selectedWeek?.startDate}
+                    weekStart={selectedWeek?.endDate}
                   />
                 </ErrorBoundary>
               </section>
