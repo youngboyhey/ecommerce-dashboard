@@ -161,33 +161,13 @@ export function useTargetingData(weekStart?: string): UseTargetingDataResult {
     setError(null);
 
     try {
-      // 🔧 修正：先根據 weekStart 找到對應的 report_id
-      let reportId: string | null = null;
-      
-      if (weekStart) {
-        const { data: reportData, error: reportError } = await supabase
-          .from('reports')
-          .select('id')
-          .eq('mode', 'weekly')
-          .eq('start_date', weekStart)
-          .single();
-        
-        if (reportError) {
-          console.warn('Failed to find report for week:', weekStart, reportError);
-        } else if (reportData) {
-          reportId = reportData.id;
-          console.log(`Found report_id ${reportId} for week starting ${weekStart}`);
-        }
-      }
-      
-      // Build query - 使用 report_id 過濾
+      // 🔧 修正：直接用 week_start 過濾 meta_adsets（不再透過 report_id）
       let query = supabase
         .from('meta_adsets')
         .select('*');
       
-      // 🔧 修正：如果有 report_id，加上過濾條件
-      if (reportId) {
-        query = query.eq('report_id', reportId);
+      if (weekStart) {
+        query = query.eq('week_start', weekStart);
       }
       
       const { data, error: fetchError } = await query.order('spend', { ascending: false });

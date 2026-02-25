@@ -191,16 +191,43 @@ const groupCreativesByAd = (creatives: AdCreative[]): GroupedAd[] => {
     const conversions = metrics?.conversions ?? metrics?.purchases ?? 0;
     const calculatedCvr = clicks > 0 ? (conversions / clicks) * 100 : 0;
     
-    // Build images array - always prioritize image_url (high quality Supabase) over carousel_images/thumbnail_url (64x64 FB CDN thumbnails)
+    // Build images array - combine image_url and carousel_images
     let images: GroupedAd['images'] = [];
     
-    // Use image_url from each record - this is the high quality version uploaded to Supabase
-    // carousel_images and thumbnail_url are Facebook CDN thumbnails (p64x64) and should only be fallbacks
-    images = items.map((item, idx) => ({
-      url: item.image_url || item.thumbnail_url || '',
-      index: getCarouselIndex(item.tags),
-      visionAnalysis: item.vision_analysis,
-    })).filter(img => img.url);
+    // First, add the main image_url if it exists
+    if (firstItem.image_url) {
+      images.push({
+        url: firstItem.image_url,
+        index: 0,
+        visionAnalysis: firstItem.vision_analysis,
+      });
+    }
+    
+    // Then add carousel_images (if any) - these are the additional carousel slides
+    const carouselImages = firstItem.carousel_images || [];
+    if (carouselImages.length > 0) {
+      // If we already have an image_url, start carousel from index 1; otherwise from 0
+      const startIndex = images.length > 0 ? 1 : 0;
+      carouselImages.forEach((url, idx) => {
+        // Avoid duplicating if carousel[0] is same as image_url
+        if (images.length === 0 || url !== firstItem.image_url) {
+          images.push({
+            url,
+            index: startIndex + idx,
+            visionAnalysis: null, // carousel images don't have individual analysis
+          });
+        }
+      });
+    }
+    
+    // Fallback: if still no images, try thumbnail_url
+    if (images.length === 0 && firstItem.thumbnail_url) {
+      images.push({
+        url: firstItem.thumbnail_url,
+        index: 0,
+        visionAnalysis: firstItem.vision_analysis,
+      });
+    }
     
     return {
       originalAdId,

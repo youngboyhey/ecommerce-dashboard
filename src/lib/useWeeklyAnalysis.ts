@@ -233,7 +233,7 @@ export function useWeeklyAnalysis(reportDate?: string): UseWeeklyAnalysisResult 
         const trackingRes = await supabase
           .from('insight_tracking')
           .select('*')
-          .eq('weekly_insight_id', insight.id);
+          .eq('insight_id', insight.id);
 
         if (trackingRes.error && trackingRes.error.code !== 'PGRST116') {
           console.warn('Error fetching insight_tracking:', trackingRes.error);

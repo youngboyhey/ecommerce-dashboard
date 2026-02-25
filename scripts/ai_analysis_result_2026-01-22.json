@@ -1,40 +1,64 @@
 {
-  "week_start": "2026-01-22",
-  "analysis_generated_at": "2026-02-12T23:45:00.000Z",
+  "task_type": "weekly_ai_analysis",
+  "report_date": "2026-01-28",
+  "analyzed_at": "2026-02-13T00:45:00",
   "total_ads_analyzed": 1,
-  "ads_analysis": [
+  "ads": [
     {
       "ad_id": "120238488906660142",
       "adset_id": "120238488906660142",
       "ad_name": "260119_LM香氛磚組合",
       "vision_analysis": {
-        "composition": "無法分析 - 廣告未包含可存取的圖片素材",
-        "composition_score": 0,
-        "color_scheme": [],
-        "visual_elements": [],
+        "composition": "無法分析（無圖片資料，可能為影片廣告）",
+        "composition_score": 5,
+        "color_scheme": ["未知"],
+        "visual_elements": ["未知"],
         "emotion_appeal": "無法評估",
-        "product_presentation": "無法評估",
-        "success_factors": [],
-        "failure_factors": ["缺乏視覺素材是重大問題，花費 $6,857 卻無法吸引視覺注意"],
-        "improvement_suggestions": ["必須加入高品質產品圖片", "建議使用輪播展示不同香味", "加入車內使用情境照"]
+        "product_presentation": "可能為影片展示香氛磚組合",
+        "success_factors": ["CTR 1.61% 尚可"],
+        "failure_factors": ["零購買、零 ROAS", "花費高達 $6,857 卻無轉換"],
+        "improvement_suggestions": ["檢視影片內容是否有效傳遞購買訊息", "加入明確 CTA"]
       },
       "copy_analysis": {
         "tone": "無文案",
         "emotional_triggers": [],
-        "cta_score": 0,
-        "overall_score": 0,
+        "cta_score": 2,
+        "overall_score": 2,
         "strengths": [],
-        "weaknesses": ["完全缺乏文案是致命問題", "ROAS 0.0、購買數 0 直接反映文案缺失"],
-        "suggested_improvements": ["必須加入產品描述文案", "加入痛點喚起和產品優勢", "加入明確 CTA 和購買連結"]
+        "weaknesses": ["完全沒有文案", "68,690 曝光量、0 購買", "CPM $99.83 成本偏高"],
+        "suggested_improvements": ["必須加入完整文案", "加入優惠訊息與 CTA", "考慮暫停並重新製作廣告"]
+      },
+      "targeting_analysis": {
+        "score": 5,
+        "age_assessment": "18+ 過於寬泛，浪費大量預算",
+        "interests_assessment": "14個興趣標籤與汽車相關，但無轉換表示可能不夠精準",
+        "suggestions": ["縮窄受眾年齡至 25-45", "加入購買意向 Lookalike", "排除已購買用戶"]
+      },
+      "metrics_summary": {
+        "ctr": 1.61,
+        "cvr": 0,
+        "roas": 0,
+        "spend": 6857,
+        "purchases": 0
       }
     }
   ],
   "weekly_summary": {
-    "vision_avg_score": 0,
-    "copy_avg_score": 0,
-    "common_strengths": [],
-    "common_issues": ["此週廣告嚴重缺乏素材和文案", "花費 $6,857 但 ROAS 為 0，資源浪費嚴重", "受眾設定合理但缺乏內容支撐"],
-    "top_performer": "無 - 唯一廣告表現不佳",
-    "critical_alert": "建議立即停止此廣告並補充完整素材後重新投放"
+    "total_spend": 6857,
+    "total_purchases": 0,
+    "avg_ctr": 1.61,
+    "avg_roas": 0,
+    "best_performing_ad": "無（皆未產生購買）",
+    "key_insights": [
+      "【警示】花費 $6,857 卻零購買，嚴重虧損",
+      "缺乏文案與 CTA 是轉換失敗的主因",
+      "僅有影片內容無法有效推動購買行為"
+    ],
+    "recommendations": [
+      "立即暫停此廣告",
+      "重新製作包含完整文案、價格、CTA 的廣告素材",
+      "使用已轉換用戶建立 Lookalike 受眾",
+      "設定 ROAS 下限，自動暫停低效廣告"
+    ]
   }
 }

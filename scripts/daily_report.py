@@ -68,7 +68,7 @@ def parse_insight(insight):
     }
 
 def get_meta_data(start_date, end_date):
-    acc_url = f"https://graph.facebook.com/v19.0/{META_AD_ACCOUNT_ID}/insights"
+    acc_url = f"https://graph.facebook.com/v21.0/{META_AD_ACCOUNT_ID}/insights"
     params = {
         "access_token": META_ACCESS_TOKEN,
         "time_range": json.dumps({"since": start_date, "until": end_date}),
@@ -103,7 +103,7 @@ def get_meta_audience_breakdown(start_date, end_date):
     [NEW] 取得 Meta Ads 受眾數據分布（年齡、性別、地區）
     使用 breakdown 參數分析廣告受眾
     """
-    base_url = f"https://graph.facebook.com/v19.0/{META_AD_ACCOUNT_ID}/insights"
+    base_url = f"https://graph.facebook.com/v21.0/{META_AD_ACCOUNT_ID}/insights"
     time_range = json.dumps({"since": start_date, "until": end_date})
     
     audience_data = {
@@ -232,7 +232,7 @@ def get_meta_efficiency_metrics(start_date, end_date):
     [NEW] 取得 Meta Ads 效率指標：CPM, Frequency, Reach, Impressions
     這些指標對於判斷廣告疲乏和成本控制至關重要
     """
-    base_url = f"https://graph.facebook.com/v19.0/{META_AD_ACCOUNT_ID}/insights"
+    base_url = f"https://graph.facebook.com/v21.0/{META_AD_ACCOUNT_ID}/insights"
     params = {
         "access_token": META_ACCESS_TOKEN,
         "time_range": json.dumps({"since": start_date, "until": end_date}),
@@ -361,7 +361,7 @@ def get_meta_adset_data(start_date, end_date):
     用於分析哪個受眾定向最有效
     包含 targeting（受眾設定）資料和受眾分布數據
     """
-    base_url = f"https://graph.facebook.com/v19.0/{META_AD_ACCOUNT_ID}/insights"
+    base_url = f"https://graph.facebook.com/v21.0/{META_AD_ACCOUNT_ID}/insights"
     params = {
         "access_token": META_ACCESS_TOKEN,
         "time_range": json.dumps({"since": start_date, "until": end_date}),
@@ -424,7 +424,7 @@ def get_meta_adset_data(start_date, end_date):
         try:
             targeting_map = {}
             # 呼叫 adsets API 取得 targeting 欄位
-            adsets_url = f"https://graph.facebook.com/v19.0/{META_AD_ACCOUNT_ID}/adsets"
+            adsets_url = f"https://graph.facebook.com/v21.0/{META_AD_ACCOUNT_ID}/adsets"
             targeting_params = {
                 "access_token": META_ACCESS_TOKEN,
                 "fields": "id,name,targeting",
@@ -473,7 +473,7 @@ def get_adset_age_gender_breakdown(adset_id, start_date, end_date):
     """
     [NEW] 取得單一廣告組的年齡和性別花費分布
     """
-    base_url = f"https://graph.facebook.com/v19.0/{adset_id}/insights"
+    base_url = f"https://graph.facebook.com/v21.0/{adset_id}/insights"
     time_range = json.dumps({"since": start_date, "until": end_date})
     
     result = {
@@ -535,7 +535,7 @@ def get_meta_ad_creatives(start_date, end_date, backup_images=True):
     再抓取對應的 creative，確保只包含報告期間實際運行的廣告。
     """
     # Step 0: 先用 insights API 取得在日期範圍內有花費的廣告 ID 和完整成效數據
-    insights_url = f"https://graph.facebook.com/v19.0/{META_AD_ACCOUNT_ID}/insights"
+    insights_url = f"https://graph.facebook.com/v21.0/{META_AD_ACCOUNT_ID}/insights"
     insights_params = {
         "access_token": META_ACCESS_TOKEN,
         "time_range": json.dumps({"since": start_date, "until": end_date}),
@@ -601,10 +601,11 @@ def get_meta_ad_creatives(start_date, end_date, backup_images=True):
         return []
     
     # Step 1: 只抓取有花費的廣告的 creative - 使用 filtering by ad_id
-    ads_url = f"https://graph.facebook.com/v19.0/{META_AD_ACCOUNT_ID}/ads"
+    # [2026-02-13] 加入影片欄位：video_id 用於影片素材
+    ads_url = f"https://graph.facebook.com/v21.0/{META_AD_ACCOUNT_ID}/ads"
     ads_params = {
         "access_token": META_ACCESS_TOKEN,
-        "fields": "id,name,creative{id,title,body,object_story_spec,effective_object_story_id,image_url,thumbnail_url,asset_feed_spec}",
+        "fields": "id,name,creative{id,title,body,object_story_spec,effective_object_story_id,image_url,thumbnail_url,asset_feed_spec,video_id}",
         "filtering": json.dumps([{"field": "id", "operator": "IN", "value": ad_ids_with_spend[:50]}]),
         "limit": 50
     }
@@ -655,6 +656,24 @@ def get_meta_ad_creatives(start_date, end_date, backup_images=True):
                 if not carousel_images and main_image_url:
                     carousel_images = [{"index": 0, "image_hash": None, "image_url": main_image_url, "name": "", "description": "", "link": ""}]
                 
+                # [2026-02-13 NEW] 偵測影片素材
+                video_id = creative_data.get("video_id")
+                video_url = None
+                is_video = False
+                
+                # 檢查 object_story_spec 中的 video_data
+                if object_story:
+                    video_data = object_story.get("video_data", {})
+                    if video_data:
+                        if not video_id:
+                            video_id = video_data.get("video_id")
+                        is_video = True
+                
+                # 如果有 video_id，標記為影片素材
+                if video_id:
+                    is_video = True
+                    print(f"  📹 Found video creative: {ad.get('name', 'Unknown')[:40]}... (video_id: {video_id})")
+                
                 # [NEW] 取得該廣告的成效數據
                 ad_id = ad.get("id")
                 metrics = ad_id_to_metrics.get(ad_id, {})
@@ -668,6 +687,12 @@ def get_meta_ad_creatives(start_date, end_date, backup_images=True):
                     "image_url": main_image_url,  # 保持主圖片欄位相容性
                     "carousel_images": carousel_images,  # 新增：所有輪播圖片
                     "is_carousel": len(carousel_images) > 1,  # 是否為輪播廣告
+                    # [2026-02-13 NEW] 影片相關欄位
+                    "is_video": is_video,
+                    "video_id": video_id,
+                    "video_url": video_url,
+                    "video_thumbnail_url": None,  # 影片封面（分析後填入）
+                    "video_analysis": None,  # Gemini 分析結果（分析後填入）
                     # 初始化備份狀態欄位
                     "image_backup_status": "pending",
                     "supabase_image_url": None,
@@ -703,7 +728,7 @@ def get_meta_ad_creatives(start_date, end_date, backup_images=True):
             # 每次最多查詢 50 個 hash
             for i in range(0, len(hash_list), 50):
                 batch = hash_list[i:i+50]
-                images_url = f"https://graph.facebook.com/v19.0/{META_AD_ACCOUNT_ID}/adimages"
+                images_url = f"https://graph.facebook.com/v21.0/{META_AD_ACCOUNT_ID}/adimages"
                 images_params = {
                     "access_token": META_ACCESS_TOKEN,
                     "hashes": json.dumps(batch),
@@ -1470,6 +1495,33 @@ def main():
     print("Fetching Meta ad creatives...")
     ad_creatives = get_meta_ad_creatives(start_date, end_date)
     
+    # [2026-02-13 NEW] 影片素材分析
+    video_creatives = [c for c in ad_creatives if c.get("is_video") and c.get("video_id")]
+    if video_creatives:
+        print(f"\n📹 Found {len(video_creatives)} video creatives, analyzing...")
+        try:
+            from scripts.video_analyzer import analyze_video_creative
+            for i, creative in enumerate(video_creatives):
+                print(f"\n[{i+1}/{len(video_creatives)}] Processing video: {creative.get('ad_name', 'Unknown')[:40]}...")
+                video_result = analyze_video_creative(creative, week_start=start_date)
+                
+                # 更新 creative 資料
+                creative["video_thumbnail_url"] = video_result.get("video_thumbnail_url")
+                creative["video_analysis"] = video_result.get("video_analysis")
+                creative["video_url"] = video_result.get("video_url")
+                
+                # 如果成功取得封面圖，也設為主圖
+                if video_result.get("video_thumbnail_url") and not creative.get("supabase_image_url"):
+                    creative["supabase_image_url"] = video_result.get("video_thumbnail_url")
+                
+                print(f"  ✓ Video analysis status: {video_result.get('analysis_status', 'unknown')}")
+        except ImportError as e:
+            print(f"⚠️  Video analyzer module not available: {e}")
+        except Exception as e:
+            print(f"⚠️  Error during video analysis: {e}")
+    else:
+        print("📷 No video creatives found (all image-based)")
+    
     # [NEW] 提取文案數據供 Supabase ad_copies 表使用
     print("Extracting ad copies...")
     ad_copies = extract_ad_copies(ad_creatives)
@@ -1779,7 +1831,7 @@ def generate_alerts(meta, meta_efficiency, ga4, cyber):
         alerts.append({
             "type": "critical",
             "category": "Cyberbiz",
-            "message": "🚨 今日零訂單！請立即檢查網站和廣告狀態",
+            "message": "🚨 昨日零訂單！請立即檢查網站和廣告狀態",
             "metric": "order_count",
             "value": 0,
             "threshold": 1

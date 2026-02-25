@@ -1,0 +1,1258 @@
+{
+  "mode": "daily",
+  "start_date": "2026-02-12",
+  "end_date": "2026-02-12",
+  "generated_at": "2026-02-13T09:18:29.617146",
+  "meta": {
+    "total": {
+      "name": "Account Total",
+      "spend": 912.0,
+      "ctr": 1.690068,
+      "clicks": 95,
+      "roas": 0.0,
+      "purchases": 0,
+      "atc": 0,
+      "ic": 0,
+      "vc": 344,
+      "conv_value": 0.0,
+      "cpa": 0,
+      "cp_atc": 0
+    },
+    "campaigns": [
+      {
+        "name": "260129_LM香氛磚組合(涵)",
+        "spend": 559.0,
+        "ctr": 1.243712,
+        "clicks": 43,
+        "roas": 0.0,
+        "purchases": 0,
+        "atc": 0,
+        "ic": 0,
+        "vc": 206,
+        "conv_value": 0.0,
+        "cpa": 0,
+        "cp_atc": 0,
+        "campaign_id": "120238815887440142"
+      },
+      {
+        "name": "260130_LM芳香磚廣告(J)",
+        "spend": 202.0,
+        "ctr": 1.04115,
+        "clicks": 8,
+        "roas": 0.0,
+        "purchases": 0,
+        "atc": 0,
+        "ic": 0,
+        "vc": 23,
+        "conv_value": 0.0,
+        "cpa": 0,
+        "cp_atc": 0,
+        "campaign_id": "120238855887140142"
+      },
+      {
+        "name": "260212_鏈條保養PRO組",
+        "spend": 151.0,
+        "ctr": 3.59408,
+        "clicks": 44,
+        "roas": 0.0,
+        "purchases": 0,
+        "atc": 0,
+        "ic": 0,
+        "vc": 115,
+        "conv_value": 0.0,
+        "cpa": 0,
+        "cp_atc": 0,
+        "campaign_id": "120239328341240142"
+      }
+    ]
+  },
+  "meta_audience": {
+    "age": [
+      {
+        "age_range": "18-24",
+        "spend": 35.0,
+        "impressions": 468,
+        "clicks": 17,
+        "purchases": 0
+      },
+      {
+        "age_range": "25-34",
+        "spend": 178.0,
+        "impressions": 3218,
+        "clicks": 36,
+        "purchases": 0
+      },
+      {
+        "age_range": "35-44",
+        "spend": 349.0,
+        "impressions": 4475,
+        "clicks": 79,
+        "purchases": 0
+      },
+      {
+        "age_range": "45-54",
+        "spend": 267.0,
+        "impressions": 2849,
+        "clicks": 51,
+        "purchases": 0
+      },
+      {
+        "age_range": "55-64",
+        "spend": 72.0,
+        "impressions": 471,
+        "clicks": 11,
+        "purchases": 0
+      },
+      {
+        "age_range": "65+",
+        "spend": 11.0,
+        "impressions": 57,
+        "clicks": 1,
+        "purchases": 0
+      }
+    ],
+    "gender": [
+      {
+        "gender": "female",
+        "spend": 16.0,
+        "impressions": 150,
+        "clicks": 7,
+        "purchases": 0
+      },
+      {
+        "gender": "male",
+        "spend": 893.0,
+        "impressions": 11347,
+        "clicks": 188,
+        "purchases": 0
+      },
+      {
+        "gender": "unknown",
+        "spend": 3.0,
+        "impressions": 41,
+        "clicks": 0,
+        "purchases": 0
+      }
+    ],
+    "region": [
+      {
+        "region": "New Taipei City",
+        "spend": 224.0,
+        "impressions": 2281,
+        "clicks": 40,
+        "purchases": 0
+      },
+      {
+        "region": "Kaohsiung",
+        "spend": 128.0,
+        "impressions": 1589,
+        "clicks": 12,
+        "purchases": 0
+      },
+      {
+        "region": "Taichung",
+        "spend": 113.0,
+        "impressions": 1507,
+        "clicks": 27,
+        "purchases": 0
+      },
+      {
+        "region": "Taoyuan City",
+        "spend": 113.0,
+        "impressions": 1366,
+        "clicks": 26,
+        "purchases": 0
+      },
+      {
+        "region": "Taipei",
+        "spend": 78.0,
+        "impressions": 1125,
+        "clicks": 15,
+        "purchases": 0
+      },
+      {
+        "region": "Tainan",
+        "spend": 72.0,
+        "impressions": 1136,
+        "clicks": 27,
+        "purchases": 0
+      },
+      {
+        "region": "Pingtung",
+        "spend": 35.0,
+        "impressions": 308,
+        "clicks": 4,
+        "purchases": 0
+      },
+      {
+        "region": "Changhua",
+        "spend": 33.0,
+        "impressions": 409,
+        "clicks": 16,
+        "purchases": 0
+      },
+      {
+        "region": "Hsinchu",
+        "spend": 17.0,
+        "impressions": 269,
+        "clicks": 5,
+        "purchases": 0
+      },
+      {
+        "region": "Keelung City",
+        "spend": 17.0,
+        "impressions": 178,
+        "clicks": 2,
+        "purchases": 0
+      }
+    ],
+    "age_gender": [
+      {
+        "age_range": "18-24",
+        "gender": "female",
+        "spend": 0.0,
+        "impressions": 7,
+        "clicks": 2,
+        "purchases": 0
+      },
+      {
+        "age_range": "18-24",
+        "gender": "male",
+        "spend": 35.0,
+        "impressions": 459,
+        "clicks": 15,
+        "purchases": 0
+      },
+      {
+        "age_range": "18-24",
+        "gender": "unknown",
+        "spend": 0.0,
+        "impressions": 2,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "25-34",
+        "gender": "female",
+        "spend": 5.0,
+        "impressions": 46,
+        "clicks": 4,
+        "purchases": 0
+      },
+      {
+        "age_range": "25-34",
+        "gender": "male",
+        "spend": 172.0,
+        "impressions": 3162,
+        "clicks": 32,
+        "purchases": 0
+      },
+      {
+        "age_range": "25-34",
+        "gender": "unknown",
+        "spend": 1.0,
+        "impressions": 10,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "35-44",
+        "gender": "female",
+        "spend": 5.0,
+        "impressions": 73,
+        "clicks": 1,
+        "purchases": 0
+      },
+      {
+        "age_range": "35-44",
+        "gender": "male",
+        "spend": 343.0,
+        "impressions": 4394,
+        "clicks": 78,
+        "purchases": 0
+      },
+      {
+        "age_range": "35-44",
+        "gender": "unknown",
+        "spend": 1.0,
+        "impressions": 8,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "45-54",
+        "gender": "female",
+        "spend": 2.0,
+        "impressions": 21,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "45-54",
+        "gender": "male",
+        "spend": 264.0,
+        "impressions": 2810,
+        "clicks": 51,
+        "purchases": 0
+      },
+      {
+        "age_range": "45-54",
+        "gender": "unknown",
+        "spend": 1.0,
+        "impressions": 18,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "55-64",
+        "gender": "female",
+        "spend": 4.0,
+        "impressions": 3,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "55-64",
+        "gender": "male",
+        "spend": 68.0,
+        "impressions": 466,
+        "clicks": 11,
+        "purchases": 0
+      },
+      {
+        "age_range": "55-64",
+        "gender": "unknown",
+        "spend": 0.0,
+        "impressions": 2,
+        "clicks": 0,
+        "purchases": 0
+      },
+      {
+        "age_range": "65+",
+        "gender": "male",
+        "spend": 11.0,
+        "impressions": 56,
+        "clicks": 1,
+        "purchases": 0
+      },
+      {
+        "age_range": "65+",
+        "gender": "unknown",
+        "spend": 0.0,
+        "impressions": 1,
+        "clicks": 0,
+        "purchases": 0
+      }
+    ]
+  },
+  "meta_efficiency": {
+    "impressions": 11538,
+    "reach": 8899,
+    "frequency": 1.29655,
+    "cpm": 79.043162,
+    "frequency_warning": false,
+    "cpm_warning": false
+  },
+  "meta_adsets": [
+    {
+      "adset_id": "120238815887410142",
+      "adset_name": "260129_LM香氛磚組合(涵)",
+      "spend": 559.0,
+      "impressions": 7156,
+      "reach": 6069,
+      "clicks": 89,
+      "ctr": 1.243712,
+      "cpm": 78.116266,
+      "roas": 0.0,
+      "purchases": 0,
+      "cpa": 0,
+      "targeting": {
+        "age_range": "18+",
+        "genders": [
+          "不限"
+        ],
+        "locations": [
+          "台灣"
+        ],
+        "interests": [
+          "汽車維修廠（交通工具）",
+          "汽車美容（交通工具）",
+          "車輛（交通運輸）",
+          "汽車（交通工具）",
+          "汽車經銷（零售業者）",
+          "家用車 (汽車)",
+          "休旅車（交通工具）",
+          "汽車業（產業）",
+          "網路購物（零售）",
+          "洗車 (汽車零件和服務)",
+          "汽車保養（交通工具）",
+          "轎車（汽車）",
+          "都會車 (汽車)",
+          "促銷（行銷）",
+          "駕駛（交通工具）",
+          "汽車（交通工具）",
+          "高爾夫球（體育運動）",
+          "豪華轎車（交通工具）",
+          "Engaged Shoppers",
+          "Interested in Upcoming Events",
+          "露營（戶外活動）"
+        ],
+        "custom_audiences": [
+          "60天內/看過內容",
+          "類似廣告受眾 (TW, 3%) - CYBERBIZ-FBEMeta 像素 - Website using AddToCart"
+        ]
+      },
+      "age_distribution": [
+        {
+          "age_range": "18-24",
+          "spend": 10.0
+        },
+        {
+          "age_range": "25-34",
+          "spend": 85.0
+        },
+        {
+          "age_range": "35-44",
+          "spend": 221.0
+        },
+        {
+          "age_range": "45-54",
+          "spend": 173.0
+        },
+        {
+          "age_range": "55-64",
+          "spend": 60.0
+        },
+        {
+          "age_range": "65+",
+          "spend": 10.0
+        }
+      ],
+      "gender_distribution": [
+        {
+          "gender": "female",
+          "spend": 11.0
+        },
+        {
+          "gender": "male",
+          "spend": 547.0
+        },
+        {
+          "gender": "unknown",
+          "spend": 1.0
+        }
+      ],
+      "interests": [
+        "汽車維修廠（交通工具）",
+        "汽車美容（交通工具）",
+        "車輛（交通運輸）",
+        "汽車（交通工具）",
+        "汽車經銷（零售業者）",
+        "家用車 (汽車)",
+        "休旅車（交通工具）",
+        "汽車業（產業）",
+        "網路購物（零售）",
+        "洗車 (汽車零件和服務)",
+        "汽車保養（交通工具）",
+        "轎車（汽車）",
+        "都會車 (汽車)",
+        "促銷（行銷）",
+        "駕駛（交通工具）",
+        "汽車（交通工具）",
+        "高爾夫球（體育運動）",
+        "豪華轎車（交通工具）",
+        "Engaged Shoppers",
+        "Interested in Upcoming Events",
+        "露營（戶外活動）"
+      ]
+    },
+    {
+      "adset_id": "120238855887150142",
+      "adset_name": "260130_LM芳香磚廣告(J)_龍蝦管理中",
+      "spend": 202.0,
+      "impressions": 2017,
+      "reach": 1746,
+      "clicks": 21,
+      "ctr": 1.04115,
+      "cpm": 100.148736,
+      "roas": 0.0,
+      "purchases": 0,
+      "cpa": 0,
+      "targeting": {
+        "age_range": "18+",
+        "genders": [
+          "不限"
+        ],
+        "locations": [
+          "台灣"
+        ],
+        "interests": [
+          "汽車維修廠（交通工具）",
+          "汽車美容（交通工具）",
+          "車輛（交通運輸）",
+          "汽車（交通工具）",
+          "購物（零售）",
+          "休旅車（交通工具）",
+          "網路購物（零售）",
+          "洗車 (汽車零件和服務)",
+          "汽車保養（交通工具）",
+          "轎車（汽車）",
+          "駕駛（交通工具）",
+          "汽車（交通工具）",
+          "豪華轎車（交通工具）",
+          "Engaged Shoppers"
+        ],
+        "custom_audiences": [
+          "類似廣告受眾 (TW, 1%) - CYBERBIZ-FBEMeta 像素 - Website using AddToCart"
+        ],
+        "excluded_audiences": [
+          "60天購買過"
+        ]
+      },
+      "age_distribution": [
+        {
+          "age_range": "18-24",
+          "spend": 20.0
+        },
+        {
+          "age_range": "25-34",
+          "spend": 61.0
+        },
+        {
+          "age_range": "35-44",
+          "spend": 71.0
+        },
+        {
+          "age_range": "45-54",
+          "spend": 42.0
+        },
+        {
+          "age_range": "55-64",
+          "spend": 8.0
+        },
+        {
+          "age_range": "65+",
+          "spend": 0.0
+        }
+      ],
+      "gender_distribution": [
+        {
+          "gender": "female",
+          "spend": 5.0
+        },
+        {
+          "gender": "male",
+          "spend": 195.0
+        },
+        {
+          "gender": "unknown",
+          "spend": 2.0
+        }
+      ],
+      "interests": [
+        "汽車維修廠（交通工具）",
+        "汽車美容（交通工具）",
+        "車輛（交通運輸）",
+        "汽車（交通工具）",
+        "購物（零售）",
+        "休旅車（交通工具）",
+        "網路購物（零售）",
+        "洗車 (汽車零件和服務)",
+        "汽車保養（交通工具）",
+        "轎車（汽車）",
+        "駕駛（交通工具）",
+        "汽車（交通工具）",
+        "豪華轎車（交通工具）",
+        "Engaged Shoppers"
+      ]
+    },
+    {
+      "adset_id": "120239328341250142",
+      "adset_name": "260212_鏈條保養PRO組",
+      "spend": 66.0,
+      "impressions": 1293,
+      "reach": 1107,
+      "clicks": 56,
+      "ctr": 4.331013,
+      "cpm": 51.044084,
+      "roas": 0.0,
+      "purchases": 0,
+      "cpa": 0,
+      "targeting": {
+        "age_range": "24+",
+        "genders": [
+          "男"
+        ],
+        "locations": [
+          "台灣"
+        ],
+        "interests": [],
+        "custom_audiences": []
+      },
+      "age_distribution": [
+        {
+          "age_range": "18-24",
+          "spend": 2.0
+        },
+        {
+          "age_range": "25-34",
+          "spend": 9.0
+        },
+        {
+          "age_range": "35-44",
+          "spend": 30.0
+        },
+        {
+          "age_range": "45-54",
+          "spend": 23.0
+        },
+        {
+          "age_range": "55-64",
+          "spend": 2.0
+        },
+        {
+          "age_range": "65+",
+          "spend": 0.0
+        }
+      ],
+      "gender_distribution": [
+        {
+          "gender": "male",
+          "spend": 66.0
+        }
+      ],
+      "interests": []
+    },
+    {
+      "adset_id": "120239328917010142",
+      "adset_name": "測試 - 260212_鏈條保養PRO組",
+      "spend": 85.0,
+      "impressions": 1072,
+      "reach": 834,
+      "clicks": 29,
+      "ctr": 2.705224,
+      "cpm": 79.291045,
+      "roas": 0.0,
+      "purchases": 0,
+      "cpa": 0,
+      "targeting": {
+        "age_range": "24+",
+        "genders": [
+          "男"
+        ],
+        "locations": [
+          "台灣"
+        ],
+        "interests": [],
+        "custom_audiences": []
+      },
+      "age_distribution": [
+        {
+          "age_range": "18-24",
+          "spend": 3.0
+        },
+        {
+          "age_range": "25-34",
+          "spend": 23.0
+        },
+        {
+          "age_range": "35-44",
+          "spend": 27.0
+        },
+        {
+          "age_range": "45-54",
+          "spend": 29.0
+        },
+        {
+          "age_range": "55-64",
+          "spend": 2.0
+        },
+        {
+          "age_range": "65+",
+          "spend": 1.0
+        }
+      ],
+      "gender_distribution": [
+        {
+          "gender": "male",
+          "spend": 85.0
+        }
+      ],
+      "interests": []
+    }
+  ],
+  "ad_creatives": [
+    {
+      "ad_id": "120239328917020142",
+      "ad_name": "260212_鏈條保養PRO組",
+      "creative_id": "2918931114978794",
+      "title": "CarMall 車魔商城",
+      "body": "誰說保養鏈條就要搞得到處油通通?\n🇩🇪 LIQUI MOLY x 🇺🇸 Oinker 鏈條保養PRO組\n一套能省$350 > https://reurl.cc/Yk2x0n\n\n🔥 競技型👉搭配摩托車競技型陶瓷鏈條油\n💵 經濟型👉搭配摩托車全合成鏈條潤滑噴劑\n\n✅ 摩托車鏈條清潔劑+鏈條刷清潔\n✅ 專利鏈條油工具+力魔全合成鏈條油\n✅ 靜置欣賞一下清潔保養後的愛車\n整套施作下來又快速又乾淨！✨\n\n幫愛車挑一組> https://reurl.cc/Yk2x0n",
+      "image_url": "https://external.ftpe7-3.fna.fbcdn.net/emg1/v/t13/8362264425789593464?url=https%3A%2F%2Fwww.facebook.com%2Fads%2Fimage%2F%3Fd%3DAQJpMkvgnWLrBJFjj5sR8P3bIKzkFHwsXMtvVTHICSwynui8ByrsueIFuECDY5r7IqOGom6akVxvAhqpwEFENLOOEsUWse8njY26k-DJTCt_jRAguRijLWaAdY8-3mRZSJPMsZQ63QLi1c2x0dQPJlWq&fb_obo=1&utld=facebook.com&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&edm=AOgd6ZUEAAAA&_nc_gid=wC61610evXm72AnfxFGw2Q&_nc_oc=AdnSG_eEjZvnZ5g6wL9yfJuK2-dALA0xxoKZBNjT2CgxrnVkawnenEztR6GbB8U2jMQ&ccb=13-1&oh=06_Q3-8AfNyW_TbqAY9YjnoPCUQxizDM06YZU4FNzm8e5c0_aKg&oe=69906924&_nc_sid=58080a",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://external.ftpe7-3.fna.fbcdn.net/emg1/v/t13/8362264425789593464?url=https%3A%2F%2Fwww.facebook.com%2Fads%2Fimage%2F%3Fd%3DAQJpMkvgnWLrBJFjj5sR8P3bIKzkFHwsXMtvVTHICSwynui8ByrsueIFuECDY5r7IqOGom6akVxvAhqpwEFENLOOEsUWse8njY26k-DJTCt_jRAguRijLWaAdY8-3mRZSJPMsZQ63QLi1c2x0dQPJlWq&fb_obo=1&utld=facebook.com&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&edm=AOgd6ZUEAAAA&_nc_gid=wC61610evXm72AnfxFGw2Q&_nc_oc=AdnSG_eEjZvnZ5g6wL9yfJuK2-dALA0xxoKZBNjT2CgxrnVkawnenEztR6GbB8U2jMQ&ccb=13-1&oh=06_Q3-8AfNyW_TbqAY9YjnoPCUQxizDM06YZU4FNzm8e5c0_aKg&oe=69906924&_nc_sid=58080a",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": [],
+      "spend": 85.0,
+      "impressions": 1072,
+      "clicks": 29,
+      "ctr": 2.705224,
+      "cpm": 79.291045,
+      "roas": 0.0,
+      "purchases": 0,
+      "atc": 0,
+      "conv_value": 0.0,
+      "cpa": 0
+    },
+    {
+      "ad_id": "120239328341260142",
+      "ad_name": "260212_鏈條保養PRO組",
+      "creative_id": "930664806581456",
+      "title": "",
+      "body": "誰說保養鏈條就要搞得到處油通通?\n🇩🇪 LIQUI MOLY x 🇺🇸 Oinker 鏈條保養PRO組\n一套能省$350 > https://reurl.cc/Yk2x0n\n\n🔥 競技型👉搭配摩托車競技型陶瓷鏈條油\n💵 經濟型👉搭配摩托車全合成鏈條潤滑噴劑\n\n✅ 摩托車鏈條清潔劑+鏈條刷清潔\n✅ 專利鏈條油工具+力魔全合成鏈條油\n✅ 靜置欣賞一下清潔保養後的愛車\n整套施作下來又快速又乾淨！✨\n\n幫愛車挑一組> https://reurl.cc/Yk2x0n",
+      "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t39.30808-6/633854267_122152424474976711_8271374213880996827_n.jpg?_nc_cat=105&ccb=1-7&_nc_ohc=406JQbceUlwQ7kNvwF8NGmD&_nc_oc=Adl7GR5vlNS5BF9IYfxMVcgGcr9UpItAxnD9LXTGG--h4ajq9tX5KnNtUZrUxUHGK_k&_nc_zt=23&_nc_ht=scontent.ftpe7-4.fna&edm=AOgd6ZUEAAAA&_nc_gid=wC61610evXm72AnfxFGw2Q&_nc_tpa=Q5bMBQF7XbuYl_sa_b0NrA0Z6SfNGwewKm0CvTQ4FK2xwrCH7Uy3navDuB2t-ytBVVduRzrBPcqSj_L8&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=8c4ec0&_nc_sid=58080a&oh=00_AfvhE_Q4kHcEK-lAPRuIM7aWmYbdCLqpNfJWBXju35zsAg&oe=699459FF",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": null,
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t39.30808-6/633854267_122152424474976711_8271374213880996827_n.jpg?_nc_cat=105&ccb=1-7&_nc_ohc=406JQbceUlwQ7kNvwF8NGmD&_nc_oc=Adl7GR5vlNS5BF9IYfxMVcgGcr9UpItAxnD9LXTGG--h4ajq9tX5KnNtUZrUxUHGK_k&_nc_zt=23&_nc_ht=scontent.ftpe7-4.fna&edm=AOgd6ZUEAAAA&_nc_gid=wC61610evXm72AnfxFGw2Q&_nc_tpa=Q5bMBQF7XbuYl_sa_b0NrA0Z6SfNGwewKm0CvTQ4FK2xwrCH7Uy3navDuB2t-ytBVVduRzrBPcqSj_L8&stp=c0.5000x0.5000f_dst-emg0_p64x64_q75_tt6&ur=8c4ec0&_nc_sid=58080a&oh=00_AfvhE_Q4kHcEK-lAPRuIM7aWmYbdCLqpNfJWBXju35zsAg&oe=699459FF",
+          "name": "",
+          "description": "",
+          "link": ""
+        }
+      ],
+      "is_carousel": false,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": [],
+      "spend": 66.0,
+      "impressions": 1293,
+      "clicks": 56,
+      "ctr": 4.331013,
+      "cpm": 51.044084,
+      "roas": 0.0,
+      "purchases": 0,
+      "atc": 0,
+      "conv_value": 0.0,
+      "cpa": 0
+    },
+    {
+      "ad_id": "120238815887480142",
+      "ad_name": "任選3入",
+      "creative_id": "1415891430193983",
+      "title": "CarMall 車魔商城",
+      "body": "車內異味讓你好困擾😥\n快來試試  \nLIQUI MOLY 車用香氛磚\n立即擁有🔗https://reurl.cc/Eb3A0m\n\n細膩不刺鼻，輕香不打擾\n讓每一次呼吸都很舒服🌿\n\n✅30天持久留香\n✅轉彎，依然從容\n✅德國原廠固體香氛磚\n\n六種調香： 🔹 海洋 Ocean｜🔹 櫻桃 Cherry \n🔹 香草 Vanilla｜🔹 新車 New Car\n🔹泡泡糖 Berry bubblegum\n🔹熱帶浴 Tropical shower\n\n高品質香氛\n讓您放鬆啟程☀️\n🛒嘗鮮優惠3入組：https://www.carmall.com.tw/products/air-freshener-3pack",
+      "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/617234530_10225764434936412_1240292357482854728_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=ZQME5g6cCYEQ7kNvwGqVqej&_nc_oc=Adk9tAG5BvJ4JlFpm4e8lzIhloetl-bwB9QTVJf-U5-Cfhmi3eODFwrrjSH4YgBYSLc&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQF0u-LIHGpP9onj03OPejsjb9RhgaTiZaCTZqrPF_VQtPH_7CdQwurItO7SOjPVOHik_0589BvT&oh=00_AfvBZJOeDKmGgnwNaPZdPLmhkM5aL4nSRETvhMTJxX7qVw&oe=699457D3",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": "2706d3a5b9768df11fa1a114b6adfa2b",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/617234530_10225764434936412_1240292357482854728_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=ZQME5g6cCYEQ7kNvwGqVqej&_nc_oc=Adk9tAG5BvJ4JlFpm4e8lzIhloetl-bwB9QTVJf-U5-Cfhmi3eODFwrrjSH4YgBYSLc&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQF0u-LIHGpP9onj03OPejsjb9RhgaTiZaCTZqrPF_VQtPH_7CdQwurItO7SOjPVOHik_0589BvT&oh=00_AfvBZJOeDKmGgnwNaPZdPLmhkM5aL4nSRETvhMTJxX7qVw&oe=699457D3",
+          "name": "【📢組合優惠中】3入、6入自由配",
+          "description": "",
+          "link": "https://www.carmall.com.tw/products/air-freshener-3pack"
+        },
+        {
+          "index": 1,
+          "image_hash": "ee105b6c22e8e87250ab13f91c93714b",
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/623798232_3313263742180427_4924796404111572597_n.png?stp=dst-jpg_tt6&_nc_cat=108&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=U_Fg74DenrUQ7kNvwGdrtas&_nc_oc=AdkhILN077AKwo_hHZRhw1YbkjAk15weAJAK5JTEgXuGqVyP5osufp9mDdF1yfUjjWs&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQFWIWm_xBTrQ0MQ9QHePWYAXZCc81cEzdveJs6hswgKvPwFMoSqxUYclZt_T4RmuMIlq5BlH6-y&oh=00_Afv1cL4Gqs-Hm76VCXjcZmyqmRvbkEZotn4DDNwim6ghgA&oe=6994485C",
+          "name": "新車清新｜🚗🚗🔥熱銷人氣味道",
+          "description": "德國LIQUI MOLY",
+          "link": "https://www.carmall.com.tw/products/air-freshener-new-car"
+        },
+        {
+          "index": 2,
+          "image_hash": "2e12215330ffb64279499f9773ef830d",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/624585715_3313259668847501_971725758878149076_n.png?stp=dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=37PZwHFcMX4Q7kNvwEDEjyl&_nc_oc=AdkQzF0zUAj_G8sKVG9Yt6twYW8cF6LXXxRRVW8X8WmasAWiOKLpj5YaAn5Ckz2UA8g&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQG316PAJrekjpjtUqP8g3Fyh7rD2BLk7snbXde1ltDaoU4c8n9VKPXM02s_kWsvdqW12DiURIfC&oh=00_AfvxN6h_0R6ATKDk6-Q50xQQhlEU91QgLUghSSv_UHxsyw&oe=6994689C",
+          "name": "海洋｜🌊🌊🌊👍回購率最高",
+          "description": "德國LIQUI MOLY",
+          "link": "https://www.carmall.com.tw/products/air-freshener-ocean"
+        },
+        {
+          "index": 3,
+          "image_hash": "5007308e3969b55269fe5260af86d9ed",
+          "image_url": "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/624464030_3313259732180828_6023952234314053527_n.png?stp=dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=qB0u5t4Hi8IQ7kNvwHbt5Kf&_nc_oc=Adm3WIn1WMKnSla9t-KA1t4UbAQ3pNETJV8k9ySgXf7jA4E9l7IRSd35arfJNfcOCDg&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQG0OcyNWYkGu2fT8s7N_gmHgIqXkzqgx2YZHd8WfZytcBrcfOI90PSKs8_R89NDapsoiOHjGymD&oh=00_AftzjhHkzMwqEwxZKfkswKX2-7RmEhaxSXCeygIrXc9Z1A&oe=6994534E",
+          "name": "香草｜🍦🍦🍦🤍淡淡奶香氣",
+          "description": "德國LIQUI MOLY",
+          "link": "https://www.carmall.com.tw/products/air-freshener-vanilla"
+        },
+        {
+          "index": 4,
+          "image_hash": "569bb2d006fd65bef947679bc4ffc49b",
+          "image_url": "https://scontent.ftpe7-3.fna.fbcdn.net/v/t45.1600-4/625080025_3313259718847496_145108713288155366_n.png?stp=dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=4_5tQ0eeL9UQ7kNvwHm75IE&_nc_oc=Adk62P3bn6UlIZ9kEdGH9Eg9-Bpkm8zZCmGW9gSF19rvE43efi9YKiN2-pygTSMUOE8&_nc_zt=1&_nc_ht=scontent.ftpe7-3.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQHmCA0cUD0hdJZylzj8kzyvfjY-SRyhBprjxAJMvb_yeoyypjj25nxp7-Bf4TSCxC6PBle1pQsM&oh=00_AfuSwWuel2kCiVSyOFBi61btwzVk4nVxHABorDjWbVD55w&oe=69945D95",
+          "name": "泡泡糖｜🍬🍬🫐香甜莓果味",
+          "description": "德國LIQUI MOLY",
+          "link": "https://www.carmall.com.tw/products/air-freshener-berry-bubblegum"
+        },
+        {
+          "index": 5,
+          "image_hash": "75dacf4189b07f6022311efe241da420",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/622719572_3313256492181152_7252750987003823260_n.png?stp=dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=H3uk8H7p8IAQ7kNvwEItKq8&_nc_oc=AdnUTBbdVQgwaC3dPqqA3NirxwNw7pZCumPX34ZVSpzBDJ7I6DJuJT91A1zi8xQycEY&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQE7yDi_h9XaJgJyv4gMnLOoWTZs6TExHnxdaDqiQ8PzimVAjMQeau5QHmNKsgK7qolSKBogKZM2&oh=00_AfuWxtp2yxetp3REF6oBMcn-zqBzwlygIVv2hk65aF8NVw&oe=69943554",
+          "name": "熱帶浴｜🌳🌳🌿清爽森林",
+          "description": "德國LIQUI MOLY",
+          "link": "https://www.carmall.com.tw/products/air-freshener-tropical-shower"
+        },
+        {
+          "index": 6,
+          "image_hash": "add7bf74ed40b8ce4e78612e6716c4f5",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/633338377_3327469234093211_4608661281965582261_n.png?stp=dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=Od_IqKeac0kQ7kNvwFVY3jd&_nc_oc=AdmwDvVLOFhhlFZT_AoX_GpA3Jbo0tRlfZ7erFzgVkiLP8jpP02yS3TgoOCOUSjXvXI&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQE6jyiblI_JEJFCac9fiosTr9yvdMCzSMFUMkxsGQXwf_ZaAoskR2N37gYHUFIhIzOe47jL7zWk&oh=00_Afv_N_wVDnj8LehhPb-48zpVQOaKh7RJ4VNiYR0pQ-A5Ig&oe=69945FFC",
+          "name": "櫻桃｜🍒🍒🍒🌬️酸甜果香",
+          "description": "德國LIQUI MOLY",
+          "link": "https://www.carmall.com.tw/products/air-freshener-cherry"
+        }
+      ],
+      "is_carousel": true,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": [],
+      "spend": 559.0,
+      "impressions": 7156,
+      "clicks": 89,
+      "ctr": 1.243712,
+      "cpm": 78.116266,
+      "roas": 0.0,
+      "purchases": 0,
+      "atc": 0,
+      "conv_value": 0.0,
+      "cpa": 0
+    },
+    {
+      "ad_id": "120238855887160142",
+      "ad_name": "260130_LM芳香磚廣告(J)_龍蝦優化標題版",
+      "creative_id": "919241764014368",
+      "title": "CarMall 車魔商城",
+      "body": "說真的，車內質感80%來自氣味🤓\n\n✅ 來自德國力魔：品質保證，拒絕劣質香精味\n✅ 固體香氛技術：不含酒精、絕不洩漏\n✅ 1 秒安裝：通用型出風口夾，隨插即用\n✅ 長效留香：氣味持久30天，展現優雅品味\n\n✨LIQUI MOLY 車用香氛磚系列：\n🆕 新車清香 New Car\n🌊 海洋 Ocean\n🍒 櫻桃 Cherry\n🍦 香草 Vanilla\n🍬 泡泡糖 Berry Bubblegum\n🚿 熱帶浴 Tropical Shower\n\n推薦大家試試「3入任選優惠」，印象直接加爆\n🛒 立即升級你的愛車： https://reurl.cc/R9bN7G\n\n#LIQUIMOLY #德國製造 #車用香氛 #香氛磚 #車魔商城 #質感生活 #總代理宜福工業 #愛車日常",
+      "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/625004734_10225869973694815_361282308505806340_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=crb9gOufgbIQ7kNvwEFeaL0&_nc_oc=AdkPu2XCx8O83P9VFrjDtaenokGZJ4AkljQbgOmhj0NF2KDha6rsMgnLwZS-Hv9NHRk&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQGXu7U3vA2Ctvy7EoEPWhuOak3xkygsmA_Uqjlhpu-dyhfozrlfuYZCyAypC0v_1mUSa2tMxlro&oh=00_Afskv6iopy5xcx5ffef8a-3J2AqUinqBSS5ntu_fveV6cQ&oe=69945EDD",
+      "carousel_images": [
+        {
+          "index": 0,
+          "image_hash": "98fb1eb553269787d2627dae1daf3a54",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/625004734_10225869973694815_361282308505806340_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=crb9gOufgbIQ7kNvwEFeaL0&_nc_oc=AdkPu2XCx8O83P9VFrjDtaenokGZJ4AkljQbgOmhj0NF2KDha6rsMgnLwZS-Hv9NHRk&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQGXu7U3vA2Ctvy7EoEPWhuOak3xkygsmA_Uqjlhpu-dyhfozrlfuYZCyAypC0v_1mUSa2tMxlro&oh=00_Afskv6iopy5xcx5ffef8a-3J2AqUinqBSS5ntu_fveV6cQ&oe=69945EDD",
+          "name": "🇩🇪 新車清香 | 長效30天",
+          "description": "台灣總代理公司貨",
+          "link": "https://www.carmall.com.tw/products/air-freshener-new-car"
+        },
+        {
+          "index": 1,
+          "image_hash": "31a50e3c7eb787373abbe05d9c4aa3d3",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/624550097_10225869997655414_4391765911216872472_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=3F6hH4t2fN4Q7kNvwEbG0_D&_nc_oc=AdkMOcg6_wAX9qU2bvy9FE5BMykjrrAmZWWFVPHPSZXFsrwA3Roal0JFSMvA1_pIOkI&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQFuWa_uAiaIAqBDyV6nb3UGNyL_xIe_7U3reEYwrpnaUb5-p77wgsuSBhM4PH36i4r0l9I-n1s-&oh=00_AfsK1HkGUwAOIzxE6Xh9toj4o8lV23z9fe5rbEtgie7WqA&oe=69943B4B",
+          "name": "🌊 海洋 | 清爽持久",
+          "description": "台灣總代理公司貨",
+          "link": "https://www.carmall.com.tw/products/air-freshener-ocean"
+        },
+        {
+          "index": 2,
+          "image_hash": "793eb0f5fb5c96ca399a42f004c41458",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/622569679_10225869998655439_6037381665563382132_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=Vk4NfNfETWAQ7kNvwGx5rKS&_nc_oc=AdldXPjIUTobZ1551k_LxL3e9ShDc5VHm4fE7uv7IryX7mcs-GVQqTLhiy8TVWR4rWc&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQFUhrQq6Ddu_9hvEd0mLwPx5bDB_Hg-FUO3R5A0DG_b1JgwpZWjyr4uMExQt1PNJPLm0Yit2Zic&oh=00_Afv3H8ymYIoE_Pn-33KVK73Az4slqThapl4VZbJNsC_NaQ&oe=6994606A",
+          "name": "🍦 香草 | 溫馨氛圍",
+          "description": "台灣總代理公司貨",
+          "link": "https://www.carmall.com.tw/products/air-freshener-vanilla"
+        },
+        {
+          "index": 3,
+          "image_hash": "96f3448c6413bb4ca33d15cee147c674",
+          "image_url": "https://scontent.ftpe7-4.fna.fbcdn.net/v/t45.1600-4/625004745_10225869999735466_5698897275973365012_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=sbjad3M2opcQ7kNvwH5xaoo&_nc_oc=AdkiUviSb2Hc3WhOYBhXy3cp38CrQ2GnN8gbz_8owSluwa_E0L2x4X-ctqgBPQD8mVM&_nc_zt=1&_nc_ht=scontent.ftpe7-4.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQF-74mEfluK4lNnmU7GwTYwmqNOJuIt3loVOBk2e2QfALjp-OCYAFT8Gvra5Lp-6gtrQzYCAMyR&oh=00_AfvblPBM3TspXDIzUzuhd_K5Z1eSHh_HXNT06T2nmy5SNw&oe=69943BC5",
+          "name": "🍒 櫻桃 | 甜美誘人",
+          "description": "台灣總代理公司貨",
+          "link": "https://www.carmall.com.tw/products/air-freshener-cherry"
+        },
+        {
+          "index": 4,
+          "image_hash": "4542a3f838e7f2d5876c246aff59269b",
+          "image_url": "https://scontent.ftpe7-2.fna.fbcdn.net/v/t45.1600-4/625363390_10225870000495485_8606450010034294557_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=T5KSsZbj0QQQ7kNvwGI9Qd_&_nc_oc=AdnEj-PHAMgTGmImKcqma3TDapNy62m7MXWtyYzoWHB_EGUrwKhJQsgT4fpsTkFs7ic&_nc_zt=1&_nc_ht=scontent.ftpe7-2.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQEpWXIAv5dEyqLQAdPRTsWoUfLrLYCcrigqq-cnSVo-jatiqZUl6F7ILjbthYIUNXmR8RGiKJ-n&oh=00_AftPGkR_hRRZlpfYXwTxIH28ybzSYled-SKus5CjMeDOQQ&oe=69943DDA",
+          "name": "🍬 泡泡糖 | 活力十足",
+          "description": "台灣總代理公司貨",
+          "link": "https://www.carmall.com.tw/products/air-freshener-berry-bubblegum"
+        },
+        {
+          "index": 5,
+          "image_hash": "8a9a94f14ce14b34334a00c47433ace8",
+          "image_url": "https://scontent.ftpe7-1.fna.fbcdn.net/v/t45.1600-4/625088748_10225870001375507_3709200890756287490_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=d5bd00&_nc_ohc=3RuzJqxdGfgQ7kNvwHVV37n&_nc_oc=Adm1a6F_QKbYrrJyHYm_oUjefbfhsjr0UWhwp9wRJdF-l294IxO9vDYDoKD88vBOJ4A&_nc_zt=1&_nc_ht=scontent.ftpe7-1.fna&edm=AJcBmwoEAAAA&_nc_gid=-ndK79Egas23BpS0ZKTTcA&_nc_tpa=Q5bMBQEUTA1vtbc-GvQtkzBD-Wo7NLBsPvaPWCIBcozKk7gKqJvejgkR8sb5cn-AaQCzEAAp_ActX_h9&oh=00_AftZw-dmElRC7vw84m8ChZwlaBJOM53jcVC_FJ1EikV4OQ&oe=699452E7",
+          "name": "🚿 熱帶浴 | 舒爽清新",
+          "description": "台灣總代理公司貨",
+          "link": "https://www.carmall.com.tw/products/air-freshener-tropical-shower"
+        }
+      ],
+      "is_carousel": true,
+      "image_backup_status": "skipped",
+      "supabase_image_url": null,
+      "supabase_carousel_urls": [],
+      "spend": 202.0,
+      "impressions": 2017,
+      "clicks": 21,
+      "ctr": 1.04115,
+      "cpm": 100.148736,
+      "roas": 0.0,
+      "purchases": 0,
+      "atc": 0,
+      "conv_value": 0.0,
+      "cpa": 0
+    }
+  ],
+  "ad_copies": [
+    {
+      "copy_id": "copy_120238815887480142",
+      "ad_id": "120238815887480142",
+      "ad_name": "任選3入",
+      "primary_text": "車內異味讓你好困擾😥\n快來試試  \nLIQUI MOLY 車用香氛磚\n立即擁有🔗https://reurl.cc/Eb3A0m\n\n細膩不刺鼻，輕香不打擾\n讓每一次呼吸都很舒服🌿\n\n✅30天持久留香\n✅轉彎，依然從容\n✅德國原廠固體香氛磚\n\n六種調香： 🔹 海洋 Ocean｜🔹 櫻桃 Cherry \n🔹 香草 Vanilla｜🔹 新車 New Car\n🔹泡泡糖 Berry bubblegum\n🔹熱帶浴 Tropical shower\n\n高品質香氛\n讓您放鬆啟程☀️\n🛒嘗鮮優惠3入組：https://www.carmall.com.tw/products/air-freshener-3pack",
+      "headline": "CarMall 車魔商城",
+      "description": "德國LIQUI MOLY",
+      "spend": 559.0,
+      "impressions": 7156,
+      "clicks": 89,
+      "purchases": 0,
+      "ctr": 1.243712,
+      "cpm": 78.116266,
+      "roas": 0.0,
+      "cpa": 0,
+      "conv_value": 0.0
+    },
+    {
+      "copy_id": "copy_120238855887160142",
+      "ad_id": "120238855887160142",
+      "ad_name": "260130_LM芳香磚廣告(J)_龍蝦優化標題版",
+      "primary_text": "說真的，車內質感80%來自氣味🤓\n\n✅ 來自德國力魔：品質保證，拒絕劣質香精味\n✅ 固體香氛技術：不含酒精、絕不洩漏\n✅ 1 秒安裝：通用型出風口夾，隨插即用\n✅ 長效留香：氣味持久30天，展現優雅品味\n\n✨LIQUI MOLY 車用香氛磚系列：\n🆕 新車清香 New Car\n🌊 海洋 Ocean\n🍒 櫻桃 Cherry\n🍦 香草 Vanilla\n🍬 泡泡糖 Berry Bubblegum\n🚿 熱帶浴 Tropical Shower\n\n推薦大家試試「3入任選優惠」，印象直接加爆\n🛒 立即升級你的愛車： https://reurl.cc/R9bN7G\n\n#LIQUIMOLY #德國製造 #車用香氛 #香氛磚 #車魔商城 #質感生活 #總代理宜福工業 #愛車日常",
+      "headline": "CarMall 車魔商城",
+      "description": "台灣總代理公司貨",
+      "spend": 202.0,
+      "impressions": 2017,
+      "clicks": 21,
+      "purchases": 0,
+      "ctr": 1.04115,
+      "cpm": 100.148736,
+      "roas": 0.0,
+      "cpa": 0,
+      "conv_value": 0.0
+    },
+    {
+      "copy_id": "copy_120239328917020142",
+      "ad_id": "120239328917020142",
+      "ad_name": "260212_鏈條保養PRO組",
+      "primary_text": "誰說保養鏈條就要搞得到處油通通?\n🇩🇪 LIQUI MOLY x 🇺🇸 Oinker 鏈條保養PRO組\n一套能省$350 > https://reurl.cc/Yk2x0n\n\n🔥 競技型👉搭配摩托車競技型陶瓷鏈條油\n💵 經濟型👉搭配摩托車全合成鏈條潤滑噴劑\n\n✅ 摩托車鏈條清潔劑+鏈條刷清潔\n✅ 專利鏈條油工具+力魔全合成鏈條油\n✅ 靜置欣賞一下清潔保養後的愛車\n整套施作下來又快速又乾淨！✨\n\n幫愛車挑一組> https://reurl.cc/Yk2x0n",
+      "headline": "CarMall 車魔商城",
+      "description": "",
+      "spend": 85.0,
+      "impressions": 1072,
+      "clicks": 29,
+      "purchases": 0,
+      "ctr": 2.705224,
+      "cpm": 79.291045,
+      "roas": 0.0,
+      "cpa": 0,
+      "conv_value": 0.0
+    },
+    {
+      "copy_id": "copy_120239328341260142",
+      "ad_id": "120239328341260142",
+      "ad_name": "260212_鏈條保養PRO組",
+      "primary_text": "誰說保養鏈條就要搞得到處油通通?\n🇩🇪 LIQUI MOLY x 🇺🇸 Oinker 鏈條保養PRO組\n一套能省$350 > https://reurl.cc/Yk2x0n\n\n🔥 競技型👉搭配摩托車競技型陶瓷鏈條油\n💵 經濟型👉搭配摩托車全合成鏈條潤滑噴劑\n\n✅ 摩托車鏈條清潔劑+鏈條刷清潔\n✅ 專利鏈條油工具+力魔全合成鏈條油\n✅ 靜置欣賞一下清潔保養後的愛車\n整套施作下來又快速又乾淨！✨\n\n幫愛車挑一組> https://reurl.cc/Yk2x0n",
+      "headline": "",
+      "description": "",
+      "spend": 66.0,
+      "impressions": 1293,
+      "clicks": 56,
+      "purchases": 0,
+      "ctr": 4.331013,
+      "cpm": 51.044084,
+      "roas": 0.0,
+      "cpa": 0,
+      "conv_value": 0.0
+    }
+  ],
+  "top_creatives": [],
+  "ga4": {
+    "active_users": 138,
+    "sessions": 152,
+    "atc": 0,
+    "ic": 0,
+    "purchases": 0,
+    "ecommerce_purchases": 0,
+    "purchase_revenue": 0.0,
+    "funnel_rates": {
+      "session_to_atc": 0.0,
+      "atc_to_checkout": 0,
+      "checkout_to_purchase": 0,
+      "overall_conversion": 0.0,
+      "atc_drop_off": 100.0,
+      "checkout_drop_off": 0,
+      "purchase_drop_off": 0
+    }
+  },
+  "ga4_channels": [
+    {
+      "source": "reurl.cc / referral",
+      "sessions": 68,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "fb / paid",
+      "sessions": 19,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "m.facebook.com / referral",
+      "sessions": 17,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "(direct) / (none)",
+      "sessions": 12,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "liqui-moly-tw.com / referral",
+      "sessions": 7,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "facebook.com / referral",
+      "sessions": 6,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "google / organic",
+      "sessions": 6,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "ig / paid",
+      "sessions": 5,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "th / paid",
+      "sessions": 5,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "facebook / CPC",
+      "sessions": 3,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "boschman-giasco.com.tw / referral",
+      "sessions": 2,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "fb-SiteLink-0 / paid",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    },
+    {
+      "source": "instagram.com / referral",
+      "sessions": 1,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "session_to_atc_rate": 0.0,
+      "atc_to_purchase_rate": 0
+    }
+  ],
+  "ga4_devices": [
+    {
+      "device": "mobile",
+      "sessions": 110,
+      "users": 100,
+      "transactions": 0,
+      "revenue": 0.0,
+      "session_pct": 72.4,
+      "conv_rate": 0.0
+    },
+    {
+      "device": "desktop",
+      "sessions": 42,
+      "users": 38,
+      "transactions": 0,
+      "revenue": 0.0,
+      "session_pct": 27.6,
+      "conv_rate": 0.0
+    }
+  ],
+  "ga4_user_types": {
+    "new": {
+      "sessions": 124,
+      "users": 124,
+      "transactions": 0,
+      "revenue": 0.0,
+      "session_pct": 81.6,
+      "conv_rate": 0.0
+    },
+    "returning": {
+      "sessions": 21,
+      "users": 20,
+      "transactions": 0,
+      "revenue": 0.0,
+      "session_pct": 13.8,
+      "conv_rate": 0.0
+    },
+    "(not set)": {
+      "sessions": 7,
+      "users": 0,
+      "transactions": 0,
+      "revenue": 0.0,
+      "session_pct": 4.6,
+      "conv_rate": 0.0
+    }
+  },
+  "ga4_engagement": {
+    "engagement_rate": 67.76,
+    "avg_session_duration_sec": 89.49033388815789,
+    "avg_session_duration_formatted": "1:29",
+    "page_views": 267,
+    "pages_per_session": 1.76,
+    "bounce_rate": 32.24
+  },
+  "gsc": {
+    "total": {},
+    "top_queries": [],
+    "top_pages": []
+  },
+  "cyberbiz": {
+    "order_count": 0,
+    "total_revenue": 0,
+    "aov": 0,
+    "daily_aov": [],
+    "product_ranking": [],
+    "new_members": 0
+  },
+  "mer": 0.0,
+  "wow": null,
+  "dod": {
+    "prev_date": "2026-02-11",
+    "prev_cyberbiz": {
+      "order_count": 0,
+      "total_revenue": 0,
+      "aov": 0,
+      "daily_aov": [],
+      "product_ranking": [],
+      "new_members": 0
+    },
+    "prev_meta": {
+      "name": "Account Total",
+      "spend": 962.0,
+      "ctr": 1.040189,
+      "clicks": 59,
+      "roas": 0.0,
+      "purchases": 0,
+      "atc": 0,
+      "ic": 0,
+      "vc": 91,
+      "conv_value": 0.0,
+      "cpa": 0,
+      "cp_atc": 0
+    },
+    "prev_ga4": {
+      "active_users": 68,
+      "sessions": 75,
+      "atc": 0,
+      "ic": 0,
+      "purchases": 0,
+      "ecommerce_purchases": 0,
+      "purchase_revenue": 0.0,
+      "funnel_rates": {
+        "session_to_atc": 0.0,
+        "atc_to_checkout": 0,
+        "checkout_to_purchase": 0,
+        "overall_conversion": 0.0,
+        "atc_drop_off": 100.0,
+        "checkout_drop_off": 0,
+        "purchase_drop_off": 0
+      }
+    },
+    "cyber_revenue_change": null,
+    "cyber_order_change": null,
+    "cyber_aov_change": null,
+    "meta_roas_change": null,
+    "meta_spend_change": -5.2,
+    "meta_purchases_change": null,
+    "meta_cpa_change": null,
+    "ga4_sessions_change": 102.67,
+    "ga4_conversion_change": 0.0
+  },
+  "alerts": [
+    {
+      "type": "critical",
+      "category": "Cyberbiz",
+      "message": "🚨 昨日零訂單！請立即檢查網站和廣告狀態",
+      "metric": "order_count",
+      "value": 0,
+      "threshold": 1
+    }
+  ],
+  "summary": {
+    "total_spend": 912.0,
+    "total_revenue": 0,
+    "mer": 0.0,
+    "roas": 0.0,
+    "order_count": 0,
+    "aov": 0,
+    "ga4_sessions": 152,
+    "ga4_overall_conversion": 0.0,
+    "top_audience_segment": null,
+    "top_product": null,
+    "cpm": 79.043162,
+    "frequency": 1.29655,
+    "reach": 8899,
+    "gsc_clicks": 0,
+    "gsc_avg_position": 0
+  }
+}

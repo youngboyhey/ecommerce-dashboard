@@ -1,31 +1,45 @@
 {
-  "week_start": "2026-01-29",
-  "analysis_generated_at": "2026-02-12T23:45:00.000Z",
+  "task_type": "weekly_ai_analysis",
+  "report_date": "2026-02-04",
+  "analyzed_at": "2026-02-13T00:45:00",
   "total_ads_analyzed": 4,
-  "ads_analysis": [
+  "ads": [
     {
       "ad_id": "120238815887480142",
       "adset_id": "120238815887410142",
       "ad_name": "任選3入",
       "vision_analysis": {
-        "composition": "清晰的雙層垂直結構：上半部（55%）為豪華車內裝背景搭配大標題和品牌 logo；下半部（45%）為六款產品扇形排列展示。視覺流動自然，從標題引導至產品陣列",
+        "composition": "上下分層構圖，車內實景背景搭配產品陳列，視覺動線呈 Z 字形",
         "composition_score": 8,
-        "color_scheme": ["深黑色", "炭灰色", "琥珀色車內氛圍光", "多色產品包裝（海軍藍、淺藍、奶油黃、紅粉、白）"],
-        "visual_elements": ["豪華車內裝背景（儀表板、出風口、環境燈）", "六款零售包裝香氛磚陣列", "LIQUI MOLY logo（右上角）", "白色中文標題"],
-        "emotion_appeal": "高端生活品味、多元選擇、汽車生活升級",
-        "product_presentation": "完整產品線扇形陣列展示，重疊排列創造深度感和豐富選擇感，零售包裝形式讓消費者知道實際購買外觀",
-        "success_factors": ["豪華車內裝建立產品定位", "深淺對比讓產品色彩突出", "完整展示六種選擇", "品牌 logo 位置顯眼"],
-        "failure_factors": ["產品較小可能在手機上不夠清晰", "標題字體可以更大"],
-        "improvement_suggestions": ["可在每款產品旁標註香味名稱", "考慮製作單品特寫輪播", "加入價格標籤增加購買衝動"]
+        "color_scheme": ["深灰色", "黑色", "黃色", "多彩產品色"],
+        "visual_elements": ["車內方向盤情境", "六款香氛磚產品", "LIQUI MOLY 品牌標誌"],
+        "emotion_appeal": "自由選擇感、質感生活",
+        "product_presentation": "7張輪播圖，首圖為情境+產品組合，後續圖展示各口味特色",
+        "success_factors": ["高質感車內情境增加說服力", "多款產品展示提供選擇感", "品牌標誌位置醒目"],
+        "failure_factors": ["圖片數量多可能降低完整觀看率", "ROAS 僅 0.19 表示素材轉換力不足"],
+        "improvement_suggestions": ["精簡輪播圖至 3-4 張", "首圖加入價格與優惠資訊", "加入使用者好評截圖"]
       },
       "copy_analysis": {
-        "tone": "親切、生活化、輕鬆",
-        "emotional_triggers": ["痛點喚起（車內異味困擾）", "感官體驗（細膩不刺鼻）", "品質保證（德國原廠）", "多元選擇"],
-        "cta_score": 8,
-        "overall_score": 8,
-        "strengths": ["開頭直擊痛點引發共鳴", "emoji 使用恰當增加親和力", "條列式呈現清晰易讀", "雙連結增加點擊機會", "六種香調完整列出"],
-        "weaknesses": ["「轉彎依然從容」比喻略抽象", "缺乏限時優惠急迫感"],
-        "suggested_improvements": ["加入限時優惠或組合價", "可加入用戶評價增強信任", "考慮加入「首購優惠」降低嘗試門檻"]
+        "tone": "親切輕鬆",
+        "emotional_triggers": ["痛點喚起（車內異味困擾）", "解決方案", "感官體驗"],
+        "cta_score": 7,
+        "overall_score": 7,
+        "strengths": ["開頭直擊痛點", "功能賣點條列清晰", "六種調香選擇豐富"],
+        "weaknesses": ["缺乏價格資訊", "無限時優惠增加急迫感"],
+        "suggested_improvements": ["加入「限時 3 入 $XXX」優惠", "加入「免運」訊息", "加入顧客好評見證"]
+      },
+      "targeting_analysis": {
+        "score": 7,
+        "age_assessment": "18+ 過於寬泛",
+        "interests_assessment": "21個興趣標籤過多，包含高爾夫、露營等跨領域興趣",
+        "suggestions": ["精簡至核心汽車相關興趣 10-12 個", "分拆測試「汽車保養」vs「生活風格」受眾"]
+      },
+      "metrics_summary": {
+        "ctr": 1.43,
+        "cvr": 0.29,
+        "roas": 0.19,
+        "spend": 2944,
+        "purchases": 1
       }
     },
     {
@@ -33,24 +47,37 @@
       "adset_id": "120238855887150142",
       "ad_name": "260130_LM芳香磚廣告(J)_龍蝦優化標題版",
       "vision_analysis": {
-        "composition": "產品居中覆蓋於背景之上的構圖，產品佔據畫面 50-60%，底部置中中文標題作為說明。背景為豪華車內裝（方向盤、排檔桿、皮革內飾），淺景深突出產品",
+        "composition": "中央聚焦式佈局，產品包裝卡置於車內實景中央，淺景深處理",
         "composition_score": 8,
-        "color_scheme": ["深黑色", "棕色皮革", "鋼琴烤漆黑", "產品綠色邊條", "LIQUI MOLY 紅藍 logo"],
-        "visual_elements": ["零售吊卡包裝產品", "New Car 閃亮徽章", "通風口夾具", "豪華車內裝背景", "中文「新車清香」標題"],
-        "emotion_appeal": "高端質感、新車體驗、德國品質",
-        "product_presentation": "以實際零售包裝形式展示，清楚呈現出風口夾設計，讓消費者了解安裝方式",
-        "success_factors": ["淺景深聚焦產品", "New Car 徽章清楚標示香味", "品牌 logo 對比強烈", "豪華車內裝提升產品定位"],
-        "failure_factors": ["單一香味展示，未呈現完整產品線"],
-        "improvement_suggestions": ["輪播其他香味增加選擇", "可加入安裝步驟小圖", "考慮加入香味描述文字"]
+        "color_scheme": ["深色車內裝", "淺綠色清新元素", "紅藍白品牌色"],
+        "visual_elements": ["單品香氛磚特寫", "高級車內裝背景", "品牌 LOGO"],
+        "emotion_appeal": "高端質感、新車香氛聯想",
+        "product_presentation": "6張輪播展示不同口味，每張聚焦單一產品",
+        "success_factors": ["高級車內裝背景提升產品檔次", "散景效果專業感強", "單品聚焦更清晰"],
+        "failure_factors": ["輪播圖風格略顯單調"],
+        "improvement_suggestions": ["加入使用者手持產品的圖片", "加入開箱或安裝教學"]
       },
       "copy_analysis": {
-        "tone": "知性、專業、輕鬆帶幽默",
-        "emotional_triggers": ["社交形象（車內質感 80% 來自氣味）", "品質保證（德國力魔）", "便利性（1秒安裝）", "持久效果（30天）"],
+        "tone": "輕鬆幽默",
+        "emotional_triggers": ["社會認同（質感）", "品質保證（德國）", "便利性"],
         "cta_score": 8,
-        "overall_score": 9,
-        "strengths": ["開頭金句吸睛（質感80%來自氣味）", "條列式四大優點清晰有力", "六種香調 emoji 視覺化呈現", "「印象直接加爆」口語化增加親和力", "推薦組合方案引導消費"],
-        "weaknesses": ["文案稍長可能影響完整閱讀"],
-        "suggested_improvements": ["可精簡至核心 3 點優勢", "加入限時優惠增加急迫感", "考慮加入滿額免運訊息"]
+        "overall_score": 8,
+        "strengths": ["開頭金句吸睛（車內質感80%來自氣味）", "功能賣點清晰", "推薦 3 入組直接引導購買"],
+        "weaknesses": ["可加入價格增加透明度"],
+        "suggested_improvements": ["加入「現省 $XX」的優惠計算", "加入「老司機推薦」等社會認同"]
+      },
+      "targeting_analysis": {
+        "score": 8,
+        "age_assessment": "18+ 略廣，但搭配排除已購買用戶是好做法",
+        "interests_assessment": "14個興趣標籤數量適中",
+        "suggestions": ["此廣告組設定最佳，可作為範本", "1% Lookalike 品質較高"]
+      },
+      "metrics_summary": {
+        "ctr": 1.53,
+        "cvr": 0.59,
+        "roas": 1.12,
+        "spend": 2828,
+        "purchases": 2
       }
     },
     {
@@ -58,24 +85,37 @@
       "adset_id": "120238488906660142",
       "ad_name": "260130_LM芳香磚廣告_互動目標",
       "vision_analysis": {
-        "composition": "簡潔的產品聚焦構圖，產品置於畫面中央，深色背景搭配紅色產品包裝形成高對比",
-        "composition_score": 5,
-        "color_scheme": ["深黑色", "LIQUI MOLY 紅色"],
-        "visual_elements": ["紅色香氛磚零售包裝", "Air Freshener 產品標識", "LIQUI MOLY logo"],
-        "emotion_appeal": "品牌識別、產品功能性",
-        "product_presentation": "直接的產品包裝展示，清楚但缺乏情境感",
-        "success_factors": ["品牌色彩一致性", "簡潔不雜亂", "產品清晰可辨"],
-        "failure_factors": ["圖片解析度不足影響質感", "缺乏生活化情境", "無車內使用場景"],
-        "improvement_suggestions": ["提高圖片解析度", "加入車內安裝場景", "加入香味說明文字"]
+        "composition": "單圖廣告，產品置於車內情境",
+        "composition_score": 6,
+        "color_scheme": ["深色背景"],
+        "visual_elements": ["香氛磚產品"],
+        "emotion_appeal": "質感呈現",
+        "product_presentation": "靜態單圖展示",
+        "success_factors": ["圖片品質尚可"],
+        "failure_factors": ["互動目標可能不適合銷售導向", "CTR 僅 0.78%"],
+        "improvement_suggestions": ["改用轉換目標而非互動目標", "加入更吸睛的視覺元素"]
       },
       "copy_analysis": {
         "tone": "無文案",
         "emotional_triggers": [],
-        "cta_score": 0,
-        "overall_score": 0,
+        "cta_score": 2,
+        "overall_score": 2,
         "strengths": [],
-        "weaknesses": ["互動目標廣告缺乏文案嚴重影響效果", "CTR 僅 0.78%、ROAS 0.0 反映內容不足"],
-        "suggested_improvements": ["必須補充吸引人的文案", "加入互動式問題或投票", "加入 CTA 引導按讚/留言/分享"]
+        "weaknesses": ["完全沒有文案", "無法傳遞產品資訊與購買動機"],
+        "suggested_improvements": ["必須加入完整文案", "加入價格與優惠 CTA"]
+      },
+      "targeting_analysis": {
+        "score": 5,
+        "age_assessment": "18+ 過於寬泛",
+        "interests_assessment": "同其他廣告組",
+        "suggestions": ["此廣告組 CTR 最低，建議暫停"]
+      },
+      "metrics_summary": {
+        "ctr": 0.78,
+        "cvr": 0,
+        "roas": 0,
+        "spend": 1256,
+        "purchases": 0
       }
     },
     {
@@ -83,32 +123,56 @@
       "adset_id": "120238833956450142",
       "ad_name": "260130_LM芳香磚廣告_互動目標",
       "vision_analysis": {
-        "composition": "同上 - 簡潔產品聚焦構圖",
-        "composition_score": 5,
-        "color_scheme": ["深黑色", "LIQUI MOLY 紅色"],
-        "visual_elements": ["紅色香氛磚包裝", "品牌 logo"],
-        "emotion_appeal": "品牌識別",
-        "product_presentation": "直接產品展示",
-        "success_factors": ["品牌一致性", "簡潔設計"],
-        "failure_factors": ["解析度不足", "缺乏情境"],
-        "improvement_suggestions": ["提升畫質", "加入使用場景"]
+        "composition": "同上一則，單圖廣告",
+        "composition_score": 6,
+        "color_scheme": ["深色背景"],
+        "visual_elements": ["香氛磚產品"],
+        "emotion_appeal": "質感呈現",
+        "product_presentation": "靜態單圖展示",
+        "success_factors": ["此 adset 的 CTR 1.61% 較高"],
+        "failure_factors": ["仍然零購買"],
+        "improvement_suggestions": ["測試不同受眾但相同素材的效果差異"]
       },
       "copy_analysis": {
         "tone": "無文案",
         "emotional_triggers": [],
-        "cta_score": 0,
-        "overall_score": 0,
+        "cta_score": 2,
+        "overall_score": 2,
         "strengths": [],
-        "weaknesses": ["無文案導致互動目標失效"],
-        "suggested_improvements": ["補充互動式文案"]
+        "weaknesses": ["無文案導致無法轉換"],
+        "suggested_improvements": ["加入文案後重新測試"]
+      },
+      "targeting_analysis": {
+        "score": 7,
+        "age_assessment": "此 adset 使用 1% Lookalike + 排除已購買，設定較佳",
+        "interests_assessment": "14個興趣標籤數量適中",
+        "suggestions": ["素材問題大於受眾問題，優先改善素材"]
+      },
+      "metrics_summary": {
+        "ctr": 1.61,
+        "cvr": 0,
+        "roas": 0,
+        "spend": 600,
+        "purchases": 0
       }
     }
   ],
   "weekly_summary": {
-    "vision_avg_score": 6.5,
-    "copy_avg_score": 4.3,
-    "common_strengths": ["輪播廣告視覺品質提升", "豪華車內裝背景提升產品定位", "品牌色彩一致性維持"],
-    "common_issues": ["互動目標廣告缺乏文案", "部分素材解析度不足", "缺乏限時優惠急迫感"],
-    "top_performer": "260130_LM芳香磚廣告(J)_龍蝦優化標題版 (CVR 0.59%, ROAS 1.12)"
+    "total_spend": 7628,
+    "total_purchases": 3,
+    "avg_ctr": 1.34,
+    "avg_roas": 0.33,
+    "best_performing_ad": "260130_LM芳香磚廣告(J)_龍蝦優化標題版（ROAS 1.12）",
+    "key_insights": [
+      "龍蝦優化標題版表現最佳（ROAS 1.12），文案金句有效",
+      "互動目標廣告皆無轉換，「互動」與「銷售」目標不匹配",
+      "無文案的廣告 CVR 皆為 0，文案是轉換必要條件"
+    ],
+    "recommendations": [
+      "暫停所有「互動目標」廣告，改用「銷售」或「轉換」目標",
+      "為所有廣告加入完整文案",
+      "將龍蝦優化版的文案風格應用至其他素材",
+      "精簡輪播圖數量至 3-5 張"
+    ]
   }
 }

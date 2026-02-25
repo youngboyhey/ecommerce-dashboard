@@ -1,31 +1,45 @@
 {
-  "week_start": "2026-01-15",
-  "analysis_generated_at": "2026-02-12T23:45:00.000Z",
+  "task_type": "weekly_ai_analysis",
+  "report_date": "2026-01-21",
+  "analyzed_at": "2026-02-13T00:45:00",
   "total_ads_analyzed": 4,
-  "ads_analysis": [
+  "ads": [
     {
       "ad_id": "120238333981640142",
       "adset_id": "120238488906660142",
       "ad_name": "260114_LM輪框清潔劑",
       "vision_analysis": {
-        "composition": "垂直構圖，採用由上而下的視覺層級：頂部為文案區、中下部為產品主視覺。產品置於下方中央作為視覺錨點，背景採用深色車庫/專業美容場景，營造高端汽車養護氛圍",
+        "composition": "上文下圖的經典廣告構圖，深色背景搭配產品特寫，視線引導清晰",
         "composition_score": 7,
-        "color_scheme": ["深黑色", "炭灰色", "LIQUI MOLY 藍色", "金黃色"],
-        "visual_elements": ["LIQUI MOLY 輪框清潔噴瓶", "多輻式鋁圈輪框（背景）", "深色專業美容環境"],
-        "emotion_appeal": "專業感、高端質感、德國工藝精神",
-        "product_presentation": "45度角展示噴瓶，清楚呈現品牌標誌與產品外觀，旁邊搭配輪框建立因果關係",
-        "success_factors": ["高對比配色讓產品突出", "深色背景營造專業氛圍", "產品與使用場景連結清晰"],
-        "failure_factors": ["構圖略顯緊湊，呼吸空間不足", "缺乏使用前後對比"],
-        "improvement_suggestions": ["加入輪框清潔前後對比圖", "增加產品周圍留白", "可考慮加入人物使用情境"]
+        "color_scheme": ["深藍色", "黑色", "白色", "黃色"],
+        "visual_elements": ["輪框清潔劑產品瓶", "德國品牌標誌", "冠軍獎盃圖示"],
+        "emotion_appeal": "專業權威感，強調德國品質與獲獎認證",
+        "product_presentation": "單品特寫展示，產品置於畫面下方，背景暗示汽車使用場景",
+        "success_factors": ["高對比度文字設計易於閱讀", "獎項認證增加可信度", "產品呈現清晰"],
+        "failure_factors": ["背景過暗影響整體吸引力", "缺乏使用前後對比展示"],
+        "improvement_suggestions": ["加入輪框清潔前後對比圖", "增加人物使用情境", "提高整體亮度"]
       },
       "copy_analysis": {
-        "tone": "專業、教育型",
-        "emotional_triggers": ["權威認證（德國雜誌冠軍）", "品質保證", "環保意識"],
+        "tone": "專業權威",
+        "emotional_triggers": ["社會認同（德國雜誌評選冠軍）", "品質保證", "環保訴求"],
         "cta_score": 7,
         "overall_score": 8,
-        "strengths": ["善用冠軍認證建立信任", "條列式清楚列出產品優點", "emoji 使用恰當增加易讀性", "價格透明減少購買阻力"],
-        "weaknesses": ["hashtag 過多稍顯雜亂", "缺乏限時或稀缺感"],
-        "suggested_improvements": ["加入限時優惠增加急迫感", "可加入用戶評價增強社會認同", "精簡 hashtag 至 5-8 個"]
+        "strengths": ["獎項認證建立權威性", "功能賣點清晰條列", "價格透明降低購買阻力"],
+        "weaknesses": ["缺乏限時優惠的急迫感", "hashtag 過多顯得雜亂"],
+        "suggested_improvements": ["加入限時優惠或滿額贈品", "精簡 hashtag 數量", "加入顧客評價"]
+      },
+      "targeting_analysis": {
+        "score": 7,
+        "age_assessment": "18+ 過於寬泛，建議縮窄至 25-55",
+        "interests_assessment": "14個興趣標籤數量適中，與產品高度相關",
+        "suggestions": ["縮窄年齡至 25-55 歲車主族群", "加入 DIY 汽車保養興趣"]
+      },
+      "metrics_summary": {
+        "ctr": 2.81,
+        "cvr": 0.74,
+        "roas": 1.69,
+        "spend": 2180,
+        "purchases": 5
       }
     },
     {
@@ -33,24 +47,37 @@
       "adset_id": "120238362679500142",
       "ad_name": "260115_LM香氛磚_Reels",
       "vision_analysis": {
-        "composition": "深色背景搭配對角線設計元素，黃色斜條紋橫跨畫面創造動態感。LIQUI MOLY logo 置於右下角作為品牌識別",
-        "composition_score": 6,
-        "color_scheme": ["深黑色", "金黃色", "白色"],
-        "visual_elements": ["中文文案標題", "LIQUI MOLY logo", "黃色對角線設計元素", "深色質感背景"],
-        "emotion_appeal": "好奇心驅動、問題意識喚起",
-        "product_presentation": "產品本身未直接展示，採用懸念式設計吸引點擊觀看完整 Reels",
-        "success_factors": ["品牌色彩一致性強", "好奇心驅動的標題設計", "符合 Reels 縮圖風格"],
-        "failure_factors": ["產品不可見降低直觀理解", "圖片解析度較低"],
-        "improvement_suggestions": ["考慮在縮圖加入產品小圖", "提高圖片解析度", "加入更具吸引力的視覺元素"]
+        "composition": "Reels 影片格式，以動態內容展示產品",
+        "composition_score": 7,
+        "color_scheme": ["暖色調", "黑色", "金色"],
+        "visual_elements": ["香氛磚產品", "車內情境"],
+        "emotion_appeal": "輕鬆生活感，展現車內氛圍提升",
+        "product_presentation": "動態影片呈現，著重使用場景與體驗",
+        "success_factors": ["Reels 格式符合平台趨勢", "動態展示更吸引注意"],
+        "failure_factors": ["無文案降低資訊傳遞效率"],
+        "improvement_suggestions": ["加入影片內字幕", "添加品牌浮水印"]
       },
       "copy_analysis": {
         "tone": "無文案",
         "emotional_triggers": [],
-        "cta_score": 0,
-        "overall_score": 0,
-        "strengths": ["影片形式 Reels 可能有內嵌字幕"],
-        "weaknesses": ["缺乏 post copy 無法在動態牆吸引停留"],
-        "suggested_improvements": ["建議補充精簡文案", "加入痛點描述和產品亮點"]
+        "cta_score": 3,
+        "overall_score": 4,
+        "strengths": ["影片本身可能包含資訊"],
+        "weaknesses": ["無貼文文案降低 SEO 效益", "無法在不點擊的情況下了解產品"],
+        "suggested_improvements": ["必須加入基本產品介紹文案", "加入購買連結", "加入優惠資訊"]
+      },
+      "targeting_analysis": {
+        "score": 6,
+        "age_assessment": "18+ 過於寬泛",
+        "interests_assessment": "18個標籤略多，混合購物與汽車興趣",
+        "suggestions": ["精簡興趣標籤至 10-12 個", "聚焦高轉換興趣"]
+      },
+      "metrics_summary": {
+        "ctr": 1.42,
+        "cvr": 2.37,
+        "roas": 1.72,
+        "spend": 1906,
+        "purchases": 5
       }
     },
     {
@@ -58,24 +85,37 @@
       "adset_id": "120238333981650142",
       "ad_name": "260114_LM輪框清潔劑",
       "vision_analysis": {
-        "composition": "同上方分析 - 垂直構圖，產品為視覺焦點",
+        "composition": "同第一則廣告，上文下圖構圖",
         "composition_score": 7,
-        "color_scheme": ["深黑色", "炭灰色", "LIQUI MOLY 藍色", "金黃色"],
-        "visual_elements": ["LIQUI MOLY 輪框清潔噴瓶", "多輻式鋁圈輪框", "專業美容環境"],
-        "emotion_appeal": "專業感、德國工藝",
-        "product_presentation": "45度角展示，品牌標誌清晰可見",
-        "success_factors": ["高對比配色", "專業氛圍", "場景連結"],
-        "failure_factors": ["構圖緊湊", "缺乏對比展示"],
-        "improvement_suggestions": ["加入前後對比", "增加留白空間"]
+        "color_scheme": ["深藍色", "黑色", "白色", "黃色"],
+        "visual_elements": ["輪框清潔劑產品瓶", "德國品牌標誌"],
+        "emotion_appeal": "專業權威感",
+        "product_presentation": "單品特寫展示",
+        "success_factors": ["CTR 高達 3.44%，素材吸引力強"],
+        "failure_factors": ["CVR 僅 0.29%，可能著陸頁有問題"],
+        "improvement_suggestions": ["優化著陸頁體驗", "加入更多購買誘因"]
       },
       "copy_analysis": {
-        "tone": "專業、教育型",
-        "emotional_triggers": ["權威認證", "品質保證", "環保意識"],
+        "tone": "專業權威",
+        "emotional_triggers": ["社會認同", "品質保證"],
         "cta_score": 7,
-        "overall_score": 8,
-        "strengths": ["冠軍認證背書", "條列式優點", "價格透明"],
-        "weaknesses": ["hashtag 過多", "缺乏急迫感"],
-        "suggested_improvements": ["加入限時優惠", "精簡 hashtag"]
+        "overall_score": 7,
+        "strengths": ["高 CTR 表示文案吸引力強"],
+        "weaknesses": ["低 CVR 顯示轉換路徑有斷點"],
+        "suggested_improvements": ["檢查著陸頁是否與廣告訊息一致", "加入購物車優惠"]
+      },
+      "targeting_analysis": {
+        "score": 7,
+        "age_assessment": "18+ 過於寬泛",
+        "interests_assessment": "16個興趣標籤，包含 DIY 與折扣興趣",
+        "suggestions": ["此廣告組 CTR 較高，可作為對照組測試"]
+      },
+      "metrics_summary": {
+        "ctr": 3.44,
+        "cvr": 0.29,
+        "roas": 1.34,
+        "spend": 1889,
+        "purchases": 2
       }
     },
     {
@@ -83,32 +123,55 @@
       "adset_id": "120237517873190142",
       "ad_name": "251218_LM香氛磚",
       "vision_analysis": {
-        "composition": "深色背景搭配多款產品並排展示，產品置於畫面下方/中央區域，低角度視角給予小型產品存在感",
-        "composition_score": 5,
-        "color_scheme": ["深黑色", "灰色", "多色產品（紅、綠、藍、奶油色）"],
-        "visual_elements": ["多款香氛磚並排展示", "深色汽車主題背景", "產品包裝零售外觀"],
-        "emotion_appeal": "多元選擇、質感生活",
-        "product_presentation": "產品線陣列展示，強調選擇多樣性，統一的產品家族視覺",
-        "success_factors": ["暗色背景讓多彩產品突出", "完整展示產品線", "維持品牌工業質感"],
-        "failure_factors": ["圖片畫質偏低/壓縮", "缺乏生活情境", "產品細節難以辨識"],
-        "improvement_suggestions": ["提高圖片解析度", "加入車內使用情境", "加入香味描述標註"]
+        "composition": "產品組合展示，多色香氛磚排列",
+        "composition_score": 6,
+        "color_scheme": ["深灰色", "多彩產品色"],
+        "visual_elements": ["多款香氛磚產品", "包裝盒"],
+        "emotion_appeal": "多元選擇感",
+        "product_presentation": "靜物攝影風格，展示多種口味選擇",
+        "success_factors": ["多色產品具視覺吸引力"],
+        "failure_factors": ["圖片偏暗，細節不清晰", "缺乏使用情境"],
+        "improvement_suggestions": ["提高圖片亮度與清晰度", "加入車內使用場景"]
       },
       "copy_analysis": {
-        "tone": "親切、生活化、專業並重",
-        "emotional_triggers": ["痛點喚起（刺鼻化學味）", "德國品牌信任", "社交形象（乘客印象）"],
+        "tone": "親切專業",
+        "emotional_triggers": ["痛點解決（刺鼻化學味）", "品質保證（德國製造）", "便利性"],
         "cta_score": 8,
         "overall_score": 8,
-        "strengths": ["清楚列出三大購買理由", "四種香調選擇完整呈現", "emoji 豐富增加視覺吸引", "多次 CTA 連結"],
-        "weaknesses": ["文案稍長", "價格未直接顯示"],
-        "suggested_improvements": ["可加入優惠訊息", "精簡部分段落", "加入用戶好評"]
+        "strengths": ["痛點描述精準（廉價芳香劑刺鼻味）", "三大理由清晰", "四種調香選擇豐富"],
+        "weaknesses": ["花費 $64 即停止投放，可能測試不足"],
+        "suggested_improvements": ["延長測試時間", "優化受眾設定"]
+      },
+      "targeting_analysis": {
+        "score": 8,
+        "age_assessment": "使用 Lookalike 受眾更精準",
+        "interests_assessment": "無興趣標籤，純依賴 Lookalike",
+        "suggestions": ["Lookalike 來源為加入購物車，品質優良", "可測試 1% vs 2-5% 的差異"]
+      },
+      "metrics_summary": {
+        "ctr": 2.75,
+        "cvr": 0,
+        "roas": 0,
+        "spend": 64,
+        "purchases": 0
       }
     }
   ],
   "weekly_summary": {
-    "vision_avg_score": 6.3,
-    "copy_avg_score": 6.0,
-    "common_strengths": ["深色背景營造專業氛圍", "品牌色彩一致性高", "產品展示清晰"],
-    "common_issues": ["部分圖片解析度不足", "缺乏使用情境/生活化場景", "Reels 缺乏 post copy"],
-    "top_performer": "260114_LM輪框清潔劑 (CTR 3.44%)"
+    "total_spend": 6039,
+    "total_purchases": 12,
+    "avg_ctr": 2.61,
+    "avg_roas": 1.19,
+    "best_performing_ad": "260115_LM香氛磚_Reels（ROAS 1.72）",
+    "key_insights": [
+      "輪框清潔劑 CTR 高（2.81-3.44%）但 CVR 偏低，需優化著陸頁",
+      "Reels 影片 CVR 最高（2.37%），動態內容轉換效果佳",
+      "香氛磚文案品質高但預算過低，建議重新測試"
+    ],
+    "recommendations": [
+      "增加 Reels 影片格式的投放預算",
+      "優化輪框清潔劑的著陸頁體驗",
+      "為香氛磚廣告重新分配測試預算"
+    ]
   }
 }

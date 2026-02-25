@@ -69,7 +69,7 @@ def load_ai_analysis_results(date_str: str) -> tuple[Dict, Dict]:
     # 建立 ad_id → copy_analysis 對照表 (for copies)
     copy_analysis = {}
     
-    for ad in ai_data.get('ads_analysis', []):
+    for ad in ai_data.get('ads', ai_data.get('ads_analysis', [])):
         ad_id = ad.get('ad_id')
         if not ad_id:
             continue
@@ -342,11 +342,29 @@ def upload_image_to_storage(image_data: bytes, filename: str) -> Optional[str]:
 
 
 def upload_ad_creatives(week: Dict) -> int:
-    """Upload ad_creatives data."""
-    filename = f"ad_creatives_{week['date']}.json"
-    data = load_json(filename)
+    """Upload ad_creatives data.
+    
+    優先從 report_data 的 ad_creatives 欄位讀取，確保數據同步。
+    如果 report_data 沒有 ad_creatives，才 fallback 到獨立的 JSON 文件。
+    """
+    data = None
+    
+    # 優先從 report_data 讀取 ad_creatives（確保同步）
+    report_filename = f"report_data_{week['date']}.json"
+    report_data = load_json(report_filename)
+    if report_data and report_data.get('ad_creatives'):
+        data = report_data['ad_creatives']
+        print(f"  📦 ad_creatives: loaded {len(data)} from report_data")
+    
+    # Fallback: 獨立的 ad_creatives JSON
     if not data:
-        print(f"  ⚠️  {filename} not found, skipping")
+        filename = f"ad_creatives_{week['date']}.json"
+        data = load_json(filename)
+        if data:
+            print(f"  📦 ad_creatives: loaded {len(data)} from {filename}")
+    
+    if not data:
+        print(f"  ⚠️  No ad_creatives found for {week['date']}, skipping")
         return 0
     
     # 載入 AI 分析結果
@@ -390,6 +408,23 @@ def upload_ad_creatives(week: Dict) -> int:
         # 合併 AI 分析結果
         ai_data = creative_analysis.get(ad_id, {})
         
+        # [2026-02-13] 處理影片素材
+        is_video = creative.get('is_video', False)
+        video_thumbnail_url = creative.get('video_thumbnail_url')
+        video_analysis = creative.get('video_analysis')
+        video_id = creative.get('video_id')
+        
+        # 如果是影片且有封面圖，優先使用影片封面
+        final_image_url = storage_url or image_url
+        if is_video and video_thumbnail_url:
+            final_image_url = video_thumbnail_url
+        
+        # 合併 vision_analysis：優先用 AI 分析，其次用影片分析
+        merged_vision_analysis = ai_data.get('vision_analysis') or creative.get('ai_analysis') or video_analysis
+        
+        # 標籤：如果是影片加上 video tag
+        tags = ['video'] if is_video else []
+        
         record = {
             'report_date': week['date'],
             'week_start': week['start'],
@@ -397,9 +432,15 @@ def upload_ad_creatives(week: Dict) -> int:
             'creative_name': creative.get('ad_name'),
             'ad_id': ad_id,
             'campaign_name': creative.get('ad_name'),
-            'image_url': storage_url or image_url,
+            'image_url': final_image_url,
             'thumbnail_url': image_url,  # Keep original as thumbnail
             'carousel_images': carousel_urls,  # Array of image URLs
+            # [2026-02-13] 影片分析存入 vision_analysis 欄位
+            # 當 ad_creatives 表有 is_video 等欄位後可以取消註解以下行：
+            # 'is_video': is_video,
+            # 'video_id': video_id,
+            # 'video_thumbnail_url': video_thumbnail_url,
+            # 'video_analysis': video_analysis,
             'metrics': {
                 'spend': creative.get('spend', 0),
                 'impressions': creative.get('impressions', 0),
@@ -409,11 +450,11 @@ def upload_ad_creatives(week: Dict) -> int:
                 'roas': creative.get('roas', 0),
             },
             'performance_tier': 'high' if creative.get('roas', 0) >= 1.5 else ('medium' if creative.get('roas', 0) >= 1 else 'low'),
-            'vision_analysis': ai_data.get('vision_analysis') or creative.get('ai_analysis'),
+            'vision_analysis': merged_vision_analysis,
             'success_factors': ai_data.get('success_factors'),
             'failure_factors': ai_data.get('failure_factors'),
             'improvement_suggestions': ai_data.get('improvement_suggestions'),
-            'tags': [],
+            'tags': tags,
         }
         
         # Upsert
@@ -432,11 +473,29 @@ def upload_ad_creatives(week: Dict) -> int:
 
 
 def upload_ad_copies(week: Dict) -> int:
-    """Upload ad_copies data."""
-    filename = f"ad_copies_{week['date']}.json"
-    data = load_json(filename)
+    """Upload ad_copies data.
+    
+    優先從 report_data 的 ad_copies 欄位讀取，確保數據同步。
+    如果 report_data 沒有 ad_copies，才 fallback 到獨立的 JSON 文件。
+    """
+    data = None
+    
+    # 優先從 report_data 讀取 ad_copies（確保同步）
+    report_filename = f"report_data_{week['date']}.json"
+    report_data = load_json(report_filename)
+    if report_data and report_data.get('ad_copies'):
+        data = report_data['ad_copies']
+        print(f"  📦 ad_copies: loaded {len(data)} from report_data")
+    
+    # Fallback: 獨立的 ad_copies JSON
     if not data:
-        print(f"  ⚠️  {filename} not found, skipping")
+        filename = f"ad_copies_{week['date']}.json"
+        data = load_json(filename)
+        if data:
+            print(f"  📦 ad_copies: loaded {len(data)} from {filename}")
+    
+    if not data:
+        print(f"  ⚠️  No ad_copies found for {week['date']}, skipping")
         return 0
     
     # 載入 AI 分析結果

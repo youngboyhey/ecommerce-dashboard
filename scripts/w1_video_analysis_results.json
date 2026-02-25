@@ -1,0 +1,2833 @@
+[
+  {
+    "is_video": true,
+    "video_url": null,
+    "video_id": "1521324662432181",
+    "video_thumbnail_url": "https://vsgivfsapsutoseginaa.supabase.co/storage/v1/object/public/ad-images/2026-01-09/1521324662432181_video_thumbnail.jpg",
+    "video_analysis": {
+      "gcp_analysis": {
+        "labels": [
+          {
+            "name": "motorcycle",
+            "entity_id": "/m/04_sv",
+            "confidence": 0.676,
+            "categories": [
+              "vehicle"
+            ]
+          },
+          {
+            "name": "spoke",
+            "entity_id": "/m/016xt7",
+            "confidence": 0.392
+          },
+          {
+            "name": "motor vehicle",
+            "entity_id": "/m/012f08",
+            "confidence": 0.839,
+            "categories": [
+              "vehicle"
+            ]
+          },
+          {
+            "name": "land vehicle",
+            "entity_id": "/m/01prls",
+            "confidence": 0.416,
+            "categories": [
+              "vehicle"
+            ]
+          },
+          {
+            "name": "vehicle",
+            "entity_id": "/m/07yv9",
+            "confidence": 0.935
+          },
+          {
+            "name": "wheel",
+            "entity_id": "/m/083wq",
+            "confidence": 0.897
+          },
+          {
+            "name": "rim",
+            "entity_id": "/m/047vmg8",
+            "confidence": 0.48
+          },
+          {
+            "name": "automotive wheel system",
+            "entity_id": "/m/0h8ly30",
+            "confidence": 0.539
+          },
+          {
+            "name": "car",
+            "entity_id": "/m/0k4j",
+            "confidence": 0.427,
+            "categories": [
+              "vehicle"
+            ]
+          },
+          {
+            "name": "automotive tire",
+            "entity_id": "/m/0h8pb3l",
+            "confidence": 0.721
+          },
+          {
+            "name": "tire",
+            "entity_id": "/m/0h9mv",
+            "confidence": 0.833
+          },
+          {
+            "name": "auto part",
+            "entity_id": "/m/08dz3q",
+            "confidence": 0.794
+          }
+        ],
+        "shot_changes": [
+          {
+            "start": 0.0,
+            "end": 4.27,
+            "duration": 4.27
+          },
+          {
+            "start": 4.3,
+            "end": 6.77,
+            "duration": 2.47
+          },
+          {
+            "start": 6.8,
+            "end": 12.57,
+            "duration": 5.77
+          },
+          {
+            "start": 12.6,
+            "end": 14.4,
+            "duration": 1.8
+          },
+          {
+            "start": 14.43,
+            "end": 18.87,
+            "duration": 4.43
+          },
+          {
+            "start": 18.9,
+            "end": 19.9,
+            "duration": 1.0
+          },
+          {
+            "start": 19.93,
+            "end": 25.17,
+            "duration": 5.23
+          },
+          {
+            "start": 25.2,
+            "end": 28.9,
+            "duration": 3.7
+          },
+          {
+            "start": 28.93,
+            "end": 30.53,
+            "duration": 1.6
+          },
+          {
+            "start": 30.57,
+            "end": 31.93,
+            "duration": 1.37
+          },
+          {
+            "start": 31.97,
+            "end": 33.77,
+            "duration": 1.8
+          },
+          {
+            "start": 33.8,
+            "end": 36.07,
+            "duration": 2.27
+          },
+          {
+            "start": 36.1,
+            "end": 37.43,
+            "duration": 1.33
+          },
+          {
+            "start": 37.47,
+            "end": 49.3,
+            "duration": 11.83
+          },
+          {
+            "start": 49.33,
+            "end": 51.17,
+            "duration": 1.83
+          },
+          {
+            "start": 51.2,
+            "end": 52.8,
+            "duration": 1.6
+          },
+          {
+            "start": 52.83,
+            "end": 58.1,
+            "duration": 5.27
+          },
+          {
+            "start": 58.13,
+            "end": 59.77,
+            "duration": 1.63
+          },
+          {
+            "start": 59.8,
+            "end": 61.53,
+            "duration": 1.73
+          },
+          {
+            "start": 61.57,
+            "end": 70.17,
+            "duration": 8.6
+          },
+          {
+            "start": 70.2,
+            "end": 77.27,
+            "duration": 7.07
+          },
+          {
+            "start": 77.3,
+            "end": 82.27,
+            "duration": 4.97
+          }
+        ],
+        "objects": [
+          {
+            "name": "person",
+            "entity_id": "/m/01g317",
+            "confidence": 0.977
+          },
+          {
+            "name": "car",
+            "entity_id": "/m/0k4j",
+            "confidence": 0.899
+          },
+          {
+            "name": "packaged goods",
+            "entity_id": "/j/5qg9b8",
+            "confidence": 0.816
+          },
+          {
+            "name": "wheel",
+            "entity_id": "/m/083wq",
+            "confidence": 0.8
+          },
+          {
+            "name": "glasses",
+            "entity_id": "/m/0jyfg",
+            "confidence": 0.78
+          },
+          {
+            "name": "top",
+            "entity_id": "/m/03gx245",
+            "confidence": 0.754
+          },
+          {
+            "name": "pants",
+            "entity_id": "/m/07mhn",
+            "confidence": 0.745
+          },
+          {
+            "name": "watch",
+            "entity_id": "/m/0gjkl",
+            "confidence": 0.715
+          },
+          {
+            "name": "bottled and jarred packaged goods",
+            "entity_id": "/j/5pzgsf",
+            "confidence": 0.702
+          },
+          {
+            "name": "scarf",
+            "entity_id": "/m/02h19r",
+            "confidence": 0.672
+          },
+          {
+            "name": "bag",
+            "entity_id": "/m/0n5v01m",
+            "confidence": 0.651
+          },
+          {
+            "name": "drink",
+            "entity_id": "/m/0271t",
+            "confidence": 0.642
+          },
+          {
+            "name": "sneakers",
+            "entity_id": "/m/09kjlm",
+            "confidence": 0.639
+          },
+          {
+            "name": "tire",
+            "entity_id": "/m/0h9mv",
+            "confidence": 0.635
+          },
+          {
+            "name": "bottle",
+            "entity_id": "/m/04dr76w",
+            "confidence": 0.624
+          },
+          {
+            "name": "bracelet",
+            "entity_id": "/m/01llx7",
+            "confidence": 0.608
+          },
+          {
+            "name": "luggage & bags",
+            "entity_id": "/m/0hf58v5",
+            "confidence": 0.602
+          },
+          {
+            "name": "hat",
+            "entity_id": "/m/02dl1y",
+            "confidence": 0.594
+          },
+          {
+            "name": "license plate",
+            "entity_id": "/m/01jfm_",
+            "confidence": 0.589
+          },
+          {
+            "name": "shoe",
+            "entity_id": "/m/06rrc",
+            "confidence": 0.581
+          },
+          {
+            "name": "sunglasses",
+            "entity_id": "/m/017ftj",
+            "confidence": 0.571
+          },
+          {
+            "name": "vacuum",
+            "entity_id": "/m/07zph",
+            "confidence": 0.551
+          },
+          {
+            "name": "helmet",
+            "entity_id": "/m/0zvk5",
+            "confidence": 0.54
+          },
+          {
+            "name": "motorcycle",
+            "entity_id": "/m/04_sv",
+            "confidence": 0.537
+          }
+        ],
+        "text_annotations": [
+          {
+            "text": "-",
+            "confidence": 0.917
+          },
+          {
+            "text": "(車主本人)",
+            "confidence": 0.957
+          },
+          {
+            "text": "THIS MOTORCYCLE VISES FE",
+            "confidence": 0.805
+          },
+          {
+            "text": "洗車泡)",
+            "confidence": 0.718
+          },
+          {
+            "text": "ODUSEY",
+            "confidence": 0.744
+          },
+          {
+            "text": "3個月沒洗車的通",
+            "confidence": 0.888
+          },
+          {
+            "text": "RAPON",
+            "confidence": 0.873
+          },
+          {
+            "text": "aroup-",
+            "confidence": 0.939
+          },
+          {
+            "text": "那如果你想要",
+            "confidence": 1.0
+          },
+          {
+            "text": "新有",
+            "confidence": 0.77
+          },
+          {
+            "text": "的水份",
+            "confidence": 0.934
+          },
+          {
+            "text": "WAKRAPOVIC",
+            "confidence": 0.763
+          },
+          {
+            "text": "Coup-",
+            "confidence": 0.786
+          },
+          {
+            "text": "nervlügel",
+            "confidence": 0.755
+          },
+          {
+            "text": "JADING CAN CAUSE",
+            "confidence": 0.854
+          },
+          {
+            "text": "洗車泡沫均",
+            "confidence": 0.942
+          },
+          {
+            "text": "AKRAPOVI",
+            "confidence": 0.902
+          },
+          {
+            "text": "Landgefär",
+            "confidence": 0.831
+          },
+          {
+            "text": "TAL",
+            "confidence": 0.873
+          },
+          {
+            "text": "4008-",
+            "confidence": 0.973
+          },
+          {
+            "text": "DYNIVOLT",
+            "confidence": 0.867
+          },
+          {
+            "text": "A",
+            "confidence": 0.713
+          },
+          {
+            "text": "OVIC",
+            "confidence": 0.845
+          },
+          {
+            "text": "洗車泡法",
+            "confidence": 0.944
+          },
+          {
+            "text": "洗車泡;",
+            "confidence": 0.758
+          },
+          {
+            "text": "Husqvana",
+            "confidence": 0.921
+          },
+          {
+            "text": "貓",
+            "confidence": 0.958
+          },
+          {
+            "text": "GEPLACEMENT TIRES MOST ALWAYS",
+            "confidence": 0.839
+          },
+          {
+            "text": "我建議",
+            "confidence": 0.997
+          },
+          {
+            "text": "ON, NEVER EXCEEU",
+            "confidence": 0.809
+          },
+          {
+            "text": "所有ュ",
+            "confidence": 0.774
+          },
+          {
+            "text": "XPLOSION, NEVER EXCEED O FST TU",
+            "confidence": 0.802
+          },
+          {
+            "text": "DYN",
+            "confidence": 0.836
+          },
+          {
+            "text": "PLOSION, NEVER EXCEEO LO FST U",
+            "confidence": 0.795
+          },
+          {
+            "text": "Bild",
+            "confidence": 0.984
+          },
+          {
+            "text": "GREATER THAN THOSE",
+            "confidence": 0.957
+          },
+          {
+            "text": "它就按不下去",
+            "confidence": 0.961
+          },
+          {
+            "text": "AKRAPOVA",
+            "confidence": 0.923
+          },
+          {
+            "text": "( 3個月沒洗車的通勤車",
+            "confidence": 0.905
+          },
+          {
+            "text": "DYAVOLT",
+            "confidence": 0.803
+          },
+          {
+            "text": "KESSUE AND FOLL",
+            "confidence": 0.725
+          },
+          {
+            "text": "LOADING GAN GAUSE SUODENA",
+            "confidence": 0.853
+          },
+          {
+            "text": "YAS TO OR GREATER TH",
+            "confidence": 0.854
+          },
+          {
+            "text": "AN THOSE FUTEO AS ORIGINAL I",
+            "confidence": 0.772
+          },
+          {
+            "text": "VAIRAPOVIC",
+            "confidence": 0.866
+          },
+          {
+            "text": "fusqvar",
+            "confidence": 0.727
+          },
+          {
+            "text": "TIEO AS OHONAL EQUIPMENT",
+            "confidence": 0.728
+          },
+          {
+            "text": "BATTERY - POWER",
+            "confidence": 0.917
+          },
+          {
+            "text": "AKRAPOVC",
+            "confidence": 0.873
+          },
+          {
+            "text": "MOTORCYCLE TRES. REPLACEMENT",
+            "confidence": 0.806
+          },
+          {
+            "text": "ADING CAN CAUSE SUODEN FALURI",
+            "confidence": 0.829
+          },
+          {
+            "text": "Dai",
+            "confidence": 0.79
+          },
+          {
+            "text": "Uctron",
+            "confidence": 0.76
+          },
+          {
+            "text": "洗車泡沫",
+            "confidence": 0.985
+          },
+          {
+            "text": "PRESSURE ANO FOLLOW",
+            "confidence": 0.761
+          },
+          {
+            "text": "polo at",
+            "confidence": 0.805
+          },
+          {
+            "text": "GEPLACEMENT TRES MUST ALWAYS",
+            "confidence": 0.825
+          },
+          {
+            "text": "擦乾淨",
+            "confidence": 0.994
+          },
+          {
+            "text": "它就按",
+            "confidence": 0.988
+          },
+          {
+            "text": "鐵質輪框",
+            "confidence": 0.995
+          },
+          {
+            "text": "EO AS ORIGINAL EQUIEMENT",
+            "confidence": 0.82
+          },
+          {
+            "text": "int",
+            "confidence": 0.985
+          },
+          {
+            "text": "1113LI",
+            "confidence": 0.813
+          },
+          {
+            "text": "SMATION",
+            "confidence": 0.939
+          },
+          {
+            "text": "PLOSION, NEVER EXCEEU",
+            "confidence": 0.913
+          },
+          {
+            "text": "TO OR GREATER THAN THOSE NIED A",
+            "confidence": 0.795
+          },
+          {
+            "text": "SVRKRAPOVIC",
+            "confidence": 0.712
+          },
+          {
+            "text": "鋁質輪框",
+            "confidence": 0.966
+          },
+          {
+            "text": "m",
+            "confidence": 0.815
+          },
+          {
+            "text": "CAN CAUSE SODDEN FALUR",
+            "confidence": 0.75
+          },
+          {
+            "text": "RESSURE",
+            "confidence": 0.733
+          },
+          {
+            "text": "NEVER EXCEED LU",
+            "confidence": 0.886
+          },
+          {
+            "text": "111111",
+            "confidence": 0.702
+          },
+          {
+            "text": "Polo",
+            "confidence": 0.909
+          },
+          {
+            "text": "TO OR GREATER THAN THOSE NIEO",
+            "confidence": 0.862
+          },
+          {
+            "text": "usqvarna",
+            "confidence": 0.886
+          },
+          {
+            "text": "輪框可以多霧?",
+            "confidence": 0.767
+          },
+          {
+            "text": "輪框可以多勝",
+            "confidence": 0.896
+          },
+          {
+            "text": "SION, NEVER EAGEED LU",
+            "confidence": 0.737
+          },
+          {
+            "text": "MOLY",
+            "confidence": 0.997
+          },
+          {
+            "text": "三輪框可以多講?",
+            "confidence": 0.734
+          },
+          {
+            "text": "Andselügel",
+            "confidence": 0.834
+          },
+          {
+            "text": "洗車泡式",
+            "confidence": 0.755
+          },
+          {
+            "text": "inducta",
+            "confidence": 0.8
+          },
+          {
+            "text": "EO PRESSONEN FOLLOW",
+            "confidence": 0.793
+          },
+          {
+            "text": "EMENT TIRES MUSU ALWAYS HAVE",
+            "confidence": 0.861
+          },
+          {
+            "text": "LOSION, NEVES",
+            "confidence": 0.873
+          },
+          {
+            "text": "USION, NEVER EXCEEOLO",
+            "confidence": 0.731
+          },
+          {
+            "text": "非常非常多的",
+            "confidence": 0.991
+          },
+          {
+            "text": "輪框可以多 ?",
+            "confidence": 0.971
+          },
+          {
+            "text": "DYNAVOLT",
+            "confidence": 0.984
+          },
+          {
+            "text": "TEO AS ORIGINAL EQUIPMENT",
+            "confidence": 0.895
+          },
+          {
+            "text": "1111111111",
+            "confidence": 0.733
+          },
+          {
+            "text": "-Group",
+            "confidence": 0.773
+          },
+          {
+            "text": "MOTORCYCLE TIRES. HE FLACEMENI",
+            "confidence": 0.722
+          },
+          {
+            "text": "PTTEO AS ORIGINAL EQUIPMENT",
+            "confidence": 0.813
+          },
+          {
+            "text": "4008",
+            "confidence": 0.782
+          },
+          {
+            "text": "3個月沒洗 的通勤車",
+            "confidence": 0.881
+          },
+          {
+            "text": "輪框可以多",
+            "confidence": 0.847
+          },
+          {
+            "text": "5 MOTORCYCLE WRES. EPLACEMENTY",
+            "confidence": 0.733
+          },
+          {
+            "text": "輪框可以多體?",
+            "confidence": 0.869
+          },
+          {
+            "text": "AL TO OR GREATER THA",
+            "confidence": 0.748
+          },
+          {
+            "text": "Rim Cleaner",
+            "confidence": 0.978
+          },
+          {
+            "text": "輪框可以多麟髒",
+            "confidence": 0.903
+          },
+          {
+            "text": "LOSION, NEVER",
+            "confidence": 0.935
+          },
+          {
+            "text": "VRIRAPOVIC",
+            "confidence": 0.745
+          },
+          {
+            "text": "AMAHA",
+            "confidence": 0.966
+          },
+          {
+            "text": "DING GAN CAUSE SUDDEN FAILURE",
+            "confidence": 0.893
+          },
+          {
+            "text": "Undse lugel",
+            "confidence": 0.777
+          },
+          {
+            "text": "效果最好的第一名。",
+            "confidence": 0.95
+          },
+          {
+            "text": "sqvam",
+            "confidence": 0.878
+          },
+          {
+            "text": "MOTORCYCLE TIRES REPLACEMEN",
+            "confidence": 0.8
+          },
+          {
+            "text": "コ",
+            "confidence": 0.75
+          },
+          {
+            "text": "TECHNIK",
+            "confidence": 0.839
+          },
+          {
+            "text": "在評選之中",
+            "confidence": 0.869
+          },
+          {
+            "text": "ron",
+            "confidence": 0.74
+          },
+          {
+            "text": "MOI",
+            "confidence": 0.966
+          },
+          {
+            "text": "一",
+            "confidence": 0.932
+          },
+          {
+            "text": "DVNAVOLT",
+            "confidence": 0.791
+          },
+          {
+            "text": "11111",
+            "confidence": 0.704
+          },
+          {
+            "text": "luctron",
+            "confidence": 0.85
+          },
+          {
+            "text": "polo",
+            "confidence": 0.955
+          },
+          {
+            "text": "PAPOVIC",
+            "confidence": 0.906
+          },
+          {
+            "text": "MO",
+            "confidence": 0.994
+          },
+          {
+            "text": "輪框可以多賺?",
+            "confidence": 0.925
+          },
+          {
+            "text": "輪框可以多端",
+            "confidence": 0.877
+          },
+          {
+            "text": "unt",
+            "confidence": 0.975
+          },
+          {
+            "text": "車多時",
+            "confidence": 0.844
+          },
+          {
+            "text": "GREATER",
+            "confidence": 0.94
+          },
+          {
+            "text": "準備一個刷子",
+            "confidence": 0.973
+          },
+          {
+            "text": "SING CAN CAUSE SUOUEN FAN",
+            "confidence": 0.814
+          },
+          {
+            "text": "KUM",
+            "confidence": 0.948
+          },
+          {
+            "text": "GSION, NEVER EXCEEOLU",
+            "confidence": 0.714
+          },
+          {
+            "text": "DADING GAN GAUSE SU!",
+            "confidence": 0.841
+          },
+          {
+            "text": "RADIAL",
+            "confidence": 0.989
+          },
+          {
+            "text": "AGEMENT TIRES MOST ALWAYS HAVE A",
+            "confidence": 0.903
+          },
+          {
+            "text": "Y",
+            "confidence": 0.718
+          },
+          {
+            "text": "---Group",
+            "confidence": 0.73
+          },
+          {
+            "text": "AKRAPOVW",
+            "confidence": 0.905
+          },
+          {
+            "text": "HOL",
+            "confidence": 0.91
+          },
+          {
+            "text": "Landgeflüge",
+            "confidence": 0.899
+          },
+          {
+            "text": "SHIRAPOVIC",
+            "confidence": 0.777
+          },
+          {
+            "text": "OF THIS MOTORCYCLE 1",
+            "confidence": 0.767
+          },
+          {
+            "text": "ADING CAN CAUSE SUODEN FA!",
+            "confidence": 0.892
+          },
+          {
+            "text": "in",
+            "confidence": 0.983
+          },
+          {
+            "text": "NO CAN CAUSE SUDDEN FA",
+            "confidence": 0.753
+          },
+          {
+            "text": "輪框可以多議?",
+            "confidence": 0.873
+          },
+          {
+            "text": "SVAKRAPOVN",
+            "confidence": 0.85
+          },
+          {
+            "text": "DIABL",
+            "confidence": 0.879
+          },
+          {
+            "text": "ugel",
+            "confidence": 0.974
+          },
+          {
+            "text": "Landgefle",
+            "confidence": 0.823
+          },
+          {
+            "text": "F THIS MOTORCYCLE TE",
+            "confidence": 0.847
+          },
+          {
+            "text": "sqvarna",
+            "confidence": 0.836
+          },
+          {
+            "text": "IS MOTORCYCLE TRE REPLACEMENT",
+            "confidence": 0.708
+          },
+          {
+            "text": "新洗車",
+            "confidence": 0.753
+          },
+          {
+            "text": "靜置527分鐘。",
+            "confidence": 0.808
+          },
+          {
+            "text": "SOE",
+            "confidence": 1.0
+          },
+          {
+            "text": "OTORCYCLE TIRES. REPLACEMENT",
+            "confidence": 0.788
+          },
+          {
+            "text": "WAHA",
+            "confidence": 0.902
+          },
+          {
+            "text": "CAN GAUSE SUDDEN FAILUR",
+            "confidence": 0.845
+          },
+          {
+            "text": "OSION, NEVER EXO",
+            "confidence": 0.916
+          },
+          {
+            "text": "ONAL EQUIPMEN",
+            "confidence": 0.831
+          },
+          {
+            "text": "Canalügel",
+            "confidence": 0.772
+          },
+          {
+            "text": "WAKRAPOVIN",
+            "confidence": 0.774
+          },
+          {
+            "text": "Landgeflo",
+            "confidence": 0.85
+          },
+          {
+            "text": "洗車泡沫均勻福",
+            "confidence": 0.938
+          },
+          {
+            "text": "AKRAPOV",
+            "confidence": 0.949
+          },
+          {
+            "text": "int id",
+            "confidence": 0.848
+          },
+          {
+            "text": "SVAKRAPOVA",
+            "confidence": 0.765
+          },
+          {
+            "text": "VR洗車",
+            "confidence": 0.815
+          },
+          {
+            "text": "Inductro",
+            "confidence": 0.806
+          },
+          {
+            "text": "CAN CAUSE SUODEN FAILUR",
+            "confidence": 0.852
+          },
+          {
+            "text": "TUNATION",
+            "confidence": 0.84
+          },
+          {
+            "text": "OSION, NEVER EXCEEU",
+            "confidence": 0.844
+          },
+          {
+            "text": "那我們今天就來實做看看",
+            "confidence": 0.908
+          },
+          {
+            "text": "總代理宜福工業",
+            "confidence": 0.991
+          },
+          {
+            "text": "PLACEMENT",
+            "confidence": 0.763
+          },
+          {
+            "text": "andgeflügel",
+            "confidence": 0.875
+          },
+          {
+            "text": "SAKRAPOVIC",
+            "confidence": 0.742
+          },
+          {
+            "text": "輪框可以多觀?",
+            "confidence": 0.887
+          },
+          {
+            "text": "lugel",
+            "confidence": 0.76
+          },
+          {
+            "text": "BATTERY",
+            "confidence": 0.831
+          },
+          {
+            "text": "inted",
+            "confidence": 0.934
+          },
+          {
+            "text": "int.id",
+            "confidence": 0.958
+          },
+          {
+            "text": "-Group--",
+            "confidence": 0.948
+          },
+          {
+            "text": "un",
+            "confidence": 0.929
+          },
+          {
+            "text": "Landgefli",
+            "confidence": 0.887
+          },
+          {
+            "text": "其他材質請先局部測試",
+            "confidence": 0.999
+          },
+          {
+            "text": "OF THIS MOTORCYCLE TE",
+            "confidence": 0.928
+          },
+          {
+            "text": "shaas",
+            "confidence": 0.75
+          },
+          {
+            "text": "洗車泡花",
+            "confidence": 0.76
+          },
+          {
+            "text": "洗車泡沫均勻灑",
+            "confidence": 0.978
+          },
+          {
+            "text": "大家就可以看到",
+            "confidence": 0.989
+          },
+          {
+            "text": "3個月没洗車的通勤車",
+            "confidence": 0.817
+          },
+          {
+            "text": "BOS",
+            "confidence": 0.786
+          },
+          {
+            "text": "Husqvar",
+            "confidence": 0.854
+          },
+          {
+            "text": "LOADING CAN CAUSE SUDDEN",
+            "confidence": 0.866
+          },
+          {
+            "text": "SLOSION, NEVER EXCEED GO FST TO SL",
+            "confidence": 0.83
+          },
+          {
+            "text": "BATTER",
+            "confidence": 0.986
+          },
+          {
+            "text": "HIS MOTORCYCLE THE HEPLACEMENT",
+            "confidence": 0.824
+          },
+          {
+            "text": "TION",
+            "confidence": 1.0
+          },
+          {
+            "text": "輪框可以多開)",
+            "confidence": 0.738
+          },
+          {
+            "text": "POVIC",
+            "confidence": 0.895
+          },
+          {
+            "text": "上面站滿了",
+            "confidence": 0.752
+          },
+          {
+            "text": "洗車泡沫长",
+            "confidence": 0.896
+          },
+          {
+            "text": "Landgeflis",
+            "confidence": 0.817
+          },
+          {
+            "text": "13個月股洗車的通動車。",
+            "confidence": 0.828
+          },
+          {
+            "text": "111111 1111",
+            "confidence": 0.801
+          },
+          {
+            "text": "MUST ALWAYS HAVE A",
+            "confidence": 0.902
+          },
+          {
+            "text": "也都一起",
+            "confidence": 0.998
+          },
+          {
+            "text": "TON-",
+            "confidence": 0.711
+          },
+          {
+            "text": "S OF THIS MOTORCYCLE",
+            "confidence": 0.887
+          },
+          {
+            "text": "intid",
+            "confidence": 0.966
+          },
+          {
+            "text": "輪 可以多露?",
+            "confidence": 0.806
+          },
+          {
+            "text": "把它扣回去",
+            "confidence": 0.964
+          },
+          {
+            "text": "CP值以及",
+            "confidence": 0.966
+          },
+          {
+            "text": "intra",
+            "confidence": 0.748
+          },
+          {
+            "text": "R",
+            "confidence": 0.712
+          },
+          {
+            "text": "TORCYCLE TIKES REPLACEMENT /",
+            "confidence": 0.757
+          },
+          {
+            "text": "多時",
+            "confidence": 0.804
+          },
+          {
+            "text": "UTED AS ORIGINAL EQUIPMENT",
+            "confidence": 0.824
+          },
+          {
+            "text": "Landgeflü",
+            "confidence": 0.957
+          },
+          {
+            "text": "TUEO AS ORIGINAL EQUIPMENT",
+            "confidence": 0.834
+          },
+          {
+            "text": "輪框可以多群?",
+            "confidence": 0.853
+          },
+          {
+            "text": "Husqve",
+            "confidence": 0.949
+          },
+          {
+            "text": "-TEN",
+            "confidence": 0.837
+          },
+          {
+            "text": "那我們現在",
+            "confidence": 0.999
+          },
+          {
+            "text": "ctron",
+            "confidence": 0.819
+          },
+          {
+            "text": "TIED AS ORIGINAL EQUIPMENT",
+            "confidence": 0.832
+          },
+          {
+            "text": "21111111111",
+            "confidence": 0.775
+          },
+          {
+            "text": "經過日曬雨淋",
+            "confidence": 0.978
+          },
+          {
+            "text": "ENT TRES MUSU ALWAYS HAVE A",
+            "confidence": 0.748
+          },
+          {
+            "text": "所有重線",
+            "confidence": 0.711
+          },
+          {
+            "text": "|",
+            "confidence": 0.808
+          },
+          {
+            "text": "LIO",
+            "confidence": 0.716
+          },
+          {
+            "text": "APOVC",
+            "confidence": 0.83
+          },
+          {
+            "text": "D",
+            "confidence": 0.752
+          },
+          {
+            "text": "通勤車",
+            "confidence": 0.992
+          },
+          {
+            "text": "ILURE. INSPECT HEU",
+            "confidence": 0.782
+          },
+          {
+            "text": "總代理宜福業",
+            "confidence": 0.993
+          },
+          {
+            "text": "- 3個月沒洗車的通勤車",
+            "confidence": 0.909
+          },
+          {
+            "text": "MOTORCYCLE VIRES. HE PLACEMEX",
+            "confidence": 0.779
+          },
+          {
+            "text": "unit",
+            "confidence": 0.984
+          },
+          {
+            "text": "Group-",
+            "confidence": 0.962
+          },
+          {
+            "text": "SIEGER 2025",
+            "confidence": 0.992
+          },
+          {
+            "text": "DA VOLT",
+            "confidence": 0.777
+          },
+          {
+            "text": "洗車。",
+            "confidence": 0.778
+          },
+          {
+            "text": "KUHN",
+            "confidence": 0.896
+          },
+          {
+            "text": "大家可以看到",
+            "confidence": 0.996
+          },
+          {
+            "text": "輪框可以多 :",
+            "confidence": 0.836
+          },
+          {
+            "text": "Husqva",
+            "confidence": 0.957
+          },
+          {
+            "text": "ADING GAN GAUSE SUODE!",
+            "confidence": 0.747
+          },
+          {
+            "text": "泥沙跟鐵粉",
+            "confidence": 1.0
+          },
+          {
+            "text": "BLO",
+            "confidence": 0.901
+          },
+          {
+            "text": "TEA",
+            "confidence": 0.806
+          },
+          {
+            "text": "sqvama",
+            "confidence": 0.907
+          },
+          {
+            "text": "洗車泡沫均与",
+            "confidence": 0.88
+          },
+          {
+            "text": "NOSE ITED AS ORIGINAL EO",
+            "confidence": 0.877
+          },
+          {
+            "text": "W輪框可以多髒?",
+            "confidence": 0.792
+          },
+          {
+            "text": "它也是榮獲",
+            "confidence": 0.985
+          },
+          {
+            "text": "1111111",
+            "confidence": 0.762
+          },
+          {
+            "text": "DYA VOLT",
+            "confidence": 0.852
+          },
+          {
+            "text": "ERLOADING GAN GAUSE SOEN",
+            "confidence": 0.874
+          },
+          {
+            "text": "NATION",
+            "confidence": 0.879
+          },
+          {
+            "text": "PREIS-LEISTUNGS-",
+            "confidence": 0.994
+          },
+          {
+            "text": "一些泥沙",
+            "confidence": 0.968
+          },
+          {
+            "text": "uctron",
+            "confidence": 0.864
+          },
+          {
+            "text": "ODYSSEY",
+            "confidence": 0.748
+          },
+          {
+            "text": "BELESS",
+            "confidence": 1.0
+          },
+          {
+            "text": "在德國的《Auto Bild》",
+            "confidence": 0.968
+          },
+          {
+            "text": "fusqva",
+            "confidence": 0.819
+          },
+          {
+            "text": "TED AS ORIONAL EQUIPMENT",
+            "confidence": 0.705
+          },
+          {
+            "text": "FRESSE ANO FOLLOW",
+            "confidence": 0.706
+          },
+          {
+            "text": "G CAN CAUSE SUODEN SA",
+            "confidence": 0.777
+          },
+          {
+            "text": "GATTERT POWER",
+            "confidence": 0.798
+          },
+          {
+            "text": "我現在把輪框",
+            "confidence": 0.998
+          },
+          {
+            "text": "OSION, NEVER E",
+            "confidence": 0.809
+          },
+          {
+            "text": "CAN CAUSE SUDOEN FAILUR",
+            "confidence": 0.876
+          },
+          {
+            "text": "FRESSORE ANO FOLLOW OW",
+            "confidence": 0.824
+          },
+          {
+            "text": "输 可以多髒?",
+            "confidence": 0.83
+          },
+          {
+            "text": "BATTERY POWER",
+            "confidence": 0.785
+          },
+          {
+            "text": "因為這裡面",
+            "confidence": 0.999
+          },
+          {
+            "text": "Landgeflinger",
+            "confidence": 0.795
+          },
+          {
+            "text": "VAMAHA",
+            "confidence": 0.982
+          },
+          {
+            "text": "輪框可以多講?",
+            "confidence": 0.771
+          },
+          {
+            "text": "haas",
+            "confidence": 0.981
+          },
+          {
+            "text": "Shaaa",
+            "confidence": 0.867
+          },
+          {
+            "text": "anchlügel",
+            "confidence": 0.893
+          },
+          {
+            "text": "KU",
+            "confidence": 0.822
+          },
+          {
+            "text": "PLACEMENT TRES MUST",
+            "confidence": 0.953
+          },
+          {
+            "text": "DVA VOLT",
+            "confidence": 0.741
+          },
+          {
+            "text": "1111 1111",
+            "confidence": 0.906
+          },
+          {
+            "text": "13個月沒洗車的通動車",
+            "confidence": 0.893
+          },
+          {
+            "text": "DAL",
+            "confidence": 0.739
+          },
+          {
+            "text": ". NEVER EXCEEO",
+            "confidence": 0.706
+          },
+          {
+            "text": "Landgefiae",
+            "confidence": 0.753
+          },
+          {
+            "text": "Shaas",
+            "confidence": 0.803
+          },
+          {
+            "text": "Auto",
+            "confidence": 0.981
+          },
+          {
+            "text": "usqva",
+            "confidence": 0.717
+          },
+          {
+            "text": "ductron",
+            "confidence": 0.883
+          },
+          {
+            "text": "這一罐是得到",
+            "confidence": 0.988
+          },
+          {
+            "text": "雜誌評選",
+            "confidence": 0.994
+          },
+          {
+            "text": "DING GAN GAUSE SOONE FAILURE. INSPEC",
+            "confidence": 0.743
+          },
+          {
+            "text": "CAN CAUSE SUODEN FAILURL",
+            "confidence": 0.907
+          },
+          {
+            "text": "O OR GREATER THAN TH",
+            "confidence": 0.837
+          },
+          {
+            "text": "Landgefilte",
+            "confidence": 0.859
+          },
+          {
+            "text": "OTORCYCLE TIRES. HE PLACEMENT",
+            "confidence": 0.828
+          },
+          {
+            "text": "1111",
+            "confidence": 0.728
+          },
+          {
+            "text": "13個月沒洗車的通勤車",
+            "confidence": 0.898
+          },
+          {
+            "text": "PRESSOKE AND FOLLO",
+            "confidence": 0.712
+          },
+          {
+            "text": "THIS MOTORCYCLE TIRES. HEP",
+            "confidence": 0.799
+          },
+          {
+            "text": "11111111",
+            "confidence": 0.833
+          },
+          {
+            "text": "usqvana",
+            "confidence": 0.75
+          },
+          {
+            "text": "111",
+            "confidence": 0.894
+          },
+          {
+            "text": "輪框可以多錯?",
+            "confidence": 0.803
+          },
+          {
+            "text": "TEO AS OXONAL EQUIPMENT",
+            "confidence": 0.705
+          },
+          {
+            "text": "輪框可以多翻?",
+            "confidence": 0.87
+          },
+          {
+            "text": "ORIGINAL LUONNI",
+            "confidence": 0.801
+          },
+          {
+            "text": "on",
+            "confidence": 0.939
+          },
+          {
+            "text": "KUN",
+            "confidence": 0.725
+          },
+          {
+            "text": "AL",
+            "confidence": 0.994
+          },
+          {
+            "text": "DYNVO",
+            "confidence": 0.855
+          },
+          {
+            "text": "inductro",
+            "confidence": 0.886
+          },
+          {
+            "text": "是一個",
+            "confidence": 1.0
+          },
+          {
+            "text": "U1EO AS ORIGINAL EQUIPMENT",
+            "confidence": 0.76
+          },
+          {
+            "text": "洗古",
+            "confidence": 0.746
+          },
+          {
+            "text": "ESTED AS ORIGINAL EQUIPMENT",
+            "confidence": 0.758
+          },
+          {
+            "text": "AKRAPUO",
+            "confidence": 0.882
+          },
+          {
+            "text": "- Group",
+            "confidence": 0.819
+          },
+          {
+            "text": "TOMATION",
+            "confidence": 0.713
+          },
+          {
+            "text": "DYAIVOLT",
+            "confidence": 0.791
+          },
+          {
+            "text": "LIQUI MOLY",
+            "confidence": 0.994
+          },
+          {
+            "text": "aroup--",
+            "confidence": 0.957
+          },
+          {
+            "text": "讓你的輪框",
+            "confidence": 0.998
+          },
+          {
+            "text": "輪框可以??",
+            "confidence": 0.74
+          },
+          {
+            "text": "SAIRAPOVIC",
+            "confidence": 0.717
+          },
+          {
+            "text": "1111 1111111",
+            "confidence": 0.739
+          },
+          {
+            "text": "非常髒的車",
+            "confidence": 0.878
+          },
+          {
+            "text": "AKRAPOVN",
+            "confidence": 0.923
+          },
+          {
+            "text": "[Heft 04/2025",
+            "confidence": 0.812
+          },
+          {
+            "text": "Il 1111",
+            "confidence": 0.768
+          },
+          {
+            "text": "所有洗",
+            "confidence": 0.863
+          },
+          {
+            "text": "Landgeflie",
+            "confidence": 0.81
+          },
+          {
+            "text": "SLOSION, NEVER EXCEED 40 PSI TO SE",
+            "confidence": 0.77
+          },
+          {
+            "text": "FMEO AS ORIGINAL EQUIPMENT",
+            "confidence": 0.747
+          },
+          {
+            "text": "3個月沒 的通勤車",
+            "confidence": 0.775
+          },
+          {
+            "text": "洗車泡沫均勻涌",
+            "confidence": 0.933
+          },
+          {
+            "text": "111111111111",
+            "confidence": 0.789
+          },
+          {
+            "text": "中性輪圈除鐵粉專用清潔劑",
+            "confidence": 0.94
+          },
+          {
+            "text": "Chaa,",
+            "confidence": 0.739
+          },
+          {
+            "text": "所有",
+            "confidence": 0.921
+          },
+          {
+            "text": "FFE",
+            "confidence": 0.761
+          },
+          {
+            "text": "SVAKRA",
+            "confidence": 0.837
+          },
+          {
+            "text": "SVAKRAPU",
+            "confidence": 0.752
+          },
+          {
+            "text": "特別商借來的一台",
+            "confidence": 0.87
+          },
+          {
+            "text": "洗車泡沫均勻酒",
+            "confidence": 0.931
+          },
+          {
+            "text": "1211111111111",
+            "confidence": 0.789
+          },
+          {
+            "text": "TUBELESS",
+            "confidence": 0.994
+          },
+          {
+            "text": "ODVESEY",
+            "confidence": 0.93
+          },
+          {
+            "text": "Husqvena",
+            "confidence": 0.879
+          },
+          {
+            "text": "這是我們",
+            "confidence": 0.988
+          },
+          {
+            "text": "總代理官工業",
+            "confidence": 0.8
+          },
+          {
+            "text": "建議連裡面這邊",
+            "confidence": 1.0
+          },
+          {
+            "text": "SION, NEVER EXCEED LU",
+            "confidence": 0.912
+          },
+          {
+            "text": "輪框可以多辦?",
+            "confidence": 0.873
+          },
+          {
+            "text": "SVAKRAPOVIC",
+            "confidence": 0.845
+          },
+          {
+            "text": "Landgefla",
+            "confidence": 0.725
+          },
+          {
+            "text": "Felgenreiniger Spezial",
+            "confidence": 0.995
+          },
+          {
+            "text": "論框",
+            "confidence": 0.78
+          },
+          {
+            "text": "在輪框上面可以看到",
+            "confidence": 0.971
+          },
+          {
+            "text": "PLOSION, NEVER EXCEEO LU",
+            "confidence": 0.82
+          },
+          {
+            "text": "CHNIK",
+            "confidence": 0.728
+          },
+          {
+            "text": "FRESSURE",
+            "confidence": 0.754
+          },
+          {
+            "text": "TO OF GREATER THAN",
+            "confidence": 0.784
+          },
+          {
+            "text": "它有去除鐵粉的作用。",
+            "confidence": 0.942
+          },
+          {
+            "text": "Landgefie",
+            "confidence": 0.796
+          },
+          {
+            "text": "polos",
+            "confidence": 0.829
+          },
+          {
+            "text": "INATION",
+            "confidence": 0.792
+          },
+          {
+            "text": "洗車的通勤車",
+            "confidence": 0.913
+          },
+          {
+            "text": "TEAN",
+            "confidence": 0.862
+          },
+          {
+            "text": "FRESSURE ANU",
+            "confidence": 0.91
+          },
+          {
+            "text": "洗車泡",
+            "confidence": 0.983
+          },
+          {
+            "text": "OF THIS MOTORCYCLE",
+            "confidence": 0.912
+          },
+          {
+            "text": "FRESSORE AND FOLLU",
+            "confidence": 0.809
+          },
+          {
+            "text": "3個月沒洗車的通勤車",
+            "confidence": 0.921
+          },
+          {
+            "text": "呈現一個光滑",
+            "confidence": 0.99
+          },
+          {
+            "text": "MENT TRES MOST ALWAYS HAVE A",
+            "confidence": 0.848
+          },
+          {
+            "text": "ADING GAN GAUSE SUDOEN",
+            "confidence": 0.786
+          },
+          {
+            "text": "TIEO AS ORIONAL EQUIPMENT",
+            "confidence": 0.72
+          },
+          {
+            "text": "有一台非常。",
+            "confidence": 0.823
+          },
+          {
+            "text": "DYANVOLT",
+            "confidence": 0.794
+          },
+          {
+            "text": "TO OR GREATER THAN TSEE",
+            "confidence": 0.828
+          },
+          {
+            "text": "鐵粉沾附",
+            "confidence": 1.0
+          },
+          {
+            "text": "輪框可以多辭?",
+            "confidence": 0.814
+          },
+          {
+            "text": "輪框可以多請?",
+            "confidence": 0.892
+          },
+          {
+            "text": "輪論可以多髒?",
+            "confidence": 0.802
+          },
+          {
+            "text": "一輪框可以多講?",
+            "confidence": 0.834
+          },
+          {
+            "text": "landgellügel",
+            "confidence": 0.809
+          },
+          {
+            "text": "輪框可以多器?",
+            "confidence": 0.868
+          },
+          {
+            "text": "2025",
+            "confidence": 0.992
+          },
+          {
+            "text": "沫",
+            "confidence": 0.92
+          },
+          {
+            "text": "洗車泡沫均勻混",
+            "confidence": 0.889
+          },
+          {
+            "text": "跟剛剛的灰框",
+            "confidence": 0.994
+          },
+          {
+            "text": "10 Felgenreiniger im Test",
+            "confidence": 0.994
+          },
+          {
+            "text": "有",
+            "confidence": 0.925
+          },
+          {
+            "text": "FESSORE AND FOLLOW U",
+            "confidence": 0.738
+          },
+          {
+            "text": "一輪框可以多群?",
+            "confidence": 0.824
+          },
+          {
+            "text": "ELESS",
+            "confidence": 0.968
+          },
+          {
+            "text": "AKRAPOI",
+            "confidence": 0.876
+          },
+          {
+            "text": "論框可以多髒?",
+            "confidence": 0.869
+          },
+          {
+            "text": "PartNo.LM23017",
+            "confidence": 0.913
+          },
+          {
+            "text": "anilügel",
+            "confidence": 0.816
+          },
+          {
+            "text": "黑的",
+            "confidence": 1.0
+          },
+          {
+            "text": "CAN CAUSE SUDDEN FAILUR",
+            "confidence": 0.937
+          },
+          {
+            "text": "CAN CAUSE SUDDEN FALUHL",
+            "confidence": 0.889
+          },
+          {
+            "text": "BATTERY-POWER",
+            "confidence": 0.786
+          },
+          {
+            "text": "BATTER-POWER",
+            "confidence": 0.779
+          },
+          {
+            "text": "就開始來噴灌",
+            "confidence": 0.978
+          },
+          {
+            "text": "一次就比較乾淨的話",
+            "confidence": 0.988
+          },
+          {
+            "text": "我們的中性輪框清潔劑",
+            "confidence": 0.962
+          },
+          {
+            "text": "URE INSPECT HEGULAN",
+            "confidence": 0.858
+          },
+          {
+            "text": "lügel",
+            "confidence": 0.913
+          },
+          {
+            "text": "insid",
+            "confidence": 0.713
+          },
+          {
+            "text": "LIQUI",
+            "confidence": 0.988
+          },
+          {
+            "text": "TORCYCLE TIRES REPLACEMENT /",
+            "confidence": 0.845
+          },
+          {
+            "text": "洗車泡沫均勻潤",
+            "confidence": 0.924
+          },
+          {
+            "text": "19 OR GREATER THAN THO",
+            "confidence": 0.822
+          },
+          {
+            "text": "PLOSION, NEVER EXCEL",
+            "confidence": 0.927
+          },
+          {
+            "text": "PLOSION, NEVER EXCEED LOF",
+            "confidence": 0.91
+          },
+          {
+            "text": "GAN CAUSE SUDDEN FAIL",
+            "confidence": 0.768
+          },
+          {
+            "text": "我身旁",
+            "confidence": 0.988
+          },
+          {
+            "text": "isqvar",
+            "confidence": 0.858
+          },
+          {
+            "text": "Heft 04/2025",
+            "confidence": 0.863
+          },
+          {
+            "text": "LO",
+            "confidence": 0.754
+          },
+          {
+            "text": "ADING GAN GAUSE SUDDEN FAILUA",
+            "confidence": 0.783
+          },
+          {
+            "text": "Landgeflor",
+            "confidence": 0.828
+          },
+          {
+            "text": "inlid",
+            "confidence": 0.742
+          },
+          {
+            "text": "DINO GAN CAUSE SUDDEN FAILUR",
+            "confidence": 0.77
+          },
+          {
+            "text": "論可以多",
+            "confidence": 0.93
+          },
+          {
+            "text": "AKRAPOVIL",
+            "confidence": 0.933
+          },
+          {
+            "text": "輪框可以多髒",
+            "confidence": 0.911
+          },
+          {
+            "text": "E AND FOLL",
+            "confidence": 0.932
+          },
+          {
+            "text": "PRESSURE AND FU!",
+            "confidence": 0.742
+          },
+          {
+            "text": "1008-",
+            "confidence": 0.862
+          },
+          {
+            "text": "HOSE WTED AS ORIGINAL EUIL",
+            "confidence": 0.828
+          },
+          {
+            "text": "洗車泡沫均勻潘",
+            "confidence": 0.935
+          },
+          {
+            "text": "NT TIRES MUSU ALWAYS HAVE A",
+            "confidence": 0.87
+          },
+          {
+            "text": "RKRAPOVIC",
+            "confidence": 0.856
+          },
+          {
+            "text": "3個月沒洗車的通動車",
+            "confidence": 0.967
+          },
+          {
+            "text": "ODYSSE",
+            "confidence": 0.819
+          },
+          {
+            "text": "JAKRAPOVA",
+            "confidence": 0.767
+          },
+          {
+            "text": "OF THIS MOTORCYCLE TR",
+            "confidence": 0.798
+          },
+          {
+            "text": "SION, NEVER EXCEEU",
+            "confidence": 0.92
+          },
+          {
+            "text": "VAKRAPOVIC",
+            "confidence": 0.79
+          },
+          {
+            "text": "THIS MOTORCYCLE TRES FEPLAL",
+            "confidence": 0.804
+          },
+          {
+            "text": "LOSION, NEVER EXCEEO LU",
+            "confidence": 0.93
+          },
+          {
+            "text": "很特別的設計之處",
+            "confidence": 0.994
+          },
+          {
+            "text": "JAL TO OR GREATER THA",
+            "confidence": 0.805
+          },
+          {
+            "text": "VTOMATION",
+            "confidence": 0.903
+          },
+          {
+            "text": "AKRAPOC",
+            "confidence": 0.793
+          },
+          {
+            "text": "看有涉",
+            "confidence": 0.724
+          },
+          {
+            "text": "上面沾滿了",
+            "confidence": 0.927
+          },
+          {
+            "text": "LESS",
+            "confidence": 0.929
+          },
+          {
+            "text": "TOWATION",
+            "confidence": 0.72
+          },
+          {
+            "text": "Unde lugel",
+            "confidence": 0.768
+          },
+          {
+            "text": "DYVOLT",
+            "confidence": 0.78
+          },
+          {
+            "text": "jusque",
+            "confidence": 0.723
+          },
+          {
+            "text": "JAKRAPOWV",
+            "confidence": 0.747
+          },
+          {
+            "text": "所有重",
+            "confidence": 0.814
+          },
+          {
+            "text": "LII",
+            "confidence": 0.751
+          },
+          {
+            "text": "DIAL",
+            "confidence": 0.882
+          },
+          {
+            "text": "111111111",
+            "confidence": 0.879
+          },
+          {
+            "text": "Landgento",
+            "confidence": 0.767
+          },
+          {
+            "text": "LOADING GAN GAUSE SUDDEN",
+            "confidence": 0.889
+          },
+          {
+            "text": "Landgeflage",
+            "confidence": 0.819
+          },
+          {
+            "text": "輪框可以多髒?",
+            "confidence": 0.893
+          },
+          {
+            "text": "洗車泡沫均勻",
+            "confidence": 0.946
+          },
+          {
+            "text": "SE AND FOLL",
+            "confidence": 0.856
+          },
+          {
+            "text": "Ahaas",
+            "confidence": 0.71
+          },
+          {
+            "text": "總代理宜工業",
+            "confidence": 0.755
+          },
+          {
+            "text": "ERE",
+            "confidence": 0.729
+          },
+          {
+            "text": "Inductron",
+            "confidence": 0.913
+          },
+          {
+            "text": "Inducto",
+            "confidence": 0.83
+          },
+          {
+            "text": "AKRAPU",
+            "confidence": 0.865
+          },
+          {
+            "text": "THIS MOTORCYCLE T HE PLACEMENT",
+            "confidence": 0.808
+          },
+          {
+            "text": "11111 1111111",
+            "confidence": 0.792
+          },
+          {
+            "text": "ROYCLE TE",
+            "confidence": 0.768
+          },
+          {
+            "text": "沙塵鐵粉的灰框",
+            "confidence": 0.925
+          },
+          {
+            "text": "-Group-",
+            "confidence": 0.836
+          },
+          {
+            "text": "MOTORCYCLE TRES REPLACEMENT",
+            "confidence": 0.811
+          },
+          {
+            "text": "總代理宜 業",
+            "confidence": 0.867
+          },
+          {
+            "text": "stron",
+            "confidence": 0.809
+          },
+          {
+            "text": "SVAKRAPOVIČ",
+            "confidence": 0.907
+          },
+          {
+            "text": "洗車泡沫均气",
+            "confidence": 0.849
+          },
+          {
+            "text": "DAVOLT",
+            "confidence": 0.704
+          },
+          {
+            "text": "LOSION, NEVER EXCEE",
+            "confidence": 0.911
+          },
+          {
+            "text": "ODPRSEY",
+            "confidence": 0.828
+          },
+          {
+            "text": "FRESSORE AND FOLLOW OWA",
+            "confidence": 0.799
+          },
+          {
+            "text": "LOADING GAN GAUSESSEN FAILURE NS",
+            "confidence": 0.804
+          },
+          {
+            "text": "ODIESEY",
+            "confidence": 0.938
+          },
+          {
+            "text": "已經完全不一樣了",
+            "confidence": 0.983
+          },
+          {
+            "text": "TOUATION",
+            "confidence": 0.71
+          },
+          {
+            "text": "BATTES",
+            "confidence": 0.811
+          },
+          {
+            "text": "所有法",
+            "confidence": 0.785
+          },
+          {
+            "text": "A洗車",
+            "confidence": 0.748
+          },
+          {
+            "text": "UMATION",
+            "confidence": 0.769
+          },
+          {
+            "text": "論框可 多髒?",
+            "confidence": 0.781
+          },
+          {
+            "text": "他有一個",
+            "confidence": 0.998
+          },
+          {
+            "text": "LIQU",
+            "confidence": 0.898
+          },
+          {
+            "text": "些雨水噴刷的",
+            "confidence": 0.948
+          },
+          {
+            "text": "都會卡非常多的",
+            "confidence": 1.0
+          },
+          {
+            "text": "FRESSORE AND FOLLOW OW",
+            "confidence": 0.737
+          },
+          {
+            "text": "Landgeflügel",
+            "confidence": 0.887
+          },
+          {
+            "text": "V洗車",
+            "confidence": 0.724
+          },
+          {
+            "text": "idgeflügel",
+            "confidence": 0.723
+          },
+          {
+            "text": "THIS MOTORCYCLE TIRES. SE FLAL",
+            "confidence": 0.792
+          },
+          {
+            "text": "intach",
+            "confidence": 0.835
+          },
+          {
+            "text": "DING CAN CAUSE SUODEN FAILURE",
+            "confidence": 0.852
+          },
+          {
+            "text": "DA",
+            "confidence": 0.773
+          },
+          {
+            "text": "輪",
+            "confidence": 0.977
+          },
+          {
+            "text": "Y能洗車",
+            "confidence": 0.79
+          },
+          {
+            "text": "TO OR GREATER THAN Y",
+            "confidence": 0.961
+          },
+          {
+            "text": "ル益彩券",
+            "confidence": 0.704
+          },
+          {
+            "text": "THIS MOTORCYCLE TIT",
+            "confidence": 0.813
+          },
+          {
+            "text": "YAMAHA",
+            "confidence": 0.975
+          },
+          {
+            "text": "ABL",
+            "confidence": 0.857
+          },
+          {
+            "text": "RLOADING CAN CAUSE SUD",
+            "confidence": 0.949
+          },
+          {
+            "text": "洗車泊",
+            "confidence": 0.925
+          },
+          {
+            "text": "tro",
+            "confidence": 0.819
+          },
+          {
+            "text": "TIEO AO IRINAL EQUIPMENT",
+            "confidence": 0.798
+          },
+          {
+            "text": "輪框可以多?",
+            "confidence": 0.949
+          },
+          {
+            "text": "輪框可以多露",
+            "confidence": 0.862
+          },
+          {
+            "text": "烤漆面",
+            "confidence": 0.996
+          },
+          {
+            "text": "-TEA",
+            "confidence": 0.814
+          },
+          {
+            "text": "intia",
+            "confidence": 0.732
+          },
+          {
+            "text": "大家有看到",
+            "confidence": 0.987
+          },
+          {
+            "text": "MOTORCYCLE TIKES. HE PLACEMENT",
+            "confidence": 0.782
+          },
+          {
+            "text": "LIQ",
+            "confidence": 0.993
+          },
+          {
+            "text": "LIQL",
+            "confidence": 0.982
+          },
+          {
+            "text": "DIAB",
+            "confidence": 0.808
+          },
+          {
+            "text": "ED FRESSOS NO FOLLOW OWNL",
+            "confidence": 0.797
+          },
+          {
+            "text": "ITOVATION",
+            "confidence": 0.718
+          },
+          {
+            "text": "OHATION",
+            "confidence": 0.882
+          },
+          {
+            "text": "--Group",
+            "confidence": 0.836
+          },
+          {
+            "text": "intic",
+            "confidence": 0.726
+          },
+          {
+            "text": "inductia",
+            "confidence": 0.796
+          },
+          {
+            "text": "| 3個月沒洗車的通勤車",
+            "confidence": 0.901
+          },
+          {
+            "text": "intim",
+            "confidence": 0.776
+          },
+          {
+            "text": "-TER",
+            "confidence": 0.726
+          },
+          {
+            "text": "inte",
+            "confidence": 0.815
+          },
+          {
+            "text": "ROSS",
+            "confidence": 0.929
+          },
+          {
+            "text": "TORTION",
+            "confidence": 0.84
+          },
+          {
+            "text": "浦@O",
+            "confidence": 0.738
+          },
+          {
+            "text": "輪框可以多?。",
+            "confidence": 0.848
+          },
+          {
+            "text": "EXPLOSION, NEY EXCEEOLOFS) TO",
+            "confidence": 0.746
+          },
+          {
+            "text": "Group",
+            "confidence": 0.863
+          },
+          {
+            "text": "intad",
+            "confidence": 0.754
+          },
+          {
+            "text": "und",
+            "confidence": 0.701
+          },
+          {
+            "text": "ODISSEY",
+            "confidence": 0.871
+          },
+          {
+            "text": "CAN CAUSE SUDDEN FAILURL",
+            "confidence": 0.811
+          },
+          {
+            "text": "ABLO",
+            "confidence": 0.939
+          },
+          {
+            "text": "一口一口一",
+            "confidence": 0.774
+          },
+          {
+            "text": "BATTERT POWER",
+            "confidence": 0.867
+          },
+          {
+            "text": "輪框可以多購?",
+            "confidence": 0.821
+          },
+          {
+            "text": "WHVWD",
+            "confidence": 0.864
+          },
+          {
+            "text": "DYNVOLT",
+            "confidence": 0.85
+          },
+          {
+            "text": "SUED AS ORIONAL EQUIPMENT",
+            "confidence": 0.725
+          },
+          {
+            "text": "SSOと",
+            "confidence": 0.826
+          },
+          {
+            "text": "PLOSION, NEVER EXCEEO LO F5",
+            "confidence": 0.864
+          },
+          {
+            "text": "HESSUE ANU",
+            "confidence": 0.876
+          },
+          {
+            "text": "ORIGINAL EQUIPE.",
+            "confidence": 0.794
+          },
+          {
+            "text": "SE ANO FOLL",
+            "confidence": 0.963
+          },
+          {
+            "text": "CAUSE SUODEN FAILURE",
+            "confidence": 0.833
+          },
+          {
+            "text": "MATION",
+            "confidence": 0.901
+          },
+          {
+            "text": "Landgefloger",
+            "confidence": 0.802
+          },
+          {
+            "text": "0",
+            "confidence": 0.724
+          },
+          {
+            "text": "FMENT TIRES MOST ALWAYS HAVE A",
+            "confidence": 0.836
+          },
+          {
+            "text": "FAILURE. INSPECT FELULA",
+            "confidence": 0.752
+          },
+          {
+            "text": "洗。",
+            "confidence": 0.903
+          },
+          {
+            "text": "AKRAPOVIC",
+            "confidence": 0.92
+          },
+          {
+            "text": "還有一些雨水噴刷的",
+            "confidence": 0.995
+          },
+          {
+            "text": "WAKRAPOVNC",
+            "confidence": 0.865
+          },
+          {
+            "text": "13個月沒洗車的通勤車。",
+            "confidence": 0.779
+          },
+          {
+            "text": "靜置5~7分鐘",
+            "confidence": 0.932
+          },
+          {
+            "text": "#07 THIS MOTORCYCLE",
+            "confidence": 0.863
+          },
+          {
+            "text": "今天要介紹的是",
+            "confidence": 0.985
+          },
+          {
+            "text": "PartNo. LM23017",
+            "confidence": 0.941
+          },
+          {
+            "text": "洗車泡。",
+            "confidence": 0.797
+          },
+          {
+            "text": "DVAHVOLT",
+            "confidence": 0.723
+          },
+          {
+            "text": "所有清",
+            "confidence": 0.717
+          },
+          {
+            "text": "BIRAPOVIC",
+            "confidence": 0.773
+          },
+          {
+            "text": "輪框可以多錯髒",
+            "confidence": 0.788
+          },
+          {
+            "text": "intead",
+            "confidence": 0.796
+          },
+          {
+            "text": "總代理宜福工",
+            "confidence": 0.822
+          },
+          {
+            "text": "AKRAPOVIU",
+            "confidence": 0.839
+          },
+          {
+            "text": "TO ON GREATER THAN LOS",
+            "confidence": 0.751
+          },
+          {
+            "text": "Landgeflog",
+            "confidence": 0.742
+          },
+          {
+            "text": "3個月沒",
+            "confidence": 0.989
+          },
+          {
+            "text": "neflügel",
+            "confidence": 0.832
+          },
+          {
+            "text": "TN",
+            "confidence": 0.752
+          },
+          {
+            "text": "那這個適用於",
+            "confidence": 0.998
+          },
+          {
+            "text": "論框可以多群?",
+            "confidence": 0.848
+          },
+          {
+            "text": "洗車泡才",
+            "confidence": 0.752
+          },
+          {
+            "text": "WAKRAPOVNG",
+            "confidence": 0.753
+          },
+          {
+            "text": "LOADINO GAN GAUSE SUDDEN FAILURE",
+            "confidence": 0.859
+          },
+          {
+            "text": "洗車",
+            "confidence": 0.779
+          },
+          {
+            "text": "GSION, NEVER EXC",
+            "confidence": 0.87
+          },
+          {
+            "text": "TONATION",
+            "confidence": 0.827
+          },
+          {
+            "text": "OF THIS MOTORCYCLE VIE",
+            "confidence": 0.77
+          },
+          {
+            "text": "ENT TIRES",
+            "confidence": 0.77
+          },
+          {
+            "text": "TO OR GREATER THAN",
+            "confidence": 0.98
+          },
+          {
+            "text": "ESS",
+            "confidence": 0.997
+          },
+          {
+            "text": "SVAKRAPOVIN",
+            "confidence": 0.826
+          },
+          {
+            "text": "TO ON GREATER THAN",
+            "confidence": 0.802
+          },
+          {
+            "text": "10 OR GREATER THAN TH",
+            "confidence": 0.829
+          },
+          {
+            "text": "usqvama",
+            "confidence": 0.887
+          },
+          {
+            "text": "intact",
+            "confidence": 0.8
+          },
+          {
+            "text": "RESSURE AND FOLL",
+            "confidence": 0.839
+          },
+          {
+            "text": "1111111111111",
+            "confidence": 0.85
+          },
+          {
+            "text": "anche lugel",
+            "confidence": 0.727
+          },
+          {
+            "text": "編但可以多髒?",
+            "confidence": 0.797
+          }
+        ],
+        "analyzed_at": "2026-02-13T10:20:59.377959",
+        "analysis_source": "gcp_video_intelligence"
+      },
+      "analysis_provider": "gcp_video_intelligence"
+    },
+    "analysis_status": "success",
+    "analysis_mode": "video_ytdlp",
+    "download_method": "yt-dlp",
+    "ad_id": "1521324662432181",
+    "ad_name": "輪框清潔劑 - 82秒影片"
+  },
+  {
+    "is_video": true,
+    "video_url": null,
+    "video_id": "851688220723778",
+    "video_thumbnail_url": "https://vsgivfsapsutoseginaa.supabase.co/storage/v1/object/public/ad-images/2026-01-09/851688220723778_video_thumbnail.jpg",
+    "video_analysis": {
+      "gemini_analysis": {
+        "model": "gemini-2.5-pro",
+        "mode": "thumbnail_analysis",
+        "raw_response": "好的，這是一份針對您提供的電商廣告影片封面截圖的詳細行銷洞察分析，以結構化 JSON 格式呈現。\n\n```json\n{\n  \"ad_analysis\": {\n    \"ad_name\": \"香氛磚 - 15秒影片\",\n    \"product\": \"LIQUI MOLY Car Air Freshen",
+        "analyzed_at": "2026-02-13T10:23:47.741869"
+      },
+      "analysis_provider": "gemini_thumbnail"
+    },
+    "analysis_status": "success",
+    "analysis_mode": "thumbnail",
+    "ad_id": "851688220723778",
+    "ad_name": "香氛磚 - 15秒影片"
+  }
+]

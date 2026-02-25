@@ -10,12 +10,13 @@ url = os.environ.get("SUPABASE_URL")
 key = os.environ.get("SUPABASE_SERVICE_KEY")
 supabase = create_client(url, key)
 
-# 週資料對照 (report_date 是檔案日期，week_start/week_end 是該週範圍)
+# 週資料對照 (report_date = week_start，對應 reports 表的週次定義)
+# 2026-02-12 修正：週次應與 reports 表的 start_date 對齊
 weeks = [
-    {"file": "report_data_2026-01-15.json", "report_date": "2026-01-15", "week_start": "2026-01-08", "week_end": "2026-01-14"},
-    {"file": "report_data_2026-01-22.json", "report_date": "2026-01-22", "week_start": "2026-01-15", "week_end": "2026-01-21"},
-    {"file": "report_data_2026-01-29.json", "report_date": "2026-01-29", "week_start": "2026-01-22", "week_end": "2026-01-28"},
-    {"file": "report_data_2026-02-05.json", "report_date": "2026-02-05", "week_start": "2026-01-29", "week_end": "2026-02-04"},
+    {"file": "report_data_2026-01-15.json", "report_date": "2026-01-15", "week_start": "2026-01-15", "week_end": "2026-01-21"},
+    {"file": "report_data_2026-01-22.json", "report_date": "2026-01-22", "week_start": "2026-01-22", "week_end": "2026-01-28"},
+    {"file": "report_data_2026-01-29.json", "report_date": "2026-01-29", "week_start": "2026-01-29", "week_end": "2026-02-04"},
+    {"file": "report_data_2026-02-05.json", "report_date": "2026-02-05", "week_start": "2026-02-05", "week_end": "2026-02-11"},
 ]
 
 # Step 1: 清空現有資料

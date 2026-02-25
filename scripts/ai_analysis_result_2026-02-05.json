@@ -1,31 +1,45 @@
 {
-  "week_start": "2026-02-05",
-  "analysis_generated_at": "2026-02-12T23:45:00.000Z",
+  "task_type": "weekly_ai_analysis",
+  "report_date": "2026-02-11",
+  "analyzed_at": "2026-02-13T00:45:00",
   "total_ads_analyzed": 2,
-  "ads_analysis": [
+  "ads": [
     {
       "ad_id": "120238815887480142",
       "adset_id": "120238815887410142",
       "ad_name": "任選3入",
       "vision_analysis": {
-        "composition": "雙層垂直結構：上半部豪華車內裝背景配合標題，下半部六款產品扇形陣列。7 張輪播圖完整展示產品線，視覺流動順暢",
+        "composition": "上下分層構圖，車內實景背景搭配產品陳列",
         "composition_score": 8,
-        "color_scheme": ["深黑色", "琥珀色氛圍光", "多色產品包裝"],
-        "visual_elements": ["豪華車內裝", "六款香氛磚陣列", "品牌 logo", "各香味獨立展示輪播"],
-        "emotion_appeal": "高端生活、多元選擇、品味升級",
-        "product_presentation": "首圖完整陣列 + 後續輪播單品展示，兼顧整體感與細節",
-        "success_factors": ["豪華背景強化定位", "輪播設計增加停留時間", "色彩對比鮮明", "7 張圖完整呈現選擇"],
-        "failure_factors": ["輪播圖間故事性可再加強"],
-        "improvement_suggestions": ["可在每張輪播加入香味情境描述", "考慮加入使用者實拍", "加入安裝教學輪播"]
+        "color_scheme": ["深灰色", "黑色", "黃色", "多彩產品色"],
+        "visual_elements": ["車內方向盤情境", "六款香氛磚產品", "LIQUI MOLY 品牌標誌"],
+        "emotion_appeal": "自由選擇感、質感生活",
+        "product_presentation": "7張輪播圖展示產品系列",
+        "success_factors": ["本週 CVR 提升至 0.77%", "購買數從 1 增至 4"],
+        "failure_factors": ["ROAS 0.9 仍低於 1，成本效益待優化"],
+        "improvement_suggestions": ["優化定價或提高客單價", "加入交叉銷售組合"]
       },
       "copy_analysis": {
-        "tone": "親切、生活化",
-        "emotional_triggers": ["痛點喚起（異味困擾）", "感官舒適（細膩不刺鼻）", "品質保證（德國原廠）", "放鬆情緒"],
-        "cta_score": 8,
-        "overall_score": 8,
-        "strengths": ["開頭痛點引發共鳴", "emoji 豐富易讀", "六種香調完整呈現", "「放鬆啟程」情感連結", "雙 CTA 連結"],
-        "weaknesses": ["「轉彎依然從容」略抽象", "無價格/優惠資訊"],
-        "suggested_improvements": ["加入 3 入組合價凸顯優惠", "加入限時優惠", "可加入好評截圖"]
+        "tone": "親切輕鬆",
+        "emotional_triggers": ["痛點喚起", "解決方案", "感官體驗"],
+        "cta_score": 7,
+        "overall_score": 7,
+        "strengths": ["持續穩定的點擊與轉換", "文案已證明有效"],
+        "weaknesses": ["ROAS 未達 1，可能毛利不足以支撐廣告成本"],
+        "suggested_improvements": ["考慮提高產品售價或降低廣告成本", "推廣更高單價組合"]
+      },
+      "targeting_analysis": {
+        "score": 7,
+        "age_assessment": "受眾設定維持穩定",
+        "interests_assessment": "21個興趣標籤，可再精簡",
+        "suggestions": ["分析購買者輪廓，縮窄至高轉換族群"]
+      },
+      "metrics_summary": {
+        "ctr": 1.41,
+        "cvr": 0.77,
+        "roas": 0.9,
+        "spend": 3365,
+        "purchases": 4
       }
     },
     {
@@ -33,32 +47,56 @@
       "adset_id": "120238855887150142",
       "ad_name": "260130_LM芳香磚廣告(J)_龍蝦優化標題版",
       "vision_analysis": {
-        "composition": "產品居中疊加於豪華車內裝背景，淺景深聚焦。6 張輪播分別展示不同香味，每張維持一致的視覺風格",
+        "composition": "中央聚焦式佈局，高質感車內背景",
         "composition_score": 8,
-        "color_scheme": ["深色調車內裝", "各色產品包裝", "LIQUI MOLY 紅藍"],
-        "visual_elements": ["零售吊卡包裝", "香味徽章標識", "出風口夾具細節", "豪華車內裝背景"],
-        "emotion_appeal": "精緻質感、德國工藝、新車體驗",
-        "product_presentation": "每張輪播展示單一香味，零售包裝形式讓消費者知道購買外觀",
-        "success_factors": ["輪播完整呈現產品線", "一致的視覺風格", "香味徽章清楚辨識", "高質感背景"],
-        "failure_factors": ["部分香味吸引力差異大"],
-        "improvement_suggestions": ["可針對人氣香味強化展示", "加入香味描述說明", "考慮加入使用情境實拍"]
+        "color_scheme": ["深色車內裝", "淺綠色", "品牌紅藍白"],
+        "visual_elements": ["單品香氛磚特寫", "高級車內裝背景"],
+        "emotion_appeal": "高端質感",
+        "product_presentation": "6張輪播展示不同口味",
+        "success_factors": ["CVR 大幅提升至 1.46%", "購買數達 5 筆，本週最高"],
+        "failure_factors": ["ROAS 0.83 仍低於 1"],
+        "improvement_suggestions": ["此素材轉換效果已證實，應增加預算"]
       },
       "copy_analysis": {
-        "tone": "知性、專業、輕鬆",
-        "emotional_triggers": ["社交形象（質感 80%）", "德國品牌信任", "便利性", "持久效果"],
+        "tone": "輕鬆幽默",
+        "emotional_triggers": ["社會認同", "品質保證", "便利性"],
         "cta_score": 8,
         "overall_score": 9,
-        "strengths": ["開頭金句吸睛", "四大優點條列清晰", "六種香調視覺化 emoji", "口語化「印象加爆」增加親和", "3入組合引導方案"],
-        "weaknesses": ["文案較長", "無限時優惠"],
-        "suggested_improvements": ["可精簡核心訊息", "加入限時優惠", "加入銷量/評價數字"]
+        "strengths": ["本週 CVR 1.46%，為全週期最高", "金句開頭持續有效", "5 筆購買為單週最高"],
+        "weaknesses": ["ROAS 需提升至 1 以上才能長期投放"],
+        "suggested_improvements": ["維持此文案風格", "測試更高價位組合"]
+      },
+      "targeting_analysis": {
+        "score": 8,
+        "age_assessment": "搭配排除已購買用戶，減少浪費",
+        "interests_assessment": "1% Lookalike 品質高",
+        "suggestions": ["此廣告組為最佳表現，建議增加預算"]
+      },
+      "metrics_summary": {
+        "ctr": 1.2,
+        "cvr": 1.46,
+        "roas": 0.83,
+        "spend": 3292,
+        "purchases": 5
       }
     }
   ],
   "weekly_summary": {
-    "vision_avg_score": 8.0,
-    "copy_avg_score": 8.5,
-    "common_strengths": ["輪播廣告完整度高", "豪華車內裝背景統一品牌定位", "文案結構清晰", "emoji 使用得當"],
-    "common_issues": ["缺乏限時優惠急迫感", "可加入社會認同元素（評價、銷量）"],
-    "top_performer": "260130_LM芳香磚廣告(J)_龍蝦優化標題版 (CVR 1.46%, 5 筆購買)"
+    "total_spend": 6657,
+    "total_purchases": 9,
+    "avg_ctr": 1.31,
+    "avg_roas": 0.87,
+    "best_performing_ad": "260130_LM芳香磚廣告(J)_龍蝦優化標題版（CVR 1.46%，5筆購買）",
+    "key_insights": [
+      "龍蝦優化版持續領先，CVR 從 0.59% 提升至 1.46%",
+      "9 筆購買為四週最高，轉換效率明顯改善",
+      "整體 ROAS 仍低於 1，需關注獲利能力"
+    ],
+    "recommendations": [
+      "【優先】提高龍蝦優化版預算，趁勢追擊",
+      "【重要】檢視產品毛利，確認 ROAS 0.87 是否可接受",
+      "【建議】測試更高單價的香氛磚組合（如 6 入組）",
+      "【觀察】持續監控 CVR 趨勢，確認非偶發現象"
+    ]
   }
 }
