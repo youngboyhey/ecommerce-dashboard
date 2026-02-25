@@ -29,6 +29,7 @@ function useIsMobile(breakpoint = 640) {
 import { useHistoricalData } from '@/lib/useHistoricalData';
 import { mockHistoricalData, mockWeeklyData } from '@/lib/mockData';
 import { formatCurrency, formatDate } from '@/lib/utils';
+import { supabase } from '@/lib/supabase';
 import { TrendingUp } from 'lucide-react';
 import { tooltipWrapperStyle, tooltipContentStyle } from './ChartTooltipWrapper';
 
@@ -92,9 +93,30 @@ const ChartTooltip = memo(function ChartTooltip({
 });
 
 const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: RevenueTrendChartProps) {
-  const [timeRange, setTimeRange] = useState<TimeRange>('daily');
+  const [timeRange, setTimeRange] = useState<TimeRange>('weekly');
   const { dailyData, weeklyData, isLoading, error } = useHistoricalData();
+  const [hasDailyData, setHasDailyData] = useState(false);
   const isMobile = useIsMobile();
+
+  // 檢查是否有真正的日粒度數據
+  useEffect(() => {
+    async function checkDailyData() {
+      if (!supabase) { setHasDailyData(false); return; }
+      try {
+        const { data, error: err } = await supabase
+          .from('reports')
+          .select('id')
+          .eq('mode', 'daily')
+          .limit(1);
+        const hasDaily = !err && !!data && data.length > 0;
+        setHasDailyData(hasDaily);
+        if (hasDaily) setTimeRange('daily');
+      } catch {
+        setHasDailyData(false);
+      }
+    }
+    checkDailyData();
+  }, []);
 
   const data = useMemo(() => {
     if (timeRange === 'daily') {
@@ -158,25 +180,33 @@ const RevenueTrendChart = memo(function RevenueTrendChart({ dateRange }: Revenue
           </div>
         </div>
         
-        {/* 時間範圍切換 */}
-        <div className="flex gap-0.5 sm:gap-1 p-0.5 sm:p-1 rounded-lg sm:rounded-xl bg-gray-100 border border-gray-200" role="tablist">
-          {(['daily', 'weekly'] as TimeRange[]).map((range) => (
-            <button
-              key={range}
-              onClick={() => handleTimeRangeChange(range)}
-              role="tab"
-              aria-selected={timeRange === range}
-              aria-controls="revenue-chart"
-              className={`px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
-                timeRange === range
-                  ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg shadow-indigo-500/30'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-              }`}
-            >
-              {range === 'daily' ? '日' : '週'}
-            </button>
-          ))}
-        </div>
+        {/* 時間範圍切換：無日粒度數據時只顯示「週」標籤 */}
+        {hasDailyData ? (
+          <div className="flex gap-0.5 sm:gap-1 p-0.5 sm:p-1 rounded-lg sm:rounded-xl bg-gray-100 border border-gray-200" role="tablist">
+            {(['daily', 'weekly'] as TimeRange[]).map((range) => (
+              <button
+                key={range}
+                onClick={() => handleTimeRangeChange(range)}
+                role="tab"
+                aria-selected={timeRange === range}
+                aria-controls="revenue-chart"
+                className={`px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
+                  timeRange === range
+                    ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg shadow-indigo-500/30'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+              >
+                {range === 'daily' ? '日' : '週'}
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="flex gap-0.5 sm:gap-1 p-0.5 sm:p-1 rounded-lg sm:rounded-xl bg-gray-100 border border-gray-200">
+            <span className="px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg shadow-indigo-500/30">
+              週
+            </span>
+          </div>
+        )}
       </div>
 
       <div id="revenue-chart" role="tabpanel" aria-label="營收趨勢圖表" className="min-h-[250px] sm:min-h-[420px]">

@@ -289,33 +289,37 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
           </div>
         </div>
         
-        {/* 🔧 恢復日/週切換按鈕 */}
-        <div className="flex gap-1 bg-gray-100 rounded-lg p-1">
-          <button
-            onClick={() => setTimeRange('daily')}
-            disabled={!hasDailyData}
-            className={`px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all
-              ${timeRange === 'daily'
-                ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30'
-                : hasDailyData
-                  ? 'text-gray-600 hover:text-gray-900'
-                  : 'text-gray-400 cursor-not-allowed'
-              }`}
-            title={hasDailyData ? '顯示每日數據' : '無每日數據'}
-          >
-            日
-          </button>
-          <button
-            onClick={() => setTimeRange('weekly')}
-            className={`px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all
-              ${timeRange === 'weekly'
-                ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30'
-                : 'text-gray-600 hover:text-gray-900'
-              }`}
-          >
-            週
-          </button>
-        </div>
+        {/* 🔧 日/週切換按鈕：無日粒度數據時只顯示「週」標籤 */}
+        {hasDailyData ? (
+          <div className="flex gap-1 bg-gray-100 rounded-lg p-1">
+            <button
+              onClick={() => setTimeRange('daily')}
+              className={`px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all
+                ${timeRange === 'daily'
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30'
+                  : 'text-gray-600 hover:text-gray-900'
+                }`}
+            >
+              日
+            </button>
+            <button
+              onClick={() => setTimeRange('weekly')}
+              className={`px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all
+                ${timeRange === 'weekly'
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30'
+                  : 'text-gray-600 hover:text-gray-900'
+                }`}
+            >
+              週
+            </button>
+          </div>
+        ) : (
+          <div className="flex gap-1 bg-gray-100 rounded-lg p-1">
+            <span className="px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30">
+              週
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="min-h-[250px] sm:min-h-[320px]">

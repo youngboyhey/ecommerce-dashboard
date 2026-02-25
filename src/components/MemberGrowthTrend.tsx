@@ -208,10 +208,11 @@ interface MemberGrowthTrendProps {
 }
 
 const MemberGrowthTrend = memo(function MemberGrowthTrend({ dateRange }: MemberGrowthTrendProps) {
-  const [timeRange, setTimeRange] = useState<TimeRange>('daily');
+  const [timeRange, setTimeRange] = useState<TimeRange>('weekly');
   const [dailyData, setDailyData] = useState<MemberDataPoint[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isLive, setIsLive] = useState(false);
+  const [hasDailyData, setHasDailyData] = useState(false);
   const isMobile = useIsMobile();
 
   // 從 Supabase 獲取會員數據
@@ -226,7 +227,17 @@ const MemberGrowthTrend = memo(function MemberGrowthTrend({ dateRange }: MemberG
       try {
         setIsLoading(true);
         
-        // 查詢 weekly 數據（因為沒有 daily 數據）
+        // 先檢查是否有真正的日粒度數據
+        const { data: dailyCheck } = await supabase
+          .from('reports')
+          .select('id')
+          .eq('mode', 'daily')
+          .limit(1);
+        const hasDaily = !!dailyCheck && dailyCheck.length > 0;
+        setHasDailyData(hasDaily);
+        if (hasDaily) setTimeRange('daily');
+
+        // 查詢 weekly 數據
         const { data: reports, error } = await supabase
           .from('reports')
           .select('start_date, end_date, cyber_new_members')
@@ -325,24 +336,32 @@ const MemberGrowthTrend = memo(function MemberGrowthTrend({ dateRange }: MemberG
           </div>
         </div>
         
-        {/* 時間範圍切換 */}
-        <div className="flex gap-0.5 sm:gap-1 p-0.5 sm:p-1 rounded-lg sm:rounded-xl bg-gray-100 border border-gray-200" role="tablist">
-          {(['daily', 'weekly'] as TimeRange[]).map((range) => (
-            <button
-              key={range}
-              onClick={() => handleTimeRangeChange(range)}
-              role="tab"
-              aria-selected={timeRange === range}
-              className={`px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
-                timeRange === range
-                  ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/30'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-              }`}
-            >
-              {range === 'daily' ? '日' : '週'}
-            </button>
-          ))}
-        </div>
+        {/* 時間範圍切換：無日粒度數據時只顯示「週」標籤 */}
+        {hasDailyData ? (
+          <div className="flex gap-0.5 sm:gap-1 p-0.5 sm:p-1 rounded-lg sm:rounded-xl bg-gray-100 border border-gray-200" role="tablist">
+            {(['daily', 'weekly'] as TimeRange[]).map((range) => (
+              <button
+                key={range}
+                onClick={() => handleTimeRangeChange(range)}
+                role="tab"
+                aria-selected={timeRange === range}
+                className={`px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
+                  timeRange === range
+                    ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/30'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+              >
+                {range === 'daily' ? '日' : '週'}
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="flex gap-0.5 sm:gap-1 p-0.5 sm:p-1 rounded-lg sm:rounded-xl bg-gray-100 border border-gray-200">
+            <span className="px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/30">
+              週
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="min-h-[250px] sm:min-h-[320px]">
