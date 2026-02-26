@@ -372,6 +372,12 @@ const GroupedAdCard = memo(function GroupedAdCard({
               value={`${groupedAd.metrics.cvr.toFixed(2)}%`}
               color="text-orange-500"
             />
+            <MetricBadge 
+              icon={ShoppingCart} 
+              label="購買" 
+              value={`${groupedAd.metrics.purchases}`}
+              color="text-green-500"
+            />
           </div>
         </div>
         
