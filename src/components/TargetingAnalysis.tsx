@@ -26,7 +26,7 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
 }) {
   const t = adset.targeting;
   const scoreConfig = getScoreConfig(t.score);
-  const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+  const letter = String.fromCharCode(65 + index); // 'A'=65, 'B'=66, ..., 動態支援任意數量
   const colors = [
     { bg: 'from-blue-500 to-indigo-500', shadow: 'shadow-blue-500/30' },
     { bg: 'from-emerald-500 to-teal-500', shadow: 'shadow-emerald-500/30' },
@@ -40,11 +40,11 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
   return (
     <div className="bg-white rounded-xl border border-gray-100 overflow-hidden h-full flex flex-col shadow-sm hover:shadow-md transition-shadow">
       {/* Header */}
-      <div className={`bg-gradient-to-r ${color.bg} p-4 ${color.shadow} overflow-hidden relative`}>
+      <div className={`bg-gradient-to-r ${color.bg} p-3 sm:p-4 ${color.shadow} overflow-hidden relative`}>
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3 flex-1 min-w-0">
             <span className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-              {letters[index]}
+              {letter}
             </span>
             <div className="min-w-0 flex-1">
               <h3 className="text-white font-semibold truncate" title={adset.adset_name}>
@@ -68,7 +68,7 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
       </div>
       
       {/* Metrics Row */}
-      <div className="p-3 bg-gray-50 border-b border-gray-100 flex justify-around">
+      <div className="p-3 bg-gray-50 border-b border-gray-100 grid grid-cols-2 gap-2 sm:flex sm:justify-around">
         {adset.spend !== undefined && (
           <div className="text-center">
             <div className="flex items-center justify-center gap-1 text-gray-500">
@@ -119,7 +119,7 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
       </div>
       
       {/* Content */}
-      <div className="p-4 space-y-4 flex-1">
+      <div className="p-3 sm:p-4 space-y-4 flex-1">
         {/* 優點 */}
         {t.strengths.length > 0 && (
           <div className="space-y-2">
@@ -127,10 +127,10 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
               <CheckCircle className="w-4 h-4 text-emerald-500" />
               <span className="text-sm font-semibold text-emerald-700">優點</span>
             </div>
-            <ul className="space-y-1 pl-5">
+            <ul className="space-y-1 pl-3 sm:pl-5">
               {t.strengths.map((s, i) => (
                 <li key={i} className="text-sm text-gray-600 flex items-start gap-1.5">
-                  <span className="text-emerald-500 mt-0.5">•</span>
+                  <span className="text-emerald-500 mt-0.5 flex-shrink-0">•</span>
                   <span>{s}</span>
                 </li>
               ))}
@@ -145,10 +145,10 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
               <AlertCircle className="w-4 h-4 text-amber-500" />
               <span className="text-sm font-semibold text-amber-700">待改善</span>
             </div>
-            <ul className="space-y-1 pl-5">
+            <ul className="space-y-1 pl-3 sm:pl-5">
               {t.weaknesses.map((w, i) => (
                 <li key={i} className="text-sm text-gray-600 flex items-start gap-1.5">
-                  <span className="text-amber-500 mt-0.5">•</span>
+                  <span className="text-amber-500 mt-0.5 flex-shrink-0">•</span>
                   <span>{w}</span>
                 </li>
               ))}
@@ -163,10 +163,10 @@ const AdsetTargetingCard = memo(function AdsetTargetingCard({
               <Lightbulb className="w-4 h-4 text-blue-500" />
               <span className="text-sm font-semibold text-blue-700">優化建議</span>
             </div>
-            <ul className="space-y-1 pl-5">
+            <ul className="space-y-1 pl-3 sm:pl-5">
               {t.suggestions.map((s, i) => (
                 <li key={i} className="text-sm text-gray-600 flex items-start gap-1.5">
-                  <span className="text-blue-500 mt-0.5">•</span>
+                  <span className="text-blue-500 mt-0.5 flex-shrink-0">•</span>
                   <span>{s}</span>
                 </li>
               ))}
