@@ -123,28 +123,28 @@ const GaugeCard = memo(function GaugeCard({ campaign }: { campaign: AdData }) {
   ];
 
   return (
-    <div className="bg-white rounded-xl p-3 sm:p-4 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+    <div className="bg-white rounded-xl p-4 sm:p-5 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
       {/* Campaign Name */}
-      <p className="text-xs font-medium text-gray-600 truncate mb-2" title={campaign.name}>
+      <p className="text-sm font-semibold text-gray-700 truncate mb-3" title={campaign.name}>
         {campaign.name}
       </p>
       
-      {/* Gauge Chart - 半圓 */}
-      <div className="h-12 sm:h-14">
+      {/* Gauge Chart - 半圓（放大） */}
+      <div className="h-20 sm:h-24">
         <ResponsiveContainer width="100%" height="100%">
           <RadialBarChart
             cx="50%"
             cy="90%"
-            innerRadius="60%"
-            outerRadius="90%"
+            innerRadius="55%"
+            outerRadius="85%"
             startAngle={180}
             endAngle={0}
             data={gaugeData}
-            barSize={8}
+            barSize={10}
           >
             <RadialBar
               dataKey="value"
-              cornerRadius={5}
+              cornerRadius={6}
               background={{ fill: '#F3F4F6' }}
               isAnimationActive={false}
             />
@@ -152,35 +152,35 @@ const GaugeCard = memo(function GaugeCard({ campaign }: { campaign: AdData }) {
         </ResponsiveContainer>
       </div>
       
-      {/* ROAS Value - 獨立區塊 */}
-      <div className="text-center mt-1">
-        <span className={`text-lg sm:text-xl font-bold font-mono ${getRoasTextColor(campaign.roas)}`}>
+      {/* ROAS Value - 放大 */}
+      <div className="text-center mt-2 mb-4">
+        <span className={`text-2xl sm:text-3xl font-bold font-mono ${getRoasTextColor(campaign.roas)}`}>
           {campaign.roas.toFixed(2)}
         </span>
-        <span className="text-xs text-gray-400 ml-1">ROAS</span>
+        <span className="text-sm text-gray-400 ml-1">ROAS</span>
       </div>
       
       {/* 漏斗指標: CTR → CPC → CVR → 購買數 → CPA */}
-      <div className="grid grid-cols-3 gap-x-2 gap-y-1 mt-2 pt-2 border-t border-gray-100 text-xs">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-3 pt-3 mt-3 border-t border-gray-100 text-xs">
         <div>
-          <span className="text-gray-400">CTR</span>
-          <p className="font-mono font-medium text-gray-700">{campaign.ctr.toFixed(2)}%</p>
+          <p className="text-gray-400 mb-0.5">CTR</p>
+          <p className="text-sm font-semibold text-gray-800">{campaign.ctr.toFixed(2)}%</p>
         </div>
         <div>
-          <span className="text-gray-400">CPC</span>
-          <p className="font-mono font-medium text-gray-700">{formatCurrency(campaign.cpc)}</p>
+          <p className="text-gray-400 mb-0.5">CPC</p>
+          <p className="text-sm font-semibold text-gray-800">{formatCurrency(campaign.cpc)}</p>
         </div>
         <div>
-          <span className="text-gray-400">CVR</span>
-          <p className="font-mono font-medium text-gray-700">{campaign.cvr.toFixed(2)}%</p>
+          <p className="text-gray-400 mb-0.5">CVR</p>
+          <p className="text-sm font-semibold text-gray-800">{campaign.cvr.toFixed(2)}%</p>
         </div>
         <div>
-          <span className="text-gray-400">購買數</span>
-          <p className="font-mono font-medium text-gray-700">{campaign.purchases}</p>
+          <p className="text-gray-400 mb-0.5">購買數</p>
+          <p className="text-sm font-semibold text-gray-800">{campaign.purchases}</p>
         </div>
         <div>
-          <span className="text-gray-400">CPA</span>
-          <p className="font-mono font-medium text-gray-700">{formatCurrency(campaign.cpa)}</p>
+          <p className="text-gray-400 mb-0.5">CPA</p>
+          <p className="text-sm font-semibold text-gray-800">{formatCurrency(campaign.cpa)}</p>
         </div>
       </div>
     </div>
@@ -365,7 +365,7 @@ const MetaAdsChart = memo(function MetaAdsChart({ ads: propAds }: MetaAdsChartPr
         <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-3">
           廣告 ROAS 儀表板
         </h3>
-        <div className="grid grid-cols-2 gap-2 sm:gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           {ads.map((ad, index) => (
             <GaugeCard key={ad.ad_id || index} campaign={ad} />
           ))}
