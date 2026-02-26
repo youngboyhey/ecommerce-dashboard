@@ -3,7 +3,6 @@
 import { memo, useMemo } from 'react';
 import { Target, TrendingUp, TrendingDown, Lightbulb, Sparkles, AlertCircle, CheckCircle, Users, DollarSign, ShoppingCart, MousePointer } from 'lucide-react';
 import { useTargetingData, type AdsetWithTargeting } from '@/lib/useTargetingData';
-import { useAdMetrics, type AdMetrics } from '@/contexts/AdMetricsContext';
 
 interface TargetingAnalysisProps {
   isLoading?: boolean;
@@ -277,62 +276,10 @@ const TargetingAnalysis = memo(function TargetingAnalysis({
   weekStart 
 }: TargetingAnalysisProps) {
   const { adsets, isLoading: dataLoading, error } = useTargetingData(weekStart);
-  const { getAllMetrics, isLoading: metricsLoading } = useAdMetrics();
+  // 直接使用 DB 的 adset 數值，不再用模糊名稱匹配覆蓋（會導致重複卡片顯示相同數值）
+  const enrichedAdsets = adsets;
   
-  // 從統一 AdMetrics Context 獲取所有廣告成效
-  const allMetrics = useMemo(() => getAllMetrics(), [getAllMetrics]);
-  
-  // 將 adsets 與統一的 metrics 合併
-  // 嘗試根據名稱匹配（因為 adset 和 ad 可能有相似的名稱）
-  const enrichedAdsets = useMemo<AdsetWithTargeting[]>(() => {
-    if (allMetrics.length === 0) return adsets;
-    
-    return adsets.map(adset => {
-      // 嘗試找到對應的 ad metrics
-      // 優先通過 campaign_name 匹配，然後通過名稱相似度
-      let matchedMetrics: AdMetrics | undefined;
-      
-      // 1. 嘗試通過 campaign_name 精確匹配
-      if (adset.campaign_name) {
-        matchedMetrics = allMetrics.find(m => 
-          m.campaignName === adset.campaign_name
-        );
-      }
-      
-      // 2. 如果沒有匹配，嘗試通過名稱模糊匹配
-      if (!matchedMetrics) {
-        const adsetNameLower = adset.adset_name.toLowerCase();
-        matchedMetrics = allMetrics.find(m => {
-          const adNameLower = m.adName.toLowerCase();
-          // 檢查是否有部分匹配
-          return adNameLower.includes(adsetNameLower) || 
-                 adsetNameLower.includes(adNameLower) ||
-                 // 或者檢查關鍵詞匹配
-                 adsetNameLower.split(/\s+/).some(word => 
-                   word.length > 3 && adNameLower.includes(word)
-                 );
-        });
-      }
-      
-      // 如果找到匹配的 metrics，使用統一數據
-      if (matchedMetrics) {
-        return {
-          ...adset,
-          spend: matchedMetrics.spend,
-          impressions: matchedMetrics.impressions,
-          clicks: matchedMetrics.clicks,
-          purchases: matchedMetrics.purchases,
-          roas: matchedMetrics.roas,
-          ctr: matchedMetrics.ctr,
-          cvr: matchedMetrics.cvr,
-        };
-      }
-      
-      return adset;
-    });
-  }, [adsets, allMetrics]);
-  
-  const isLoading = propIsLoading || dataLoading || metricsLoading;
+  const isLoading = propIsLoading || dataLoading;
 
   if (isLoading) {
     return (
