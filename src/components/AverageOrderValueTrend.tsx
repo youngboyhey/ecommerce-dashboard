@@ -228,15 +228,9 @@ const AverageOrderValueTrend = memo(function AverageOrderValueTrend({ dateRange 
         displayKey: d.label
       }));
     } else {
-      // weekly 數據：根據 dateRange 過濾
-      let filtered = weeklyData;
-      if (dateRange) {
-        // 過濾出與 dateRange 重疊的週
-        filtered = weeklyData.filter(d => 
-          d.startDate <= dateRange.end && d.endDate >= dateRange.start
-        );
-      }
-      return filtered.map(d => ({
+      // weekly 數據：永遠顯示所有週（不依 dateRange 過濾）
+      // 讓圖表呈現完整趨勢，dateRange 過濾只適用於 daily 模式
+      return weeklyData.map(d => ({
         ...d,
         displayKey: d.week
       }));
