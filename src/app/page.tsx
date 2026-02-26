@@ -98,7 +98,9 @@ export default function Dashboard() {
       const cpa = purchases > 0 ? spend / purchases : 0;
       const cpc = clicks > 0 ? spend / clicks : 0;
       const cvr = clicks > 0 ? (purchases / clicks) * 100 : 0;
-      const conv_value = m.conv_value ?? m.revenue ?? 0;
+      // conv_value: 優先用 DB 欄位，若均為 0 則用 roas * spend 推算（修復舊資料 revenue=0 的問題）
+      const _rawConvValue = m.conv_value ?? m.revenue ?? 0;
+      const conv_value = _rawConvValue > 0 ? _rawConvValue : (roas > 0 && spend > 0 ? Math.round(roas * spend) : 0);
       // 移除輪播索引後綴 [n/m]
       const rawName = c.creative_name || c.ad_id || origId;
       const cleanName = rawName.replace(/\s*\[\d+\/\d+\]$/, '').trim();
