@@ -25,7 +25,7 @@ export interface AdCopy {
     conversions?: number;
     spend?: number;
   };
-  performance_tier: 'high' | 'low' | null;
+  performance_tier: 'high' | 'medium' | 'low' | null;
   performance_rank: number | null;
   analysis: {
     sentiment?: string;
@@ -107,19 +107,29 @@ const CopyAnalysis = memo(function CopyAnalysis({
     });
   }, [copies, getAdMetrics]);
 
-  // 分類高效與低效文案
+  // 分類高效與低效文案（medium 歸入較近的一側：rank 較小歸 high，較大歸 low）
   const { highPerformers, lowPerformers } = useMemo(() => {
     const high = enrichedCopies
       .filter(c => c.performance_tier === 'high')
-      .sort((a, b) => (a.performance_rank ?? 999) - (b.performance_rank ?? 999))
-      .slice(0, 3);
+      .sort((a, b) => (a.performance_rank ?? 999) - (b.performance_rank ?? 999));
     
     const low = enrichedCopies
       .filter(c => c.performance_tier === 'low')
-      .sort((a, b) => (b.performance_rank ?? 0) - (a.performance_rank ?? 0))
-      .slice(0, 3);
+      .sort((a, b) => (a.performance_rank ?? 999) - (b.performance_rank ?? 999));
+
+    // medium tier 依 rank 排序後，前半歸 high、後半歸 low
+    const medium = enrichedCopies
+      .filter(c => c.performance_tier === 'medium' || (c.performance_tier !== 'high' && c.performance_tier !== 'low'))
+      .sort((a, b) => (a.performance_rank ?? 999) - (b.performance_rank ?? 999));
     
-    return { highPerformers: high, lowPerformers: low };
+    const midPoint = Math.ceil(medium.length / 2);
+    const mediumHigh = medium.slice(0, midPoint);
+    const mediumLow = medium.slice(midPoint);
+
+    const allHigh = [...high, ...mediumHigh].sort((a, b) => (a.performance_rank ?? 999) - (b.performance_rank ?? 999));
+    const allLow = [...low, ...mediumLow].sort((a, b) => (a.performance_rank ?? 999) - (b.performance_rank ?? 999));
+    
+    return { highPerformers: allHigh, lowPerformers: allLow };
   }, [enrichedCopies]);
 
   // 彙整所有高效文案的分析洞察
