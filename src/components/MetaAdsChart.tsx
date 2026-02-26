@@ -27,6 +27,9 @@ interface AdData {
   roas: number;
   purchases: number;
   cpa: number;
+  cpc: number;
+  cvr: number;
+  clicks: number;
 }
 
 interface MetaAdsChartProps {
@@ -54,6 +57,9 @@ interface TooltipPayload {
   purchases: number;
   cpa: number;
   ctr: number;
+  cpc: number;
+  cvr: number;
+  clicks: number;
 }
 
 const CustomTooltip = ({ active, payload }: { 
@@ -82,12 +88,24 @@ const CustomTooltip = ({ active, payload }: {
           <span className="font-mono font-medium text-gray-900">{data.purchases}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-gray-500">CPA</span>
-          <span className="font-mono font-medium text-gray-900">{formatCurrency(data.cpa)}</span>
-        </div>
-        <div className="flex justify-between">
           <span className="text-gray-500">CTR</span>
           <span className="font-mono font-medium text-gray-900">{data.ctr.toFixed(2)}%</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-gray-500">CPC</span>
+          <span className="font-mono font-medium text-gray-900">{formatCurrency(data.cpc)}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-gray-500">CVR</span>
+          <span className="font-mono font-medium text-gray-900">{data.cvr.toFixed(2)}%</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-gray-500">購買數</span>
+          <span className="font-mono font-medium text-gray-900">{data.purchases}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-gray-500">CPA</span>
+          <span className="font-mono font-medium text-gray-900">{formatCurrency(data.cpa)}</span>
         </div>
       </div>
     </div>
@@ -142,15 +160,27 @@ const GaugeCard = memo(function GaugeCard({ campaign }: { campaign: AdData }) {
         <span className="text-xs text-gray-400 ml-1">ROAS</span>
       </div>
       
-      {/* CPA & CTR */}
-      <div className="flex justify-between mt-2 pt-2 border-t border-gray-100 text-xs">
+      {/* 漏斗指標: CTR → CPC → CVR → 購買數 → CPA */}
+      <div className="grid grid-cols-3 gap-x-2 gap-y-1 mt-2 pt-2 border-t border-gray-100 text-xs">
+        <div>
+          <span className="text-gray-400">CTR</span>
+          <p className="font-mono font-medium text-gray-700">{campaign.ctr.toFixed(2)}%</p>
+        </div>
+        <div>
+          <span className="text-gray-400">CPC</span>
+          <p className="font-mono font-medium text-gray-700">{formatCurrency(campaign.cpc)}</p>
+        </div>
+        <div>
+          <span className="text-gray-400">CVR</span>
+          <p className="font-mono font-medium text-gray-700">{campaign.cvr.toFixed(2)}%</p>
+        </div>
+        <div>
+          <span className="text-gray-400">購買數</span>
+          <p className="font-mono font-medium text-gray-700">{campaign.purchases}</p>
+        </div>
         <div>
           <span className="text-gray-400">CPA</span>
           <p className="font-mono font-medium text-gray-700">{formatCurrency(campaign.cpa)}</p>
-        </div>
-        <div className="text-right">
-          <span className="text-gray-400">CTR</span>
-          <p className="font-mono font-medium text-gray-700">{campaign.ctr.toFixed(2)}%</p>
         </div>
       </div>
     </div>
@@ -169,6 +199,9 @@ const MetaAdsChart = memo(function MetaAdsChart({ ads: propAds }: MetaAdsChartPr
         roas: c.roas,
         purchases: c.purchases,
         cpa: c.cpa,
+        cpc: c.spend / (c.purchases > 0 ? c.purchases : 1),
+        cvr: 0,
+        clicks: 0,
       }));
   
   // 從 ads 計算 total
@@ -192,6 +225,9 @@ const MetaAdsChart = memo(function MetaAdsChart({ ads: propAds }: MetaAdsChartPr
       purchases: c.purchases,
       cpa: c.cpa,
       ctr: c.ctr,
+      cpc: c.cpc,
+      cvr: c.cvr,
+      clicks: c.clicks,
       z: c.purchases * 100, // 氣泡大小用 purchases
     }));
   }, [ads]);

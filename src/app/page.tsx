@@ -92,17 +92,26 @@ export default function Dashboard() {
       const m = c.metrics || {};
       const spend = m.spend || 0;
       const roas = m.roas || 0;
-      const purchases = m.purchases ?? m.conversions ?? 0;
+      const purchases = m.conversions ?? m.purchases ?? 0;
+      const clicks = m.clicks || 0;
       const ctr = m.ctr || 0;
       const cpa = purchases > 0 ? spend / purchases : 0;
+      const cpc = clicks > 0 ? spend / clicks : 0;
+      const cvr = clicks > 0 ? (purchases / clicks) * 100 : 0;
+      // 移除輪播索引後綴 [n/m]
+      const rawName = c.creative_name || c.ad_id || origId;
+      const cleanName = rawName.replace(/\s*\[\d+\/\d+\]$/, '').trim();
       return {
-        name: c.creative_name || c.ad_id || origId,
+        name: cleanName,
         ad_id: origId,
         spend,
         ctr,
         roas,
         purchases,
         cpa,
+        cpc,
+        cvr,
+        clicks,
       };
     });
   }, [creatives]);
