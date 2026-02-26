@@ -54,6 +54,11 @@ export interface AdCreative {
   failure_factors: string[] | null;
   improvement_suggestions: string[] | null;
   tags: string[] | null;
+  // 影片廣告相關欄位
+  is_video?: boolean | null;
+  video_id?: string | null;
+  video_thumbnail_url?: string | null;
+  video_analysis?: Record<string, unknown> | null;
 }
 
 // Grouped Ad interface
@@ -71,6 +76,8 @@ interface GroupedAd {
     purchases: number;
   };
   performanceTier: 'high' | 'medium' | 'low';
+  isVideo: boolean;
+  videoUrl: string | null;
   images: {
     url: string;
     index: number;
@@ -212,7 +219,22 @@ const groupCreativesByAd = (creatives: AdCreative[]): GroupedAd[] => {
         visionAnalysis: firstItem.vision_analysis,
       });
     }
+
+    // 影片廣告 fallback：使用 video_thumbnail_url
+    if (images.length === 0 && firstItem.video_thumbnail_url) {
+      images.push({
+        url: firstItem.video_thumbnail_url,
+        index: 0,
+        visionAnalysis: firstItem.vision_analysis,
+      });
+    }
     
+    // 影片廣告處理：從 video_id 組成 Facebook 影片 URL
+    const isVideo = !!(firstItem.is_video);
+    const videoUrl = firstItem.video_id 
+      ? `https://www.facebook.com/watch/?v=${firstItem.video_id}`
+      : null;
+
     return {
       originalAdId,
       adName: getCleanAdName(firstItem.creative_name),
@@ -227,6 +249,8 @@ const groupCreativesByAd = (creatives: AdCreative[]): GroupedAd[] => {
         purchases: conversions,  // Use conversions (with purchases fallback)
       },
       performanceTier: firstItem.performance_tier || 'medium',
+      isVideo,
+      videoUrl,
       images,
       combinedAnalysis,
     };
@@ -324,12 +348,18 @@ const GroupedAdCard = memo(function GroupedAdCard({
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 text-base line-clamp-1">
-                  🎯 {groupedAd.adName}
+                  {groupedAd.isVideo ? '📹' : '🎯'} {groupedAd.adName}
                 </h3>
                 <p className="text-xs text-gray-500">{groupedAd.campaignName}</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
+              {/* 影片廣告 badge */}
+              {groupedAd.isVideo && (
+                <span className="px-2 py-0.5 rounded-full text-xs font-semibold flex-shrink-0 bg-blue-100 text-blue-700">
+                  📹 影片
+                </span>
+              )}
               <span className={cn(
                 "px-2 py-0.5 rounded-full text-xs font-semibold flex-shrink-0",
                 tierConfig.bg, tierConfig.text
@@ -388,13 +418,30 @@ const GroupedAdCard = memo(function GroupedAdCard({
               {groupedAd.images.map((img, imgIdx) => (
                 <div 
                   key={imgIdx}
-                  className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden bg-gray-100 border border-gray-200 hover:border-indigo-300 transition-colors relative"
+                  className={cn(
+                    "flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden bg-gray-100 border border-gray-200 hover:border-indigo-300 transition-colors relative",
+                    groupedAd.isVideo && "cursor-pointer"
+                  )}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (groupedAd.videoUrl) {
+                      window.open(groupedAd.videoUrl, '_blank', 'noopener,noreferrer');
+                    }
+                  }}
                 >
                   <img
                     src={img.url}
                     alt={`輪播圖 ${imgIdx + 1}`}
                     className="w-full h-full object-cover"
                   />
+                  {/* 影片播放 overlay（只在第一張縮圖顯示） */}
+                  {imgIdx === 0 && groupedAd.isVideo && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors">
+                      <div className="w-8 h-8 bg-black/60 rounded-full flex items-center justify-center">
+                        <span className="text-white text-sm ml-0.5">▶</span>
+                      </div>
+                    </div>
+                  )}
                   <div className="absolute bottom-0.5 right-0.5 bg-black/60 text-white text-[8px] px-1 rounded">
                     {imgIdx + 1}/{groupedAd.images.length}
                   </div>
@@ -440,7 +487,25 @@ const GroupedAdCard = memo(function GroupedAdCard({
                     alt={`${groupedAd.adName} - 輪播圖 ${currentImageIndex + 1}`}
                     className="w-full h-full object-cover"
                   />
-                  
+
+                  {/* 影片廣告 overlay */}
+                  {groupedAd.isVideo && groupedAd.videoUrl && (
+                    <div
+                      className="absolute inset-0 flex flex-col items-center justify-center bg-black/30 cursor-pointer hover:bg-black/40 transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(groupedAd.videoUrl!, '_blank', 'noopener,noreferrer');
+                      }}
+                    >
+                      <div className="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center shadow-xl mb-2">
+                        <span className="text-2xl ml-1">▶</span>
+                      </div>
+                      <span className="text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-full">
+                        📹 點擊觀看影片
+                      </span>
+                    </div>
+                  )}
+
                   {/* Navigation Arrows */}
                   {groupedAd.images.length > 1 && (
                     <>
