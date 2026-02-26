@@ -26,7 +26,10 @@ export interface AdCreative {
     purchases?: number;
     conversions?: number;
     conv_value?: number;
+    revenue?: number;   // 廣告帶來的營收（同 conv_value，資料庫實際欄位名稱）
     cvr?: number;
+    cpa?: number;
+    cpc?: number;
   };
   performance_tier: 'high' | 'medium' | 'low' | null;
   performance_rank: number | null;

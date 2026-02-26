@@ -98,6 +98,7 @@ export default function Dashboard() {
       const cpa = purchases > 0 ? spend / purchases : 0;
       const cpc = clicks > 0 ? spend / clicks : 0;
       const cvr = clicks > 0 ? (purchases / clicks) * 100 : 0;
+      const conv_value = m.conv_value ?? m.revenue ?? 0;
       // 移除輪播索引後綴 [n/m]
       const rawName = c.creative_name || c.ad_id || origId;
       const cleanName = rawName.replace(/\s*\[\d+\/\d+\]$/, '').trim();
@@ -112,6 +113,7 @@ export default function Dashboard() {
         cpc,
         cvr,
         clicks,
+        conv_value,
       };
     });
   }, [creatives]);

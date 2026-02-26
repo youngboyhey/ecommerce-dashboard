@@ -30,6 +30,7 @@ interface AdData {
   cpc: number;
   cvr: number;
   clicks: number;
+  conv_value: number;  // 廣告帶來的營收
 }
 
 interface MetaAdsChartProps {
@@ -60,6 +61,7 @@ interface TooltipPayload {
   cpc: number;
   cvr: number;
   clicks: number;
+  conv_value: number;
 }
 
 const CustomTooltip = ({ active, payload }: { 
@@ -104,6 +106,10 @@ const CustomTooltip = ({ active, payload }: {
           <span className="font-mono font-medium text-gray-900">{data.purchases}</span>
         </div>
         <div className="flex justify-between">
+          <span className="text-gray-500">購買價值</span>
+          <span className="font-mono font-medium text-gray-900">NT${data.conv_value.toLocaleString()}</span>
+        </div>
+        <div className="flex justify-between">
           <span className="text-gray-500">CPA</span>
           <span className="font-mono font-medium text-gray-900">{formatCurrency(data.cpa)}</span>
         </div>
@@ -123,14 +129,14 @@ const GaugeCard = memo(function GaugeCard({ campaign }: { campaign: AdData }) {
   ];
 
   return (
-    <div className="bg-white rounded-xl p-4 sm:p-5 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+    <div className="bg-white rounded-xl p-3 sm:p-5 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
       {/* Campaign Name */}
-      <p className="text-sm font-semibold text-gray-700 truncate mb-3" title={campaign.name}>
+      <p className="text-xs sm:text-sm font-semibold text-gray-700 truncate mb-2" title={campaign.name}>
         {campaign.name}
       </p>
       
-      {/* Gauge Chart - 半圓（放大） */}
-      <div className="h-20 sm:h-24">
+      {/* Gauge Chart - 半圓 */}
+      <div className="h-16 sm:h-24">
         <ResponsiveContainer width="100%" height="100%">
           <RadialBarChart
             cx="50%"
@@ -152,34 +158,38 @@ const GaugeCard = memo(function GaugeCard({ campaign }: { campaign: AdData }) {
         </ResponsiveContainer>
       </div>
       
-      {/* ROAS Value - 放大 */}
-      <div className="text-center mt-2 mb-4">
-        <span className={`text-2xl sm:text-3xl font-bold font-mono ${getRoasTextColor(campaign.roas)}`}>
+      {/* ROAS Value */}
+      <div className="text-center mt-1 mb-3">
+        <span className={`text-xl sm:text-3xl font-bold font-mono ${getRoasTextColor(campaign.roas)}`}>
           {campaign.roas.toFixed(2)}
         </span>
         <span className="text-sm text-gray-400 ml-1">ROAS</span>
       </div>
       
-      {/* 漏斗指標: CTR → CPC → CVR → 購買數 → CPA */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-3 pt-3 mt-3 border-t border-gray-100 text-xs">
+      {/* 漏斗指標: CTR → CPC → CVR → 購買數 → 購買價值 → CPA */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-3 gap-y-2 pt-2 mt-2 border-t border-gray-100 text-xs">
         <div>
-          <p className="text-gray-400 mb-0.5">CTR</p>
+          <p className="text-gray-400 mb-0.5 text-xs">CTR</p>
           <p className="text-sm font-semibold text-gray-800">{campaign.ctr.toFixed(2)}%</p>
         </div>
         <div>
-          <p className="text-gray-400 mb-0.5">CPC</p>
+          <p className="text-gray-400 mb-0.5 text-xs">CPC</p>
           <p className="text-sm font-semibold text-gray-800">{formatCurrency(campaign.cpc)}</p>
         </div>
         <div>
-          <p className="text-gray-400 mb-0.5">CVR</p>
+          <p className="text-gray-400 mb-0.5 text-xs">CVR</p>
           <p className="text-sm font-semibold text-gray-800">{campaign.cvr.toFixed(2)}%</p>
         </div>
         <div>
-          <p className="text-gray-400 mb-0.5">購買數</p>
+          <p className="text-gray-400 mb-0.5 text-xs">購買數</p>
           <p className="text-sm font-semibold text-gray-800">{campaign.purchases}</p>
         </div>
         <div>
-          <p className="text-gray-400 mb-0.5">CPA</p>
+          <p className="text-gray-400 mb-0.5 text-xs">購買價值</p>
+          <p className="text-sm font-semibold text-gray-800">NT${campaign.conv_value.toLocaleString()}</p>
+        </div>
+        <div>
+          <p className="text-gray-400 mb-0.5 text-xs">CPA</p>
           <p className="text-sm font-semibold text-gray-800">{formatCurrency(campaign.cpa)}</p>
         </div>
       </div>
@@ -202,6 +212,7 @@ const MetaAdsChart = memo(function MetaAdsChart({ ads: propAds }: MetaAdsChartPr
         cpc: c.spend / (c.purchases > 0 ? c.purchases : 1),
         cvr: 0,
         clicks: 0,
+        conv_value: c.spend * c.roas,  // mock 用 spend*roas 估算
       }));
   
   // 從 ads 計算 total
@@ -228,6 +239,7 @@ const MetaAdsChart = memo(function MetaAdsChart({ ads: propAds }: MetaAdsChartPr
       cpc: c.cpc,
       cvr: c.cvr,
       clicks: c.clicks,
+      conv_value: c.conv_value,
       z: c.purchases * 100, // 氣泡大小用 purchases
     }));
   }, [ads]);
