@@ -19,40 +19,18 @@ import { formatCurrency } from '@/lib/utils';
 import { Target } from 'lucide-react';
 import { tooltipWrapperStyle, tooltipContentStyle } from './ChartTooltipWrapper';
 
-interface CampaignData {
+interface AdData {
   name: string;
-  campaign_id?: string;
+  ad_id?: string;
   spend: number;
   ctr: number;
-  clicks: number;
   roas: number;
   purchases: number;
-  atc: number;
-  ic: number;
-  vc: number;
-  conv_value: number;
   cpa: number;
-  cp_atc: number;
-}
-
-interface TotalData {
-  name: string;
-  spend: number;
-  ctr: number;
-  clicks: number;
-  roas: number;
-  purchases: number;
-  atc: number;
-  ic: number;
-  vc: number;
-  conv_value: number;
-  cpa: number;
-  cp_atc: number;
 }
 
 interface MetaAdsChartProps {
-  campaigns?: CampaignData[];
-  total?: TotalData;
+  ads?: AdData[];
 }
 
 // ROAS 顏色判斷
@@ -117,7 +95,7 @@ const CustomTooltip = ({ active, payload }: {
 };
 
 // Gauge 卡片組件
-const GaugeCard = memo(function GaugeCard({ campaign }: { campaign: CampaignData }) {
+const GaugeCard = memo(function GaugeCard({ campaign }: { campaign: AdData }) {
   const roasValue = Math.min(campaign.roas, 3); // 最大顯示 3
   const roasPercent = (roasValue / 3) * 100;
   const color = getRoasColor(campaign.roas);
@@ -179,16 +157,35 @@ const GaugeCard = memo(function GaugeCard({ campaign }: { campaign: CampaignData
   );
 });
 
-const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, total: propTotal }: MetaAdsChartProps) {
-  // 防護：空陣列也 fallback 到 mockData
-  const campaigns = (propCampaigns && propCampaigns.length > 0) 
-    ? propCampaigns 
-    : mockReportData.meta.campaigns;
-  const total = propTotal || mockReportData.meta.total;
+const MetaAdsChart = memo(function MetaAdsChart({ ads: propAds }: MetaAdsChartProps) {
+  // 防護：空陣列 fallback 到 mockData
+  const ads = (propAds && propAds.length > 0) 
+    ? propAds 
+    : mockReportData.meta.campaigns.map(c => ({
+        name: c.name,
+        ad_id: c.campaign_id,
+        spend: c.spend,
+        ctr: c.ctr,
+        roas: c.roas,
+        purchases: c.purchases,
+        cpa: c.cpa,
+      }));
+  
+  // 從 ads 計算 total
+  const total = useMemo(() => {
+    const totalSpend = ads.reduce((sum, a) => sum + a.spend, 0);
+    const totalPurchases = ads.reduce((sum, a) => sum + a.purchases, 0);
+    const totalConvValue = ads.reduce((sum, a) => sum + a.spend * a.roas, 0);
+    return {
+      spend: totalSpend,
+      roas: totalSpend > 0 ? totalConvValue / totalSpend : 0,
+      purchases: totalPurchases,
+    };
+  }, [ads]);
 
   // 準備散點圖數據
   const scatterData = useMemo(() => {
-    return campaigns.map(c => ({
+    return ads.map(c => ({
       name: c.name,
       spend: c.spend,
       roas: c.roas,
@@ -197,14 +194,14 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
       ctr: c.ctr,
       z: c.purchases * 100, // 氣泡大小用 purchases
     }));
-  }, [campaigns]);
+  }, [ads]);
 
   // 計算 X 軸範圍（防護空陣列導致 -Infinity）
-  const maxSpend = campaigns.length > 0 
-    ? Math.max(...campaigns.map(c => c.spend)) 
+  const maxSpend = ads.length > 0 
+    ? Math.max(...ads.map(c => c.spend)) 
     : 10000;
-  const maxRoas = campaigns.length > 0 
-    ? Math.max(...campaigns.map(c => c.roas), 2) 
+  const maxRoas = ads.length > 0 
+    ? Math.max(...ads.map(c => c.roas), 2) 
     : 2;
 
   return (
@@ -330,11 +327,11 @@ const MetaAdsChart = memo(function MetaAdsChart({ campaigns: propCampaigns, tota
       {/* Gauge 卡片網格 */}
       <div>
         <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-3">
-          廣告活動 ROAS 儀表板
+          廣告 ROAS 儀表板
         </h3>
         <div className="grid grid-cols-2 gap-2 sm:gap-3">
-          {campaigns.map((campaign, index) => (
-            <GaugeCard key={campaign.campaign_id || index} campaign={campaign} />
+          {ads.map((ad, index) => (
+            <GaugeCard key={ad.ad_id || index} campaign={ad} />
           ))}
         </div>
       </div>

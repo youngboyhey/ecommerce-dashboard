@@ -34,6 +34,7 @@ import { useReportData, DateRange } from '@/lib/useReportData';
 import { useWeeklyData } from '@/lib/useWeeklyData';
 import { useWeeklyAnalysis } from '@/lib/useWeeklyAnalysis';
 import { useMemo, useCallback } from 'react';
+import type { AdCreative } from '@/components/CreativeAnalysis';
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState<TabId>('revenue');
@@ -74,6 +75,37 @@ export default function Dashboard() {
     isLoading: analysisLoading,
     updateInsightStatus,
   } = useWeeklyAnalysis(reportDateForAnalysis);
+
+  // 從 creatives 萃取 ad-level 數據（依 original_ad_id 去重複）
+  const adLevelData = useMemo(() => {
+    if (!creatives || creatives.length === 0) return [];
+    const seen = new Map<string, AdCreative>();
+    for (const c of creatives) {
+      const tags = c.tags || [];
+      const origTag = tags.find((t: string) => t.startsWith('original_ad_id:'));
+      const origId = origTag ? origTag.split('original_ad_id:')[1] : c.ad_id || c.id;
+      if (!seen.has(origId)) {
+        seen.set(origId, c);
+      }
+    }
+    return Array.from(seen.entries()).map(([origId, c]) => {
+      const m = c.metrics || {};
+      const spend = m.spend || 0;
+      const roas = m.roas || 0;
+      const purchases = m.purchases ?? m.conversions ?? 0;
+      const ctr = m.ctr || 0;
+      const cpa = purchases > 0 ? spend / purchases : 0;
+      return {
+        name: c.creative_name || c.ad_id || origId,
+        ad_id: origId,
+        spend,
+        ctr,
+        roas,
+        purchases,
+        cpa,
+      };
+    });
+  }, [creatives]);
 
   // 處理洞察狀態更新
   const handleInsightStatusChange = useCallback(async (
@@ -345,8 +377,7 @@ export default function Dashboard() {
                 </h3>
                 <ErrorBoundary componentName="Meta 廣告成效">
                   <MetaAdsChart 
-                    campaigns={data.meta.campaigns}
-                    total={data.meta.total}
+                    ads={adLevelData}
                   />
                 </ErrorBoundary>
               </section>
