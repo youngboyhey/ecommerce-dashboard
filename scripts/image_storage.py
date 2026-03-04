@@ -1,12 +1,20 @@
-"""Image Storage - Stub module for creative image management."""
+"""Image Storage - Stub module for creative image management.
 
-def backup_creative_images(creatives: list):
-    """Backup creative images locally.
+When Supabase Storage is configured, this module will handle uploading
+creative images for backup. Currently a pass-through stub.
+"""
+
+def backup_creative_images(creatives: list) -> list:
+    """Backup creative images to Supabase Storage.
+    
+    Currently a pass-through stub that marks all images as skipped.
     
     Args:
         creatives: List of creative dictionaries with image URLs
     
     Returns:
-        Number of images backed up
+        The same creatives list (with backup status updated)
     """
-    return 0
+    for creative in creatives:
+        creative["image_backup_status"] = "skipped"
+    return creatives

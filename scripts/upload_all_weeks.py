@@ -435,12 +435,11 @@ def upload_ad_creatives(week: Dict) -> int:
             'image_url': final_image_url,
             'thumbnail_url': image_url,  # Keep original as thumbnail
             'carousel_images': carousel_urls,  # Array of image URLs
-            # [2026-02-13] 影片分析存入 vision_analysis 欄位
-            # 當 ad_creatives 表有 is_video 等欄位後可以取消註解以下行：
-            # 'is_video': is_video,
-            # 'video_id': video_id,
-            # 'video_thumbnail_url': video_thumbnail_url,
-            # 'video_analysis': video_analysis,
+            # [2026-02-13] 影片相關欄位（DB migration 已建立對應欄位）
+            'is_video': is_video,
+            'video_id': video_id,
+            'video_thumbnail_url': video_thumbnail_url,
+            'video_analysis': video_analysis,
             'metrics': {
                 'spend': creative.get('spend', 0),
                 'impressions': creative.get('impressions', 0),

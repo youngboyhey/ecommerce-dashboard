@@ -269,7 +269,154 @@ def upload_report(supabase: Client, report_data: Dict[str, Any], dry_run: bool =
             results['product_rankings'] = len(result.data) if result.data else 0
             print(f"     ✅ product_rankings: {results['product_rankings']} record(s)")
     
+    # 6. Upload ad_creatives (廣告素材 + 多圖 + 影片)
+    ad_creatives = report_data.get('ad_creatives', [])
+    if ad_creatives and report_id:
+        import hashlib
+        
+        count = 0
+        for creative in ad_creatives:
+            ad_id = creative.get('ad_id') or creative.get('creative_id')
+            if not ad_id:
+                continue
+            
+            # Get image URL
+            image_url = creative.get('supabase_image_url') or creative.get('image_url')
+            if not image_url and creative.get('carousel_images'):
+                first_img = creative['carousel_images'][0]
+                if isinstance(first_img, dict):
+                    image_url = first_img.get('image_url')
+                elif isinstance(first_img, str):
+                    image_url = first_img
+            
+            # Extract carousel URLs
+            carousel_images_data = creative.get('carousel_images', [])
+            carousel_urls = []
+            for img in carousel_images_data:
+                if isinstance(img, dict):
+                    url = img.get('image_url')
+                    if url:
+                        carousel_urls.append(url)
+                elif isinstance(img, str):
+                    carousel_urls.append(img)
+            
+            # 影片相關欄位
+            is_video = creative.get('is_video', False)
+            video_id = creative.get('video_id')
+            video_thumbnail_url = creative.get('video_thumbnail_url')
+            video_analysis = creative.get('video_analysis')
+            
+            # 影片封面優先
+            final_image_url = image_url
+            if is_video and video_thumbnail_url:
+                final_image_url = video_thumbnail_url
+            
+            record = {
+                'report_date': week_start,
+                'week_start': week_start,
+                'week_end': week_end,
+                'creative_name': creative.get('ad_name'),
+                'ad_id': ad_id,
+                'campaign_name': creative.get('ad_name'),
+                'image_url': final_image_url,
+                'thumbnail_url': creative.get('image_url'),
+                'carousel_images': carousel_urls if carousel_urls else None,
+                'is_video': is_video,
+                'video_id': video_id,
+                'video_thumbnail_url': video_thumbnail_url,
+                'video_analysis': video_analysis,
+                'metrics': {
+                    'spend': creative.get('spend', 0),
+                    'impressions': creative.get('impressions', 0),
+                    'clicks': creative.get('clicks', 0),
+                    'purchases': creative.get('purchases', 0),
+                    'ctr': creative.get('ctr', 0),
+                    'roas': creative.get('roas', 0),
+                },
+                'performance_tier': 'high' if creative.get('roas', 0) >= 1.5 else ('medium' if creative.get('roas', 0) >= 1 else 'low'),
+                'vision_analysis': creative.get('ai_analysis') or creative.get('vision_analysis'),
+                'success_factors': creative.get('success_factors'),
+                'failure_factors': creative.get('failure_factors'),
+                'improvement_suggestions': creative.get('improvement_suggestions'),
+                'tags': ['video'] if is_video else [],
+            }
+            
+            try:
+                existing = supabase.table('ad_creatives').select('id').eq('report_date', week_start).eq('ad_id', ad_id).execute()
+                if existing.data:
+                    supabase.table('ad_creatives').update(record).eq('id', existing.data[0]['id']).execute()
+                else:
+                    supabase.table('ad_creatives').insert(record).execute()
+                count += 1
+            except Exception as e:
+                if not dry_run:
+                    print(f"    ⚠️  Failed to insert creative {ad_id}: {e}")
+        
+        results['ad_creatives'] = count
+        if not dry_run:
+            print(f"     ✅ ad_creatives: {count} record(s)")
+    
+    # 7. Upload ad_copies (廣告文案)
+    ad_copies = report_data.get('ad_copies', [])
+    if ad_copies and report_id:
+        count = 0
+        for copy in ad_copies:
+            ad_id = copy.get('ad_id') or copy.get('creative_id')
+            if not ad_id:
+                continue
+            
+            record = {
+                'report_date': week_start,
+                'week_start': week_start,
+                'week_end': week_end,
+                'creative_name': copy.get('ad_name'),
+                'ad_id': ad_id,
+                'campaign_name': copy.get('ad_name'),
+                'body': copy.get('body'),
+                'title': copy.get('title'),
+                'metrics': {
+                    'spend': copy.get('spend', 0),
+                    'impressions': copy.get('impressions', 0),
+                    'clicks': copy.get('clicks', 0),
+                    'purchases': copy.get('purchases', 0),
+                    'ctr': copy.get('ctr', 0),
+                    'roas': copy.get('roas', 0),
+                },
+                'performance_tier': 'high' if copy.get('roas', 0) >= 1.5 else ('medium' if copy.get('roas', 0) >= 1 else 'low'),
+            }
+            
+            try:
+                existing = supabase.table('ad_copies').select('id').eq('report_date', week_start).eq('ad_id', ad_id).execute()
+                if existing.data:
+                    supabase.table('ad_copies').update(record).eq('id', existing.data[0]['id']).execute()
+                else:
+                    supabase.table('ad_copies').insert(record).execute()
+                count += 1
+            except Exception as e:
+                if not dry_run:
+                    print(f"    ⚠️  Failed to insert ad_copy {ad_id}: {e}")
+        
+        results['ad_copies'] = count
+        if not dry_run:
+            print(f"     ✅ ad_copies: {count} record(s)")
+    
     return results
+
+
+def upload_report_to_supabase(report_data: Dict[str, Any]) -> bool:
+    """Convenience wrapper called from daily_report.py main().
+    
+    Returns True on success, False on failure.
+    """
+    try:
+        client = get_supabase_client()
+        results = upload_report(client, report_data)
+        total = sum(results.values())
+        print(f"     📊 Total records uploaded: {total}")
+        return total > 0
+    except Exception as e:
+        print(f"     ❌ upload_report_to_supabase failed: {e}")
+        return False
 
 
 def main():
