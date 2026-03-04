@@ -213,6 +213,24 @@ const groupCreativesByAd = (creatives: AdCreative[]): GroupedAd[] => {
         });
       }
     });
+
+    // [FIX] 從 carousel_images 欄位讀取多圖（DB 記錄可能將所有輪播圖 URL 存在此陣列）
+    // 當 DB 只有一筆記錄但 carousel_images 有多張圖時，補充到 images 陣列
+    const existingUrls = new Set(images.map(img => img.url));
+    items.forEach((item) => {
+      if (item.carousel_images && Array.isArray(item.carousel_images) && item.carousel_images.length > 0) {
+        item.carousel_images.forEach((url: string, idx: number) => {
+          if (url && !existingUrls.has(url)) {
+            images.push({
+              url,
+              index: images.length,
+              visionAnalysis: idx === 0 && images.length === 0 ? item.vision_analysis : null,
+            });
+            existingUrls.add(url);
+          }
+        });
+      }
+    });
     
     // Fallback: if still no images, try thumbnail_url from firstItem
     if (images.length === 0 && firstItem.thumbnail_url) {
