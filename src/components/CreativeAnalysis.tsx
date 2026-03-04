@@ -81,6 +81,7 @@ interface GroupedAd {
   performanceTier: 'high' | 'medium' | 'low';
   isVideo: boolean;
   videoUrl: string | null;
+  adLibraryUrl: string | null;
   images: {
     url: string;
     index: number;
@@ -251,10 +252,18 @@ const groupCreativesByAd = (creatives: AdCreative[]): GroupedAd[] => {
     }
     
     // 影片廣告處理：從 video_id 組成 Facebook 影片 URL
-    const isVideo = !!(firstItem.is_video);
+    // 強化偵測：除了 is_video 外，也檢查 video_id / video_thumbnail_url 是否存在
+    const isVideo = !!(firstItem.is_video || firstItem.video_id || firstItem.video_thumbnail_url);
     const videoUrl = firstItem.video_id 
       ? `https://www.facebook.com/watch/?v=${firstItem.video_id}`
       : null;
+
+    // 廣告連結：優先影片 URL，否則用 Facebook Ads Library 連結（需要 ad_id）
+    const adLibraryUrl = (firstItem.ad_id && firstItem.ad_id !== originalAdId)
+      ? `https://www.facebook.com/ads/library/?id=${firstItem.ad_id}`
+      : originalAdId
+        ? `https://www.facebook.com/ads/library/?id=${originalAdId}`
+        : null;
 
     return {
       originalAdId,
@@ -272,6 +281,7 @@ const groupCreativesByAd = (creatives: AdCreative[]): GroupedAd[] => {
       performanceTier: firstItem.performance_tier || 'medium',
       isVideo,
       videoUrl,
+      adLibraryUrl,
       images,
       combinedAnalysis,
     };
@@ -436,40 +446,55 @@ const GroupedAdCard = memo(function GroupedAdCard({
         {!isExpanded && (
           <div className="p-4">
             <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-              {groupedAd.images.map((img, imgIdx) => (
-                <div 
-                  key={imgIdx}
-                  className={cn(
-                    "flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden bg-gray-100 border border-gray-200 hover:border-indigo-300 transition-colors relative",
-                    groupedAd.isVideo && "cursor-pointer"
-                  )}
-                  onClick={(e) => {
-                    // 影片廣告：有 videoUrl 就開新分頁播放，否則讓事件冒泡展開卡片
-                    if (groupedAd.isVideo && groupedAd.videoUrl) {
-                      e.stopPropagation();
-                      window.open(groupedAd.videoUrl, '_blank', 'noopener,noreferrer');
-                    }
-                    // 非影片廣告或無 videoUrl：不阻止冒泡，讓 onToggle 展開卡片
-                  }}
-                >
-                  <img
-                    src={img.url}
-                    alt={`輪播圖 ${imgIdx + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                  {/* 影片播放 overlay（只在第一張縮圖顯示） */}
-                  {imgIdx === 0 && groupedAd.isVideo && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors cursor-pointer">
-                      <div className="w-8 h-8 bg-black/60 rounded-full flex items-center justify-center">
-                        <span className="text-white text-sm ml-0.5">▶</span>
+              {groupedAd.images.map((img, imgIdx) => {
+                // 決定點擊縮圖要開啟的連結
+                const thumbnailClickUrl = groupedAd.isVideo && groupedAd.videoUrl
+                  ? groupedAd.videoUrl
+                  : groupedAd.adLibraryUrl;
+
+                return (
+                  <div 
+                    key={imgIdx}
+                    className={cn(
+                      "flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden bg-gray-100 border border-gray-200 hover:border-indigo-300 transition-colors relative",
+                      !!thumbnailClickUrl && "cursor-pointer"
+                    )}
+                    onClick={(e) => {
+                      // 有連結就開新分頁，阻止冒泡避免展開卡片
+                      if (thumbnailClickUrl) {
+                        e.stopPropagation();
+                        window.open(thumbnailClickUrl, '_blank', 'noopener,noreferrer');
+                      }
+                      // 無連結：不阻止冒泡，讓 onToggle 展開卡片
+                    }}
+                  >
+                    <img
+                      src={img.url}
+                      alt={`輪播圖 ${imgIdx + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* 影片播放 overlay（只在第一張縮圖顯示） */}
+                    {imgIdx === 0 && groupedAd.isVideo && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors cursor-pointer">
+                        <div className="w-8 h-8 bg-black/60 rounded-full flex items-center justify-center">
+                          <span className="text-white text-sm ml-0.5">▶</span>
+                        </div>
                       </div>
+                    )}
+                    {/* 非影片廣告：顯示外部連結指示 */}
+                    {!groupedAd.isVideo && thumbnailClickUrl && imgIdx === 0 && (
+                      <div className="absolute top-0.5 right-0.5 bg-black/50 text-white p-0.5 rounded">
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </div>
+                    )}
+                    <div className="absolute bottom-0.5 right-0.5 bg-black/60 text-white text-[8px] px-1 rounded">
+                      {imgIdx + 1}/{groupedAd.images.length}
                     </div>
-                  )}
-                  <div className="absolute bottom-0.5 right-0.5 bg-black/60 text-white text-[8px] px-1 rounded">
-                    {imgIdx + 1}/{groupedAd.images.length}
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
             
             {/* AI Summary */}
@@ -511,13 +536,14 @@ const GroupedAdCard = memo(function GroupedAdCard({
                     className="w-full h-full object-cover"
                   />
 
-                  {/* 影片廣告 overlay */}
-                  {groupedAd.isVideo && groupedAd.videoUrl && (
+                  {/* 影片廣告 overlay - 點擊開新分頁播放 */}
+                  {groupedAd.isVideo && (groupedAd.videoUrl || groupedAd.adLibraryUrl) && (
                     <div
                       className="absolute inset-0 flex flex-col items-center justify-center bg-black/30 cursor-pointer hover:bg-black/40 transition-colors"
                       onClick={(e) => {
                         e.stopPropagation();
-                        window.open(groupedAd.videoUrl!, '_blank', 'noopener,noreferrer');
+                        const url = groupedAd.videoUrl || groupedAd.adLibraryUrl!;
+                        window.open(url, '_blank', 'noopener,noreferrer');
                       }}
                     >
                       <div className="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center shadow-xl mb-2">
@@ -525,6 +551,21 @@ const GroupedAdCard = memo(function GroupedAdCard({
                       </div>
                       <span className="text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-full">
                         📹 點擊觀看影片
+                      </span>
+                    </div>
+                  )}
+
+                  {/* 非影片廣告 overlay - 點擊查看廣告 */}
+                  {!groupedAd.isVideo && groupedAd.adLibraryUrl && (
+                    <div
+                      className="absolute bottom-2 right-2 cursor-pointer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(groupedAd.adLibraryUrl!, '_blank', 'noopener,noreferrer');
+                      }}
+                    >
+                      <span className="text-white text-xs font-medium bg-black/60 hover:bg-black/80 px-2.5 py-1 rounded-full transition-colors flex items-center gap-1">
+                        🔗 查看廣告
                       </span>
                     </div>
                   )}
