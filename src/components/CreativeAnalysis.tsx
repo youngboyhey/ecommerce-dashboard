@@ -444,10 +444,12 @@ const GroupedAdCard = memo(function GroupedAdCard({
                     groupedAd.isVideo && "cursor-pointer"
                   )}
                   onClick={(e) => {
-                    e.stopPropagation();
-                    if (groupedAd.videoUrl) {
+                    // 影片廣告：有 videoUrl 就開新分頁播放，否則讓事件冒泡展開卡片
+                    if (groupedAd.isVideo && groupedAd.videoUrl) {
+                      e.stopPropagation();
                       window.open(groupedAd.videoUrl, '_blank', 'noopener,noreferrer');
                     }
+                    // 非影片廣告或無 videoUrl：不阻止冒泡，讓 onToggle 展開卡片
                   }}
                 >
                   <img
@@ -457,7 +459,7 @@ const GroupedAdCard = memo(function GroupedAdCard({
                   />
                   {/* 影片播放 overlay（只在第一張縮圖顯示） */}
                   {imgIdx === 0 && groupedAd.isVideo && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors">
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors cursor-pointer">
                       <div className="w-8 h-8 bg-black/60 rounded-full flex items-center justify-center">
                         <span className="text-white text-sm ml-0.5">▶</span>
                       </div>
